@@ -5474,7 +5474,7 @@ code,
   margin-right: 0.625em;
 }
 .md ul li.task-list-item input[type='checkbox']:checked+label::before {
-  color: var(--note-text, var(--primary-color));
+  color: #35cd4b;
 }
 .md li ul > li::before {
   background: var(--grey-1);
@@ -5839,7 +5839,6 @@ span.label {
   position: relative;
 }
 .tabs .nav {
-  overflow: hidden;
   border-bottom: 0.0625rem solid var(--grey-1-a7);
   height: 2.6875rem;
 }

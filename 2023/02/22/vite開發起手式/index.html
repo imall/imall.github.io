@@ -24,12 +24,16 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-
-<link rel="canonical" href="https://imall.github.io/">
-
+  <meta name="keywords" content="vue" />
 
 
-  <title>Imall Notes ~ 一個前端工程師的筆記天地</title>
+<link rel="canonical" href="https://imall.github.io/2023/02/22/vite%E9%96%8B%E7%99%BC%E8%B5%B7%E6%89%8B%E5%BC%8F/">
+
+
+
+  <title>
+\[vue 筆記\] vite開發起手式 - vue 筆記 |
+Imall Notes ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
@@ -56,10 +60,20 @@
         <div id="brand">
           <div class="pjax">
           
-            <a href="/" class="logo" rel="start"><p class="artboard">Imall Notes</p>
-              <h1 itemprop="name headline" class="title">一個前端工程師的筆記天地</h1>
-            </a>
-          
+  <h1 itemprop="name headline">\[vue 筆記\] vite開發起手式
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-02-22 20:50:15">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-02-22T20:50:15+08:00">2023-02-22</time>
+  </span>
+</div>
+
+
           </div>
         </div>
         <nav id="nav">
@@ -85,12 +99,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/DRF2jWS.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/LphFlSF.jpeg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mHIiru7.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/uD1DYit.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/8MilAK5.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/1GXQPGG.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/QF1NXrf.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/vQbDgqe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/82593HB.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/W71jGXB.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/symKCYM.jpg"></li>
         </ul>
       </div>
     </header>
@@ -111,149 +125,119 @@
       <div class="inner">
         <div id="main" class="pjax">
           
-  <div class="index wrap">
-    <h2 class="divider">文章列表</h2>
-    <div class="segments posts">
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2023/02/22/vite%E9%96%8B%E7%99%BC%E8%B5%B7%E6%89%8B%E5%BC%8F/" itemprop="url" title="\[vue 筆記\] vite開發起手式"><img data-src="https://i.imgur.com/Se14t9C.jpg"></a>
-  </div>
-  <div class="info">
+  <div class="article wrap">
     
-<div class="meta">
-  <span class="item" title="創建時間：2023-02-22 20:50:15">
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/vue-%E7%AD%86%E8%A8%98/" itemprop="item" rel="index" title="分類於 vue 筆記"><span itemprop="name">vue 筆記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/2023/02/22/vite%E9%96%8B%E7%99%BC%E8%B5%B7%E6%89%8B%E5%BC%8F/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <div class="note info">
+<p>紀錄如何 vite 開發的起手式</p>
+</div>
+<ol>
+<li>初始化</li>
+</ol>
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>npm init vite@latest</pre></td></tr></table></figure><ol start="2">
+<li>
+<p>輸入 Project Name</p>
+</li>
+<li>
+<p>選擇 Framework</p>
+</li>
+<li>
+<p>選擇 variant</p>
+<blockquote>
+<p>選擇需不需要用到 TypeScript</p>
+</blockquote>
+</li>
+<li>
+<p>完成 (可以在 cmd 中以  <code>code [檔案名稱]</code>  開啟)</p>
+</li>
+</ol>
+
+      <div class="tags">
+          <a href="/tags/vue/" rel="tag"><i class="ic i-tag"></i> vue</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
     <span class="icon">
-      <i class="ic i-calendar"></i>
+      <i class="ic i-calendar-check"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-02-22T20:50:15+08:00">2023-02-22</time>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-02-22 21:18:16" itemprop="dateModified" datetime="2023-02-22T21:18:16+08:00">2023-02-22</time>
   </span>
 </div>
 
-    <h3><a href="/2023/02/22/vite%E9%96%8B%E7%99%BC%E8%B5%B7%E6%89%8B%E5%BC%8F/" itemprop="url" title="\[vue 筆記\] vite開發起手式">\[vue 筆記\] vite開發起手式</a></h3>
-    <div class="excerpt">
-        紀錄如何 vite 開發的起手式
+      
 
-初始化
-
-npm init vite@latest
-
-輸入 Project Name
-
-選擇 Framework
-
-選擇 variant
-
-選擇需不需要用到 TypeScript
-
-完成 (可以在 cmd 中以 code [檔案名稱] 開啟)
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/vue-%E7%AD%86%E8%A8%98/" itemprop="url" title="vue 筆記"><i class="ic i-flag"></i>vue 筆記</a>
-      </span>
-    </div>
-    <a href="/2023/02/22/vite%E9%96%8B%E7%99%BC%E8%B5%B7%E6%89%8B%E5%BC%8F/" itemprop="url" title="\[vue 筆記\] vite開發起手式" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2023/02/21/%E7%B4%80%E9%8C%84%E4%B8%80%E4%BA%9B%E4%B9%8B%E5%BE%8C%E5%AF%AB%E6%96%87%E7%AB%A0%E5%8F%AF%E8%83%BD%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E8%AA%9E%E6%B3%95/" itemprop="url" title="紀錄一些之後寫文章可能會用到的語法"><img data-src="https://i.imgur.com/8MilAK5.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2023-02-21 21:33:54">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-02-21T21:33:54+08:00">2023-02-21</time>
-  </span>
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/2023/02/22/vite%E9%96%8B%E7%99%BC%E8%B5%B7%E6%89%8B%E5%BC%8F/" title="\[vue 筆記\] vite開發起手式">https://imall.github.io/2023/02/22/vite開發起手式/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
 </div>
 
-    <h3><a href="/2023/02/21/%E7%B4%80%E9%8C%84%E4%B8%80%E4%BA%9B%E4%B9%8B%E5%BE%8C%E5%AF%AB%E6%96%87%E7%AB%A0%E5%8F%AF%E8%83%BD%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E8%AA%9E%E6%B3%95/" itemprop="url" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></h3>
-    <div class="excerpt">
-        前言： 平時會用到的 markdown 語法不多，大多把 markdown 文件以條列式筆記撰寫，感覺有些殺雞用牛刀
-這次建立部落格，選了一個自己喜歡的樣式，順便也記錄一下未來可能會用到的語法
+  </footer>
 
-# 底色反白
-刪除陣列重複值的方法// 宣告一個陣列const scapes = [ &amp;#123; image: &quot;uploads/images1&quot;, imageScapeName: &quot;九份&quot; &amp;#125;, &amp;#123; image: &quot;uploads/images2&quot;, imageScapeName:...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/markdown/" itemprop="url" title="md筆記"><i class="ic i-flag"></i>md筆記</a>
-      </span>
-    </div>
-    <a href="/2023/02/21/%E7%B4%80%E9%8C%84%E4%B8%80%E4%BA%9B%E4%B9%8B%E5%BE%8C%E5%AF%AB%E6%96%87%E7%AB%A0%E5%8F%AF%E8%83%BD%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E8%AA%9E%E6%B3%95/" itemprop="url" title="紀錄一些之後寫文章可能會用到的語法" class="btn">more...</a>
-  </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/2023/02/20/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87/" itemprop="url" title="hexo 指令"><img data-src="https://i.imgur.com/QF1NXrf.jpg"></a>
   </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2023-02-20 19:23:51">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-02-20T19:23:51+08:00">2023-02-20</time>
-  </span>
-</div>
-
-    <h3><a href="/2023/02/20/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87/" itemprop="url" title="hexo 指令">hexo 指令</a></h3>
-    <div class="excerpt">
-        第一篇文來記錄一下，使用 hexo 指令發文會用到的東西
-
-# Hexo 常用指令
-
-新建一篇文章：
-
-hexo new [文章名稱]
-
-清除暫存
-
-hexo clean 或 hexo cl
-
-產生靜態檔案
-
-hexo generate 或 hexo g
-
-啟動服務觀看效果
-
-hexo server 或 hexo s
-
-部屬
-
-hexo deploy 或 hexo d
-
-刪除線
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/markdown/" itemprop="url" title="md筆記"><i class="ic i-flag"></i>md筆記</a>
-      </span>
-    </div>
-    <a href="/2023/02/20/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87/" itemprop="url" title="hexo 指令" class="btn">more...</a>
-  </div>
-</article>
-
-    </div>
-
-  </div>
-
   
 
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/02/21/%E7%B4%80%E9%8C%84%E4%B8%80%E4%BA%9B%E4%B9%8B%E5%BE%8C%E5%AF%AB%E6%96%87%E7%AB%A0%E5%8F%AF%E8%83%BD%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E8%AA%9E%E6%B3%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;Se14t9C.jpg" title="紀錄一些之後寫文章可能會用到的語法">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> md筆記</span>
+  <h3>紀錄一些之後寫文章可能會用到的語法</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
 
 
         </div>
         <div id="sidebar">
           
+
 <div class="inner">
 
   <div class="panels">
@@ -261,6 +245,9 @@ hexo deploy 或 hexo d
       <div class="contents panel pjax" data-title="文章目錄">
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2023/02/22/vite%E9%96%8B%E7%99%BC%E8%B5%B7%E6%89%8B%E5%BC%8F/" rel="bookmark" title="\[vue 筆記\] vite開發起手式">\[vue 筆記\] vite開發起手式</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -330,6 +317,7 @@ hexo deploy 或 hexo d
   </ul>
 </div>
 
+
         </div>
         <div class="dimmer"></div>
       </div>
@@ -348,7 +336,7 @@ hexo deploy 或 hexo d
 <a href="/categories/markdown/" title="分類於 md筆記">md筆記</a>
 </div>
 
-    <span><a href="/2023/02/20/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87/" title="hexo 指令">hexo 指令</a></span>
+    <span><a href="/2023/02/21/%E7%B4%80%E9%8C%84%E4%B8%80%E4%BA%9B%E4%B9%8B%E5%BE%8C%E5%AF%AB%E6%96%87%E7%AB%A0%E5%8F%AF%E8%83%BD%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E8%AA%9E%E6%B3%95/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
   </li>
 
       
@@ -358,7 +346,7 @@ hexo deploy 或 hexo d
 <a href="/categories/markdown/" title="分類於 md筆記">md筆記</a>
 </div>
 
-    <span><a href="/2023/02/21/%E7%B4%80%E9%8C%84%E4%B8%80%E4%BA%9B%E4%B9%8B%E5%BE%8C%E5%AF%AB%E6%96%87%E7%AB%A0%E5%8F%AF%E8%83%BD%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E8%AA%9E%E6%B3%95/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
+    <span><a href="/2023/02/20/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87/" title="hexo 指令">hexo 指令</a></span>
   </li>
 
       
@@ -395,7 +383,7 @@ hexo deploy 或 hexo d
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '',
+    path: '2023/02/22/vite開發起手式/',
     favicon: {
       show: "Imall Blog ~歡迎回來~",
       hide: "Imall Blog ~別離開呀~"

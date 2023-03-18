@@ -3196,6 +3196,9 @@ main >.inner {
   display: inline-block;
   margin-bottom: 0.625rem;
 }
+.copyright {
+  padding-bottom: 1rem;
+}
 @media (max-width: 567px) {
   .post.block {
     padding: initial !important;

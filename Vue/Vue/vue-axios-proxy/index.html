@@ -27,12 +27,12 @@
   <meta name="keywords" content="vue" />
 
 
-<link rel="canonical" href="https://imall.github.io/2023/03/18/vue-axios-proxy/">
+<link rel="canonical" href="https://imall.github.io/Vue/Vue/vue-axios-proxy/">
 
 
 
   <title>
-【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器 - vue 筆記 |
+在Vue3使用Vite設定proxy整合axios攔截器 - Vue 筆記 |
 Imall Notes ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器
+  <h1 itemprop="name headline">在Vue3使用Vite設定proxy整合axios攔截器
   </h1>
   
 <div class="meta">
@@ -123,12 +123,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/vue-%E7%AD%86%E8%A8%98/" itemprop="item" rel="index" title="分類於 vue 筆記"><span itemprop="name">vue 筆記</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Vue/" itemprop="item" rel="index" title="分類於 Vue 筆記"><span itemprop="name">Vue 筆記</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
-  <link itemprop="mainEntityOfPage" href="https://imall.github.io/2023/03/18/vue-axios-proxy/">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/Vue/Vue/vue-axios-proxy/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -158,7 +158,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <p>在 Vite 中，我們可以通過在 <code>vite.config.js</code>  文件中設定一下，就可以做好應用程式的 proxy，讓 Vite 透過 proxy 呼叫 API</p>
 <p>Vite 預設已經有個 defineConfig 方法<br>
 直接在在裡面寫一個 server 物件 ，設定好相關參數就完成啦</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"><span>vite.config.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">host</span><span class="token operator">:</span> <span class="token string">"0.0.0.0"</span><span class="token punctuation">,</span> <span class="token comment">// 這一行是為了讓其他裝置可以連到本機的開發環境</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token string-property property">"/api"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">"https://www.test.com/"</span><span class="token punctuation">,</span> <span class="token comment">// 後端 API 進入點</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token literal-property property">changeOrigin</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token literal-property property">secure</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token literal-property property">ws</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token function-variable function">rewrite</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token operator">=></span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\/api</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>設定過程中採到最大的雷，是那個 <code>/api</code>  字樣，其實是自己定義的任意參數！！<br>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>vite.config.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">host</span><span class="token operator">:</span> <span class="token string">"0.0.0.0"</span><span class="token punctuation">,</span> <span class="token comment">// 這一行是為了讓其他裝置可以連到本機的開發環境，沒這需求可以忽略</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token string-property property">"/api"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">"https://www.test.com/"</span><span class="token punctuation">,</span> <span class="token comment">// 後端 API 進入點</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token literal-property property">changeOrigin</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token literal-property property">secure</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token literal-property property">ws</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token function-variable function">rewrite</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token operator">=></span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\/api</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>設定過程中採到最大的雷，是那個 <code>/api</code>  字樣，其實是自己定義的任意參數！！<br>
  這只會在開發過程中使用到，這點等等說明到 axios 攔截器設定時，看 code 去比對就會比較清楚</p>
 <h2 id="設定-axios-實體-axios-instance"><a class="markdownIt-Anchor" href="#設定-axios-實體-axios-instance">#</a> 設定 Axios 實體 (Axios Instance)</h2>
 <p>剛開始學習使用 axios 的時候，相信大家都是 cdn 或是 npm 設定好 axios 後<br>
@@ -200,6 +200,14 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
  呼叫的完整網址會是  <code>https://www.test.com/login</code>  而不會是  <code>http://localhost:5173/api/login</code></p>
 </blockquote>
 <p>打完收工～～</p>
+<div class="note info">
+<p>有個細節要特別注意，proxy 的設定，基本上只是為了開發環境的方便，可以讓我們在開發環境不用去設定 CORS<br>
+ 在  <code>npm run build</code>  之後，把程式部屬到正式環境，會發現， <code>/api</code>  這個字樣還是會存在於網址中<br>
+如果你的 API 進入點是  <code>https://www.test.com/api</code> <br>
+ 那麼在正式環境，你的 API 進入點就會變成  <code>https://www.test.com/api/api</code> <br>
+ 所以正式上版前，記得要把 proxy 的設定註解掉，或是直接刪除</p>
+<p>以本文的寫法來說，就是設定 axios 的 baseURL，判斷如果不是開發環境，就直接將 baseURL 設定為絕對路徑</p>
+</div>
 <h2 id="補充"><a class="markdownIt-Anchor" href="#補充">#</a> 補充</h2>
 <p>補充一下如果需要在 resquest 時判斷 API 要不要加 token<br>
  可以這樣寫</p>
@@ -219,7 +227,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-03-18 16:07:23" itemprop="dateModified" datetime="2023-03-18T16:07:23+08:00">2023-03-18</time>
+    <time title="修改時間：2023-03-18 17:02:09" itemprop="dateModified" datetime="2023-03-18T17:02:09+08:00">2023-03-18</time>
   </span>
 </div>
 
@@ -232,7 +240,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </li>
   <li class="link">
     <strong>文章連結：</strong>
-    <a href="https://imall.github.io/2023/03/18/vue-axios-proxy/" title="【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器">https://imall.github.io/2023/03/18/vue-axios-proxy/</a>
+    <a href="https://imall.github.io/Vue/Vue/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">https://imall.github.io/Vue/Vue/vue-axios-proxy/</a>
   </li>
   <li class="license">
     <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
@@ -251,7 +259,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/2023/02/24/flex-shink-calculate/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;QF1NXrf.jpg" title="【CSS筆記】flex-shink的計算公式">
+  <a href="/CSS/CSS/flex-shink-calculate/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;QF1NXrf.jpg" title="【CSS筆記】flex-shink的計算公式">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> CSS 筆記</span>
   <h3>【CSS筆記】flex-shink的計算公式</h3>
@@ -279,7 +287,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2023/02/22/vite-start/" rel="bookmark" title="【vue 筆記】 vite開發起手式">【vue 筆記】 vite開發起手式</a></li><li class="active"><a href="/2023/03/18/vue-axios-proxy/" rel="bookmark" title="【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器">【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器</a></li>
+          <li><a href="/Vue/Vue/vite-start/" rel="bookmark" title="Vite開發起手式">Vite開發起手式</a></li><li class="active"><a href="/Vue/Vue/vue-axios-proxy/" rel="bookmark" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -305,7 +313,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">5</span>
+        <span class="count">3</span>
         <span class="name">標籤</span>
       </a>
     </div>
@@ -366,50 +374,50 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-%E7%AD%86%E8%A8%98/" title="分類於 vue 筆記">vue 筆記</a>
+<a href="/categories/CSS/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/2023/03/18/vue-axios-proxy/" title="【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器">【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+    <span><a href="/CSS/CSS/flex-shink-calculate/" title="【CSS筆記】flex-shink的計算公式">【CSS筆記】flex-shink的計算公式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/CSS-%E7%AD%86%E8%A8%98/" title="分類於 CSS 筆記">CSS 筆記</a>
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/2023/02/24/flex-shink-calculate/" title="【CSS筆記】flex-shink的計算公式">【CSS筆記】flex-shink的計算公式</a></span>
+    <span><a href="/markdown/markdown/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-%E7%AD%86%E8%A8%98/" title="分類於 vue 筆記">vue 筆記</a>
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/2023/02/22/vite-start/" title="【vue 筆記】 vite開發起手式">【vue 筆記】 vite開發起手式</a></span>
+    <span><a href="/markdown/markdown/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 md筆記">md筆記</a>
+<a href="/categories/Vue/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/2023/02/21/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
+    <span><a href="/Vue/Vue/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 md筆記">md筆記</a>
+<a href="/categories/Vue/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/2023/02/20/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+    <span><a href="/Vue/Vue/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
   </li>
 
   </ul>
@@ -426,9 +434,9 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     </span>
     <span class="author" itemprop="copyrightHolder">imall @ Imall Notes</span>
   </div>
-  <div class="powered-by">
-    基於 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
-  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
 </div>
 
       </div>
@@ -436,7 +444,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2023/03/18/vue-axios-proxy/',
+    path: 'Vue/Vue/vue-axios-proxy/',
     favicon: {
       show: "Imall Blog ~歡迎回來~",
       hide: "Imall Blog ~別離開呀~"

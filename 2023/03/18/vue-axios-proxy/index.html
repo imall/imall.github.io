@@ -1,0 +1,479 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="vue" />
+
+
+<link rel="canonical" href="https://imall.github.io/2023/03/18/vue-axios-proxy/">
+
+
+
+  <title>
+【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器 - vue 筆記 |
+Imall Notes ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-03-18 10:11:27">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-03-18T10:11:27+08:00">2023-03-18</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Notes</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/LphFlSF.jpeg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/W71jGXB.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/Em2JNXM.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/RPZmqBm.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/vQbDgqe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/DRF2jWS.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/vue-%E7%AD%86%E8%A8%98/" itemprop="item" rel="index" title="分類於 vue 筆記"><span itemprop="name">vue 筆記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/2023/03/18/vue-axios-proxy/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <div class="note info">
+<p>Vite proxy 、 axios 攔截器 等議題，很容易在網路上查到資料<br>
+但自己實際在使用的時候，總會有一些細節沒注意到<br>
+這篇記錄實際使用了 vite proxy 、 整合 axios 攔截器 以及設定攔截器功能的內容</p>
+</div>
+<h2 id="大綱"><a class="markdownIt-Anchor" href="#大綱">#</a> 大綱</h2>
+<ol>
+<li>Vite 設定 proxy 方法</li>
+<li>axios 攔截器如何設定 URL</li>
+<li>實際使用 axios 的 API</li>
+</ol>
+<h2 id="vite-設定-proxy-方法"><a class="markdownIt-Anchor" href="#vite-設定-proxy-方法">#</a> Vite 設定 proxy 方法</h2>
+<p>在 Vite 中，我們可以通過在 <code>vite.config.js</code>  文件中設定一下，就可以做好應用程式的 proxy，讓 Vite 透過 proxy 呼叫 API</p>
+<p>Vite 預設已經有個 defineConfig 方法<br>
+直接在傳入的物件中多加一個 server key，value 型別為物件去設定相關參數</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>vite.config.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">server</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">proxy</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>      <span class="token string-property property">"/api"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token string">"https://www.test.com/"</span><span class="token punctuation">,</span> <span class="token comment">// 後端 API 進入點</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token literal-property property">changeOrigin</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token literal-property property">secure</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token literal-property property">ws</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token function-variable function">rewrite</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">path</span><span class="token punctuation">)</span> <span class="token operator">=></span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\/api</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>設定過程中採到最大的雷，是那個 <code>/api</code>  字樣，其實是自己定義的任意參數！！<br>
+ 這只會在開發過程中使用到，這點等等說明到 axios 攔截器設定時，看 code 去比對就會比較清楚</p>
+<h2 id="設定-axios-實體-axios-instance"><a class="markdownIt-Anchor" href="#設定-axios-實體-axios-instance">#</a> 設定 Axios 實體 (Axios Instance)</h2>
+<p>剛開始學習使用 axios 的時候，相信大家都是 cdn 或是 npm 設定好 axios 後<br>
+就直接 <code>axios.get()</code> 、 <code>axios.post()</code>  開始使用。在小型專案這麼用，並沒有什麼太大的問題<br>
+但如果今天開發的專案量大，需要呼叫的 API 一多，相同的邏輯很有機會要寫好幾次，如果需求一更動，就容易牽一髮動全身</p>
+<p>而 Axios Instance 就是一個解決這個問題很好用的工具<br>
+所以…</p>
+<h3 id="為什麼要用-axios-instance"><a class="markdownIt-Anchor" href="#為什麼要用-axios-instance">#</a> 為什麼要用 Axios Instance</h3>
+<p>接續前言，Axios Instance 可以提供以下功能讓管理 API 更方便</p>
+<ol>
+<li>集中設定 Request Config</li>
+<li>支援攔截器，可在 then/catch 前做額外處理</li>
+<li>封裝 API 易於管理</li>
+</ol>
+<p>廢話不多說，上 code</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>plugin/axios.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 首先，先 import npm 安裝好後的 axios</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">"axios"</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>一般來說，如果沒有搭配本篇文章主題  <code>Vite proxy整合 axios攔截器</code> <br>
+實體的宣告會長這樣，直接將 API 的 <code>絕對路徑</code> 寫在  <code>baseURL</code>  參數中</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>plugin/axios.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> instance <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">baseURL</span><span class="token operator">:</span> <span class="token string">"https://www.test.com/"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token string-property property">"Content-Type"</span><span class="token operator">:</span> <span class="token string">"application/json"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token number">50000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>但因為我們已經在 vite 設定好 proxy<br>
+ 所以這段 code 可以改寫成這樣</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>plugin/axios.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> service <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">baseURL</span><span class="token operator">:</span> <span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">DEV</span> <span class="token operator">?</span> <span class="token string">"/api"</span> <span class="token operator">:</span> <span class="token string">"https://www.test.com/"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token string-property property">"Content-Type"</span><span class="token operator">:</span> <span class="token string">"application/json"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token number">50000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>其中  <code>import.meta.env.DEV</code>  是 vite 所提供用來判斷開發模式的寫法<br>
+ <code>DEV</code>  是用來判斷是否運行在開發環境，其餘的內容可以參考<span class="exturl" data-url="aHR0cHM6Ly9jbi52aXRlanMuZGV2L2d1aWRlL2Vudi1hbmQtbW9kZS5odG1s">這裡的說明</span></p>
+<p>另一個關注點是 開發環境寫了  <code>&quot;/api&quot;</code>  ，非開發環境則是寫  <code>&quot;https://www.test.com/&quot;</code> <br>
+ 先前有提到  <code>&quot;https://www.test.com/&quot;</code>  是實際的運行的 API 進入點<br>
+而  <code>&quot;/api&quot;</code>  則是開頭在 proxy 設定的  <code>&quot;/api&quot;: &#123;&#125;</code>  參數，由於有寫一段  <code>rewrite: (path) =&gt; path.replace(/^\/api/, &quot;&quot;)</code> ，所以在開發環境呼叫 API 時，所有 API url 中，包含 <code>/api</code>  的字樣都會被取代掉</p>
+<h3 id="axios-攔截器"><a class="markdownIt-Anchor" href="#axios-攔截器">#</a> Axios 攔截器</h3>
+<p>設定好實體之後，就可以透過下列的 code 建立  <code>request</code>  與  <code>respones</code></p>
+<p>第一個函數  <code>instance.interceptors.request</code>  會運行在後續呼叫 API 時的初始<br>
+也就是所有 request 資料在拋給後端之前，會先在這裡被擋下來<br>
+可以在這裡做一些資料送出前預設處理，例如設定 api 需不需要設定 token？需要的話在 header 增加參數之類</p>
+<p>第二個函數  <code>instance.interceptors.request</code>  方便之處，在於可以統一管理系統發生錯誤時<br>
+預設希望處理的事情，像是跳出警訊、重新導向頁面等</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>plugin/axios.js</span></figcaption><table><tr><td data-num="1"></td><td><pre>instance<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">// Do something before request is sent</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">return</span> config<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment">// Do something before request is sent</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>instance<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token comment">// Do something with response data</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">return</span> response<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>response<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>      <span class="token keyword">switch</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>response<span class="token punctuation">.</span>status<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token keyword">case</span> <span class="token number">400</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="21"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"something wrong"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>          <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token keyword">case</span> <span class="token number">404</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="24"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"你要找的頁面不存在"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>          <span class="token comment">// go to 404 page</span></pre></td></tr><tr><td data-num="26"></td><td><pre>          <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token keyword">case</span> <span class="token number">500</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="28"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"程式發生問題"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>          <span class="token comment">// go to 500 page</span></pre></td></tr><tr><td data-num="30"></td><td><pre>          <span class="token keyword">break</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token keyword">default</span><span class="token operator">:</span></pre></td></tr><tr><td data-num="32"></td><td><pre>          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>      <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>window<span class="token punctuation">.</span>navigator<span class="token punctuation">.</span>onLine<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>      <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"網路出了點問題，請重新連線後重整網頁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>      <span class="token keyword">return</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="41"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre></pre></td></tr><tr><td data-num="43"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> instance<span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="封裝-api"><a class="markdownIt-Anchor" href="#封裝-api">#</a> 封裝 api</h2>
+<p>上述都設置好後，就可以這樣使用 api</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>models/api.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> request <span class="token keyword">from</span> <span class="token string">"@/plugins/axios"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">Login</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"/login"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    data<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>在.vue 檔案需要呼叫 api 時，就可以這麼寫</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>App.vue的 script setup 裏頭</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Login <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@/models/api"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr class="marked"><td data-num="3"></td><td><pre><span class="token keyword">const</span> <span class="token function-variable function">loginHandler</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr class="marked"><td data-num="4"></td><td><pre>  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr class="marked"><td data-num="5"></td><td><pre>    <span class="token literal-property property">identifier</span><span class="token operator">:</span> identifier<span class="token punctuation">.</span>value<span class="token punctuation">,</span></pre></td></tr><tr class="marked"><td data-num="6"></td><td><pre>    <span class="token literal-property property">password</span><span class="token operator">:</span> password<span class="token punctuation">.</span>value<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"login"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure><blockquote>
+<p>值得注意的是我們的開發網址雖然是  <code>http://localhost:5173/</code> <br>
+ 而且 axios baseURL 在開發環境設定了  <code>/api</code> <br>
+ 但是因為設定 vite proxy，實際上運行了這個 <code>login()</code> <br>
+ 呼叫的完整網址會是  <code>https://www.test.com/login</code>  而不會是  <code>http://localhost:5173/api/login</code></p>
+</blockquote>
+<p>打完收工～～</p>
+<h2 id="補充"><a class="markdownIt-Anchor" href="#補充">#</a> 補充</h2>
+<p>補充一下如果需要在 resquest 時判斷 API 要不要加 token<br>
+ 可以這樣寫</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>plugins/axios.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> getToken<span class="token punctuation">,</span> setToken <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@/utils/auth"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>instance<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr class="marked"><td data-num="4"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>needToken<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr class="marked"><td data-num="5"></td><td><pre>      <span class="token keyword">const</span> token <span class="token operator">=</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr class="marked"><td data-num="6"></td><td><pre>      config<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>Authorization <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>token<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></pre></td></tr><tr class="marked"><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">return</span> config<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment">// Do something before request is sent</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>而 api.js 中如果有 api 需要 token 的話，就可以這樣設定</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>models/api.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">updateProfile</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"/me/profile"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">"post"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    data<span class="token punctuation">,</span></pre></td></tr><tr class="marked"><td data-num="6"></td><td><pre>    <span class="token literal-property property">needToken</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>而這是在  <code>plugins/axios.js</code>  有用到 <code>getToken</code>  與  <code>setToken</code>  方法的實際內容</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"><span>utils/auth.js</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> Cookies <span class="token keyword">from</span> <span class="token string">"js-cookie"</span><span class="token punctuation">;</span> <span class="token comment">// 要 npm 安裝 js-cookie</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> <span class="token constant">TOKEN_KEY</span> <span class="token operator">=</span> <span class="token string">"asscess_token"</span><span class="token punctuation">;</span> <span class="token comment">// 設定 cookie 中要存 token 的 key</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> <span class="token constant">EXPIRES_AT</span> <span class="token operator">=</span> <span class="token string">"expires_at"</span><span class="token punctuation">;</span> <span class="token comment">// 設定 token 存在 cookie 的效期，一般是跟後端約定好過期時效</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">// 設定 token</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">setToken</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">token<span class="token punctuation">,</span> expires_at</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  Cookies<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token constant">TOKEN_KEY</span><span class="token punctuation">,</span> token<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  Cookies<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token constant">EXPIRES_AT</span><span class="token punctuation">,</span> expires_at<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getToken</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Cookies<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token constant">TOKEN_KEY</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得 token</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getExpiresAt</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Cookies<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token constant">EXPIRES_AT</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得時效</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// 確認目前瀏覽器的 token 過期沒</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">isTokenExpired</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token keyword">const</span> accessToken <span class="token operator">=</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>  <span class="token keyword">const</span> expiresAt <span class="token operator">=</span> <span class="token function">getExpiresAt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>accessToken <span class="token operator">||</span> <span class="token operator">!</span>expiresAt<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token keyword">const</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>  <span class="token keyword">return</span> now <span class="token operator">></span> <span class="token function">Number</span><span class="token punctuation">(</span>expiresAt<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/vue/" rel="tag"><i class="ic i-tag"></i> vue</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-03-18 11:55:39" itemprop="dateModified" datetime="2023-03-18T11:55:39+08:00">2023-03-18</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/2023/03/18/vue-axios-proxy/" title="【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器">https://imall.github.io/2023/03/18/vue-axios-proxy/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/02/24/flex-shink-calculate/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;RPZmqBm.jpg" title="【CSS筆記】flex-shink的計算公式">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> CSS 筆記</span>
+  <h3>【CSS筆記】flex-shink的計算公式</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E7%B6%B1"><span class="toc-number">1.</span> <span class="toc-text"> 大綱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vite-%E8%A8%AD%E5%AE%9A-proxy-%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> Vite 設定 proxy 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-axios-%E5%AF%A6%E9%AB%94-axios-instance"><span class="toc-number">3.</span> <span class="toc-text"> 設定 Axios 實體 (Axios Instance)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E7%94%A8-axios-instance"><span class="toc-number">3.1.</span> <span class="toc-text"> 為什麼要用 Axios Instance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#axios-%E6%94%94%E6%88%AA%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text"> Axios 攔截器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%9D-api"><span class="toc-number">4.</span> <span class="toc-text"> 封裝 api</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text"> 補充</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/02/22/vite-start/" rel="bookmark" title="【vue 筆記】 vite開發起手式">【vue 筆記】 vite開發起手式</a></li><li class="active"><a href="/2023/03/18/vue-axios-proxy/" rel="bookmark" title="【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器">【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">5</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">5</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-%E7%AD%86%E8%A8%98/" title="分類於 vue 筆記">vue 筆記</a>
+</div>
+
+    <span><a href="/2023/03/18/vue-axios-proxy/" title="【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器">【vue 筆記】 在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 md筆記">md筆記</a>
+</div>
+
+    <span><a href="/2023/02/20/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/CSS-%E7%AD%86%E8%A8%98/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/2023/02/24/flex-shink-calculate/" title="【CSS筆記】flex-shink的計算公式">【CSS筆記】flex-shink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-%E7%AD%86%E8%A8%98/" title="分類於 vue 筆記">vue 筆記</a>
+</div>
+
+    <span><a href="/2023/02/22/vite-start/" title="【vue 筆記】 vite開發起手式">【vue 筆記】 vite開發起手式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 md筆記">md筆記</a>
+</div>
+
+    <span><a href="/2023/02/21/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Notes</span>
+  </div>
+  <div class="powered-by">
+    基於 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/03/18/vue-axios-proxy/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },
+    valine: true,fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,659 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://imall.github.io/js-note/js-note/day-js/">
+
+
+
+  <title>
+day-js - JavaScript 筆記 |
+Imall Notes ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">day-js
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-03-25 21:11:06">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-03-25T21:11:06+08:00">2023-03-25</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Notes</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/Se14t9C.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/W71jGXB.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/1GXQPGG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QF1NXrf.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/82593HB.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/vQbDgqe.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/js-note/" itemprop="item" rel="index" title="分類於 JavaScript 筆記"><span itemprop="name">JavaScript 筆記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/js-note/js-note/day-js/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <div class="note info">
+<p>接了前人的 code，整包程式幾乎所有功能只要能用套件就用套件，其中發現一個套件叫 dayjs，用起來還不錯，來記錄一下常用功能</p>
+</div>
+<h1 id="dayjs-介紹"><a class="markdownIt-Anchor" href="#dayjs-介紹">#</a> Dayjs 介紹</h1>
+<p>Dayjs 是一個輕量的 JavaScript 時間日期處理的函數庫，具有以下特點</p>
+<ol>
+<li>輕量
+<blockquote>
+<p>程式碼只有 2kb 大小，並且沒有任何依賴，可以直接在瀏覽器中使用，也可以在 Node.js 中使用</p>
+</blockquote>
+</li>
+<li>易上手
+<blockquote>
+<p>實際使用的感覺比原生的 Date 物件更簡單，並且提供了一些常用的功能，例如：格式化時間、計算時間差、時間比較等等</p>
+</blockquote>
+</li>
+<li>相依性低
+<blockquote>
+<p>Dayjs 只依賴於 ES5 的函數庫，因此可以在任何環境中使用，包括 Node.js、React、Vue、Angular 等等</p>
+</blockquote>
+</li>
+<li>支援多國語系
+<blockquote>
+<p>Dayjs 支援多國語系，可以根據不同的語言來顯示不同的時間格式，例如：英文、中文、日文、韓文等等</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="安裝方法"><a class="markdownIt-Anchor" href="#安裝方法">#</a> 安裝方法</h1>
+<ol>
+<li>CDN
+<blockquote>
+<p>直接在 HTML 中引入 CDN，並且在全域中使用 Dayjs</p>
+</blockquote>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/dayjs@1.8.21/dayjs.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="3"></td><td><pre>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"YYYY-MM-DD HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><div class="note warning">
+<p>除了 unpkg 之外，也有其他 CDN 連結可進行使用，如：<span class="exturl" data-url="aHR0cDovL2NkbmpzLmNvbQ==">cdnjs.com</span> (opens new window), unpkg (opens new window)，jsdelivr (opens new window) 和 <span class="exturl" data-url="aHR0cDovL2Jvb3RjZG4uY24=">bootcdn.cn</span> (opens new window) 等引入</p>
+</div>
+</li>
+<li>NPM
+<blockquote>
+<p>使用 NPM 安裝 Dayjs，並且在全域中使用 Dayjs</p>
+</blockquote>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">npm</span> <span class="token function">install</span> dayjs <span class="token parameter variable">--save</span></pre></td></tr></table></figure><figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> dayjs <span class="token keyword">from</span> <span class="token string">"dayjs"</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"YYYY-MM-DD HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="常用方法"><a class="markdownIt-Anchor" href="#常用方法">#</a> 常用方法</h1>
+<h2 id="取得現在的時間"><a class="markdownIt-Anchor" href="#取得現在的時間">#</a> 取得現在的時間</h2>
+<blockquote>
+<p>直接使用 <code>dayjs()</code>  就可以取得現在的時間</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>這個函數預設回傳一個物件，把目前時間的年、月、日、時、分、秒、毫秒等資訊都包含在內<br>
+寫法等同於</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="取得特定時間"><a class="markdownIt-Anchor" href="#取得特定時間">#</a> 取得特定時間</h2>
+<blockquote>
+<p>可以在 <code>dayjs()</code>  中傳入參數來取得特定的時間</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023-01-01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023/01/01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023,01,01"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023 1 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023*1*1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>只要是能夠被解析的日期格式都可以，所以上述的格式都能使用在 <code>dayjs</code>  中，不用特別的思考分隔符號應該用什麼。<br>
+此外，也可以傳入以毫秒為單位的時間戳，例如發文這天的時間戳是 <code>1616680000000</code> ，也可以直接傳到參數抓時間</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token number">1616680000000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h2 id="取得特定時間的年月日時等資訊"><a class="markdownIt-Anchor" href="#取得特定時間的年月日時等資訊">#</a> 取得特定時間的年月日時等資訊</h2>
+<blockquote>
+<p>使用  <code>year()</code> 、 <code>month()</code> 、 <code>date()</code> 、 <code>hour()</code> 、 <code>minute()</code> 、 <code>second()</code> 、 <code>millisecond()</code>  可以取得特定時間的年、月、日、時、分、秒、毫秒等資訊</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">year</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得年</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">month</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得月 (0~11)，所以要顯示月份的話要 +1</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得日</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">day</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得星期幾</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hour</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得時</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">minute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得分</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">second</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得秒</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">millisecond</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取得毫秒</span></pre></td></tr></table></figure><div class="note warning">
+<ol>
+<li>如果要取得月份的話，因為資料月份是從 0 開始，所以要顯示月份的話要 +1</li>
+<li>取得幾「日」的話記得要用 <code>date()</code> ，而不是 <code>day()</code> ， <code>day()</code>  是取得星期幾</li>
+</ol>
+</div>
+<h2 id="格式化時間"><a class="markdownIt-Anchor" href="#格式化時間">#</a> 格式化時間</h2>
+<blockquote>
+<p>使用  <code>format()</code>  可以將時間格式化為指定的格式，銜接上方取得特定時間的年月日的方法，直接透過格式化時間，也是一種取得特定時間的方式</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"YYYY-MM-DD HH:mm:ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2023-03-25 21:11:06</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"YY"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 23</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"M"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"MM"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 03</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"MMM"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 三月</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"DD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 25</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"hh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 09 (12 小時制)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"HH"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 21 (24 小時制)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"mm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 11</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 06</span></pre></td></tr></table></figure><p>基本上就是很標準的把取出來的時間轉成指定的格式，常用格式如下表所示 (以 <code>2023-03-25 21:11:06</code>  為例)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">單位</th>
+<th style="text-align:center">說明</th>
+<th style="text-align:center">呈現</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>YYYY</code></td>
+<td style="text-align:center">完整西元年</td>
+<td style="text-align:center">2023</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>YY</code></td>
+<td style="text-align:center">省略兩位數的西元年</td>
+<td style="text-align:center">23</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>M</code></td>
+<td style="text-align:center">省略十位數 0 的月份</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>MM</code></td>
+<td style="text-align:center">完整月份</td>
+<td style="text-align:center">03</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>MMM</code></td>
+<td style="text-align:center">地區月分寫法</td>
+<td style="text-align:center">三月 (以台灣為例)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>DD</code></td>
+<td style="text-align:center">天</td>
+<td style="text-align:center">25</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>hh</code></td>
+<td style="text-align:center">小時 (12 小時制)</td>
+<td style="text-align:center">09</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>HH</code></td>
+<td style="text-align:center">小時 (24 小時制)</td>
+<td style="text-align:center">21</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>mm</code></td>
+<td style="text-align:center">分</td>
+<td style="text-align:center">11</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ss</code></td>
+<td style="text-align:center">秒</td>
+<td style="text-align:center">06</td>
+</tr>
+</tbody>
+</table>
+<p>若想讀取更詳細的格式可以參考<span class="exturl" data-url="aHR0cHM6Ly9kYXkuanMub3JnL2RvY3MvZW4vZGlzcGxheS9mb3JtYXQ=">官方文件</span></p>
+<h2 id="加減時間"><a class="markdownIt-Anchor" href="#加減時間">#</a> 加減時間</h2>
+<blockquote>
+<p>使用 add () 可以加上時間，並且可以使用 subtract () 減去時間</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"day"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"day"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>註：常用的單位</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">單位</th>
+<th style="text-align:center">縮寫</th>
+<th style="text-align:center">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>day</code></td>
+<td style="text-align:center"><code>d</code></td>
+<td style="text-align:center">日</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>week</code></td>
+<td style="text-align:center"><code>w</code></td>
+<td style="text-align:center">周</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>month</code></td>
+<td style="text-align:center"><code>M</code></td>
+<td style="text-align:center">月</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>year</code></td>
+<td style="text-align:center"><code>y</code></td>
+<td style="text-align:center">年</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>hour</code></td>
+<td style="text-align:center"><code>h</code></td>
+<td style="text-align:center">小時</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>minute</code></td>
+<td style="text-align:center"><code>m</code></td>
+<td style="text-align:center">分鐘</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>second</code></td>
+<td style="text-align:center"><code>s</code></td>
+<td style="text-align:center">秒</td>
+</tr>
+</tbody>
+</table>
+<h2 id="計算時間差"><a class="markdownIt-Anchor" href="#計算時間差">#</a> 計算時間差</h2>
+<blockquote>
+<p>使用  <code>diff()</code>  計算兩個時間的時間差</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023-03-25"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">diff</span><span class="token punctuation">(</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023-03-24"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"day"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//1</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023-03-27 10:30"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">diff</span><span class="token punctuation">(</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023-03-27 11:00"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"minute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//-30</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023-03-27 10:30"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">diff</span><span class="token punctuation">(</span><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023-03-27 10:00"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"minute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//30</span></pre></td></tr></table></figure><p>第一次使用這個函數的時候總是搞混，不知道會出現正數還是負數，這邊特別註記一下<br>
+ <code>dayjs()</code>  搭配  <code>diff(dayjs())</code>  的使用方式是，  <code>dayjs() - diff(dayjs())</code>  的結果</p>
+<p>所以上面的例子  <code>dayjs(&quot;2023-03-27 10:30&quot;).diff(dayjs(&quot;2023-03-27 11:00&quot;), &quot;minute&quot;)</code> <br>
+ 意思是  <code>2023-03-27 10:30</code>  -  <code>2023-03-27 11:00</code>  差距多少  <code>minute</code> ，則答案會是  <code>-30</code>  分鐘<br>
+反之則為  <code>30</code>  分鐘</p>
+<h2 id="起始時間-結束時間"><a class="markdownIt-Anchor" href="#起始時間-結束時間">#</a> 起始時間 / 結束時間</h2>
+<blockquote>
+<p>stratOf () 可以取得當天的起始時間，endOf () 可以取得當天的結束時間</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startOf</span><span class="token punctuation">(</span><span class="token string">"day"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2023-03-25 00:00:00</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">endOf</span><span class="token punctuation">(</span><span class="token string">"day"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2023-03-25 23:59:59</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startOf</span><span class="token punctuation">(</span><span class="token string">"month"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2023-03-01 00:00:00</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">endOf</span><span class="token punctuation">(</span><span class="token string">"month"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2023-03-31 23:59:59</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startOf</span><span class="token punctuation">(</span><span class="token string">"year"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2023-01-01 00:00:00</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">endOf</span><span class="token punctuation">(</span><span class="token string">"year"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2023-12-31 23:59:59</span></pre></td></tr></table></figure><p>這個主題我比較常遇到的情境會是，我有一個日期，而我需要取得這個日期月份的第一天以及最後一天<br>
+第一天通常是那個月的 1 號，而最後一天又因為不同月份而不同，透過  <code>dayjs().startOf(&quot;month&quot;)</code>  以及  <code>dayjs().endOf(&quot;month&quot;)</code>  就可以很方便地做到這件事</p>
+<p>註：常用單位與縮寫</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">單位</th>
+<th style="text-align:center">縮寫</th>
+<th style="text-align:center">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>day</code></td>
+<td style="text-align:center"><code>d</code></td>
+<td style="text-align:center">日</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>month</code></td>
+<td style="text-align:center"><code>M</code></td>
+<td style="text-align:center">月</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>year</code></td>
+<td style="text-align:center"><code>Y</code></td>
+<td style="text-align:center">年</td>
+</tr>
+</tbody>
+</table>
+<h2 id="轉換成-unix-時間戳記"><a class="markdownIt-Anchor" href="#轉換成-unix-時間戳記">#</a> 轉換成 unix 時間戳記</h2>
+<blockquote>
+<p>使用  <code>valueOf()</code>  可以將時間轉換成 unix 時間戳記</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1616681066000</span></pre></td></tr></table></figure><h2 id="小技巧"><a class="markdownIt-Anchor" href="#小技巧">#</a> 小技巧</h2>
+<blockquote>
+<p>以上所介紹的方法，由於都會回傳時間格式，所以可以持續串接著好幾個想操作當方法後，再用  <code>format()</code>  來轉換成想要的格式</p>
+</blockquote>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">dayjs</span><span class="token punctuation">(</span><span class="token string">"2023 03 31"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"month"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">startOf</span><span class="token punctuation">(</span><span class="token string">"month"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"YYYY-MM-DD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// '2023-04-01'</span></pre></td></tr></table></figure><h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
+<p>這篇文章主要介紹了  <code>dayjs</code>  的基本使用，包含時間的格式化、加減時間、取得起始時間、結束時間、轉換成 unix 時間戳記等等<br>
+這篇文章只是簡單介紹了  <code>dayjs</code>  的基本使用，如果想要更深入的了解  <code>dayjs</code>  的使用方式，可以參考<span class="exturl" data-url="aHR0cHM6Ly9kYXkuanMub3JnL2RvY3MvZW4v">官方文件</span></p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-03-25 23:04:40" itemprop="dateModified" datetime="2023-03-25T23:04:40+08:00">2023-03-25</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/js-note/js-note/day-js/" title="day-js">https://imall.github.io/js-note/js-note/day-js/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/vue-note/vue-note/vue-axios-proxy/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;uD1DYit.jpg" title="在Vue3使用Vite設定proxy整合axios攔截器">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Vue 筆記</span>
+  <h3>在Vue3使用Vite設定proxy整合axios攔截器</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#dayjs-%E4%BB%8B%E7%B4%B9"><span class="toc-number">1.</span> <span class="toc-text"> Dayjs 介紹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text"> 安裝方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> 常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%BE%97%E7%8F%BE%E5%9C%A8%E7%9A%84%E6%99%82%E9%96%93"><span class="toc-number">3.1.</span> <span class="toc-text"> 取得現在的時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%BE%97%E7%89%B9%E5%AE%9A%E6%99%82%E9%96%93"><span class="toc-number">3.2.</span> <span class="toc-text"> 取得特定時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%BE%97%E7%89%B9%E5%AE%9A%E6%99%82%E9%96%93%E7%9A%84%E5%B9%B4%E6%9C%88%E6%97%A5%E6%99%82%E7%AD%89%E8%B3%87%E8%A8%8A"><span class="toc-number">3.3.</span> <span class="toc-text"> 取得特定時間的年月日時等資訊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%99%82%E9%96%93"><span class="toc-number">3.4.</span> <span class="toc-text"> 格式化時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E6%B8%9B%E6%99%82%E9%96%93"><span class="toc-number">3.5.</span> <span class="toc-text"> 加減時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%88%E7%AE%97%E6%99%82%E9%96%93%E5%B7%AE"><span class="toc-number">3.6.</span> <span class="toc-text"> 計算時間差</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%A7%8B%E6%99%82%E9%96%93-%E7%B5%90%E6%9D%9F%E6%99%82%E9%96%93"><span class="toc-number">3.7.</span> <span class="toc-text"> 起始時間 &#x2F; 結束時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%89%E6%8F%9B%E6%88%90-unix-%E6%99%82%E9%96%93%E6%88%B3%E8%A8%98"><span class="toc-number">3.8.</span> <span class="toc-text"> 轉換成 unix 時間戳記</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">3.9.</span> <span class="toc-text"> 小技巧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">4.</span> <span class="toc-text"> 總結</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/js-note/js-note/day-js/" rel="bookmark" title="day-js">day-js</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">6</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">4</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">3</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-note/day-js/" title="day-js">day-js</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/markdown/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/markdown/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shink的計算公式">【CSS筆記】flex-shink的計算公式</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Notes</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'js-note/js-note/day-js/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },
+    valine: true,fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

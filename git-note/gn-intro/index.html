@@ -24,15 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="git" />
 
-<link rel="canonical" href="https://imall.github.io/archives/2023/03/">
+
+<link rel="canonical" href="https://imall.github.io/git-note/gn-intro/">
 
 
 
   <title>
-2023 年 / 03 月 -
-
-歸檔 |
+【Git筆記】 - Git 筆記 |
 Imall Notes ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,9 +60,19 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
-      發表於"2023年03月"的文章
+  <h1 itemprop="name headline">【Git筆記】
   </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-07-04 15:42:10">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T15:42:10+08:00">2023-07-04</time>
+  </span>
+</div>
+
 
           </div>
         </div>
@@ -89,12 +99,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/uD1DYit.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/DRF2jWS.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/1GXQPGG.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/vQbDgqe.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/LphFlSF.jpeg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/Se14t9C.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/RPZmqBm.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QF1NXrf.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/1GXQPGG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/Em2JNXM.jpg"></li>
         </ul>
       </div>
     </header>
@@ -115,71 +125,114 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <div class="inner">
         <div id="main" class="pjax">
           
-  <div class="collapse wrap">
-    <h2 class="item header">
-          <a href="/archives">全部</a> <small>/</small> <a href="/archives/2023">2023 年</a> <small>/</small> 03 月<small>歸檔</small>
-        
-    </h2>
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-note/" itemprop="item" rel="index" title="分類於 Git 筆記"><span itemprop="name">Git 筆記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
 
-        <article class="item normal" itemscope itemtype="http://schema.org/Article">
-          <div class="meta">
-            <time itemprop="dateCreated"
-                  datetime="2023-03-27T00:45:56+08:00"
-                  content="2023-03-27">
-              03-27
-            </time>
-                <span><a href="/categories/miscellanea/">雜記</a></span>
-          </div>
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-note/gn-intro/">
 
-          <div class="title">
-              <a href="/miscellanea/Suzume-no-Tojimari/" itemprop="url">
-                <span itemprop="name">鈴芽之旅有雷心得</span>
-              </a>
-          </div>
-        </article>
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", ">
+  </span>
 
-        <article class="item normal" itemscope itemtype="http://schema.org/Article">
-          <div class="meta">
-            <time itemprop="dateCreated"
-                  datetime="2023-03-25T21:11:06+08:00"
-                  content="2023-03-25">
-              03-25
-            </time>
-                <span><a href="/categories/js-note/">JavaScript 筆記</a></span>
-          </div>
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
 
-          <div class="title">
-              <a href="/js-note/day-js/" itemprop="url">
-                <span itemprop="name">一個好用的時間處理套件 - Dayjs</span>
-              </a>
-          </div>
-        </article>
+  <div class="body md" itemprop="articleBody">
+    
 
-        <article class="item normal" itemscope itemtype="http://schema.org/Article">
-          <div class="meta">
-            <time itemprop="dateCreated"
-                  datetime="2023-03-18T10:11:27+08:00"
-                  content="2023-03-18">
-              03-18
-            </time>
-                <span><a href="/categories/vue-note/">Vue 筆記</a></span>
-          </div>
+    <p>以前在操作 git，由於只有一個人在做版控 ，所以只會無腦的  <code>git add .</code>  +  <code>git commit -m &quot;&quot;</code> ，從沒去追蹤過去的版本。<br>
+愚蠢的我只把 git 當作存放程式碼的工具 <s>雖然某個層面上這樣說也沒錯</s>，寫好 code 之後 push  到 Github，本機程式就算不見了也不怕！</p>
+<p>或許一個人的版控，這麼做好像也沒什麼關係<br>
+不過最近因為工作，開始需要進行團隊合作，版控的過程有機會遇到各種突發狀況需要進行各種操作</p>
+<p>例如 add 過的內容想進行調整怎麼辦？ commit 完的內容想調整怎麼辦？<br>
+git 的分支怎麼用？ 分支合併發生了衝突？！這是怎麼一回事</p>
+<p>這些問題開始一一浮現，不得不認真面對一下好像懂又好像不懂得 git <s>(事實上也沒有真正懂過)</s></p>
+<p>前陣子跟主管說了一句，自己跟 git 沒有很熟後，主管丟了一本 git 的書給我，跟我說沒有很熟？學就好啦！</p>
+<p>既然主管都這麼跟我說了，那就來認真學一下 git 吧！</p>
+<p>這個系列文會是我的 git 筆記，用我自己的觀點把讀到的 git 觀念記錄下來</p>
 
-          <div class="title">
-              <a href="/vue-note/vue-axios-proxy/" itemprop="url">
-                <span itemprop="name">在Vue3使用Vite設定proxy整合axios攔截器</span>
-              </a>
-          </div>
-        </article>
+      <div class="tags">
+          <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
+      </div>
   </div>
 
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-07-04 16:25:47" itemprop="dateModified" datetime="2023-07-04T16:25:47+08:00">2023-07-04</time>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-note/gn-intro/" title="【Git筆記】">https://imall.github.io/git-note/gn-intro/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
   
 
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/miscellanea/Suzume-no-Tojimari/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;ph4Rgbx.jpeg" title="鈴芽之旅有雷心得">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 雜記</span>
+  <h3>鈴芽之旅有雷心得</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-note/gn-concept/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;W71jGXB.jpg" title="【Git筆記】Git 世界觀">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
+  <h3>【Git筆記】Git 世界觀</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
 
 
         </div>
         <div id="sidebar">
           
+
 <div class="inner">
 
   <div class="panels">
@@ -187,6 +240,9 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <div class="contents panel pjax" data-title="文章目錄">
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-note/gn-basic/" rel="bookmark" title="【Git筆記】基本指令">【Git筆記】基本指令</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></li><li class="active"><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】">【Git筆記】</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,14 +303,17 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/miscellanea/Suzume-no-Tojimari/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/git-note/gn-concept/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
 </div>
+
 
         </div>
         <div class="dimmer"></div>
@@ -271,30 +330,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
   </li>
 
       
@@ -321,10 +360,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
   </li>
 
       
@@ -341,16 +380,6 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
@@ -361,10 +390,40 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
     <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
   </ul>
@@ -391,7 +450,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'archives/2023/03/',
+    path: 'git-note/gn-intro/',
     favicon: {
       show: "Imall Blog ~歡迎回來~",
       hide: "Imall Blog ~別離開呀~"

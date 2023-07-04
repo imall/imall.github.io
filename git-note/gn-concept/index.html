@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="git" />
 
-<link rel="canonical" href="https://imall.github.io/md-note/hexo-basic/">
+
+<link rel="canonical" href="https://imall.github.io/git-note/gn-concept/">
 
 
 
   <title>
-hexo 指令 - MD 筆記 |
+【Git筆記】Git 世界觀 - Git 筆記 |
 Imall Notes ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +60,16 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">hexo 指令
+  <h1 itemprop="name headline">【Git筆記】Git 世界觀
   </h1>
   
 <div class="meta">
-  <span class="item" title="創建時間：2023-02-20 19:23:51">
+  <span class="item" title="創建時間：2023-07-04 15:42:10">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">發表於</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-02-20T19:23:51+08:00">2023-02-20</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T15:42:10+08:00">2023-07-04</time>
   </span>
 </div>
 
@@ -96,7 +98,14 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 
       </div>
       <div id="imgs" class="pjax">
-          <img src="https://i.imgur.com/Se14t9C.jpg">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/QF1NXrf.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/RPZmqBm.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mHIiru7.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/uD1DYit.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8MilAK5.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/vQbDgqe.jpg"></li>
+        </ul>
       </div>
     </header>
     <div id="waves">
@@ -121,12 +130,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/markdown/" itemprop="item" rel="index" title="分類於 MD 筆記"><span itemprop="name">MD 筆記</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-note/" itemprop="item" rel="index" title="分類於 Git 筆記"><span itemprop="name">Git 筆記</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
-  <link itemprop="mainEntityOfPage" href="https://imall.github.io/md-note/hexo-basic/">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-note/gn-concept/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -141,43 +150,42 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <div class="note info">
-<p>第一篇文來記錄一下，使用 hexo 指令發文會用到的東西</p>
-</div>
-<h1 id="hexo-常用指令"><a class="markdownIt-Anchor" href="#hexo-常用指令">#</a> Hexo 常用指令</h1>
+    <p>想像一個城鎮，城鎮中有一個大廣場，廣場中有一個倉庫。<br>
+城鎮有許多貨物在運送，這些貨物最後都會被放到倉庫裡頭。而在進入倉庫之前，這些貨物會先被集中到大廣場。<br>
+而控管貨物狀態的，就是警衛先生，他會聽從鎮長的指示去整理大廣場中的貨物。<br>
+等到鎮長跟他說整理得差不多了，他就會把貨物整批放到倉庫裡面。<br>
+有時候鎮長可能覺得廣場的貨物可能少裝了些什麼東西，所以需要從廣場拿走貨物重新包裝，這也會交代給警衛去跟貨物公司溝通處理。<br>
+而在廣場之外的貨物，因為鎮長還沒有交代貨物公司送去廣場，所以警衛管不到，這也不是警衛的工作，警衛只會專心的聽從鎮長的指示去處理廣場與倉庫的貨物。</p>
+<p>我們把這個想像帶到 Git 的世界中：<br>
+鎮長就是使用 Git 的人們，警衛則扮演著 Git 的腳色。<br>
+同時整個城鎮就是整包的專案，而貨物則是 Git 所控管 (或是管不到) 的<strong>檔案</strong>。</p>
+<p><strong>廣場外</strong>的貨物，就像<strong>新增</strong>的檔案。它們是尚未被 Git 所追蹤和控制的檔案。Git 無法對這些檔案進行版本控制，如果刪除或修改這些檔案，Git 無法對其進行恢復。</p>
+<p><strong>廣場上</strong>的貨物，就像是在<strong>暫存區</strong>的檔案。這些檔案已經被 Git 追蹤，但尚未被永久地記錄在儲存庫中。暫存區中的檔案表示已經告訴 Git 要將這些檔案納入下一次的提交中。如果檔案在暫存區中被修改或刪除，Git 可以將其還原回最後一次提交的狀態。</p>
+<p><strong>倉庫</strong>中的貨物，就好比是在<strong>儲存庫</strong>的檔案。這些檔案已經被 Git 永久地記錄在儲存庫中，形成了不同的版本。這些檔案是穩定的且可以被復原到過去的狀態。</p>
+<p>透過上述的說明，我們先簡單總結一個概念：使用 <strong>Git</strong> 時，可能的狀態包含以下三個</p>
 <ol>
-<li>
-<p>新建一篇文章：</p>
-<blockquote>
-<p>hexo new [文章名稱]</p>
-</blockquote>
-</li>
-<li>
-<p>清除暫存</p>
-<blockquote>
-<p>hexo clean 或 hexo cl</p>
-</blockquote>
-</li>
-<li>
-<p>產生靜態檔案</p>
-<blockquote>
-<p>hexo generate 或 hexo g</p>
-</blockquote>
-</li>
-<li>
-<p>啟動服務觀看效果</p>
-<blockquote>
-<p>hexo server 或 hexo s</p>
-</blockquote>
-</li>
-<li>
-<p>部屬</p>
-<blockquote>
-<p>hexo deploy 或 hexo d</p>
-</blockquote>
-</li>
+<li><strong>新增</strong>的檔案：尚未被 Git 所追蹤和控制。</li>
 </ol>
+<blockquote>
+<p>這些檔案就跟尚未加上 Git 版控一樣，Git 管不到他，刪了、改了，Git 想復原也沒辦法</p>
+</blockquote>
+<ol start="2">
+<li><strong>暫存區</strong>（已追蹤）的檔案：已被 Git 追蹤，但尚未被永久地記錄在儲存庫中，表示它們準備納入下一次的提交。</li>
+</ol>
+<blockquote>
+<p>這些檔案是 Git <strong>暫時追蹤</strong> 的檔案，只是讓 Git 知道：哦<sub>我準備要控管你囉</sub>的狀態<br>
+此時如果檔案被修改了，或是被刪除了，Git 都有辦法進行還原</p>
+</blockquote>
+<ol start="3">
+<li><strong>儲存庫</strong>的檔案：已被 Git 永久地記錄在儲存庫中，形成了不同的版本，可以復原到過去的狀態。</li>
+</ol>
+<blockquote>
+<p>這些檔案是 Git 已記錄的<strong>穩定版</strong>檔案，可以解釋成已經定義為「一個版本」的檔案</p>
+</blockquote>
 
+      <div class="tags">
+          <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
+      </div>
   </div>
 
    <footer>
@@ -188,7 +196,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-03-18 17:23:21" itemprop="dateModified" datetime="2023-03-18T17:23:21+08:00">2023-03-18</time>
+    <time title="修改時間：2023-07-04 16:25:05" itemprop="dateModified" datetime="2023-07-04T16:25:05+08:00">2023-07-04</time>
   </span>
 </div>
 
@@ -201,7 +209,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </li>
   <li class="link">
     <strong>文章連結：</strong>
-    <a href="https://imall.github.io/md-note/hexo-basic/" title="hexo 指令">https://imall.github.io/md-note/hexo-basic/</a>
+    <a href="https://imall.github.io/git-note/gn-concept/" title="【Git筆記】Git 世界觀">https://imall.github.io/git-note/gn-concept/</a>
   </li>
   <li class="license">
     <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
@@ -218,14 +226,22 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 
 <div class="post-nav">
     <div class="item left">
+      
+
+  <a href="/git-note/gn-intro/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;W71jGXB.jpg" title="【Git筆記】">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
+  <h3>【Git筆記】</h3>
+  </a>
+
     </div>
     <div class="item right">
       
 
-  <a href="/md-note/record-some-markdown/" itemprop="url" rel="next" data-background-image="&#x2F;assets&#x2F;img&#x2F;cover1.jpg" title="紀錄一些之後寫文章可能會用到的語法">
+  <a href="/git-note/gn-basic/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;8MilAK5.jpg" title="【Git筆記】基本指令">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> MD 筆記</span>
-  <h3>紀錄一些之後寫文章可能會用到的語法</h3>
+  <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
+  <h3>【Git筆記】基本指令</h3>
   </a>
 
     </div>
@@ -244,11 +260,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo-%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> Hexo 常用指令</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li class="active"><a href="/md-note/hexo-basic/" rel="bookmark" title="hexo 指令">hexo 指令</a></li><li><a href="/md-note/record-some-markdown/" rel="bookmark" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></li>
+          <li><a href="/git-note/gn-basic/" rel="bookmark" title="【Git筆記】基本指令">【Git筆記】基本指令</a></li><li class="active"><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></li><li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】">【Git筆記】</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -310,10 +325,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/git-note/gn-intro/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/git-note/gn-basic/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -335,30 +352,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-basic/" title="【Git筆記】基本指令">【Git筆記】基本指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></span>
+    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
   </li>
 
       
@@ -375,20 +372,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></span>
   </li>
 
       
@@ -399,6 +386,16 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
       
@@ -425,10 +422,30 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
+    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-basic/" title="【Git筆記】基本指令">【Git筆記】基本指令</a></span>
   </li>
 
   </ul>
@@ -455,7 +472,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'md-note/hexo-basic/',
+    path: 'git-note/gn-concept/',
     favicon: {
       show: "Imall Blog ~歡迎回來~",
       hide: "Imall Blog ~別離開呀~"

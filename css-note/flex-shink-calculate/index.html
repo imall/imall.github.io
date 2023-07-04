@@ -32,7 +32,7 @@
 
 
   <title>
-【CSS筆記】flex-shink的計算公式 - CSS 筆記 |
+【CSS筆記】flex-shrink的計算公式 - CSS 筆記 |
 Imall Notes ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">【CSS筆記】flex-shink的計算公式
+  <h1 itemprop="name headline">【CSS筆記】flex-shrink的計算公式
   </h1>
   
 <div class="meta">
@@ -144,19 +144,21 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     
 
     <div class="note info">
-<p>flex 物件的子物件寬度為多少？從這個問題衍伸出 flex-shink 的計算公式<br>
+<p>flex 物件的子物件寬度為多少？從這個問題衍伸出 flex-shrink 的計算公式<br>
 這篇就來簡單聊聊吧</p>
 </div>
 <h2 id="flex-物件的子物件的寬度在沒設定寬的時候是多少"><a class="markdownIt-Anchor" href="#flex-物件的子物件的寬度在沒設定寬的時候是多少">#</a> flex 物件的子物件的寬度，在沒設定寬的時候是多少？</h2>
 <p>事實上，flex 物件的子物件寬度，是由該物件內容寬度決定<br>
-例如下面的例子，將子項目 <code>font-size</code>  設定 <code>20px</code> <br>
- 項目 <code>a</code> 、 <code>b</code> 、 <code>c</code>  分別是 <code>五個字</code> 、 <code>三個字</code> 、 <code>七個字</code> <br>
-此時呈現結果將會是<br>
- <code>a</code>  的寬度為 <code>5*20=100px</code> <br>
- <code>b</code>  的寬度為 <code>3*20=60px</code> <br>
- <code>c</code>  的寬度為 <code>7*20=140px</code></p>
+例如下面的例子，將子項目<strong> font-size</strong> 設定<strong> 20px</strong><br>
+ 項目<strong> a</strong>、<strong>b</strong>、<strong>c</strong> 分別是<strong>五個字</strong>、<strong>三個字</strong>、<strong>七個字</strong><br>
+此時呈現結果將會是</p>
+<ul>
+<li><strong>a</strong> 的寬度為<strong> 5 x 20 = 100px</strong></li>
+<li><strong>b</strong> 的寬度為<strong> 3 x 20 = 60px</strong></li>
+<li><strong>c</strong> 的寬度為<strong> 7 x 20 = 140px</strong></li>
+</ul>
 <figure class="highlight css"><figcaption data-lang="CSS"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token selector">.flex</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">width</span><span class="token punctuation">:</span> 1000px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> #ccc<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token selector">.item</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token property">font-size</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token selector">.a</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> #cfa<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token selector">.b</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> #fac<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token selector">.c</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token property">background-color</span><span class="token punctuation">:</span> #deb<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item a<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>一二三四五<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item b<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>一二三<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item c<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>一二三四五六七<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="子物件內容寬度超過父層-flex-寬度"><a class="markdownIt-Anchor" href="#子物件內容寬度超過父層-flex-寬度">#</a> 子物件內容寬度超過父層 flex 寬度</h2>
-<p>這種情況下，子物件就會出現 flex-shink 的效果，而每個子物件的 flex-shink 值預設為 1<br>
+<p>這種情況下，子物件就會出現 flex-shrink 的效果，而每個子物件的 flex-shrink 值預設為 1<br>
  這也是 flex 設定下去，子物件不管放幾個，資料不管怎麼樣都會被限制在父層容器的主要原因</p>
 <p>有趣的來了，綜合一開始所說的，flex 物件的子物件內容寬為自身寬度<br>
 但每個子物件的寬度加起來已經超過了父層寬度，子物件又會被限制的情況下<br>
@@ -164,42 +166,45 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <p>計算步驟如下</p>
 <ol>
 <li>
-<p>計算 <code>總比值</code> <br>
-假設父層寬度為  <code>1000px</code> ，子物件 <code>A</code> 、 <code>B</code> 、 <code>C</code>  分別是 <code>600px</code> 、 <code>1000px</code> 、 <code>600px</code></p>
-<details class="success"><summary>總比值 = 子項目 A _ flex-shinkA + 子項目 B _ flex-shinkB + 子項目 C \* flex-shinkC</summary><div>
-<p>600*1 +1000*1 +600*1 =2200</p>
+<p><strong>收縮比</strong> = <strong>flex-shink</strong> 的值</p>
+</li>
+<li>
+<p>計算<strong>總比寬</strong><br>
+假設父層寬度為 <strong>1000px</strong>，子物件<strong> A</strong>、<strong>B</strong>、<strong>C</strong> 分別是<strong> 600px</strong>、<strong>1000px</strong>、<strong>600px</strong></p>
+<details class="success"><summary>總比值 = (子項目A x 收縮比A) + (子項目B x 收縮比B) + (子項目C x 收縮比C)</summary><div>
+<p>(600 x 1) + (1000 x 1) + (600 x 1) = 2200</p>
 </div></details>
 </li>
 <li>
-<p>計算 <code>超出寬</code></p>
-<details><summary>success 超出寬 = 總比值 - 父層寬度</summary><div>
-<p>2200-1000=1200</p>
+<p>計算<strong>超出寬</strong></p>
+<details class="success"><summary>超出寬 = 總比值 - 父層寬度</summary><div>
+<p>2200 - 1000 = 1200</p>
 </div></details>
 </li>
 <li>
-<p>計算出 <code>子物件扣除寬</code></p>
-<details class="success"><summary>子物件扣除寬 = 子項目寬 _ flex-shink / 總比值 _ 超出寬</summary><div>
-<div class="tab" data-id="id" data-title="子項目 A 須扣除寬">
-<p>600 * 1 / 2200 * 1200 = 327.2727272727</p>
+<p>計算出<strong>每個子物件扣除寬</strong></p>
+<details class="success"><summary>子物件扣除寬 = (子項目寬 x 收縮比) / (總比值 x 超出寬)</summary><div>
+<div class="tab" data-id="id" data-title="子項目A 扣除寬">
+<p>(600 x 1) / (2200 x 1200) = 327.2727272727</p>
 </div>
-<div class="tab" data-id="id" data-title="子項目 B 須扣除寬">
-<p>1000 *1 / 2200 * 1200 = 545.4545454545</p>
+<div class="tab" data-id="id" data-title="子項目B 扣除寬">
+<p>(1000 x 1) / (2200 x 1200) = 545.4545454545</p>
 </div>
-<div class="tab" data-id="id" data-title="子項目 C 須扣除寬">
-<p>600 * 1 / 2200 * 1200 = 327.2727272727</p>
+<div class="tab" data-id="id" data-title="子項目C 扣除寬">
+<p>(600 x 1) / (2200 x 1200) = 327.2727272727</p>
 </div>
 </div></details>
 </li>
 <li>
-<p>計算出 <code>子項目實際佔寬</code></p>
+<p>計算出<strong>子項目實際佔寬</strong></p>
 <details class="success"><summary>子項目實際寬度 = 子項目寬度 - 子物件扣除寬</summary><div>
-<div class="tab" data-id="id2" data-title="A 項目實際寬">
+<div class="tab" data-id="id2" data-title="子項目A 實際寬">
 <p>600 - 327.2727272727 = 272.7272727273</p>
 </div>
-<div class="tab" data-id="id2" data-title="B 項目實際寬">
+<div class="tab" data-id="id2" data-title="子項目B 實際寬">
 <p>1000 - 545.4545454545 = 454.5454545455</p>
 </div>
-<div class="tab" data-id="id2" data-title="C 項目實際寬">
+<div class="tab" data-id="id2" data-title="子項目C 實際寬">
 <p>600 - 327.2727272727 = 272.7272727273</p>
 </div>
 </div></details>
@@ -222,7 +227,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-03-18 16:59:31" itemprop="dateModified" datetime="2023-03-18T16:59:31+08:00">2023-03-18</time>
+    <time title="修改時間：2023-07-03 21:14:07" itemprop="dateModified" datetime="2023-07-03T21:14:07+08:00">2023-07-03</time>
   </span>
 </div>
 
@@ -235,7 +240,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </li>
   <li class="link">
     <strong>文章連結：</strong>
-    <a href="https://imall.github.io/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shink的計算公式">https://imall.github.io/css-note/flex-shink-calculate/</a>
+    <a href="https://imall.github.io/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">https://imall.github.io/css-note/flex-shink-calculate/</a>
   </li>
   <li class="license">
     <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
@@ -290,7 +295,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li class="active"><a href="/css-note/flex-shink-calculate/" rel="bookmark" title="【CSS筆記】flex-shink的計算公式">【CSS筆記】flex-shink的計算公式</a></li>
+          <li class="active"><a href="/css-note/flex-shink-calculate/" rel="bookmark" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -304,19 +309,19 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">7</span>
+        <span class="count">10</span>
         <span class="name">文章</span>
       </a>
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">5</span>
+        <span class="count">6</span>
         <span class="name">分類</span>
       </a>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">3</span>
+        <span class="count">4</span>
         <span class="name">標籤</span>
       </a>
     </div>
@@ -379,10 +384,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
       
@@ -393,6 +398,66 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】">【Git筆記】</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-basic/" title="【Git筆記】基本指令">【Git筆記】基本指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
   </li>
 
       
@@ -413,36 +478,6 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shink的計算公式">【CSS筆記】flex-shink的計算公式</a></span>
   </li>
 
   </ul>

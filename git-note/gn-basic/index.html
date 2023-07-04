@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="git" />
+  <meta name="keywords" content="Git" />
 
 
 <link rel="canonical" href="https://imall.github.io/git-note/gn-basic/">
@@ -32,7 +32,7 @@
 
 
   <title>
-【Git筆記】基本指令 - Git 筆記 |
+【Git筆記】 Git 基本指令 - Git 筆記 |
 Imall Notes ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,16 +60,16 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">【Git筆記】基本指令
+  <h1 itemprop="name headline">【Git筆記】 Git 基本指令
   </h1>
   
 <div class="meta">
-  <span class="item" title="創建時間：2023-07-04 15:42:10">
+  <span class="item" title="創建時間：2023-07-04 15:42:20">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">發表於</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T15:42:10+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T15:42:20+08:00">2023-07-04</time>
   </span>
 </div>
 
@@ -99,12 +99,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/82593HB.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/LphFlSF.jpeg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/Se14t9C.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/vQbDgqe.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/W71jGXB.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/uD1DYit.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/RPZmqBm.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/1GXQPGG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/symKCYM.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mHIiru7.jpg"></li>
         </ul>
       </div>
     </header>
@@ -151,29 +151,33 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     
 
     <h2 id="將檔案加到暫存區"><a class="markdownIt-Anchor" href="#將檔案加到暫存區">#</a> 將檔案加到暫存區</h2>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> 檔名</pre></td></tr></table></figure><p>執行這個指令，我們就可以告訴 git：這裡有一些檔案要放到暫存區囉，幫我保管這些檔案  。而後面加上 <strong>[檔名]</strong>，代表要請 git 追蹤的是這個檔案</p>
-<p>有時候我們想一次性的把所有檔案都放到暫存區裡面，可以透過下列指令一次的把工作目錄沒有加到暫存區的檔案一次加進去</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-all</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span></pre></td></tr></table></figure><p>用 「把檔案加入暫存區」的想法去思考這個指令可能會有一個謬誤，add 指令比較像是 「把狀態加到暫存區」的概念。</p>
-<p>事實上除了一開始提到 git <strong>檔案</strong>三種<strong>存放位置</strong>觀念之外，操作工作目錄的過程中，新增、刪除、修改檔案的動作本身會讓<strong>檔案</strong>出現幾種<strong>狀態</strong>。</p>
+<p>開始進行版控，我們可以透過這個指令來告訴 Git ，「這裡有一些檔案要放到暫存區囉，幫我保管這些檔案」<br>
+而後面加上 <strong>[檔名]</strong>，代表要請 Git 追蹤的是這個檔案。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> 檔名</pre></td></tr></table></figure><p>有時候我們想一次性的把所有檔案都放到暫存區裡面，可以透過下列指令一次的把工作目錄沒有加到暫存區的檔案一次加進去</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-all</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span></pre></td></tr></table></figure><p>用 「把檔案加入暫存區」的想法去思考 add 可能會有一個謬誤，add 指令比較像是 「把狀態加到暫存區」的概念。</p>
+<p>除了一開始提到 Git <strong>檔案</strong> 三種 <strong>存放位置</strong> 的觀念之外<br>
+在操作工作目錄的過程中，無論是新增、刪除、修改檔案的動作，都會更變 <strong>檔案</strong> 的 <strong>狀態</strong>。<br>
+而 Git 在工作目錄的檔案狀態又會有三種不同的樣貌呈現：</p>
 <ol>
-<li><strong>待追蹤 (Untracked files)</strong> ：這就是標準的 git 還管不到的檔案們，一般剛增加的檔案就會是這種狀態。</li>
+<li><strong>待追蹤 (Untracked files)</strong> ：這就是標準的 Git 還管不到的檔案們，一般剛增加的檔案就會是這種狀態。</li>
 <li><strong>尚未暫存的更改 (Changes not staged for commit)</strong>：如果已經在暫存區的檔案被修改了，或是已經 commit 的檔案開始進行更動，會出現這個狀態。</li>
 <li><strong>將要提交的更改 (Changes to be committed)</strong>：檔案已經被放在暫存區中，可以準備 commit 的檔案，則會出現這種狀態</li>
 </ol>
 <p>一開始提到例子都只是把新增的<strong>待追蹤</strong>檔案加到暫存區，除了這個狀況之外，如果已經在暫存區的檔案  <strong>被修改</strong> 或是 <strong>被刪除</strong> 的話，對於 Git 來說，都會是<strong>尚未暫存</strong> (Changes not staged for commit) 的狀態。<br>
-而  <code>git add</code>  的用意，就是要把<strong>待追蹤</strong>、<strong>尚未暫存</strong>的這個檔案放到<strong>暫存區</strong> ，讓這些檔案狀態變成 <strong>準備提交</strong> (Changes to be committed) 的動作，也就是 commit 前的檔案應該有的狀態。</p>
+而  <code>git add</code>  的用意，就是要把<strong>待追蹤</strong>、<strong>尚未暫存</strong>的這個檔案放到<strong>暫存區</strong> ，讓這些檔案狀態變成 <strong>準備提交</strong> (Changes to be committed) 的動作，這也是 commit 前的檔案應該有的狀態。</p>
 <h2 id="將檔案放到儲存庫"><a class="markdownIt-Anchor" href="#將檔案放到儲存庫">#</a> 將檔案放到儲存庫</h2>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"commit 內容"</span></pre></td></tr></table></figure><p>當檔案都 add 完之後，就可以透過這個指令跟 git 說，我這裡有整理好的檔案，請幫我把這堆檔案打包成一個版本。在執行之後，git 自動會生成一段亂碼 (SHA-1) 註記。<br>
+<p>當檔案都 add 完之後，就可以透過這個指令跟 Git 說，「我這裡有整理好的檔案，請幫我把這堆檔案打包成一個版本。」<br>
+在執行之後，Git 自動會生成一段亂碼 (SHA-1) 註記。<br>
 而 <strong>雙引號</strong> 的內容，是我們要針對這個版本去撰寫一些文字，好讓之後回頭看版本內容的時候，可以看出這個版本做了什麼修改，所以訊息內容越清楚越好，否則到時候版本一多，會很難去辨別這個版本進行了什麼修改！</p>
-<p>如果覺得開發程每次都要先 add 之後 再 commit 很麻煩，想一次搞定的話可以用下列的指令參數，把 add 的行為跟 commit 的行為一次搞定。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"commit 內容"</span></pre></td></tr></table></figure><p>如果覺得開發程每次都要先 add 之後 再 commit 很麻煩，想一次搞定的話可以用下列的指令參數，把 add 的行為跟 commit 的行為一次搞定。</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-am</span> <span class="token string">"commit 內容"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 等同於</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-a</span> <span class="token parameter variable">-m</span> <span class="token string">"commit 內容"</span></pre></td></tr></table></figure><p>不過要注意的是，這個指令只會 add 到 <strong>更改的檔案</strong> (Changes to be committed) ，如果是<strong>新增加的檔案</strong> (Untracked files)，是不會被處理到的哦！千萬小心！</p>
 <h2 id="查看-git-狀態"><a class="markdownIt-Anchor" href="#查看-git-狀態">#</a> 查看 Git 狀態</h2>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> status</pre></td></tr></table></figure><p>在一個穩定的狀態下執行這個指令<br>
-我們可以看到第一行顯示著 <strong>On branch main</strong>，代表著目前我們正在 main 這個分支<br>
+<p>操作 Git 的過程，如果不確定目前檔案有哪些狀態的話，可以操作這個指令進行查看。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> status</pre></td></tr></table></figure><p>在一個穩定的狀態下執行指令，可以看到第一行顯示著 <strong>On branch main</strong>，代表著目前我們正在 main 這個分支<br>
 並且看到，這個 branch 已經有 25 個 commits<br>
  而最後一句，<strong>nothing to commit, working tree clean</strong>，代表目前工作目錄是乾淨的，沒有任何東西需要被 commit</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch main</pre></td></tr><tr><td data-num="3"></td><td><pre>Your branch is ahead of <span class="token string">'origin/main'</span> by <span class="token number">25</span> commits.</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git push"</span> to publish your <span class="token builtin class-name">local</span> commits<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>nothing to commit, working tree clean</pre></td></tr></table></figure><p>如果有新增刪除修改檔案的狀況下執行指令，有哪些檔案是<strong>尚未追蹤</strong>，哪些是<strong>更改但尚未暫存</strong>，哪些又是<strong>已暫存</strong>，將會一目了然！<br>
-同時，git 也會透過一些訊息，告訴我們可以下哪些指令去處理這些檔案的操作。</p>
+同時，Git 也會透過一些訊息，告訴我們可以下哪些指令去處理這些檔案的操作。</p>
 <p>例如在<strong>準備提交</strong> (Changes to be committed) 的狀態的訊息<br>
 提示我們可以透過 <strong>“git restore --staged ‘file’”</strong> 的指令，把暫存區的檔案還原為<strong>待追蹤</strong>狀態。</p>
 <p>而在<strong>已更變但尚未暫存</strong> (Changes not staged for commit) 的狀態中：</p>
@@ -190,24 +194,32 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log <span class="token parameter variable">--oneline</span></pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span></pre></td></tr><tr><td data-num="2"></td><td><pre>dced50f <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> main<span class="token punctuation">)</span> <span class="token function">add</span></pre></td></tr><tr><td data-num="3"></td><td><pre>bf3f697 <span class="token function">add</span> something.js</pre></td></tr><tr><td data-num="4"></td><td><pre>3f1bf61 <span class="token function">add</span> ignore</pre></td></tr><tr><td data-num="5"></td><td><pre>29a2dc6 style message</pre></td></tr><tr><td data-num="6"></td><td><pre>46d7464 合併</pre></td></tr></table></figure><p>人類的慾望是無窮無盡的，除了希望一行解決之外，還希望能看到簡單的樹狀圖<br>
 可以再加上  <code>--graph</code>  參數</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span></pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span></pre></td></tr><tr><td data-num="2"></td><td><pre>*   46d7464 合併</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token operator">|</span> * 205b304 <span class="token punctuation">(</span>cat<span class="token punctuation">)</span> 新增js</pre></td></tr><tr><td data-num="5"></td><td><pre>* <span class="token operator">|</span> 4179ab1 新增css</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token operator">|</span>/</pre></td></tr><tr><td data-num="7"></td><td><pre>*   d9b22eb Merge branch <span class="token string">'cat'</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token operator">|</span> * 82f15d6 new wrap</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token operator">|</span> * ab699a3 <span class="token builtin class-name">test</span></pre></td></tr><tr><td data-num="11"></td><td><pre>* <span class="token operator">|</span> 6f0f046 main <span class="token function">cat</span></pre></td></tr><tr><td data-num="12"></td><td><pre>* <span class="token operator">|</span> 2fcdbe9 handle conflict</pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span><span class="token operator">|</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token operator">|</span> * 1462e9b <span class="token function">cat</span> commit</pre></td></tr><tr><td data-num="15"></td><td><pre>* <span class="token operator">|</span> 6f2b268 新的commit</pre></td></tr><tr><td data-num="16"></td><td><pre>* <span class="token operator">|</span> ca4a9cd 處理衝突</pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span><span class="token operator">|</span> </pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token operator">|</span> * 90c1431 <span class="token function">cat</span></pre></td></tr><tr><td data-num="19"></td><td><pre>* <span class="token operator">|</span> 392601d new</pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token operator">|</span>/</pre></td></tr></table></figure><blockquote>
-<p>小提示：git log 指令如果 show 出 太長的訊息，終端機結尾會出現 “:”<br>
+<p>小提示： <code>git log</code>  指令如果有太多 commit 需要呈現，終端機結尾會出現 <strong>&quot;:&quot;</strong><br>
  如果要繼續顯示的話，可以按  <code>enter</code>  按鍵，若要取消的話，則可以按  <code>Q</code>  鍵來結束</p>
 </blockquote>
 <h2 id="補充"><a class="markdownIt-Anchor" href="#補充">#</a> 補充</h2>
 <h3 id="commit指令到底commit了什麼"><a class="markdownIt-Anchor" href="#commit指令到底commit了什麼">#</a> commit 指令，到底 commit 了什麼？</h3>
-<p>以前在操作 git 的時候，常常無腦的 add 後 commit，其實這個動作就是透過 add 指令跟 git 說哪些檔案<strong>準備要放到儲存庫</strong>，再使用 commit 指令請 git 把這些檔案，整包丟到儲存庫。<br>
-如果沒有先執行 add 指令處理檔案，就直接 commit 的話，git 因為不知道要控管哪些檔案，而會跳出「nothing to commit」的訊息哦！</p>
+<p>以前在操作 Git 的時候，常常無腦的 add 後 commit，其實這個動作就是透過 add 指令跟 Git 說哪些檔案<strong>準備要放到儲存庫</strong>，再使用 commit 指令請 Git 把這些檔案，整包丟到儲存庫。<br>
+如果沒有先執行 add 指令處理檔案，就直接 commit 的話，Git 因為不知道要控管哪些檔案，而會跳出「nothing to commit」的訊息哦！</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> commit <span class="token parameter variable">-am</span> <span class="token string">"提交內容"</span></pre></td></tr><tr><td data-num="2"></td><td><pre>On branch main</pre></td></tr><tr><td data-num="3"></td><td><pre>Your branch is ahead of <span class="token string">'origin/main'</span> by <span class="token number">25</span> commits.</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git push"</span> to publish your <span class="token builtin class-name">local</span> commits<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>nothing to commit, working tree clean</pre></td></tr></table></figure><blockquote>
 <p>有沒有注意到，這時候 commit 的訊息，跟上面 git status 的訊息長得完全一樣<br>
 事實上 nothing to commit 的訊息就是在告訴我們，目前 工作目錄 (working tree) 沒有新東西要進行處理！</p>
 </blockquote>
-<h2 id="狀況題"><a class="markdownIt-Anchor" href="#狀況題">#</a> 狀況題</h2>
+<h3 id="直接刪掉工作目錄的檔案跟透過-git-rm-檔案名稱-執行的差別在哪裡啊"><a class="markdownIt-Anchor" href="#直接刪掉工作目錄的檔案跟透過-git-rm-檔案名稱-執行的差別在哪裡啊">#</a> 直接刪掉工作目錄的檔案，跟透過  <code>git rm [檔案名稱]</code>  執行的差別在哪裡啊？</h3>
+<p>這個問題我們直接來實驗看看就知道。<br>
+首先我們建立<strong>直接刪掉.js</strong> 檔案跟<strong> git rm 刪掉.js</strong> 檔案<br>
+分別進行相對應的操作後，透過  <code>git status</code>  指令看看兩個檔案的狀態</p>
+<p>我們可以看到，透過 Git 指令刪除的檔案，會直接被放到 <strong>暫存庫</strong> 的區塊<br>
+而刪掉工作目錄的檔案，則是被 Git 視為一種 <strong>檔案更動</strong> 行為，如果需要放到 <strong>暫存庫</strong> ，則需要再執行一次 add 指令</p>
+<p>所以其實這兩個操作對我們來說都是把檔案刪掉，只是在 Git 看來，檔案的狀態不同罷了！</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch main</pre></td></tr><tr><td data-num="3"></td><td><pre>Your branch is ahead of <span class="token string">'origin/main'</span> by <span class="token number">23</span> commits.</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git push"</span> to publish your <span class="token builtin class-name">local</span> commits<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        deleted:    <span class="token function">git</span> <span class="token function">rm</span> 刪掉.js</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        deleted:    直接刪掉.js</pre></td></tr></table></figure><h2 id="狀況題"><a class="markdownIt-Anchor" href="#狀況題">#</a> 狀況題</h2>
 <h3 id="狀況一-希望把暫存區已經add的檔案還原成-待追蹤-尚未add-的狀態"><a class="markdownIt-Anchor" href="#狀況一-希望把暫存區已經add的檔案還原成-待追蹤-尚未add-的狀態">#</a> 狀況一： 希望把暫存區 (已經 add) 的檔案還原成 待追蹤 (尚未 add) 的狀態</h3>
-<p>有時候我們放在暫存區的檔案，可能因為某些原因想取消暫存，或者說版本不想把這個檔案放進去，但已經執行 add 指令了，這樣的話可以用這個指令把檔案還原成待追蹤的狀態。</p>
+<p>有時候我們放在暫存區的檔案，可能因為某些原因想取消暫存，或者說版本不想把這個檔案放進去，但已經執行 add 指令了<br>
+這樣的話可以用這個指令把檔案還原成待追蹤的狀態。</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> restore <span class="token parameter variable">--staged</span> <span class="token operator">&lt;</span>file<span class="token operator">></span></pre></td></tr></table></figure><p>這題其實在 git status 的內容中有提到，如果忘記指令的話，可以直接執行 git status 來查看。</p>
 <h3 id="狀況二有些檔案我不想再版控了"><a class="markdownIt-Anchor" href="#狀況二有些檔案我不想再版控了">#</a> 狀況二：有些檔案我不想再版控了</h3>
-<p>如果有些檔案正在被 git 進行版控 (已經 commit 了)，但實際上不需要提交的話，可以執行這個指令</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">rm</span> 檔名 <span class="token parameter variable">--cached</span></pre></td></tr></table></figure><p>這會告訴 git 「我想要 remove 掉這個檔案，但不是從工作目錄中刪除」，而是不希望這個檔案繼續被控管，實際上也可以看得出是透過 rm 指令，再加上  <code>--cached</code>  參數來做處理 。</p>
+<p>如果有些檔案正在被 Git 進行版控 (已經 commit 了)，但實際上不需要提交的話，可以執行這個指令</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">rm</span> 檔名 <span class="token parameter variable">--cached</span></pre></td></tr></table></figure><p>這會告訴 Git 「我想要 remove 掉這個檔案，但不是從工作目錄中刪除」，而是不希望這個檔案繼續被控管，實際上也可以看得出是透過 rm 指令，再加上  <code>--cached</code>  參數來做處理 。</p>
 <h3 id="狀況三希望能修改上一個版本的-commit-的內容"><a class="markdownIt-Anchor" href="#狀況三希望能修改上一個版本的-commit-的內容">#</a> 狀況三：希望能修改上一個版本的 commit 的內容</h3>
 <p>有時候我們 commit 一個版本後，覺得某些檔案可以進一步修改再 commit，或是某些檔案沒 commit 進去，甚至已經 commit 進去但後悔了</p>
 <p>這樣的話可以透過這個指令來處理</p>
@@ -215,10 +227,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 而 “–no-edit”  代表這次的 commit 不修改訊息。<br>
 執行之後，將會把暫存區的更改合併到最後一次提交中，同時保持原來的提交訊息不變。這在想要修正最後一次提交的錯誤或者添加遺漏的檔案時很有用。</p>
 <p>如果只是想增加檔案或是修改檔案到上一個 commit 的話，直接修改檔案並且 add 到暫存區後，執行指令即可。</p>
-<p>但如果要移除 commit 後的某一個檔案，則須搭配之前提到的 <strong> <code>git rm 檔案名稱 --cached</code> </strong>   指令，把檔案移除 git 管控後，再執行 <strong> <code>git commit --amend --no-edit</code> </strong> 指令</p>
+<p>但如果要移除 commit 後的某一個檔案，則須搭配之前提到的 <strong> <code>git rm 檔案名稱 --cached</code> </strong>   指令，把檔案移除 Git 管控後，再執行 <strong> <code>git commit --amend --no-edit</code> </strong> 指令</p>
 
       <div class="tags">
-          <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
       </div>
   </div>
 
@@ -230,7 +242,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-04 16:25:01" itemprop="dateModified" datetime="2023-07-04T16:25:01+08:00">2023-07-04</time>
+    <time title="修改時間：2023-07-04 18:14:14" itemprop="dateModified" datetime="2023-07-04T18:14:14+08:00">2023-07-04</time>
   </span>
 </div>
 
@@ -243,7 +255,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </li>
   <li class="link">
     <strong>文章連結：</strong>
-    <a href="https://imall.github.io/git-note/gn-basic/" title="【Git筆記】基本指令">https://imall.github.io/git-note/gn-basic/</a>
+    <a href="https://imall.github.io/git-note/gn-basic/" title="【Git筆記】 Git 基本指令">https://imall.github.io/git-note/gn-basic/</a>
   </li>
   <li class="license">
     <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
@@ -262,22 +274,14 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-note/gn-intro/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;1GXQPGG.jpg" title="【Git筆記】序章">
+  <a href="/git-note/gn-concept/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;RPZmqBm.jpg" title="【 Git 筆記】 Git 基本觀念">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
-  <h3>【Git筆記】序章</h3>
+  <h3>【 Git 筆記】 Git 基本觀念</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/git-note/gn-concept/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;uD1DYit.jpg" title="【Git筆記】Git 世界觀">
-  <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
-  <h3>【Git筆記】Git 世界觀</h3>
-  </a>
-
     </div>
 </div>
 
@@ -294,11 +298,11 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E5%8A%A0%E5%88%B0%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">1.</span> <span class="toc-text"> 將檔案加到暫存區</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E6%94%BE%E5%88%B0%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">2.</span> <span class="toc-text"> 將檔案放到儲存庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-git-%E7%8B%80%E6%85%8B"><span class="toc-number">3.</span> <span class="toc-text"> 查看 Git 狀態</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%8E%A7%E7%9A%84%E7%89%88%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text"> 查看版控的版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text"> 補充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#commit%E6%8C%87%E4%BB%A4%E5%88%B0%E5%BA%95commit%E4%BA%86%E4%BB%80%E9%BA%BC"><span class="toc-number">5.1.</span> <span class="toc-text"> commit 指令，到底 commit 了什麼？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E9%A1%8C"><span class="toc-number">6.</span> <span class="toc-text"> 狀況題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E4%B8%80-%E5%B8%8C%E6%9C%9B%E6%8A%8A%E6%9A%AB%E5%AD%98%E5%8D%80%E5%B7%B2%E7%B6%93add%E7%9A%84%E6%AA%94%E6%A1%88%E9%82%84%E5%8E%9F%E6%88%90-%E5%BE%85%E8%BF%BD%E8%B9%A4-%E5%B0%9A%E6%9C%AAadd-%E7%9A%84%E7%8B%80%E6%85%8B"><span class="toc-number">6.1.</span> <span class="toc-text"> 狀況一： 希望把暫存區 (已經 add) 的檔案還原成 待追蹤 (尚未 add) 的狀態</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E4%BA%8C%E6%9C%89%E4%BA%9B%E6%AA%94%E6%A1%88%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E7%89%88%E6%8E%A7%E4%BA%86"><span class="toc-number">6.2.</span> <span class="toc-text"> 狀況二：有些檔案我不想再版控了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E4%B8%89%E5%B8%8C%E6%9C%9B%E8%83%BD%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E5%85%A7%E5%AE%B9"><span class="toc-number">6.3.</span> <span class="toc-text"> 狀況三：希望能修改上一個版本的 commit 的內容</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E5%8A%A0%E5%88%B0%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">1.</span> <span class="toc-text"> 將檔案加到暫存區</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E6%94%BE%E5%88%B0%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">2.</span> <span class="toc-text"> 將檔案放到儲存庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-git-%E7%8B%80%E6%85%8B"><span class="toc-number">3.</span> <span class="toc-text"> 查看 Git 狀態</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%8E%A7%E7%9A%84%E7%89%88%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text"> 查看版控的版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text"> 補充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#commit%E6%8C%87%E4%BB%A4%E5%88%B0%E5%BA%95commit%E4%BA%86%E4%BB%80%E9%BA%BC"><span class="toc-number">5.1.</span> <span class="toc-text"> commit 指令，到底 commit 了什麼？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%88%AA%E6%8E%89%E5%B7%A5%E4%BD%9C%E7%9B%AE%E9%8C%84%E7%9A%84%E6%AA%94%E6%A1%88%E8%B7%9F%E9%80%8F%E9%81%8E-git-rm-%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1-%E5%9F%B7%E8%A1%8C%E7%9A%84%E5%B7%AE%E5%88%A5%E5%9C%A8%E5%93%AA%E8%A3%A1%E5%95%8A"><span class="toc-number">5.2.</span> <span class="toc-text"> 直接刪掉工作目錄的檔案，跟透過  git rm [檔案名稱]  執行的差別在哪裡啊？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E9%A1%8C"><span class="toc-number">6.</span> <span class="toc-text"> 狀況題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E4%B8%80-%E5%B8%8C%E6%9C%9B%E6%8A%8A%E6%9A%AB%E5%AD%98%E5%8D%80%E5%B7%B2%E7%B6%93add%E7%9A%84%E6%AA%94%E6%A1%88%E9%82%84%E5%8E%9F%E6%88%90-%E5%BE%85%E8%BF%BD%E8%B9%A4-%E5%B0%9A%E6%9C%AAadd-%E7%9A%84%E7%8B%80%E6%85%8B"><span class="toc-number">6.1.</span> <span class="toc-text"> 狀況一： 希望把暫存區 (已經 add) 的檔案還原成 待追蹤 (尚未 add) 的狀態</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E4%BA%8C%E6%9C%89%E4%BA%9B%E6%AA%94%E6%A1%88%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E7%89%88%E6%8E%A7%E4%BA%86"><span class="toc-number">6.2.</span> <span class="toc-text"> 狀況二：有些檔案我不想再版控了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%80%E6%B3%81%E4%B8%89%E5%B8%8C%E6%9C%9B%E8%83%BD%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E5%85%A7%E5%AE%B9"><span class="toc-number">6.3.</span> <span class="toc-text"> 狀況三：希望能修改上一個版本的 commit 的內容</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></li><li class="active"><a href="/git-note/gn-basic/" rel="bookmark" title="【Git筆記】基本指令">【Git筆記】基本指令</a></li><li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></li><li class="active"><a href="/git-note/gn-basic/" rel="bookmark" title="【Git筆記】 Git 基本指令">【Git筆記】 Git 基本指令</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -360,12 +364,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/git-note/gn-intro/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/git-note/gn-concept/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -387,60 +389,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-basic/" title="【Git筆記】基本指令">【Git筆記】基本指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
       
@@ -457,10 +409,40 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
   </li>
 
       
@@ -477,10 +459,30 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/git-note/gn-basic/" title="【Git筆記】 Git 基本指令">【Git筆記】 Git 基本指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-concept/" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
   </ul>

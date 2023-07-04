@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="git" />
+  <meta name="keywords" content="Git" />
 
 
 <link rel="canonical" href="https://imall.github.io/git-note/gn-concept/">
@@ -32,7 +32,7 @@
 
 
   <title>
-【Git筆記】Git 世界觀 - Git 筆記 |
+【 Git 筆記】 Git 基本觀念 - Git 筆記 |
 Imall Notes ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">【Git筆記】Git 世界觀
+  <h1 itemprop="name headline">【 Git 筆記】 Git 基本觀念
   </h1>
   
 <div class="meta">
@@ -99,12 +99,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/mHIiru7.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/Em2JNXM.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/Se14t9C.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/1GXQPGG.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/RPZmqBm.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/DRF2jWS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/Se14t9C.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/vQbDgqe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/82593HB.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/symKCYM.jpg"></li>
         </ul>
       </div>
     </header>
@@ -150,7 +150,14 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>想像一個城鎮，城鎮中有一個大廣場，廣場中有一個倉庫。<br>
+    <h2 id="什麼-git"><a class="markdownIt-Anchor" href="#什麼-git">#</a> 什麼 Git？</h2>
+<p>「阿就… 版控工具阿？！」 這可能是大部分的人聽到 Git 之後的第一個直覺反應，畢竟業界現在提到版控這個詞，要不是提 Git 就是 SVN 。</p>
+<p>不過到底為什麼要用 Git ？我們直接把檔案 <span class="kbd red">Ctrl</span> + <span class="kbd red">A</span> 然後 包起來複製一份，不就控好了嗎？<br>
+甚至我們還可以把每個檔案用日期當檔名，就可以知道是哪個時間操作的，很方便吧！</p>
+<p>這個方法很傳統也很簡單，可能隨便叫一個剛學會電腦的小學生，都知道可以這麼操作。不過如果我希望在一堆打包的備份檔案裡面，分辨每一包程式到底差異在哪，這可能會是很大的問題，又如果刪了某一包的備份，突然發現那份資料很重要需要復原，可能也有還原不了的風險存在。</p>
+<p>透過 Git ，或許很多需要辨別檔案內容、操作檔案內容、更變檔案內容、了解內容版本的問題，可以很方便的解決！</p>
+<h2 id="git-基本觀念"><a class="markdownIt-Anchor" href="#git-基本觀念">#</a> Git 基本觀念</h2>
+<p>想像一個城鎮，城鎮中有一個大廣場，廣場中有一個倉庫。<br>
 城鎮有許多貨物在運送，這些貨物最後都會被放到倉庫裡頭。而在進入倉庫之前，這些貨物會先被集中到大廣場。<br>
 而控管貨物狀態的，就是警衛先生，他會聽從鎮長的指示去整理大廣場中的貨物。<br>
 等到鎮長跟他說整理得差不多了，他就會把貨物整批放到倉庫裡面。<br>
@@ -159,32 +166,49 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <p>我們把這個想像帶到 Git 的世界中：<br>
 鎮長就是使用 Git 的人們，警衛則扮演著 Git 的腳色。<br>
 同時整個城鎮就是整包的專案，而貨物則是 Git 所控管 (或是管不到) 的<strong>檔案</strong>。</p>
-<p><strong>廣場外</strong>的貨物，就像<strong>新增</strong>的檔案。它們是尚未被 Git 所追蹤和控制的檔案。Git 無法對這些檔案進行版本控制，如果刪除或修改這些檔案，Git 無法對其進行恢復。</p>
+<p><strong>廣場外</strong>的貨物，就像<strong>新增</strong>的檔案。它們是尚未被 Git 所追蹤和控制的檔案。 Git 無法對這些檔案進行版本控制，如果刪除或修改這些檔案， Git 無法對其進行恢復。</p>
 <p><strong>廣場上</strong>的貨物，就像是在<strong>暫存區</strong>的檔案。這些檔案已經被 Git 追蹤，但尚未被永久地記錄在儲存庫中。暫存區中的檔案表示已經告訴 Git 要將這些檔案納入下一次的提交中。如果檔案在暫存區中被修改或刪除，Git 可以將其還原回最後一次提交的狀態。</p>
 <p><strong>倉庫</strong>中的貨物，就好比是在<strong>儲存庫</strong>的檔案。這些檔案已經被 Git 永久地記錄在儲存庫中，形成了不同的版本。這些檔案是穩定的且可以被復原到過去的狀態。</p>
 <p>透過上述的說明，我們先簡單總結一個概念：使用 <strong>Git</strong> 時，可能的狀態包含以下三個</p>
 <ol>
-<li><strong>新增</strong>的檔案：尚未被 Git 所追蹤和控制。</li>
-</ol>
+<li>
+<p><strong>新增</strong>的檔案：尚未被 Git 所追蹤和控制。</p>
 <blockquote>
 <p>這些檔案就跟尚未加上 Git 版控一樣，Git 管不到他，刪了、改了，Git 想復原也沒辦法</p>
 </blockquote>
-<ol start="2">
-<li><strong>暫存區</strong>（已追蹤）的檔案：已被 Git 追蹤，但尚未被永久地記錄在儲存庫中，表示它們準備納入下一次的提交。</li>
-</ol>
+</li>
+<li>
+<p><strong>暫存區</strong>（已追蹤）的檔案：已被 Git 追蹤，但尚未被永久地記錄在儲存庫中，表示它們準備納入下一次的提交。</p>
 <blockquote>
-<p>這些檔案是 Git <strong>暫時追蹤</strong> 的檔案，只是讓 Git 知道：哦<sub>我準備要控管你囉</sub>的狀態<br>
+<p>這些檔案是 Git <strong>暫時追蹤</strong> 的檔案，只是讓 Git 知道：哦～我準備要控管你囉～的狀態<br>
 此時如果檔案被修改了，或是被刪除了，Git 都有辦法進行還原</p>
 </blockquote>
-<ol start="3">
-<li><strong>儲存庫</strong>的檔案：已被 Git 永久地記錄在儲存庫中，形成了不同的版本，可以復原到過去的狀態。</li>
-</ol>
+</li>
+<li>
+<p><strong>儲存庫</strong>的檔案：已被 Git 永久地記錄在儲存庫中，形成了不同的 <strong>版本</strong>。</p>
 <blockquote>
-<p>這些檔案是 Git 已記錄的<strong>穩定版</strong>檔案，可以解釋成已經定義為「一個版本」的檔案</p>
+<p>這些檔案是 Git 已記錄的<strong>穩定版</strong>檔案，可以解釋成已經定義為<strong>一個版本</strong>的檔案</p>
 </blockquote>
+</li>
+</ol>
+<p>而在開發過程的操作，大多會圍繞在 <strong>暫存區</strong> 中，去控制每一個版本的檔案應該長怎麼樣<br>
+在開發完成之後，則會去處理 <strong>儲存庫</strong> 內的版本狀態</p>
+<h2 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h2>
+<h3 id="git-跟-github-有什麼差別還有像是-git-lab-tfs-的東西那是-git-的別名嗎"><a class="markdownIt-Anchor" href="#git-跟-github-有什麼差別還有像是-git-lab-tfs-的東西那是-git-的別名嗎">#</a> Git 跟 GitHub 有什麼差別，還有像是 Git Lab 、TFS 的東西，那是 Git 的別名嗎？</h3>
+<p>這也是我剛接觸 Git 就優先搞混的東西，看到字樣上都有 <strong>Git</strong> ，那應該就是一樣的東西吧！<br>
+其實 Git 是一個版本控制的 <strong>軟體</strong> ，而 GitHub 、 GitLab 這類則是 <strong>商業網站</strong><br>
+雖然這些網站確實是建構在 Git 之上，提供各種 Git 圖形化介面讓我們更方便的去操作 Git ，不過本質上會是一個 Git 的伺服器。</p>
+<p>可以想像成 Git 是我們的電腦本體，我們可以在這上面操作各種檔案<br>
+而 GitHub、 GitLab、TFS 這些東西就像 Google drive、One drive 這類東西，是可以讓我們把本機端的資料上傳的雲端空間。<br>
+本機的檔案內容跟雲端空間的檔案內容，如果沒特別設定的話，基本上不會互相干擾</p>
+<p>事實上， Git 在安裝好之後，即使沒有網路也可以在本機進行檔案的控管<br>
+不過如果要把資料 push 到 Git Server ，就如同把檔案上傳到 XXX drive 一樣，是需要透過網路才能執行的！</p>
+<p>雖然這些網站很便捷的幫我們包裝好常用到的指令，但由於這些功能都是建構在 Git 之上<br>
+如果在不熟悉 Git 的用途下操作，就可能沒辦法把握在網站上操作的動作是否會影響到版本控制。<br>
+反過來說，如果希望操作網站能夠更駕輕就熟，那就先建構好基本的 Git 觀念吧！！</p>
 
       <div class="tags">
-          <a href="/tags/git/" rel="tag"><i class="ic i-tag"></i> git</a>
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
       </div>
   </div>
 
@@ -196,7 +220,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-04 16:25:05" itemprop="dateModified" datetime="2023-07-04T16:25:05+08:00">2023-07-04</time>
+    <time title="修改時間：2023-07-04 18:13:04" itemprop="dateModified" datetime="2023-07-04T18:13:04+08:00">2023-07-04</time>
   </span>
 </div>
 
@@ -209,7 +233,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   </li>
   <li class="link">
     <strong>文章連結：</strong>
-    <a href="https://imall.github.io/git-note/gn-concept/" title="【Git筆記】Git 世界觀">https://imall.github.io/git-note/gn-concept/</a>
+    <a href="https://imall.github.io/git-note/gn-concept/" title="【 Git 筆記】 Git 基本觀念">https://imall.github.io/git-note/gn-concept/</a>
   </li>
   <li class="license">
     <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
@@ -228,14 +252,22 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-note/gn-basic/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;1GXQPGG.jpg" title="【Git筆記】基本指令">
+  <a href="/git-note/gn-intro/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;W71jGXB.jpg" title="【Git筆記】序章">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
-  <h3>【Git筆記】基本指令</h3>
+  <h3>【Git筆記】序章</h3>
   </a>
 
     </div>
     <div class="item right">
+      
+
+  <a href="/git-note/gn-basic/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mHIiru7.jpg" title="【Git筆記】 Git 基本指令">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
+  <h3>【Git筆記】 Git 基本指令</h3>
+  </a>
+
     </div>
 </div>
 
@@ -252,10 +284,11 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC-git"><span class="toc-number">1.</span> <span class="toc-text"> 什麼 Git？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text"> Git 基本觀念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">3.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-%E8%B7%9F-github-%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5%E9%82%84%E6%9C%89%E5%83%8F%E6%98%AF-git-lab-tfs-%E7%9A%84%E6%9D%B1%E8%A5%BF%E9%82%A3%E6%98%AF-git-%E7%9A%84%E5%88%A5%E5%90%8D%E5%97%8E"><span class="toc-number">3.1.</span> <span class="toc-text"> Git 跟 GitHub 有什麼差別，還有像是 Git Lab 、TFS 的東西，那是 Git 的別名嗎？</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li class="active"><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></li><li><a href="/git-note/gn-basic/" rel="bookmark" title="【Git筆記】基本指令">【Git筆記】基本指令</a></li><li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li class="active"><a href="/git-note/gn-concept/" rel="bookmark" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></li><li><a href="/git-note/gn-basic/" rel="bookmark" title="【Git筆記】 Git 基本指令">【Git筆記】 Git 基本指令</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -317,10 +350,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/git-note/gn-intro/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/git-note/gn-basic/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -342,56 +377,6 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 世界觀">【Git筆記】Git 世界觀</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-basic/" title="【Git筆記】基本指令">【Git筆記】基本指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
@@ -402,10 +387,30 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
 </div>
 
     <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
   </li>
 
       
@@ -436,6 +441,36 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-concept/" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-basic/" title="【Git筆記】 Git 基本指令">【Git筆記】 Git 基本指令</a></span>
   </li>
 
   </ul>

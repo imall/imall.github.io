@@ -99,12 +99,12 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/Em2JNXM.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/uD1DYit.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/Se14t9C.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/symKCYM.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/LphFlSF.jpeg"></li>
           <li class="item" data-background-image="https://i.imgur.com/W71jGXB.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/RPZmqBm.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/1GXQPGG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/DRF2jWS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mHIiru7.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/Em2JNXM.jpg"></li>
         </ul>
       </div>
     </header>
@@ -151,9 +151,9 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
     
 
     <h2 id="為什麼要使用分支"><a class="markdownIt-Anchor" href="#為什麼要使用分支">#</a> 為什麼要使用分支？</h2>
-<p>在版控的過程，只操作 commit 來控制版本其實沒什麼太大的問題<br>
-不過在專案進行的過程中，多少會有一些「怕改壞毀了原始樣貌」的操作需要執行<br>
- Git 的分支功能就很適合來處理這樣的狀況</p>
+<p>在版控的過程，一直用一條主線來控制版本其實沒什麼太大的問題<br>
+不過在專案進行的過程中，多少會有一些「可能會造成主線內容難以復原」的操作需要執行<br>
+使用 Git 的分支功能就很適合來處理這樣的狀況</p>
 <p>分支就像 《火影忍者》ナルト的影分身之術，即便分身戰鬥失敗死亡了，本體也不會受到影響。</p>
 <p>在實際團隊合作上，就很常會使用分支來合作<br>
 像是開發新功能、改 bug、實驗不同的寫法這類可能會造成原本的資料壞掉的操作<br>
@@ -162,8 +162,8 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <p>即使只有一個人在進行版控，也很推薦使用 Git 的分支來處理需求</p>
 <blockquote>
 <p>註一：<br>
-在 Git 開的分支本身並不會有特殊的意義，每個人對於使用分支的方式不一定會相同。<br>
-Vincent Driessen 在 2010 年提出 Git Flow 的概念，定義不同的分支名稱，並且賦予其意義，讓團隊可以更順利的進行開發</p>
+在 Git 的世界中，<a href="#%E9%97%9C%E6%96%BC%E5%88%86%E6%94%AF%E7%9A%84%E8%A7%80%E5%BF%B5">分支本身並不會有特殊的意義</a>，每個人對於使用分支的方式不一定會相同。<br>
+使得 2010 年，Vincent Driessen 提出 Git Flow 的概念來定義不同的分支名稱，賦予這些分支特別的意義，讓團隊能遵循這個統一規則進行開發</p>
 </blockquote>
 <h2 id="使用分支"><a class="markdownIt-Anchor" href="#使用分支">#</a> 使用分支</h2>
 <blockquote>
@@ -217,8 +217,8 @@ Vincent Driessen 在 2010 年提出 Git Flow 的概念，定義不同的分支�
 所以我們沒辦法直接刪除目前所在的分支，如果要刪的話，則必須切換到其他分支之後，再執行刪除指令</p>
 </li>
 <li>
-<p>分支 commit 了新的版本<br>
-即便我們離開了新的分支，如果要刪除的分支本身有 commit 一個新的版本<br>
+<p>沒被合併的分支<br>
+即使我們不在要刪除的分支上，如果這分支本身一枝獨秀<br>
  Git 會提示這個分支還沒被合併，詢問是不是真的要刪除分支</p>
 </li>
 </ol>
@@ -229,7 +229,7 @@ Vincent Driessen 在 2010 年提出 Git Flow 的概念，定義不同的分支�
 故事大概會是這樣發展：</p>
 <ol>
 <li>我們在 <strong>master</strong> 分支新增了一個分支 <strong>feature</strong></li>
-<li><strong>feature</strong> 完成了一些更動，commit 一兩個版本</li>
+<li><strong>feature</strong> 完成了一些更動，commit 一些版本</li>
 <li>想把 <strong>feature</strong> 改的內容，併回去 <strong>master</strong> 內</li>
 </ol>
 <p>我們可以進行幾個步驟完成這件事：</p>
@@ -247,79 +247,122 @@ Vincent Driessen 在 2010 年提出 Git Flow 的概念，定義不同的分支�
 那我們就必須 <strong>在 master 分支</strong> 執行指令告訴 Git：<br>
 「我 (master) 要把 feature 分支的內容併回我身上！」</p>
 <p>其實 Git 並不會嚴格要求哪個分支要合併哪個分支，分支的權重會在<a href="#%E9%97%9C%E6%96%BC%E5%88%86%E6%94%AF%E7%9A%84%E8%A7%80%E5%BF%B5">後續</a>進行說明<br>
-大多數的情況下都是為了遵守人為規定來決定這個議題</p>
-<h4 id="合併衝突"><a class="markdownIt-Anchor" href="#合併衝突">#</a> 合併衝突？！</h4>
-<p>(待補)</p>
-<h2 id="git-分支的概念"><a class="markdownIt-Anchor" href="#git-分支的概念">#</a> Git 分支的概念</h2>
+大多數的情況下，都是為了依循人為定義的分支規則，來決定誰要合併誰。</p>
+<p>想像一下上面的例子，feature 分支明明是為了開發新功能而建立的<br>
+如果在 feature 分支執行  <code>git merge master</code> ，意思就會是「我這個功能分支，要把主要分支併過來哦！」<br>
+這概念就會有點奇怪了對吧！</p>
+<h3 id="合併衝突"><a class="markdownIt-Anchor" href="#合併衝突">#</a> 合併衝突</h3>
+<p>我們在 Git 分支觀念不清楚的情況去使用分支、合併分支，無論是一個人的使用或是團隊開發，都有機會遇到 <strong>合併衝突</strong> 的議題。<br>
+事實上我們進行分支合併的過程，並沒有辦法確保衝突一定不會發生，既然這是可能會發生的議題，那我們就要知道發生了應該怎麼處理。</p>
+<p>但如果認為使用 Git 進行版控，遇到分支合併的狀況，一定會很常遇到衝突的話，那就是一個很嚴重的錯誤觀念了！<br>
+合併會發生衝突的原因只有一個：兩個分支的過往版本，都曾經修改了 <strong>同一個檔案</strong>的<strong>同一行文字</strong> 。</p>
+<p>例如這個操作步驟：</p>
+<ol>
+<li>在 master 開了 developer 分支</li>
+<li>master 修改 readme.txt 檔案的第一行並且 commit 一版</li>
+<li>developer 也修改 readme.txt 檔案的第一行，然後 commit 一版</li>
+<li>master 合併 developer 分支時，就會衝突</li>
+</ol>
+<p>又或者實務上多人操作時：</p>
+<ol>
+<li>兩個使用者分別透過 master 開了 developer 跟 feature 分支</li>
+<li>developer 修改 readme.txt 檔案的第一行並且 commit 一個版本</li>
+<li>feature 也修改 readme.txt 檔案的第一行 ，commit 一個版本</li>
+<li>master 合併 developer 分支，理應順利的合併</li>
+<li>master 再合併 feature 分支，就會發生衝突</li>
+</ol>
+<p>由於修改 <strong>同一個檔案</strong>的<strong>同一行文字</strong> ，Git 在合併的過程，就會混淆兩個 commit 都改了這行的內容，應該以哪個為主？<br>
+所以發生衝突很簡單的理由，就是協作溝通不良，導致兩個人應該在不同分支修改不同內容時，卻改到了同一個地方。</p>
+<p>無論如何，發生問題就要想辦法去解決<br>
+我們先模擬上面第一個例子的行為進行 Git 的操作。</p>
+<p>Git 在 merge 指令發生衝突時，會呈現出這樣的資訊，告訴我們 <strong>某個檔案</strong> 發生了衝突<br>
+最後一句話最重要，Git 提示我們 <strong>先解決衝突，然後 commit 這個已解決的結果</strong></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> merge developer</pre></td></tr><tr><td data-num="2"></td><td><pre>Auto-merging readme.txt</pre></td></tr><tr><td data-num="3"></td><td><pre>CONFLICT <span class="token punctuation">(</span>content<span class="token punctuation">)</span>: Merge conflict <span class="token keyword">in</span> readme.txt</pre></td></tr><tr><td data-num="4"></td><td><pre>Automatic merge failed<span class="token punctuation">;</span> fix conflicts and <span class="token keyword">then</span> commit the result.</pre></td></tr></table></figure><p>此時我們用  <code>git status</code>  指令來看一下目前的狀態，這裡可以看到第三行提示一個以前沒看過的訊息<br>
+<strong> You have unmerged paths.</strong>，代表著目前正在 <strong>尚未合併完成</strong>的狀態</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr class="marked"><td data-num="3"></td><td><pre>You have unmerged paths.</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>fix conflicts and run <span class="token string">"git commit"</span><span class="token punctuation">)</span></pre></td></tr><tr class="marked"><td data-num="5"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git merge --abort"</span> to abort the merge<span class="token punctuation">)</span>      </pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr class="marked"><td data-num="7"></td><td><pre>Unmerged paths:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to mark resolution<span class="token punctuation">)</span>      </pre></td></tr><tr><td data-num="9"></td><td><pre>        both modified:   readme.txt</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>no changes added to commit <span class="token punctuation">(</span>use <span class="token string">"git add"</span> and/or <span class="token string">"git commit -a"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>解決衝突的方式有兩種</p>
+<ol>
+<li>放棄合併<br>
+直接透過上面第五行提示的指令  <code>git merge --abort</code>  來放棄。</li>
+</ol>
+<p>可能會有人覺得，放棄很可恥，既然合併了就是要成功不是嗎？<br>
+事實上，<s>放棄確實可恥，但卻很有用</s>，在操作合併如果發生衝突，選擇放棄也是一個蠻正常的事情<br>
+舉例來說，你是負責 master 的人，同事負責 developer 分支<br>
+今天你在 master 把 developer 合併回來結果發生衝突，但衝突的內容因為是同事改的，你也不知道怎麼修比較好<br>
+這樣的狀況，選擇放棄合併，等同事回來再跟他討論如何修改，就會是很恰當的做法<br>
+畢竟如果改壞了，<s>壞</s>同事說不定還會甩鍋給你。</p>
+<p>但如果這個同事在場，可以找到人進行討論的話，就可以透過第二種方式進行處理</p>
+<ol start="2">
+<li>手動處理合併衝突<br>
+回頭看一下剛剛  <code>git status</code>  的內容的第七行的內容， <code>Unmerged paths:</code>  會顯示尚未合併成功的路徑檔案<br>
+這些就是所有發生合併衝突的檔案，我們要一一的處理這些檔案的合併<br>
+以這個例子來說，發生衝突的檔案是 <strong>readme.txt</strong>，此時我們把這個檔案打開，會看到原本的內容被 Git 進行修改</li>
+</ol>
+<figure class="highlight raw"><figcaption data-lang=""><span>readme.txt</span></figcaption><table><tr><td data-num="1"></td><td><pre>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</pre></td></tr><tr><td data-num="2"></td><td><pre>這是 master 修改的 readme.txt</pre></td></tr><tr><td data-num="3"></td><td><pre>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</pre></td></tr><tr><td data-num="4"></td><td><pre>這是 developer 修改的 readme.txt</pre></td></tr><tr><td data-num="5"></td><td><pre>&gt;&gt;&gt;&gt;&gt;&gt;&gt; developer</pre></td></tr></table></figure><p>原本文件內容只有一行，發生合併衝突時，Git 會把<strong>原本的分支</strong>跟<strong>要合併的分支</strong>發生衝突的部分全部都列出來<br>
+並且會呈現很固定的格式 ，開頭會是七個 <strong>“&lt;”</strong> 符號，加上 HEAD 文字，代表著目前的分支<br>
+結尾則會是七個 <strong>“&gt;”</strong> 符號，加上預計合併的分支名稱，代表預計合併的分支<br>
+兩者之間會有七個 <strong>“=”</strong> 符號，進行資料的相隔。</p>
+<p>看懂了之後，我們就可以把  <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> 、 <code>=======</code> 、 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; developer</code>  這三行的內容刪掉，並且撰寫真正要留下來的內容<br>
+可以<strong>保留自己的版本</strong>或是<strong>保留對方的版本</strong>，甚至<strong>保留兩者的版本</strong>或是直接<strong>修改成你想要的任何內容</strong></p>
+<p>編輯將檔案 <strong>存檔</strong> 之後，就可以透過  <code>add</code>  指令把 <strong>修改完的檔案加到暫存區</strong></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> readme.txt</pre></td></tr></table></figure><p>當執行  <code>git add</code>  成功之後，執行  <code>git status</code>  指令，系統會提示  <code>All conflicts fixed but you are still merging.</code>  來告訴我們衝突已經被解決了，但是我們依然處於正在合併的狀態，同時衝突的檔案出現在我們很熟悉的 <strong>準備提交</strong> (Changes to be committed) 的項目中。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr><td data-num="3"></td><td><pre>All conflicts fixed but you are still merging.</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git commit"</span> to conclude merge<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="7"></td><td><pre>        modified:   readme.txt</pre></td></tr></table></figure><p>接著，我們使用  <code>commit</code>  指令，commit 一個版本，並且對這個合併的行為進行一個命名<br>
+命名的內容隨便我們寫，這就是一個標準的 commit 提交版本的指令</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"將 master 跟 developer 進行合併"</span></pre></td></tr></table></figure><p>到了這邊，我們手動解決衝突的步驟，就正式完成！</p>
+<p>總結一下分支合併如果發生衝突的解決方式：</p>
+<ol>
+<li>直接放棄</li>
+</ol>
+<blockquote>
+<p>使用 <code>git merge --abort</code>  指令來放棄合併</p>
+</blockquote>
+<ol start="2">
+<li>手動解決衝突</li>
+</ol>
+<blockquote>
+<p>1. 開啟發生衝突的檔案<br>
+ 2. 將系統自動增加的  <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> 、 <code>=======</code> 、 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; developer</code>  內容刪掉<br>
+ 3. 修改衝突內容<br>
+ 4. 存檔<br>
+ 5. 執行  <code>git add</code>  指令將衝突檔案加到暫存區<br>
+ 6. 執行  <code>git commit</code>  提交合併的內容</p>
+</blockquote>
+<div class="note default no-icon">
+<p>使用 vscode 的時候，合併衝突的內容會有醒目的顏色與按鈕讓我們操作<br>
+這本質上與上述內容一樣，只是用一些顏色來區別分支內容</p>
+<p>其中 <strong>接受目前更變</strong> 、 <strong>接受來源更變</strong> 、 <strong>接受兩者更變</strong> 這三個文字按鈕<br>
+分別對應的就是<strong>目前 (HEAD) 這個分支</strong>的內容、 <strong>要拿來合併分支</strong> 的內容，以及 <strong>兩個分支的內容</strong><br>
+點擊之後會自動刪除系統增加的那幾行文字，並依照操作保留資料，使我們更快的去操作衝突合併</p>
+<p><img data-src="https://i.imgur.com/Tf2SvFH.jpg" alt="vscode 合併衝突示意圖"></p>
+</div>
+<h2 id="git-分支是什麼是像樹枝那樣嗎"><a class="markdownIt-Anchor" href="#git-分支是什麼是像樹枝那樣嗎">#</a> Git 分支是什麼？是像樹枝那樣嗎？</h2>
 <p>第一次聽到分支這個詞彙時，腦袋的第一個想法是聯想到「樹枝」分岔持續長大的畫面<br>
 特別是在看到 Git 的樹狀圖之後，讓我更深信的 Git 分支就是這個意思<br>
 直到最近才知道，原來不該這樣去思考 Git 的分支</p>
-<p>首先，我們在操作分支的過程，會讓分支不斷的分岔、長大<br>
-透過圖形介面或是  <code>git log --oneline --graph</code>  指令看到類似樹狀圖的東西</p>
+<p>首先，我們在操作分支的過程，會新增分支使樹狀圖分岔、分支 commit 使其長大<br>
+透過圖形介面或是  <code>git log --oneline --graph</code>  指令會看到像是樹狀圖的東西</p>
 <blockquote>
 <p>在版控的過程，最重要的是這個樹狀圖，而不是分支本身！</p>
 </blockquote>
 <p>整個 Git 的結構圖，無論成長的樣子是 <strong>一根直直的</strong>，還是 <strong>分岔出很多支線</strong><br>
 在每個線段上應該都會有很多的 commit ，這些 commit 都會有 SAH 編碼作為版本號碼<br>
-而分支所扮演的腳色，除了操作到最後長出樹狀圖之外，更重要的是針對需要的 commit <strong>貼上標籤</strong></p>
+而分支所扮演的腳色，除了操作到最後長出樹狀圖之外，更重要的是針對需要的 commit <strong>做一個指標</strong>。</p>
+<p>就像是定義一個有名字的手指頭，去指著某個 commit 的位置。</p>
 <p>記得一開始的建立分支指令嗎？<br>
-我們在 master 分支執行  <code>git branch new-branch</code>  建立了 <strong>new-branch</strong> 分支<br>
-實際上這個指令的全貌是  <code>git branch new-branch master</code> <br>
- 用上述的觀念來說明，就會是「幫我建立一個 new-branch 標籤，並且貼在 master 所在的那個 commit 上」</p>
-<p>即便我們的分支標籤已經<strong>貼</strong>到尾端<br>
-依然可以下指令把分支「撕起來」，並且貼在其他分支上</p>
-<h2 id="再談-reset"><a class="markdownIt-Anchor" href="#再談-reset">#</a> 再談 Reset</h2>
-<p>我們在使用 git reset 的時候，Git 需要考慮 <strong>reset 前</strong>、<strong>reset 後</strong>的檔案差異應該要如何處理</p>
+我們在 master 分支執行  <code>git branch new-branch</code>  建立了 <strong>new-branch</strong> 分支，實際上這個指令的全貌是  <code>git branch new-branch master</code> <br>
+ 用上述的觀念來說明，就會是「幫我建立一個 new-branch 指標，並且指著 master 所在的那個 commit 上」，<br>
+而一開始的指令省略第二個參數，Git 會針對 HEAD 的位置來建立分支。</p>
+<p>既然說分支是指標的概念，代表著無論指向哪一個 commit ，都還是可以透過指令重新宣告這個手指頭去指向別的 commit</p>
+<p>例如說，我們把主要分支合併了功能分支後，功能分支 (假如名叫 feature) 已經完成他的任務，準備分配他新的任務的話<br>
+可以使用  <code>git branch -f feature HEAD</code>  指令，告訴 Git 我們現在強迫把 feature 分支指向 HEAD 這個位置的 commit</p>
 <blockquote>
-<p>接下來的內容，要先知道我所說的 <strong>reset 前</strong>、<strong>reset 後</strong> 的意思，才不會混亂哦！<br>
-reset 前：目前分支 (HEAD) 所在的 commit<br>
-reset 後：要跳轉過去的 commit</p>
+<p><code>-f</code>  是  <code>--force</code>  的意思<br>
+如果單純執行  <code>git branch feature HEAD</code> ，Git 會覺得是要在 HEAD 分支建立 feature 分支，跳出錯誤表示 feature 分支已經存在囉！</p>
 </blockquote>
-<p>reset 指令會有三種模式供我們選擇：</p>
-<ol>
-<li>mixed 模式：<br>
-這是 reset 的預設模式，會讓 <strong>reset 前</strong> 的工作目錄的資料呈現在 <strong>reset 後</strong> 的工作目錄內<br>
-在比對前後差異後，相對於 <strong>reset 後</strong> 的工作目錄檔案，如果 <strong>reset 前</strong>有新增刪除修改檔案<br>
-會讓這些檔案呈現 <strong>待追蹤</strong> (Untracked files) 或是 <strong>更動但尚未提交</strong> (Changes not staged for commit)</li>
-</ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        modified:   被修改的.js</pre></td></tr><tr><td data-num="5"></td><td><pre>        deleted:    被刪掉的.js</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Untracked files:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        新增加的JS.js</pre></td></tr></table></figure><ol start="2">
-<li>soft 模式：<br>
-跟預設的 mixed 模式很像，reset 的 soft 模式一樣能讓檔案一樣會保留在工作目錄中<br>
-但在 soft 模式下，相對於 <strong>reset 後</strong>的檔案，如果 <strong>reset 前</strong> 有新增刪除修改檔案<br>
-這些檔案會呈現 準備提交 (Changes to be committed) 的狀態</li>
-</ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        new file:   新增加的.js</pre></td></tr><tr><td data-num="4"></td><td><pre>        modified:   被修改的.js</pre></td></tr><tr><td data-num="5"></td><td><pre>        deleted:    被刪掉的.js</pre></td></tr></table></figure><ol start="3">
-<li>hard 模式：<br>
-hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit 而且不保留任何修改資料」<br>
-執行完後，就會很單純的呈現出 <strong>reset 後</strong> 的 commit 最原始的檔案內容<br>
-工作目錄下的檔案不會被 <strong>reset 前</strong> 的內容影響到</li>
-</ol>
-<div class="note default no-icon">
-<p>上述的內容總是使用 <strong>reset 前</strong> 、<strong>reset 後</strong> 來說明<br>
-原因是我把 Git 的 reset 想像成「跳轉」的概念，而不是直接翻譯的「重製」<br>
-我們把目前的分支 reset 到歷史的某個 commit 後，即使樹狀圖中「跳轉前」的 commit 看起來不見了<br>
-但他實際還是存在 Git ，只要下  <code>git reflog</code>  找到 commit 的 SHA 碼，還是可以 再次執行 reset 回到最新的 commit</p>
-</div>
-<div class="note info no-icon">
-<p>雖然這小節是在介紹想復原 commit 的方式，不過 reset 指令使用的場景不單單只有這樣<br>
-就順便把 reset 指令模式也說明了，這邊做個小結論：</p>
-<ol>
-<li>我們如果後悔 commit ，可以使用  <code>git reset HEAD^ --mixed</code>  回到上一個版本 ( <code>--mixed</code>  參數可省略)，這能保留 <strong>reset 前</strong> 的檔案</li>
-<li>如果我們想讓分支回到某個版本最原始的狀態，則可以使用  <code>git reset HEAD^ --mixed</code>  來執行操作</li>
-<li>reset  <code>--mixed</code>  模式 跟  <code>--soft</code>  模式，差別只是要不要把差異檔案內容先存在 Git 的暫存區<br>
-使用  <code>--mixed</code>  之後，再額外下  <code>git add -all</code>  指令後，就跟使用  <code>--soft</code>  沒差別了</li>
-</ol>
-</div>
-<div class="note primary no-icon">
-<p>容我再做最後一個註記，reset 要注意的細節太多，多寫一點以防自己忘記：<br>
-reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
-假如目前有 <strong>master</strong> 跟 <strong>test</strong> 分支，而我人在 <strong>test</strong> 分支的話，是沒辦法透過 reset 操控 <strong>master</strong> 分支的喔！</p>
-</div>
 <h2 id="補充"><a class="markdownIt-Anchor" href="#補充">#</a> 補充</h2>
 <h3 id="關於分支的觀念"><a class="markdownIt-Anchor" href="#關於分支的觀念">#</a> 關於分支的觀念</h3>
-<p>對於使用分支的觀念，初學者 (包含以前的我) 可能會認為  <code>master</code>  分支很偉大，不能隨便動他<br>
-要開發功能就要開新的分支才能處理，而且  <code>master</code>  是不能隨便刪的，<s>不然電腦可能會爆炸！</s></p>
-<p>實際上，每個分支對 Git 來說並沒有任何 <strong>意義</strong>，沒有什麼 master 分支就比較重要，feature 分支就比較不重要的說法。<br>
+<p>初學者 (包含以前的我) 可能會認為  <code>master</code>  分支很偉大，不能隨便動他<br>
+要開發功能就要開新的分支才能處理，而且  <code>master</code>  是不能隨便刪的。<s>不然電腦可能會爆炸！</s></p>
+<p>實際上，每個分支對 Git 來說並沒有任何 <strong>意義</strong>，沒有 master 分支就比較重要，feature 分支就比較不重要的說法。<br>
 <strong>分支的意義</strong> 是我們這些操作 Git 的人所賦予的，我們賦予 master 是主要分支，feature 是功能分支</p>
 <p>假如我們今天進行這樣的操作：<br>
 先建立一個 feature 分支，在什麼都不動的狀況下，把 master 改名叫 abc，接著再把 feature 分支改成 master<br>
@@ -328,9 +371,9 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
 <blockquote>
 <p>沒有任何分支是不能更名、移動、刪除的</p>
 </blockquote>
-<p>只要我們知道自己為什麼要對分支「改名」、「刪除」、「移動」<br>
-以及在操作之後，我們所需要的檔案是不是會依照自己的想法變動<br>
-這些動作又會影響到自己或團隊版控的哪些層面</p>
+<p>只要我們知道自己為什麼要對分支「改名」、「刪除」、「移動」，以及在操作之後<br>
+我們所需要的檔案是不是會依照自己的想法變動？<br>
+這些動作又會影響到自己或團隊版控的哪些層面？</p>
 <p>這些問題都考慮過，且知道自己在進行什麼操作，Git 根本不介意我們有這些舉動，畢竟這就是 Git 提供的功能阿！</p>
 <div class="note info no-icon">
 <p>本系列文章是閱讀 <span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3Lw==">為你自己學 Git</span> 書籍所撰寫的筆記<br>
@@ -351,7 +394,7 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-06 18:38:02" itemprop="dateModified" datetime="2023-07-06T18:38:02+08:00">2023-07-06</time>
+    <time title="修改時間：2023-07-12 17:45:15" itemprop="dateModified" datetime="2023-07-12T17:45:15+08:00">2023-07-12</time>
   </span>
 </div>
 
@@ -383,7 +426,7 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
     <div class="item left">
       
 
-  <a href="/git-note/gn-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;82593HB.jpg" title="【Git筆記】 開始使用 Git">
+  <a href="/git-note/gn-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;symKCYM.jpg" title="【Git筆記】 開始使用 Git">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】 開始使用 Git</h3>
@@ -391,6 +434,14 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
 
     </div>
     <div class="item right">
+      
+
+  <a href="/git-note/gn-reset/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;RPZmqBm.jpg" title="【Git筆記】 Reset">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
+  <h3>【Git筆記】 Reset</h3>
+  </a>
+
     </div>
 </div>
 
@@ -407,11 +458,11 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF"><span class="toc-number">1.</span> <span class="toc-text"> 為什麼要使用分支？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text"> 使用分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%88%86%E6%94%AF"><span class="toc-number">2.1.</span> <span class="toc-text"> 查詢分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 建立分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF"><span class="toc-number">2.3.</span> <span class="toc-text"> 切換分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%AE%E9%8C%84%E7%9A%84%E6%AA%94%E6%A1%88%E9%82%84%E6%B2%92-commit-%E5%B0%B1%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF%E6%9C%83%E6%80%8E%E6%A8%A3"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 工作目錄的檔案還沒 commit 就切換分支會怎樣？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%94%B9%E5%90%8D"><span class="toc-number">2.4.</span> <span class="toc-text"> 分支改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.5.</span> <span class="toc-text"> 刪除分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF"><span class="toc-number">2.6.</span> <span class="toc-text"> 合併分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%85%88%E5%88%87%E5%88%B0-master-%E5%88%86%E6%94%AF"><span class="toc-number">2.6.1.</span> <span class="toc-text"> 為什麼要先切到 master 分支？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81"><span class="toc-number">2.6.2.</span> <span class="toc-text"> 合併衝突？！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%88%86%E6%94%AF%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text"> Git 分支的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%8D%E8%AB%87-reset"><span class="toc-number">4.</span> <span class="toc-text"> 再談 Reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text"> 補充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E5%88%86%E6%94%AF%E7%9A%84%E8%A7%80%E5%BF%B5"><span class="toc-number">5.1.</span> <span class="toc-text"> 關於分支的觀念</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF"><span class="toc-number">1.</span> <span class="toc-text"> 為什麼要使用分支？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text"> 使用分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%88%86%E6%94%AF"><span class="toc-number">2.1.</span> <span class="toc-text"> 查詢分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 建立分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF"><span class="toc-number">2.3.</span> <span class="toc-text"> 切換分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%AE%E9%8C%84%E7%9A%84%E6%AA%94%E6%A1%88%E9%82%84%E6%B2%92-commit-%E5%B0%B1%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF%E6%9C%83%E6%80%8E%E6%A8%A3"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 工作目錄的檔案還沒 commit 就切換分支會怎樣？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%94%B9%E5%90%8D"><span class="toc-number">2.4.</span> <span class="toc-text"> 分支改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.5.</span> <span class="toc-text"> 刪除分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF"><span class="toc-number">2.6.</span> <span class="toc-text"> 合併分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%85%88%E5%88%87%E5%88%B0-master-%E5%88%86%E6%94%AF"><span class="toc-number">2.6.1.</span> <span class="toc-text"> 為什麼要先切到 master 分支？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81"><span class="toc-number">2.7.</span> <span class="toc-text"> 合併衝突</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%88%86%E6%94%AF%E6%98%AF%E4%BB%80%E9%BA%BC%E6%98%AF%E5%83%8F%E6%A8%B9%E6%9E%9D%E9%82%A3%E6%A8%A3%E5%97%8E"><span class="toc-number">3.</span> <span class="toc-text"> Git 分支是什麼？是像樹枝那樣嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">4.</span> <span class="toc-text"> 補充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%9C%E6%96%BC%E5%88%86%E6%94%AF%E7%9A%84%E8%A7%80%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text"> 關於分支的觀念</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】 開始使用 Git">【Git筆記】 開始使用 Git</a></li><li class="active"><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></li>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】 開始使用 Git">【Git筆記】 開始使用 Git</a></li><li class="active"><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】 Reset">【Git筆記】 Reset</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -425,7 +476,7 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">11</span>
+        <span class="count">12</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -473,10 +524,12 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
 
   <ul id="quick">
     <li class="prev pjax">
+        <a href="/git-note/gn-start/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/git-note/gn-reset/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -498,40 +551,10 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
   </li>
 
       
@@ -561,7 +584,7 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></span>
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】 Reset">【Git筆記】 Reset</a></span>
   </li>
 
       
@@ -578,20 +601,50 @@ reset 指令所操作的分支，必須在 HEAD 指向的那個分支<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
+    <span><a href="/git-note/gn-start/" title="【Git筆記】 開始使用 Git">【Git筆記】 開始使用 Git</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
   </li>
 
   </ul>

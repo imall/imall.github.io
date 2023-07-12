@@ -143,7 +143,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <div class="note info">
+    <div class="note info no-icon">
 <p>Vite proxy 、 axios 攔截器 等議題，很容易在網路上查到資料<br>
 但自己實際在使用的時候，總會有一些細節沒注意到<br>
 這篇記錄實際使用了 vite proxy 、 整合 axios 攔截器 以及設定攔截器功能的內容</p>
@@ -200,7 +200,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
  呼叫的完整網址會是  <code>https://www.test.com/login</code>  而不會是  <code>http://localhost:5173/api/login</code></p>
 </blockquote>
 <p>打完收工～～</p>
-<div class="note info">
+<div class="note info no-icon">
 <p>有個細節要特別注意，proxy 的設定，基本上只是為了開發環境的方便，可以讓我們在開發環境不用去設定 CORS<br>
  在  <code>npm run build</code>  之後，把程式部屬到正式環境，會發現， <code>/api</code>  這個字樣還是會存在於網址中<br>
 如果你的 API 進入點是  <code>https://www.test.com/api</code> <br>
@@ -227,7 +227,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-03-18 17:02:09" itemprop="dateModified" datetime="2023-03-18T17:02:09+08:00">2023-03-18</time>
+    <time title="修改時間：2023-07-07 10:35:02" itemprop="dateModified" datetime="2023-07-07T10:35:02+08:00">2023-07-07</time>
   </span>
 </div>
 
@@ -309,7 +309,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">11</span>
+        <span class="count">12</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -394,26 +394,6 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
@@ -424,20 +404,10 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-concept/" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
   </li>
 
       
@@ -457,17 +427,7 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
+    <span><a href="/md-note/record-some-markdown/" title="紀錄一些之後寫文章可能會用到的語法">紀錄一些之後寫文章可能會用到的語法</a></span>
   </li>
 
       
@@ -478,6 +438,46 @@ Imall Notes ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/git-note/gn-branch/" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-concept/" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
   </li>
 
   </ul>

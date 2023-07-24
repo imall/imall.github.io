@@ -1692,9 +1692,8 @@ li {
 iframe,
 img,
 video {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: inline-block;
+  vertical-align: middle;
   max-width: 100%;
 }
 hr {

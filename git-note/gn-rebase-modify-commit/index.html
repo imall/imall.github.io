@@ -27,7 +27,7 @@
   <meta name="keywords" content="Git" />
 
 
-<link rel="canonical" href="https://imall.github.io/git-note/gn-rebase/">
+<link rel="canonical" href="https://imall.github.io/git-note/gn-rebase-modify-commit/">
 
 
 
@@ -64,19 +64,19 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   </h1>
   
 <div class="meta">
-  <span class="item" title="創建時間：2023-07-13 13:35:40">
+  <span class="item" title="創建時間：2023-07-24 13:35:40">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">發表於</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-13T13:35:40+08:00">2023-07-13</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-24T13:35:40+08:00">2023-07-24</time>
   </span>
   <span class="item" title="文章字數">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>9.4k</span>
+    <span>9.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
         </ul>
       </div>
     </header>
@@ -150,7 +150,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
-  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-note/gn-rebase/">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-note/gn-rebase-modify-commit/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -170,10 +170,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 當時只提到如何修改最近一次的 commit 紀錄，同時挖了一個用 rebase 改歷史的坑還沒填<br>
 來把這個操作補一補吧</p>
 </div>
-<p>使用 <strong>rebase</strong> 來修改歷史，可以下這樣的指令</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> commitID</pre></td></tr></table></figure><p>rebase 本身是重新定義的意思， <code>-i</code>  是  <code>interactive</code>  的意思，代表我們要使用 rebase 的互動模式<br>
-由於 rebase 是要更動基底，所以互動模式會讓你從<strong>某一個基底</strong> 開始處理這之後的更變<br>
-上面指令的 commitID 則會使用我們想修改的 commit 的<strong>前一個</strong> ID。</p>
+<h2 id="rebase-的互動模式"><a class="markdownIt-Anchor" href="#rebase-的互動模式">#</a> rebase 的互動模式</h2>
+<p>上一篇文章有提到， rebase 是用來重新定義 commit 的基底。<br>
+而在重新定義分支基底的過程中，rebase 提供一個參數  <code>-i</code>  來讓操作者開啟互動模式進行操作。<br>
+其中 <code>-i</code>  是  <code>interactive</code>  的意思。</p>
+<p>實際的指令會長這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> commitID</pre></td></tr></table></figure><p>由於 rebase 是要更動基底，所以互動模式會讓你從<strong>某一個基底</strong> 開始處理這 <strong>之後</strong> 的更變<br>
+所以這個 <strong>commitID</strong> 要帶入 <strong>想修改的 commit</strong> 的 <strong>前一個 ID</strong>。</p>
 <p>假設我目前的 log 長這樣，並且執行  <code>git rebase -i 6e72bd7</code> ，意思是要告訴 Git ，我現在希望從  <code>6e72bd7</code>  開始重新定義之後的基底。<br>
 Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</code> 、 <code>3d415c5</code>  這三個 commit ，並且問我接下來要怎麼做。</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">-5</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* 3d415c5 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> 版本4</pre></td></tr><tr><td data-num="3"></td><td><pre>* 9e24364 版本3</pre></td></tr><tr><td data-num="4"></td><td><pre>* 890f0e6 版本2</pre></td></tr><tr><td data-num="5"></td><td><pre>* 6e72bd7 版本1</pre></td></tr></table></figure><h2 id="刪除某一個-commit"><a class="markdownIt-Anchor" href="#刪除某一個-commit">#</a> 刪除某一個 commit</h2>
@@ -181,10 +184,10 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr><tr><td data-num="2"></td><td><pre>hint: Waiting <span class="token keyword">for</span> your editor to close the file<span class="token punctuation">..</span>.</pre></td></tr></table></figure><p>所謂的檔案，則是 Git 會透過預設的 Git 編輯器跳出的這些內容，可以看到我們寫在指令的那個 commit 並沒有出現在文字之中，而是那個 commit 之後的所有 commit 都出現了。</p>
 <p>假設我們要刪除  <code>9e24364</code>  這個分支，只要把這行 <strong>刪掉</strong> 之後 <strong>存檔</strong> 即可。</p>
 <figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>pick a7bb7f7 版本 2</pre></td></tr><tr><td data-num="2"></td><td><pre>pick fbd51f3 版本 3</pre></td></tr><tr><td data-num="3"></td><td><pre>pick 916368f 版本 4</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre># Rebase 3b2363a..916368f onto 3b2363a (3 commands)</pre></td></tr><tr><td data-num="6"></td><td><pre>#</pre></td></tr><tr><td data-num="7"></td><td><pre># Commands:</pre></td></tr><tr><td data-num="8"></td><td><pre># p, pick &lt;commit&gt; &#x3D; use commit</pre></td></tr><tr><td data-num="9"></td><td><pre># r, reword &lt;commit&gt; &#x3D; use commit, but edit the commit message</pre></td></tr><tr><td data-num="10"></td><td><pre># e, edit &lt;commit&gt; &#x3D; use commit, but stop for amending</pre></td></tr><tr><td data-num="11"></td><td><pre># s, squash &lt;commit&gt; &#x3D; use commit, but meld into previous commit</pre></td></tr><tr><td data-num="12"></td><td><pre>(下略...)</pre></td></tr></table></figure><p>成功之後，就會跳出這樣的訊息</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><h2 id="回復上一動"><a class="markdownIt-Anchor" href="#回復上一動">#</a> 回復上一動</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><h2 id="恢復上一動"><a class="markdownIt-Anchor" href="#恢復上一動">#</a> 恢復上一動</h2>
 <p>rebase 指令屬於一個比較「危險」的指令，Git 針對一些危險的指令給了一個復原的方式</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset ORIG_HEAD <span class="token parameter variable">--hard</span></pre></td></tr></table></figure><p>這個  <code>ORIG_HEAD</code>  是 Git 自動幫我們紀錄的原始位置，而 --hard 參數如果不熟的話，可以參考<a href="/git-note/gn-reset/">這篇文章</a></p>
-<h2 id="修改歷史-commit-內容"><a class="markdownIt-Anchor" href="#修改歷史-commit-內容">#</a> 修改歷史 commit 內容</h2>
+<h2 id="修改歷史-commit-訊息"><a class="markdownIt-Anchor" href="#修改歷史-commit-訊息">#</a> 修改歷史 commit 訊息</h2>
 <p>這個需求有幾個步驟需要執行，我們一樣使用  <code>git rebase -i</code>  的指令來處理</p>
 <ol>
 <li>執行 <code>git rebase -i</code>  指令</li>
@@ -200,10 +203,17 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
 <p>這個指令跟<a href="/git-note/gn-start/#%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E8%A8%8A%E6%81%AF">修改上一個版本的 commit 的訊息</a> 以及<a href="/git-note/gn-start/#%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E5%85%A7%E5%AE%B9">修改上一個版本的 commit 的內容</a> 完全一樣，基本上就是依照這個修改囉</p>
 </li>
 <li>
-<p>當修改完之後，請再執行  <code>git rebase --continue</code>  指令 ，系統應該會自動跳出 **Successfully rebased and updated refs/heads/[你的分支].** 的訊息</p>
+<p>當修改完之後，請再執行  <code>git rebase --continue</code>  指令 ，系統應該會自動跳出 <strong>Successfully rebased and updated refs/heads/[你的分支].</strong> 的訊息</p>
 </li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><h2 id="把多個-commit-整合成一個-commit"><a class="markdownIt-Anchor" href="#把多個-commit-整合成一個-commit">#</a> 把多個 commit 整合成一個 commit</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><div class="note danger no-icon">
+<p>如果要修改的歷史 commit 在未來已經有好幾個分支 commit 出去<br>
+由於指令只會更改當下分支的基底，而不會更改到其他分支的基底<br>
+這會導致分支圖直接被岔開新的分支，可能會造成團隊的不便<br>
+所以這個指令比較適合在還沒推上去之前，整理自己的分支用途<br>
+並不建議去修改太久之前的歷史訊息！</p>
+</div>
+<h2 id="把多個-commit-整合成一個-commit"><a class="markdownIt-Anchor" href="#把多個-commit-整合成一個-commit">#</a> 把多個 commit 整合成一個 commit</h2>
 <p>有時候我們因為 commit 的太瑣碎，希望把一些 commit 集結起來 <s>(Avengers Assemble！)</s><br>
  這需求會在執行互動模式時，把想要集結的 commit 設定成 <strong>squash</strong>，<strong>squash</strong> 這傢伙的概念，是要把新的 commit 合併到過往 commit 上頭，<br>
 假設我們的版本順序是 <strong>1</strong>、<strong>2</strong>、<strong>3</strong>，如果想把這三個版本都合併起來的話，就在編輯器將 <strong>2</strong> 、<strong>3</strong> 這兩個版本 改成  <code>squash</code>   或  <code>s</code> ，Git 就會幫我們把 <strong>2</strong> 、<strong>3</strong> 這兩個版本 併到 <strong>1</strong> 囉！</p>
@@ -213,7 +223,7 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
 <li>執行  <code>git rebase -i 6e72bd7</code> ，代表我們希望更改 <strong>6e72bd7 之後</strong> 的所有 commit</li>
 </ol>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr></table></figure><ol start="2">
-<li>把編輯器<strong>版本 4</strong> 跟<strong>版本 3</strong> 的 <strong>pick</strong> 都改成 <strong>s</strong></li>
+<li>把編輯器 <strong>版本 4</strong> 跟 <strong>版本 3</strong> 的 <strong>pick</strong> 都改成 <strong>s</strong></li>
 </ol>
 <figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>pick 890f0e6 版本 2</pre></td></tr><tr><td data-num="2"></td><td><pre>s 91c7d9f 版本 3</pre></td></tr><tr><td data-num="3"></td><td><pre>s 5fd8125 版本 4</pre></td></tr><tr><td data-num="4"></td><td><pre>pick e1e87c5 版本 5</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre># Rebase 6e72bd7..e1e87c5 onto 6e72bd7 (4 commands)</pre></td></tr><tr><td data-num="7"></td><td><pre>#</pre></td></tr><tr><td data-num="8"></td><td><pre># Commands:</pre></td></tr><tr><td data-num="9"></td><td><pre># p, pick &lt;commit&gt; &#x3D; use commit</pre></td></tr><tr><td data-num="10"></td><td><pre># r, reword &lt;commit&gt; &#x3D; use commit, but edit the commit message</pre></td></tr><tr><td data-num="11"></td><td><pre># e, edit &lt;commit&gt; &#x3D; use commit, but stop for amending</pre></td></tr><tr><td data-num="12"></td><td><pre># s, squash &lt;commit&gt; &#x3D; use commit, but meld into previous commit</pre></td></tr><tr><td data-num="13"></td><td><pre>(下略)</pre></td></tr></table></figure><blockquote>
 <p>這邊注意一下，編輯器的版本會由「舊」到「新」陳列出來<br>
@@ -349,9 +359,9 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-16 21:50:49" itemprop="dateModified" datetime="2023-07-16T21:50:49+08:00">2023-07-16</time>
+    <time title="修改時間：2023-07-24 17:18:04" itemprop="dateModified" datetime="2023-07-24T17:18:04+08:00">2023-07-24</time>
   </span>
-  <span id="git-note/gn-rebase/" class="item leancloud_visitors" data-flag-title="【Git筆記】用 rebase 來修改歷史 commit" title="閱讀次數">
+  <span id="git-note/gn-rebase-modify-commit/" class="item leancloud_visitors" data-flag-title="【Git筆記】用 rebase 來修改歷史 commit" title="閱讀次數">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -370,7 +380,7 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
   </li>
   <li class="link">
     <strong>文章連結：</strong>
-    <a href="https://imall.github.io/git-note/gn-rebase/" title="【Git筆記】用 rebase 來修改歷史 commit">https://imall.github.io/git-note/gn-rebase/</a>
+    <a href="https://imall.github.io/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">https://imall.github.io/git-note/gn-rebase-modify-commit/</a>
   </li>
   <li class="license">
     <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
@@ -389,10 +399,10 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
     <div class="item left">
       
 
-  <a href="/git-note/gn-reset/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;wW2x12h.png" title="【Git筆記】 Reset">
+  <a href="/git-note/gn-rebase-merge/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;IXkGvGY.jpg" title="【Git筆記】用 rebase 來合併分支">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
-  <h3>【Git筆記】 Reset</h3>
+  <h3>【Git筆記】用 rebase 來合併分支</h3>
   </a>
 
     </div>
@@ -412,11 +422,11 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E6%9F%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">1.</span> <span class="toc-text"> 刪除某一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BE%A9%E4%B8%8A%E4%B8%80%E5%8B%95"><span class="toc-number">2.</span> <span class="toc-text"> 回復上一動</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2-commit-%E5%85%A7%E5%AE%B9"><span class="toc-number">3.</span> <span class="toc-text"> 修改歷史 commit 內容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E5%A4%9A%E5%80%8B-commit-%E6%95%B4%E5%90%88%E6%88%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">4.</span> <span class="toc-text"> 把多個 commit 整合成一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E4%B8%80%E5%80%8B-commit-%E6%8B%86%E6%88%90%E5%A4%9A%E5%80%8B"><span class="toc-number">5.</span> <span class="toc-text"> 把一個 commit 拆成多個</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-commit-%E8%88%87-commit-%E6%8F%92%E5%85%A5%E9%A1%8D%E5%A4%96%E7%9A%84-commit"><span class="toc-number">6.</span> <span class="toc-text"> 在 commit 與 commit 插入額外的 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9commit-%E9%A0%86%E5%BA%8F%E8%88%87-rebase-%E8%A1%9D%E7%AA%81"><span class="toc-number">7.</span> <span class="toc-text"> 修改 commit 順序與 rebase 衝突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%8C%E8%A8%98"><span class="toc-number">8.</span> <span class="toc-text"> 後記</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#rebase-%E7%9A%84%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> rebase 的互動模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E6%9F%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">2.</span> <span class="toc-text"> 刪除某一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%81%A2%E5%BE%A9%E4%B8%8A%E4%B8%80%E5%8B%95"><span class="toc-number">3.</span> <span class="toc-text"> 恢復上一動</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2-commit-%E8%A8%8A%E6%81%AF"><span class="toc-number">4.</span> <span class="toc-text"> 修改歷史 commit 訊息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E5%A4%9A%E5%80%8B-commit-%E6%95%B4%E5%90%88%E6%88%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">5.</span> <span class="toc-text"> 把多個 commit 整合成一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E4%B8%80%E5%80%8B-commit-%E6%8B%86%E6%88%90%E5%A4%9A%E5%80%8B"><span class="toc-number">6.</span> <span class="toc-text"> 把一個 commit 拆成多個</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-commit-%E8%88%87-commit-%E6%8F%92%E5%85%A5%E9%A1%8D%E5%A4%96%E7%9A%84-commit"><span class="toc-number">7.</span> <span class="toc-text"> 在 commit 與 commit 插入額外的 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9commit-%E9%A0%86%E5%BA%8F%E8%88%87-rebase-%E8%A1%9D%E7%AA%81"><span class="toc-number">8.</span> <span class="toc-text"> 修改 commit 順序與 rebase 衝突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%8C%E8%A8%98"><span class="toc-number">9.</span> <span class="toc-text"> 後記</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】 開始使用 Git">【Git筆記】 開始使用 Git</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】 Reset">【Git筆記】 Reset</a></li><li class="active"><a href="/git-note/gn-rebase/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】Git 分支">【Git筆記】Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】Reset">【Git筆記】Reset</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li class="active"><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -436,7 +446,7 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">6</span>
+        <span class="count">5</span>
         <span class="name">分類</span>
       </a>
     </div>
@@ -504,26 +514,6 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
@@ -534,40 +524,9 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-concept/" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-start/" title="【Git筆記】 開始使用 Git">【Git筆記】 開始使用 Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-rebase/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
       
@@ -577,7 +536,7 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
 <a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
   </li>
 
       
@@ -587,7 +546,17 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></span>
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】Reset">【Git筆記】Reset</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
       
@@ -598,6 +567,46 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
 </div>
 
     <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
   </li>
 
   </ul>
@@ -618,13 +627,13 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">46k 字</span>
+    <span title="總字數">47k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">42 分鐘</span>
+    <span title="所需總閱讀時間">43 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered
@@ -636,7 +645,7 @@ Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: 'git-note/gn-rebase/',
+    path: 'git-note/gn-rebase-modify-commit/',
     favicon: {
       show: "Imall Blog ~歡迎回來~",
       hide: "Imall Blog ~別離開呀~"

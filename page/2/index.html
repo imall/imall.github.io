@@ -85,12 +85,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
         </ul>
       </div>
     </header>
@@ -116,7 +116,62 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/vue-note/vite-start/" itemprop="url" title="Vite開發起手式"><img data-src="https://i.imgur.com/dOvnXNe.jpg"></a>
+    <a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="創建時間：2023-02-24 20:42:51">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-02-24T20:42:51+08:00">2023-02-24</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>1.2k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>1 分鐘</span>
+  </span>
+</div>
+
+    <h3><a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></h3>
+    <div class="excerpt">
+        flex 物件的子物件寬度為多少？從這個問題衍伸出 flex-shrink 的計算公式
+這篇就來簡單聊聊吧
+
+# flex 物件的子物件的寬度，在沒設定寬的時候是多少？
+事實上，flex 物件的子物件寬度，是由該物件內容寬度決定
+例如下面的例子，將子項目 font-size 設定 20px
+項目 a、b、c 分別是五個字、三個字、七個字
+此時呈現結果將會是
+
+a 的寬度為 5 x 20 = 100px
+b 的寬度為 3 x 20 = 60px
+c 的寬度為 7 x 20 = 140px
+
+.flex &amp;#123; width: 1000px; height: 300px;...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/css-note/" itemprop="url" title="CSS 筆記"><i class="ic i-flag"></i>CSS 筆記</a>
+      </span>
+    </div>
+    <a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/vue-note/vite-start/" itemprop="url" title="Vite開發起手式"><img data-src="https://i.imgur.com/P69ZGGo.jpg"></a>
   </div>
   <div class="info">
     
@@ -169,70 +224,6 @@ npm init vite@latest
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/md-note/hexo-basic/" itemprop="url" title="hexo 指令"><img data-src="https://i.imgur.com/Se14t9C.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2023-02-20 19:23:51">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-02-20T19:23:51+08:00">2023-02-20</time>
-  </span>
-  <span class="item" title="文章字數">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>141</span>
-    <span class="text">字</span>
-  </span>
-  <span class="item" title="所需閱讀時間">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>1 分鐘</span>
-  </span>
-</div>
-
-    <h3><a href="/md-note/hexo-basic/" itemprop="url" title="hexo 指令">hexo 指令</a></h3>
-    <div class="excerpt">
-        第一篇文來記錄一下，使用 hexo 指令發文會用到的東西
-
-# Hexo 常用指令
-
-新建一篇文章：
-
-hexo new [文章名稱]
-
-清除暫存
-
-hexo clean 或 hexo cl
-
-產生靜態檔案
-
-hexo generate 或 hexo g
-
-啟動服務觀看效果
-
-hexo server 或 hexo s
-
-部屬
-
-hexo deploy 或 hexo d
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/markdown/" itemprop="url" title="MD 筆記"><i class="ic i-flag"></i>MD 筆記</a>
-      </span>
-    </div>
-    <a href="/md-note/hexo-basic/" itemprop="url" title="hexo 指令" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -274,7 +265,7 @@ hexo deploy 或 hexo d
     </div>
     <div class="item categories">
       <a href="/categories/">
-        <span class="count">6</span>
+        <span class="count">5</span>
         <span class="name">分類</span>
       </a>
     </div>
@@ -341,66 +332,6 @@ hexo deploy 或 hexo d
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/hexo-basic/" title="hexo 指令">hexo 指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-rebase/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-start/" title="【Git筆記】 開始使用 Git">【Git筆記】 開始使用 Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-concept/" title="【 Git 筆記】 Git 基本觀念">【 Git 筆記】 Git 基本觀念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
@@ -411,10 +342,30 @@ hexo deploy 或 hexo d
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="Vite開發起手式">Vite開發起手式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】 Reset">【Git筆記】 Reset</a></span>
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】Reset">【Git筆記】Reset</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
   </li>
 
       
@@ -434,7 +385,47 @@ hexo deploy 或 hexo d
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】 Git 分支">【Git筆記】 Git 分支</a></span>
+    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
   </li>
 
   </ul>
@@ -455,13 +446,13 @@ hexo deploy 或 hexo d
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">46k 字</span>
+    <span title="總字數">47k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">42 分鐘</span>
+    <span title="所需總閱讀時間">43 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

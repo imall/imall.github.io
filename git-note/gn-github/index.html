@@ -1,0 +1,597 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-note/gn-github/">
+
+
+
+  <title>
+【Git筆記】使用 GitHub - Git 筆記 |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">【Git筆記】使用 GitHub
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-07-15 16:34:22">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-15T16:34:22+08:00">2023-07-15</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>3.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-note/" itemprop="item" rel="index" title="分類於 Git 筆記"><span itemprop="name">Git 筆記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-note/gn-github/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="建立-github-的專案"><a class="markdownIt-Anchor" href="#建立-github-的專案">#</a> 建立 GitHub 的專案</h2>
+<p>要在 GitHub 同步地端的資料，首先要在 GitHub 建立一個 repository</p>
+<ol>
+<li>
+<p>找到建立 repository 的按鈕<br>
+據我所知 GitHub 好像已經改版面很多次，每次按鈕位置都不太一樣<br>
+不過基本上都會在顯眼的位置，就找到之後點開他<br>
+<img data-src="https://i.imgur.com/CXwSudx.jpg" alt=""></p>
+</li>
+<li>
+<p>針對這個 repository 命名，點選 create repository<br>
+ 一般來本地資料夾叫什麼名字，這個名稱就會叫什麼名字<br>
+<img data-src="https://i.imgur.com/3C0a2y0.jpg" alt=""></p>
+</li>
+<li>
+<p>完成<br>
+ repository 建立成功之後，會看到類似下面這樣的畫面，有提示教學怎麼把地端的 Git 專案與這個專案連結<br>
+<img data-src="https://i.imgur.com/YnNpqBS.jpg" alt=""></p>
+</li>
+</ol>
+<h2 id="新增遠端儲存庫位置"><a class="markdownIt-Anchor" href="#新增遠端儲存庫位置">#</a> 新增遠端儲存庫位置</h2>
+<p>大致解釋一下剛剛最後一張圖上的指令在講些什麼</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">echo</span> <span class="token string">"# GitLearn"</span> <span class="token operator">>></span> README.md  <span class="token comment"># 建立 README.md 檔案，內容寫 "# GitLearn"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> init <span class="token comment"># 初始化專案</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> README.md <span class="token comment"># 把剛剛的 readme.md 檔案加到暫存區</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"first commit"</span> <span class="token comment"># 建立一個版本</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-M</span> main <span class="token comment"># 強制把目前的分支名稱改成 "main"</span></pre></td></tr></table></figure><p>上述的步驟除了第一句之外，都是之前的文章有介紹過的內容，就不多加贅述<br>
+而第一句是一個基礎 linux 指令，目的只是要建立一個 <span class="exturl" data-url="aHR0cDovL3JlYWRtZS5tZA==">readme.md</span> 檔案，讓專案有一個說明檔，可以手動增加也可以不理他</p>
+<p>再來說明這一小節的重點：新增遠端儲存庫位置<br>
+記得在一開始提到 Git 跟 GitHub 差異的時候，有講到 Git 是可以在地端獨立進行版控，不一定要上傳到雲端的<br>
+上一個步驟已經先建立了遠端專案，目前內容是空的，如果要把地端 Git 同步到遠端，勢必需要讓地端知道遠端儲存庫的位置<br>
+在地端的專案執行這個指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token function">add</span> <span class="token punctuation">[</span>名稱<span class="token punctuation">]</span> <span class="token punctuation">[</span>遠端分支位置<span class="token punctuation">]</span></pre></td></tr></table></figure><ul>
+<li>名稱 ，是遠端節點的意思，一般來說是 origin ，要命其他名字也可以，只要跟團隊說好要叫什麼名字即可，通常這個名字也只會有一個。</li>
+<li>遠端分支位置，通常是 <strong>[專案網址].git</strong></li>
+</ul>
+<h2 id="查詢遠端數據庫位置"><a class="markdownIt-Anchor" href="#查詢遠端數據庫位置">#</a> 查詢遠端數據庫位置</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token parameter variable">-v</span></pre></td></tr></table></figure><p>如果成功設定好的話，執行這個指令會看到這樣的東西，提示從遠端 fetch 資料的位置，以及等等馬上要介紹 push 資料的位置</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token parameter variable">-v</span></pre></td></tr><tr><td data-num="2"></td><td><pre>origin  https://github.com/imall/GitLearn.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>origin  https://github.com/imall/GitLearn.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="將本地分支的資料推到遠端"><a class="markdownIt-Anchor" href="#將本地分支的資料推到遠端">#</a> 將本地分支的資料推到遠端</h2>
+<p>建立好連結後，就可以使用  <code>push</code>  指令把檔案推到遠端</p>
+<p>第一次執行這個指令，要讓地端的 Git 知道這個分支要對應到遠端的哪個分支，所以除了  <code>git push</code>  之外，還要多寫一些參數</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin 地端分支名稱:遠端分支名稱</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 如果分支名稱一樣的話可以簡寫成</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin 分支名稱</pre></td></tr></table></figure><ul>
+<li><code>origin</code>  參數設定遠端分支位置的時候所定義的名稱，當時寫了什麼 ，這邊就要寫什麼</li>
+<li><code>-u</code>  參數的完整設定指令為  <code>--set-upstream</code>  ，指的是上游，這個參數的目的，是讓 Git 知道，未來目前的分支，要固定對應到遠端的某個分支<br>
+如果沒有寫的話，下次只執行  <code>git push</code>  指令，Git 會沒辦法辨別到底要 push 到哪個遠端分支，而出現這個訊息：</li>
+</ul>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> push</pre></td></tr><tr><td data-num="2"></td><td><pre>fatal: The current branch master has no upstream branch.</pre></td></tr><tr><td data-num="3"></td><td><pre>To push the current branch and <span class="token builtin class-name">set</span> the remote as upstream, use</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token function">git</span> push --set-upstream origin master</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>To have this happen automatically <span class="token keyword">for</span> branches without a tracking</pre></td></tr><tr><td data-num="8"></td><td><pre>upstream, see <span class="token string">'push.autoSetupRemote'</span> <span class="token keyword">in</span> <span class="token string">'git help config'</span><span class="token builtin class-name">.</span></pre></td></tr></table></figure><h2 id="地端分支-遠端分支-遠端追蹤分支"><a class="markdownIt-Anchor" href="#地端分支-遠端分支-遠端追蹤分支">#</a> 地端分支、遠端分支、遠端追蹤分支</h2>
+<p>寫到這邊，來介紹一下什麼是地端分支，什麼是遠端分支，什麼又是遠端追蹤分支</p>
+<ol>
+<li>地端分支，是我們在分支章節裡面提到分支，就是地端分支</li>
+<li>遠端分支，是已經存在 Git Server 的分支，稱為遠端分支</li>
+<li>遠端追蹤分支是一個很特別的分支，剛剛使用  <code>git push</code>  指令建立把分支推送到遠端儲存庫的時候，在地端建立了一個特別的分支<br>
+紀錄目前的 Git 專案中，有推過哪些分支</li>
+</ol>
+<blockquote>
+<p>實際上，我們不該直接 checkout 到遠端追蹤分支，因為這個類別的分支是 Git 拿來追蹤用的，而不是拿來開發用的，千萬注意！</p>
+</blockquote>
+<h3 id="查詢目前遠端所追蹤的分支"><a class="markdownIt-Anchor" href="#查詢目前遠端所追蹤的分支">#</a> 查詢目前遠端所追蹤的分支</h3>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr></table></figure><p>透過這個指令，可以查詢到目前遠端所追蹤的所有分支，執行完大概會長這樣，那個 origin 就是一開始建立連結的時候命名的節點名稱， <code>/</code>  之後的內容則是在遠端的分支名稱，而  <code>-r</code>  是  <code>remote</code>  的意思</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  origin/master</pre></td></tr><tr><td data-num="3"></td><td><pre>  origin/temp</pre></td></tr></table></figure><h3 id="查詢含遠端的所有分支"><a class="markdownIt-Anchor" href="#查詢含遠端的所有分支">#</a> 查詢含遠端的所有分支</h3>
+<p>如果想查整個 Git 專案包含遠端的所有分支，可以這樣下指令</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr></table></figure><p>很容易可以猜到，那個  <code>-a</code> ，是  <code>all</code>  的意思</p>
+<h2 id="更改遠端對應位置"><a class="markdownIt-Anchor" href="#更改遠端對應位置">#</a> 更改遠端對應位置</h2>
+<p>我們可能會有希望轉換遠端儲存庫的需求，則可以用這個指令去更改遠端儲存庫<br>
+一開始我們設定遠端儲存庫位置，是用  <code>git remote add</code>  指令處理，更改的話則可以使用這樣的指令</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote set-url origin 遠端儲存庫位置</pre></td></tr></table></figure><p>另一個方法，是直接去 <strong>.git/config</strong> 檔案去修改網址位置</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>core<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	repositoryformatversion <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	filemode <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="4"></td><td><pre>	bare <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="5"></td><td><pre>	logallrefupdates <span class="token operator">=</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="6"></td><td><pre>	symlinks <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="7"></td><td><pre>	ignorecase <span class="token operator">=</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">[</span>remote <span class="token string">"origin"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="9"></td><td><pre>	url <span class="token operator">=</span> https://github.com/imall/GitLearn.git <span class="token comment"># 改這個網址</span></pre></td></tr><tr><td data-num="10"></td><td><pre>	fetch <span class="token operator">=</span> +refs/heads/*:refs/remotes/origin/*</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">[</span>branch <span class="token string">"temp"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="12"></td><td><pre>	remote <span class="token operator">=</span> origin</pre></td></tr><tr><td data-num="13"></td><td><pre>	merge <span class="token operator">=</span> refs/heads/temp</pre></td></tr></table></figure><h2 id="推送全部的分支到遠端儲存庫"><a class="markdownIt-Anchor" href="#推送全部的分支到遠端儲存庫">#</a> 推送全部的分支到遠端儲存庫</h2>
+<p>銜接剛剛提到可能要搬家的需求，既然要搬家，那就應該全員到齊<br>
+這種狀況就可以用這個指令把所有的分支一次推到遠端去</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">--all</span></pre></td></tr></table></figure><h2 id="把遠端分支新的內容更新到地端"><a class="markdownIt-Anchor" href="#把遠端分支新的內容更新到地端">#</a> 把遠端分支新的內容，更新到地端</h2>
+<p>在團隊開發過程，有可能 partner push 一版內容到某個遠端分支，需要把他更新下來，則可以使用這個指令</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> pull</pre></td></tr></table></figure><p>事實上  <code>git pull</code>  隱含著兩個指令 ：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> fetch</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> merge</pre></td></tr></table></figure><p>有沒有覺得很眼熟？<br>
+<strong>fetch</strong> 這個詞在介紹 <a href="/git-note/gn-github/#%E6%9F%A5%E8%A9%A2%E9%81%A0%E7%AB%AF%E6%95%B8%E6%93%9A%E5%BA%AB%E4%BD%8D%E7%BD%AE">git remote -v</a> 的時候出現過，當時告訴我們會從哪個遠端拉回資料。<br>
+<strong>merge</strong> 就是在 <a href="/git-note/gn-branch/#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF">合併分支</a> 的章節提到的那個 <strong>merge</strong></p>
+<p>所以  <code>git pull</code>  的意思是：「把分支內容從遠端拿回來」+「把遠端拉回來的內容合併到目前分支中」！</p>
+<h2 id="刪除遠端分支"><a class="markdownIt-Anchor" href="#刪除遠端分支">#</a> 刪除遠端分支</h2>
+<p>當我們的開發分支合併回主要分支之後，既然已經沒有存在的必要，那就可以刪掉他<br>
+如果刪除地端分支，用 <code>git branch -d 分支名稱</code> 即可，不過遠端分支並不會因為地端分支刪除而不見</p>
+<p>必須另外下指令才能處理，有兩個指令可以完成這件事</p>
+<ol>
+<li>用 --delete 參數<br>
+這個指令很清楚能從指令猜到是要刪除分支，應該沒什麼問題</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> 遠端分支名稱</pre></td></tr></table></figure><ol start="2">
+<li>用 push 指令完整的語法<br>
+而這個指令比較令人詫異的地方是，為什麼是  <code>:分支名稱</code> <br>
+還記得之前有提到 push 指令完整語法是  <code>git push origin 地端分支:遠端分支</code>  嗎？<br>
+在  <code>:</code>  前面不寫地端分支，其實也就代表著，要把空的分支推送到遠端分支中<br>
+既然是空的分支，言下之意就是要把遠端的分支變成空分支，也就是刪除囉！</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin :遠端分支名稱</pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-07-26 18:24:42" itemprop="dateModified" datetime="2023-07-26T18:24:42+08:00">2023-07-26</time>
+  </span>
+  <span id="git-note/gn-github/" class="item leancloud_visitors" data-flag-title="【Git筆記】使用 GitHub" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-note/gn-github/" title="【Git筆記】使用 GitHub">https://imall.github.io/git-note/gn-github/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-note/gn-rebase-modify-commit/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;8gupmbA.jpg" title="【Git筆記】用 rebase 來修改歷史 commit">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
+  <h3>【Git筆記】用 rebase 來修改歷史 commit</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/vue-note/vite-start/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;dOvnXNe.jpg" title="初始化 Vue3 專案的幾種指令">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Vue 筆記</span>
+  <h3>初始化 Vue3 專案的幾種指令</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-github-%E7%9A%84%E5%B0%88%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text"> 建立 GitHub 的專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text"> 新增遠端儲存庫位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E9%81%A0%E7%AB%AF%E6%95%B8%E6%93%9A%E5%BA%AB%E4%BD%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text"> 查詢遠端數據庫位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E7%9A%84%E8%B3%87%E6%96%99%E6%8E%A8%E5%88%B0%E9%81%A0%E7%AB%AF"><span class="toc-number">4.</span> <span class="toc-text"> 將本地分支的資料推到遠端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">5.</span> <span class="toc-text"> 地端分支、遠端分支、遠端追蹤分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E7%9B%AE%E5%89%8D%E9%81%A0%E7%AB%AF%E6%89%80%E8%BF%BD%E8%B9%A4%E7%9A%84%E5%88%86%E6%94%AF"><span class="toc-number">5.1.</span> <span class="toc-text"> 查詢目前遠端所追蹤的分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%90%AB%E9%81%A0%E7%AB%AF%E7%9A%84%E6%89%80%E6%9C%89%E5%88%86%E6%94%AF"><span class="toc-number">5.2.</span> <span class="toc-text"> 查詢含遠端的所有分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E9%81%A0%E7%AB%AF%E5%B0%8D%E6%87%89%E4%BD%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text"> 更改遠端對應位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%88%B0%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">7.</span> <span class="toc-text"> 推送全部的分支到遠端儲存庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E6%96%B0%E7%9A%84%E5%85%A7%E5%AE%B9%E6%9B%B4%E6%96%B0%E5%88%B0%E5%9C%B0%E7%AB%AF"><span class="toc-number">8.</span> <span class="toc-text"> 把遠端分支新的內容，更新到地端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">9.</span> <span class="toc-text"> 刪除遠端分支</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li><a href="/git-note/gn-situation/" rel="bookmark" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></li><li><a href="/git-note/gn-commit-amend/" rel="bookmark" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li><li class="active"><a href="/git-note/gn-github/" rel="bookmark" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">16</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-note/gn-rebase-modify-commit/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/vue-note/vite-start/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">52k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">47 分鐘</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-note/gn-github/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

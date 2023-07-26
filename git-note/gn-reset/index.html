@@ -32,7 +32,7 @@
 
 
   <title>
-【Git筆記】Reset - Git 筆記 |
+【Git筆記】用 Reset 還原資料 - Git 筆記 |
 Imall Blog ~ 一個前端工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,23 +60,23 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">【Git筆記】Reset
+  <h1 itemprop="name headline">【Git筆記】用 Reset 還原資料
   </h1>
   
 <div class="meta">
-  <span class="item" title="創建時間：2023-07-07 09:10:36">
+  <span class="item" title="創建時間：2023-07-09 09:10:36">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">發表於</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-07T09:10:36+08:00">2023-07-07</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-09T09:10:36+08:00">2023-07-09</time>
   </span>
   <span class="item" title="文章字數">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>2.1k</span>
+    <span>1.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -84,7 +84,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">所需閱讀時間</span>
-    <span>2 分鐘</span>
+    <span>1 分鐘</span>
   </span>
 </div>
 
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,12 +166,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     
 
     <div class="note info no-icon">
-<p>第一次提到 reset ，是在 <a href="/git-note/gn-start/#%E7%8B%80%E6%B3%81-1%E5%B8%8C%E6%9C%9B%E6%8A%8A%E6%9A%AB%E5%AD%98%E5%8D%80%E5%B7%B2%E7%B6%93add%E7%9A%84%E6%AA%94%E6%A1%88%E9%82%84%E5%8E%9F%E6%88%90%E6%9C%AA%E6%9A%AB%E5%AD%98%E6%88%96%E8%AA%AA-add-%E4%B9%8B%E5%89%8D-%E7%9A%84%E7%8B%80%E6%85%8B">還原暫存</a> 以及 <a href="/git-note/gn-start/#%E7%8B%80%E6%B3%81-6%E9%80%99%E5%80%8B-commit-%E6%88%91%E4%B8%8D%E8%A6%81%E4%BA%86%E5%8F%AF%E4%BB%A5%E9%87%8D%E4%BE%86%E5%97%8E">反悔 commit</a>  的狀況使用到。<br>
-當時只是簡單說明可以使用 reset 還原暫存，以及還原 commit。</p>
+<p>第一次提到 reset ，是在 <a href="/git-note/gn-situation/">這篇文章</a> 提到<br>
+當時只是拿來處理一些狀況題，卻沒有深入介紹，這篇就來說明一下 reset 比較常用的功能！</p>
 <p>不過 reset 指令還有一些參數值得獨立出來說明，為了使關注點聚焦，拉了一個單獨的篇章來筆記。<br>
 未來要找資料也能比較清楚一點。</p>
 </div>
-<p>我們在使用  <code>git reset</code>  後面接 <strong>commitID</strong> 時，是為了從目前的 commit 跳到 其他 commit ，在 <a href="/git-note/gn-start/#%E7%8B%80%E6%B3%81-6%E9%80%99%E5%80%8B-commit-%E6%88%91%E4%B8%8D%E8%A6%81%E4%BA%86%E5%8F%AF%E4%BB%A5%E9%87%8D%E4%BE%86%E5%97%8E">反悔 commit</a> 章節所介紹的就是這個功能</p>
+<p>我們在使用  <code>git reset</code>  後面接 <strong>commitID</strong> 時，是為了從目前的 commit 跳到 其他 commit ，在 <a href="/git-note/gn-situation/#%E9%80%99%E5%80%8B-commit-%E6%88%91%E4%B8%8D%E8%A6%81%E4%BA%86%E5%8F%AF%E4%BB%A5%E9%87%8D%E4%BE%86%E5%97%8E">反悔 commit</a> 章節所介紹的就是這個功能</p>
 <p>在使用 reset 時切換 commit 時，Git 需要考慮 <strong>reset 前</strong>、<strong>reset 後</strong> 的檔案差異應該要如何處理</p>
 <p>所謂的 <strong>reset 前</strong>、<strong>reset 後</strong> 分別是在說：</p>
 <blockquote>
@@ -186,12 +186,6 @@ reset 後：要跳轉過去的 commit</p>
 會讓這些檔案呈現 <strong>待追蹤</strong> (Untracked files) 或是 <strong>更動但尚未提交</strong> (Changes not staged for commit)</li>
 </ol>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        modified:   被修改的.js</pre></td></tr><tr><td data-num="5"></td><td><pre>        deleted:    被刪掉的.js</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Untracked files:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        新增加的JS.js</pre></td></tr></table></figure><ol start="2">
-<li>soft 模式：<br>
-跟預設的 mixed 模式很像，reset 的 soft 模式一樣能讓檔案一樣會保留在工作目錄中<br>
-但在 soft 模式下，相對於 <strong>reset 後</strong>的檔案，如果 <strong>reset 前</strong> 有新增刪除修改檔案<br>
-這些檔案會呈現 準備提交 (Changes to be committed) 的狀態</li>
-</ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        new file:   新增加的.js</pre></td></tr><tr><td data-num="4"></td><td><pre>        modified:   被修改的.js</pre></td></tr><tr><td data-num="5"></td><td><pre>        deleted:    被刪掉的.js</pre></td></tr></table></figure><ol start="3">
 <li>hard 模式：<br>
 hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit 而且不保留任何修改資料」<br>
 執行完後，就會很單純的呈現出 <strong>reset 後</strong> 的 commit 最原始的檔案內容<br>
@@ -202,19 +196,9 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
 <li>我們如果後悔 commit ，可以使用  <code>git reset HEAD^ --mixed</code>  回到上一個版本 ( <code>--mixed</code>  參數可省略)<br>
  這樣在 <strong>reset 後</strong>，就可以保留 <strong>reset 前</strong> 的檔案</li>
 <li>如果我們想讓分支回到某個版本最原始的狀態，則可以使用  <code>git reset HEAD^ --hard</code>  來執行操作</li>
-<li>reset  <code>--mixed</code>  模式 跟  <code>--soft</code>  模式，差別只是要不要把差異檔案內容先存在 Git 的暫存區<br>
-使用  <code>--mixed</code>  之後，再額外下  <code>git add -all</code>  指令後，就會變成直接使用  <code>--soft</code>  的狀態了。</li>
 </ol>
-<div class="note default no-icon">
-<p>上述的內容總是使用 <strong>reset 前</strong> 、<strong>reset 後</strong> 來說明<br>
-原因是我把 Git 的 reset 想像成「跳轉」的概念，而不是直接翻譯的「重製」<br>
-我們把目前的分支 reset 到歷史的某個 commit 後，即使樹狀圖中「跳轉前」的 commit 看起來不見了<br>
-但他實際還是存在 Git ，只要下  <code>git reflog</code>  找到 commit 的 SHA 碼，還是可以 再次執行 reset 回到最新的 commit</p>
-</div>
-<div class="note default no-icon">
-<p>一般來說，我們在使用 reset 指令接 commitID 跳轉 commit 時，會在目前分支 (HEAD) nothing to commit 的時候再執行<br>
-如果在工作目錄有 stage 的檔案執行 reset 跳轉 commit 時，工作目錄的檔案 (不包含未追蹤的檔案) 會直接被清空。</p>
-</div>
+<p>上述的內容總是使用 <strong>reset 前</strong> 、<strong>reset 後</strong> 來說明，是因為 reset 指令是可以不斷「重置」到不同的 commit 上<br>
+只要是 Git 版控的歷史已經存在的 commit，都可以使用 reset 進行「跳轉」</p>
 <div class="note primary no-icon">
 <p>我曾經搞混  <code>git branch -f</code>  跟  <code>git reset (commitID)</code>  指令，因為好像都是在操控分支的指向<br>
 而實際上兩個指令本身用途不同</p>
@@ -247,9 +231,9 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-24 18:17:00" itemprop="dateModified" datetime="2023-07-24T18:17:00+08:00">2023-07-24</time>
+    <time title="修改時間：2023-07-26 16:10:24" itemprop="dateModified" datetime="2023-07-26T16:10:24+08:00">2023-07-26</time>
   </span>
-  <span id="git-note/gn-reset/" class="item leancloud_visitors" data-flag-title="【Git筆記】Reset" title="閱讀次數">
+  <span id="git-note/gn-reset/" class="item leancloud_visitors" data-flag-title="【Git筆記】用 Reset 還原資料" title="閱讀次數">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -268,7 +252,7 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
   </li>
   <li class="link">
     <strong>文章連結：</strong>
-    <a href="https://imall.github.io/git-note/gn-reset/" title="【Git筆記】Reset">https://imall.github.io/git-note/gn-reset/</a>
+    <a href="https://imall.github.io/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">https://imall.github.io/git-note/gn-reset/</a>
   </li>
   <li class="license">
     <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
@@ -287,17 +271,17 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
     <div class="item left">
       
 
-  <a href="/git-note/gn-branch/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;qhft9aC.png" title="【Git筆記】Git 分支">
+  <a href="/git-note/gn-branch/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;QdkMVTt.jpg" title="【Git筆記】使用 Git 分支">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
-  <h3>【Git筆記】Git 分支</h3>
+  <h3>【Git筆記】使用 Git 分支</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/git-note/gn-rebase-merge/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;XEoNWeG.jpg" title="【Git筆記】用 rebase 來合併分支">
+  <a href="/git-note/gn-rebase-merge/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】用 rebase 來合併分支">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】用 rebase 來合併分支</h3>
@@ -321,7 +305,7 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】Git 分支">【Git筆記】Git 分支</a></li><li class="active"><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】Reset">【Git筆記】Reset</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li><a href="/git-note/gn-situation/" rel="bookmark" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></li><li><a href="/git-note/gn-commit-amend/" rel="bookmark" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></li><li class="active"><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li><li><a href="/git-note/gn-github/" rel="bookmark" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -335,7 +319,7 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">13</span>
+        <span class="count">16</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -414,7 +398,7 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
   </li>
 
       
@@ -424,16 +408,7 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
   </li>
 
       
@@ -444,36 +419,6 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
 </div>
 
     <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】Git 分支">【Git筆記】Git 分支</a></span>
   </li>
 
       
@@ -493,7 +438,37 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】Reset">【Git筆記】Reset</a></span>
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
   </li>
 
       
@@ -504,6 +479,16 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
 </div>
 
     <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
   </li>
 
   </ul>
@@ -524,13 +509,13 @@ hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit �
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">47k 字</span>
+    <span title="總字數">52k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">43 分鐘</span>
+    <span title="所需總閱讀時間">47 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

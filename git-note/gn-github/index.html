@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>3.1k</span>
+    <span>7.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -84,7 +84,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">所需閱讀時間</span>
-    <span>3 分鐘</span>
+    <span>7 分鐘</span>
   </span>
 </div>
 
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,8 +165,80 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="建立-github-的專案"><a class="markdownIt-Anchor" href="#建立-github-的專案">#</a> 建立 GitHub 的專案</h2>
-<p>要在 GitHub 同步地端的資料，首先要在 GitHub 建立一個 repository</p>
+    <h2 id="複製遠端儲存庫的內容到自己的電腦"><a class="markdownIt-Anchor" href="#複製遠端儲存庫的內容到自己的電腦">#</a> 複製遠端儲存庫的內容到自己的電腦</h2>
+<p>Git Server 最方便的地方，大概就是可以跟任何人共享專案，或許是團隊、或許是陌生人<br>
+身為一個工程師界的菜鳥，在還不太會開發程式的情況下，有蠻多情境可以去抓別人提供在 Git Server 上面開源的程式碼來研究</p>
+<p>先建立一個觀念，每一個 Git 遠端儲存庫都會有一個網址，我們需要透過這個網址把專案拉下來，以 GitHub 來說，這個網址會出現在 <strong>Code</strong> 按鈕內<br>
+<img data-src="https://i.imgur.com/kQ1hzzD.jpg" alt=""></p>
+<h3 id="最基本的拉檔案方式"><a class="markdownIt-Anchor" href="#最基本的拉檔案方式">#</a> 最基本的拉檔案方式</h3>
+<p>把這包專案拉下來最簡單的方式，就是先找到專案程式碼的網址，並且使用  <code>git clone</code>  指令</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> clone <span class="token punctuation">[</span>專案網址<span class="token punctuation">]</span></pre></td></tr></table></figure><p>實際執行起來大概會長這樣</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> clone https://github.com/imall/GitLearn.git</pre></td></tr><tr><td data-num="2"></td><td><pre>Cloning into <span class="token string">'GitLearn'</span><span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="3"></td><td><pre>remote: Enumerating objects: <span class="token number">259</span>, done.</pre></td></tr><tr><td data-num="4"></td><td><pre>remote: Counting objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">259</span>/259<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="5"></td><td><pre>remote: Compressing objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">115</span>/115<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="6"></td><td><pre>Receiving objects:  <span class="token number">39</span>% <span class="token punctuation">(</span><span class="token number">102</span>/259<span class="token punctuation">)</span>used <span class="token number">256</span> <span class="token punctuation">(</span>delta <span class="token number">98</span><span class="token punctuation">)</span>, pack-reused 0Receiving objects:  <span class="token number">38</span>% <span class="token punctuation">(</span><span class="token number">99</span>/259<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Receiving objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">259</span>/259<span class="token punctuation">)</span>, <span class="token number">26.62</span> KiB <span class="token operator">|</span> <span class="token number">2.42</span> MiB/s, done.</pre></td></tr><tr><td data-num="8"></td><td><pre>Resolving deltas: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">101</span>/101<span class="token punctuation">)</span>, done.</pre></td></tr></table></figure><p>由於我們輸入命令的時候，並沒有下資料夾名稱，預設會以專案名稱當作資料夾的名稱<br>
+並且開始解析這個遠端儲存庫有多少個物件、壓縮這些物件、下載這些物件</p>
+<p>而預設完成 clone 之後，會進行一次 checkout 的動作，checkout 到 預設的分支<br>
+所以當指令執行完之後，我們可以看到資料夾裡面，除了  <code>.git</code>  檔案之外，還看得到完整的專案檔案，這是因為預設已經 checkout 到 master 或是 main 分支 (不同專案名稱不一定一樣)</p>
+<h3 id="指定資料夾名稱"><a class="markdownIt-Anchor" href="#指定資料夾名稱">#</a> 指定資料夾名稱</h3>
+<p>git clone 指令，實際上還可以多下一個參數代表指定資料夾命名</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> clone <span class="token punctuation">[</span>專案網址<span class="token punctuation">]</span> <span class="token punctuation">[</span>資料夾名稱<span class="token punctuation">]</span></pre></td></tr></table></figure><p>像是這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> clone https://github.com/imall/GitLearn.git gitlearnfoldername</pre></td></tr><tr><td data-num="2"></td><td><pre>Cloning into <span class="token string">'gitlearnfoldername'</span><span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="3"></td><td><pre>remote: Enumerating objects: <span class="token number">259</span>, done.</pre></td></tr><tr><td data-num="4"></td><td><pre>remote: Counting objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">259</span>/259<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="5"></td><td><pre>remote: Compressing objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">115</span>/115<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="6"></td><td><pre>Receiving objects:  <span class="token number">66</span>% <span class="token punctuation">(</span><span class="token number">171</span>/259<span class="token punctuation">)</span>used <span class="token number">256</span> <span class="token punctuation">(</span>delta <span class="token number">98</span><span class="token punctuation">)</span>, pack-reused <span class="token number">0</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Receiving objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">259</span>/259<span class="token punctuation">)</span>, <span class="token number">26.62</span> KiB <span class="token operator">|</span> <span class="token number">3.80</span> MiB/s, done.</pre></td></tr><tr><td data-num="8"></td><td><pre>Resolving deltas: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">101</span>/101<span class="token punctuation">)</span>, done.</pre></td></tr></table></figure><p>跟剛才的差異，就只有資料夾名稱不同而已。</p>
+<h3 id="clone-但不-checkout"><a class="markdownIt-Anchor" href="#clone-但不-checkout">#</a> clone 但不 checkout</h3>
+<p>先前有提到，clone 指令預設會 checkout 到遠端儲存庫指定的分支中，把所有的檔案抓下來，那如果希望不要預設 checkout 的話，可以這麼做：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> clone --no-checkout <span class="token punctuation">[</span>專案網址<span class="token punctuation">]</span> <span class="token punctuation">[</span>資料夾名稱<span class="token punctuation">]</span></pre></td></tr></table></figure><p>這麼一來，就不會 checkout 到任何分支，此時如果執行  <code>git branch</code>  指令，應該可以看到一個預設分支  <code>master</code> ：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre>* master</pre></td></tr></table></figure><p>這時候如果在執行  <code>git checkout master</code>  ，就可以把 master 分支的內容都抓下來：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> checkout master</pre></td></tr><tr><td data-num="2"></td><td><pre>Already on <span class="token string">'master'</span></pre></td></tr><tr><td data-num="3"></td><td><pre>Your branch is up to <span class="token function">date</span> with <span class="token string">'origin/master'</span><span class="token builtin class-name">.</span></pre></td></tr></table></figure><p>這樣的做法感覺有點多此一舉，到底為什麼要多做這個步驟呢？<br>
+例如有時候，我們要 clone 的專案非常龐大，並且有好幾個分支在上頭，可能我們想 clone 的分支並不是預設分支<br>
+那麼我們就可以選擇不要讓他 checkout ，手動 checkout 到想要的分支上。</p>
+<h3 id="僅下載-repository-本身"><a class="markdownIt-Anchor" href="#僅下載-repository-本身">#</a> 僅下載 repository 本身</h3>
+<p>這個標題可能會讓人產生疑惑，我們操作 clone 指令，不就是要把遠端的 code 載下來嗎？<br>
+絕大多數的情況是這樣沒錯，不過實際上 clone 指令已經包裝好，把 repository 本身載下來放到預設資料夾內，並且 checkout 到預設分支。</p>
+<p>換句話說，我們也是可以直接把 repository 單獨的載下來：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> clone <span class="token parameter variable">--bare</span> <span class="token punctuation">[</span>遠端分支網址<span class="token punctuation">]</span></pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> clone <span class="token parameter variable">--bare</span> https://github.com/imall/GitLearn.git</pre></td></tr><tr><td data-num="2"></td><td><pre>Cloning into bare repository <span class="token string">'GitLearn.git'</span><span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="3"></td><td><pre>remote: Enumerating objects: <span class="token number">259</span>, done.</pre></td></tr><tr><td data-num="4"></td><td><pre>remote: Counting objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">259</span>/259<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="5"></td><td><pre>remote: Compressing objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">115</span>/115<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="6"></td><td><pre>Receiving objects:  <span class="token number">57</span>% <span class="token punctuation">(</span><span class="token number">148</span>/259<span class="token punctuation">)</span>used <span class="token number">256</span> <span class="token punctuation">(</span>delta <span class="token number">98</span><span class="token punctuation">)</span>, pack-reused <span class="token number">0</span></pre></td></tr><tr><td data-num="7"></td><td><pre>Receiving objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">259</span>/259<span class="token punctuation">)</span>, <span class="token number">26.62</span> KiB <span class="token operator">|</span> <span class="token number">8.87</span> MiB/s, done.</pre></td></tr><tr><td data-num="8"></td><td><pre>Resolving deltas: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">101</span>/101<span class="token punctuation">)</span>, done.</pre></td></tr></table></figure><p>執行了這個指令所拿到的檔案，幾乎是跟  <code>.git</code>  檔案的內容一模一樣<br>
+<img data-src="https://i.imgur.com/Kw0UV81.jpg" alt=""></p>
+<p>如此一來，我們可以執行這樣的指令，把儲存庫的內容抓下來：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token variable">$git</span> clone D:<span class="token punctuation">\</span>GitHub<span class="token punctuation">\</span>GitLearn.git</pre></td></tr><tr><td data-num="2"></td><td><pre>Cloning into <span class="token string">'GitLearn'</span><span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="3"></td><td><pre>done.</pre></td></tr></table></figure><p>從訊息可以注意到，因為先前已經把儲存庫壓縮下載下來，用這個指令去 clone，就可以省略這些步驟了。</p>
+<blockquote>
+<p>對 Git 來說，除了 GitHub HTTPS 網址之外，還有很多不同的格式都屬於合法的遠端儲存庫網址<br>
+有興趣的話，可以執行  <code>git clone --help</code> ，Git 會帶你去一個網頁，其中的一段就記錄了這些資訊：<br>
+<strong>The following syntaxes may be used with them:</strong><br>
+ <code>ssh://[user@]host.xz[:port]/path/to/repo.git/</code> <br>
+ <code>git://host.xz[:port]/path/to/repo.git/</code> <br>
+ <code>http[s]://host.xz[:port]/path/to/repo.git/</code> <br>
+ <code>ftp[s]://host.xz[:port]/path/to/repo.git/</code></p>
+</blockquote>
+<h2 id="地端分支-遠端分支-遠端追蹤分支"><a class="markdownIt-Anchor" href="#地端分支-遠端分支-遠端追蹤分支">#</a> 地端分支、遠端分支、遠端追蹤分支</h2>
+<p>寫到這邊，先來介紹一下什麼是地端分支，什麼是遠端分支，什麼又是遠端追蹤分支</p>
+<ol>
+<li>地端分支：在分支章節提到的所有操作的分支，都是地端分支，也就是在自己的資料夾專案中所建立的分支，都屬於這類。</li>
+<li>遠端分支：是存在 Git Server 的分支，透過 push 指令推到 Git server 的那些分支們，屬於遠端分支一類。</li>
+<li>遠端追蹤分：是一個很特別的分支，他的主要用途並不用來開發，而是拿來追蹤與參考用的，我們可以透過遠端追蹤分支，在地端確認目前遠端有多少個分支。</li>
+</ol>
+<p>會需要這樣的區分，是因為在不同狀況下，遠端分支的數量，不一定完全等同於地端分支。<br>
+有時候我們在地端開發好專案，要放到 Git Server 與人共享的分支，可能只有一個到兩個擁有完整版內容的分支<br>
+其餘在開發階段的分支，未必需要都上傳到遠端。另一方面，我們從遠端 clone 專案下來，也可能只需要 clone 主要分支即可。</p>
+<p>接著我們就來看看，在地端專案的操作，可以怎麼查找遠端追蹤分支</p>
+<h3 id="查詢目前所有遠端追蹤分支"><a class="markdownIt-Anchor" href="#查詢目前所有遠端追蹤分支">#</a> 查詢目前所有遠端追蹤分支</h3>
+<p>透過這個指令，可以查詢到目前遠端所追蹤的所有分支：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr></table></figure><p>執行完大概會長這樣，指令中的 <code>-r</code>  代表著遠端  <code>remote</code>  的意思<br>
+呈現內容中，origin 是地端與遠端建立連結的時候給予的名稱，實務上也多是 origin 這個名稱，在 <code>/</code>  後的內容就是遠端分支名稱。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  origin/master</pre></td></tr><tr><td data-num="3"></td><td><pre>  origin/temp</pre></td></tr></table></figure><h3 id="查詢含遠端追蹤分支的所有分支"><a class="markdownIt-Anchor" href="#查詢含遠端追蹤分支的所有分支">#</a> 查詢含 <code>遠端追蹤分支</code> 的所有分支</h3>
+<p>如果查詢分支時，同時想看到地端與遠端的分支，可以執行這個指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr></table></figure><p>很容易可以猜到，那個  <code>-a</code> ，是  <code>all</code>  的意思<br>
+注意到有幾個前墜顯示  <code>remotes/origin/</code>  ，提示我們這是遠端追蹤分支</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* master</pre></td></tr><tr><td data-num="3"></td><td><pre>  remotes/origin/HEAD -<span class="token operator">></span> origin/master</pre></td></tr><tr><td data-num="4"></td><td><pre>  remotes/origin/master</pre></td></tr><tr><td data-num="5"></td><td><pre>  remotes/origin/temp</pre></td></tr></table></figure><blockquote>
+<p>無論是  <code>-a</code>  還是  <code>-r</code>  參數，都只是提示我們遠端有哪些分支<br>
+我們不該直接 checkout 到遠端追蹤分支，這類分支是拿來追蹤用、參考用的，而不是拿來開發用的，千萬注意！</p>
+</blockquote>
+<h2 id="切換到遠端的其他分支"><a class="markdownIt-Anchor" href="#切換到遠端的其他分支">#</a> 切換到遠端的其他分支</h2>
+<p>了解了地端分支、遠端分支、遠端追蹤分支後，在把專案 clone 回地端時，可能會遇到一個問題<br>
+先前有提到，我們不該直接切換到遠端追蹤分支，而是要把遠端的分支抓下來，在地端分支進行開發<br>
+但是預設 checkout 的分支是 master ，要怎麼把其他遠端分支 checkout 回來開發呢？</p>
+<p>例如這個狀況：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* master</pre></td></tr><tr><td data-num="3"></td><td><pre>  remotes/origin/HEAD -<span class="token operator">></span> origin/master</pre></td></tr><tr><td data-num="4"></td><td><pre>  remotes/origin/master</pre></td></tr><tr><td data-num="5"></td><td><pre>  remotes/origin/temp</pre></td></tr></table></figure><p>地端目前有一個 master 分支，而遠端的 HEAD 目前是在 master 分支上，同時遠端還有一個 temp 分支<br>
+那麼我們可以直接下這個指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout temp</pre></td></tr></table></figure><p>注意到了嗎，雖然地端本身沒有 temp 分支，但是只要遠端有在追蹤這個分支，那直接執行 checkout 指令 分支名稱寫遠端的分支<br>
+就可以把遠端 temp 的內容抓到地端，並且讓地端也出現一個 temp 分支</p>
+<h2 id="建立-github-的專案"><a class="markdownIt-Anchor" href="#建立-github-的專案">#</a> 建立 GitHub 的專案</h2>
+<p>要在 GitHub 同步地端的資料，首先要在 GitHub 建立一個遠端的 repository</p>
 <ol>
 <li>
 <p>找到建立 repository 的按鈕<br>
@@ -182,22 +254,36 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <li>
 <p>完成<br>
  repository 建立成功之後，會看到類似下面這樣的畫面，有提示教學怎麼把地端的 Git 專案與這個專案連結<br>
-<img data-src="https://i.imgur.com/YnNpqBS.jpg" alt=""></p>
+<img data-src="https://i.imgur.com/r1LcLKV.jpg" alt=""></p>
 </li>
 </ol>
 <h2 id="新增遠端儲存庫位置"><a class="markdownIt-Anchor" href="#新增遠端儲存庫位置">#</a> 新增遠端儲存庫位置</h2>
-<p>大致解釋一下剛剛最後一張圖上的指令在講些什麼</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">echo</span> <span class="token string">"# GitLearn"</span> <span class="token operator">>></span> README.md  <span class="token comment"># 建立 README.md 檔案，內容寫 "# GitLearn"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> init <span class="token comment"># 初始化專案</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> README.md <span class="token comment"># 把剛剛的 readme.md 檔案加到暫存區</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"first commit"</span> <span class="token comment"># 建立一個版本</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-M</span> main <span class="token comment"># 強制把目前的分支名稱改成 "main"</span></pre></td></tr></table></figure><p>上述的步驟除了第一句之外，都是之前的文章有介紹過的內容，就不多加贅述<br>
-而第一句是一個基礎 linux 指令，目的只是要建立一個 <span class="exturl" data-url="aHR0cDovL3JlYWRtZS5tZA==">readme.md</span> 檔案，讓專案有一個說明檔，可以手動增加也可以不理他</p>
-<p>再來說明這一小節的重點：新增遠端儲存庫位置<br>
-記得在一開始提到 Git 跟 GitHub 差異的時候，有講到 Git 是可以在地端獨立進行版控，不一定要上傳到雲端的<br>
-上一個步驟已經先建立了遠端專案，目前內容是空的，如果要把地端 Git 同步到遠端，勢必需要讓地端知道遠端儲存庫的位置<br>
-在地端的專案執行這個指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token function">add</span> <span class="token punctuation">[</span>名稱<span class="token punctuation">]</span> <span class="token punctuation">[</span>遠端分支位置<span class="token punctuation">]</span></pre></td></tr></table></figure><ul>
-<li>名稱 ，是遠端節點的意思，一般來說是 origin ，要命其他名字也可以，只要跟團隊說好要叫什麼名字即可，通常這個名字也只會有一個。</li>
+<p>建立好 GitGub 的 repository 之後的畫面，已經提示我們可以怎麼把資料放上 repository 了<br>
+<img data-src="https://i.imgur.com/r1LcLKV.jpg" alt=""></p>
+<ol>
+<li>透過 <span class="exturl" data-url="aHR0cHM6Ly9kZXNrdG9wLmdpdGh1Yi5jb20v">GitHub Desktop</span> 工具操作</li>
+</ol>
+<p>GitHub Desktop 是 GitHub 提供的圖形化工具，透過這個工具可以協助我們把地端的檔案上傳到雲端<br>
+不過這個不是我要討論的重點，我會著重在以指令執行的方式，因為這個工具只能用在 GitHub 上，如果換了一個 Git Server，是沒辦法使用的，所以我會把重點著重在指令上，這樣即便 Git Server 不同，也可以做到一樣的事情，對<span class="exturl" data-url="aHR0cHM6Ly9kZXNrdG9wLmdpdGh1Yi5jb20v"> GitHub Desktop</span> 有興趣的話可以去他們的<span class="exturl" data-url="aHR0cHM6Ly9kZXNrdG9wLmdpdGh1Yi5jb20v">官網</span>研究研究。</p>
+<ol start="2">
+<li>透過 command line 建立一個新的 repository</li>
+</ol>
+<p>意思是告訴我們，先在地端執行這些指令，就可以把一個空的專案上傳到遠端儲存庫<br>
+指令的介紹大致如下：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token builtin class-name">echo</span> <span class="token string">"# GitLearn"</span> <span class="token operator">>></span> README.md  <span class="token comment"># 建立 README.md 檔案，內容寫 "# GitLearn"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> init <span class="token comment"># 初始化專案</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> README.md <span class="token comment"># 把剛剛的 readme.md 檔案加到暫存區</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"first commit"</span> <span class="token comment"># 建立一個版本</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-M</span> main <span class="token comment"># 強制把目前的分支名稱改成 "main"</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token function">git</span> remote <span class="token function">add</span> origin https://github.com/imall/GitLearn.git  <span class="token comment"># 設定遠端儲存庫的位置</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin main <span class="token comment">#把地端的 main 分支推到遠端儲存庫，在遠端也建立一個 main 分支，同時建立地端與遠端儲存庫的連結關係</span></pre></td></tr></table></figure><p>這個提示內容，是在我們並沒有地端儲存庫的狀況下，告訴我們如何在地端建立一個基本的儲存庫，並且把分支推到遠端<br>
+可以看到指令包含了「初始化專案」、「git add」、「git commit」等資訊，就是<a href="/git-note/gn-start/">開始的文章</a>所說的內容。</p>
+<ol start="3">
+<li>透過 command line 把一個已經存在的 repository 推上去</li>
+</ol>
+<p>這個操作是我比較常會用到方式，通常我都是在地端已經開發好一些東西，或是有一些檔案了，要把資料丟到 GitHub 上。<br>
+先來介紹指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token function">add</span> <span class="token punctuation">[</span>名稱<span class="token punctuation">]</span> <span class="token punctuation">[</span>遠端分支位置<span class="token punctuation">]</span></pre></td></tr></table></figure><p>當我們在地端已經有一包 Git Repository 專案，可以直接執行這個指令把資料丟到 Git Server</p>
+<ul>
+<li>名稱，是遠端節點的意思，一般來說是 origin ，要命其他名字也可以，只要跟團隊說好要叫什麼名字即可，通常這個名字也只會有一個。</li>
 <li>遠端分支位置，通常是 <strong>[專案網址].git</strong></li>
 </ul>
-<h2 id="查詢遠端數據庫位置"><a class="markdownIt-Anchor" href="#查詢遠端數據庫位置">#</a> 查詢遠端數據庫位置</h2>
+<p>實際執行的指令大概會長這樣，名稱大多固定是 origin ，專案網址因專案而異：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token function">add</span> origin https://github.com/imall/GitLearn.git</pre></td></tr></table></figure><h2 id="查詢遠端數據庫位置"><a class="markdownIt-Anchor" href="#查詢遠端數據庫位置">#</a> 查詢遠端數據庫位置</h2>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token parameter variable">-v</span></pre></td></tr></table></figure><p>如果成功設定好的話，執行這個指令會看到這樣的東西，提示從遠端 fetch 資料的位置，以及等等馬上要介紹 push 資料的位置</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token parameter variable">-v</span></pre></td></tr><tr><td data-num="2"></td><td><pre>origin  https://github.com/imall/GitLearn.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>origin  https://github.com/imall/GitLearn.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="將本地分支的資料推到遠端"><a class="markdownIt-Anchor" href="#將本地分支的資料推到遠端">#</a> 將本地分支的資料推到遠端</h2>
 <p>建立好連結後，就可以使用  <code>push</code>  指令把檔案推到遠端</p>
@@ -207,52 +293,41 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <li><code>-u</code>  參數的完整設定指令為  <code>--set-upstream</code>  ，指的是上游，這個參數的目的，是讓 Git 知道，未來目前的分支，要固定對應到遠端的某個分支<br>
 如果沒有寫的話，下次只執行  <code>git push</code>  指令，Git 會沒辦法辨別到底要 push 到哪個遠端分支，而出現這個訊息：</li>
 </ul>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> push</pre></td></tr><tr><td data-num="2"></td><td><pre>fatal: The current branch master has no upstream branch.</pre></td></tr><tr><td data-num="3"></td><td><pre>To push the current branch and <span class="token builtin class-name">set</span> the remote as upstream, use</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token function">git</span> push --set-upstream origin master</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>To have this happen automatically <span class="token keyword">for</span> branches without a tracking</pre></td></tr><tr><td data-num="8"></td><td><pre>upstream, see <span class="token string">'push.autoSetupRemote'</span> <span class="token keyword">in</span> <span class="token string">'git help config'</span><span class="token builtin class-name">.</span></pre></td></tr></table></figure><h2 id="地端分支-遠端分支-遠端追蹤分支"><a class="markdownIt-Anchor" href="#地端分支-遠端分支-遠端追蹤分支">#</a> 地端分支、遠端分支、遠端追蹤分支</h2>
-<p>寫到這邊，來介紹一下什麼是地端分支，什麼是遠端分支，什麼又是遠端追蹤分支</p>
-<ol>
-<li>地端分支，是我們在分支章節裡面提到分支，就是地端分支</li>
-<li>遠端分支，是已經存在 Git Server 的分支，稱為遠端分支</li>
-<li>遠端追蹤分支是一個很特別的分支，剛剛使用  <code>git push</code>  指令建立把分支推送到遠端儲存庫的時候，在地端建立了一個特別的分支<br>
-紀錄目前的 Git 專案中，有推過哪些分支</li>
-</ol>
-<blockquote>
-<p>實際上，我們不該直接 checkout 到遠端追蹤分支，因為這個類別的分支是 Git 拿來追蹤用的，而不是拿來開發用的，千萬注意！</p>
-</blockquote>
-<h3 id="查詢目前遠端所追蹤的分支"><a class="markdownIt-Anchor" href="#查詢目前遠端所追蹤的分支">#</a> 查詢目前遠端所追蹤的分支</h3>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr></table></figure><p>透過這個指令，可以查詢到目前遠端所追蹤的所有分支，執行完大概會長這樣，那個 origin 就是一開始建立連結的時候命名的節點名稱， <code>/</code>  之後的內容則是在遠端的分支名稱，而  <code>-r</code>  是  <code>remote</code>  的意思</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  origin/master</pre></td></tr><tr><td data-num="3"></td><td><pre>  origin/temp</pre></td></tr></table></figure><h3 id="查詢含遠端的所有分支"><a class="markdownIt-Anchor" href="#查詢含遠端的所有分支">#</a> 查詢含遠端的所有分支</h3>
-<p>如果想查整個 Git 專案包含遠端的所有分支，可以這樣下指令</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr></table></figure><p>很容易可以猜到，那個  <code>-a</code> ，是  <code>all</code>  的意思</p>
-<h2 id="更改遠端對應位置"><a class="markdownIt-Anchor" href="#更改遠端對應位置">#</a> 更改遠端對應位置</h2>
-<p>我們可能會有希望轉換遠端儲存庫的需求，則可以用這個指令去更改遠端儲存庫<br>
-一開始我們設定遠端儲存庫位置，是用  <code>git remote add</code>  指令處理，更改的話則可以使用這樣的指令</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote set-url origin 遠端儲存庫位置</pre></td></tr></table></figure><p>另一個方法，是直接去 <strong>.git/config</strong> 檔案去修改網址位置</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>core<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	repositoryformatversion <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	filemode <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="4"></td><td><pre>	bare <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="5"></td><td><pre>	logallrefupdates <span class="token operator">=</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="6"></td><td><pre>	symlinks <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="7"></td><td><pre>	ignorecase <span class="token operator">=</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">[</span>remote <span class="token string">"origin"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="9"></td><td><pre>	url <span class="token operator">=</span> https://github.com/imall/GitLearn.git <span class="token comment"># 改這個網址</span></pre></td></tr><tr><td data-num="10"></td><td><pre>	fetch <span class="token operator">=</span> +refs/heads/*:refs/remotes/origin/*</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">[</span>branch <span class="token string">"temp"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="12"></td><td><pre>	remote <span class="token operator">=</span> origin</pre></td></tr><tr><td data-num="13"></td><td><pre>	merge <span class="token operator">=</span> refs/heads/temp</pre></td></tr></table></figure><h2 id="推送全部的分支到遠端儲存庫"><a class="markdownIt-Anchor" href="#推送全部的分支到遠端儲存庫">#</a> 推送全部的分支到遠端儲存庫</h2>
-<p>銜接剛剛提到可能要搬家的需求，既然要搬家，那就應該全員到齊<br>
-這種狀況就可以用這個指令把所有的分支一次推到遠端去</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">--all</span></pre></td></tr></table></figure><h2 id="把遠端分支新的內容更新到地端"><a class="markdownIt-Anchor" href="#把遠端分支新的內容更新到地端">#</a> 把遠端分支新的內容，更新到地端</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> push</pre></td></tr><tr><td data-num="2"></td><td><pre>fatal: The current branch master has no upstream branch.</pre></td></tr><tr><td data-num="3"></td><td><pre>To push the current branch and <span class="token builtin class-name">set</span> the remote as upstream, use</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token function">git</span> push --set-upstream origin master</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>To have this happen automatically <span class="token keyword">for</span> branches without a tracking</pre></td></tr><tr><td data-num="8"></td><td><pre>upstream, see <span class="token string">'push.autoSetupRemote'</span> <span class="token keyword">in</span> <span class="token string">'git help config'</span><span class="token builtin class-name">.</span></pre></td></tr></table></figure><h2 id="更改遠端對應位置"><a class="markdownIt-Anchor" href="#更改遠端對應位置">#</a> 更改遠端對應位置</h2>
+<p>我們可能會有希望轉換遠端儲存庫的需求，例如前一陣子，公司就有把 TFS 上的專案，搬到 GitHub 的需求<br>
+原本以為會是一個大工程，沒想到過程十分簡易且順利，只要設定好參數，把所有分支推到另一個遠端對應位置即可</p>
+<p>我們在之前的步驟設定遠端儲存庫，是用  <code>git remote add</code>  指令處理，更改的話則可以使用這樣的指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote set-url <span class="token punctuation">[</span>名稱<span class="token punctuation">]</span> <span class="token punctuation">[</span>遠端儲存庫位置<span class="token punctuation">]</span></pre></td></tr></table></figure><p>很單純的只是把原本的  <code>add</code>  換成  <code>set-url</code>  而已。</p>
+<p>不過因為這指令時在不會太常用到，還有另一個方法可以操作：直接去 <strong>.git/config</strong> 檔案去修改網址位置</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>core<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	repositoryformatversion <span class="token operator">=</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	filemode <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="4"></td><td><pre>	bare <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="5"></td><td><pre>	logallrefupdates <span class="token operator">=</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="6"></td><td><pre>	symlinks <span class="token operator">=</span> <span class="token boolean">false</span></pre></td></tr><tr><td data-num="7"></td><td><pre>	ignorecase <span class="token operator">=</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">[</span>remote <span class="token string">"origin"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="9"></td><td><pre>	url <span class="token operator">=</span> https://github.com/imall/GitLearn.git <span class="token comment"># 改這個網址</span></pre></td></tr><tr><td data-num="10"></td><td><pre>	fetch <span class="token operator">=</span> +refs/heads/*:refs/remotes/origin/*</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">[</span>branch <span class="token string">"temp"</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="12"></td><td><pre>	remote <span class="token operator">=</span> origin</pre></td></tr><tr><td data-num="13"></td><td><pre>	merge <span class="token operator">=</span> refs/heads/temp</pre></td></tr></table></figure><p>上面執行  <code>set-url</code>  執行指令的目的也只是要改動這個網址而已，如果知道怎麼改網址，就不用去記那麼多指令囉！</p>
+<h2 id="推送全部的分支到遠端儲存庫"><a class="markdownIt-Anchor" href="#推送全部的分支到遠端儲存庫">#</a> 推送全部的分支到遠端儲存庫</h2>
+<p>銜接剛剛提到可能要搬家的需求，既然要搬家，<s>那一家人就該整整齊齊的</s>，這種狀況就可以用這個指令把所有的分支一次推到遠端去</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">--all</span></pre></td></tr></table></figure><p>要注意的是，這指令只會把地端的分支推送到遠端，如果更換過遠端路徑的話，並不會主動把原本的追蹤分支推到後來的設定的遠端儲存庫<br>
+如果是有搬家需求執行這個指令，必須先把原本專案所有遠端分支都拉到地端，然後在更換路徑之後，再執行這個指令！</p>
+<h2 id="把遠端分支新的內容更新到地端"><a class="markdownIt-Anchor" href="#把遠端分支新的內容更新到地端">#</a> 把遠端分支新的內容，更新到地端</h2>
 <p>在團隊開發過程，有可能 partner push 一版內容到某個遠端分支，需要把他更新下來，則可以使用這個指令</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> pull</pre></td></tr></table></figure><p>事實上  <code>git pull</code>  隱含著兩個指令 ：</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> fetch</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> merge</pre></td></tr></table></figure><p>有沒有覺得很眼熟？<br>
 <strong>fetch</strong> 這個詞在介紹 <a href="/git-note/gn-github/#%E6%9F%A5%E8%A9%A2%E9%81%A0%E7%AB%AF%E6%95%B8%E6%93%9A%E5%BA%AB%E4%BD%8D%E7%BD%AE">git remote -v</a> 的時候出現過，當時告訴我們會從哪個遠端拉回資料。<br>
-<strong>merge</strong> 就是在 <a href="/git-note/gn-branch/#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF">合併分支</a> 的章節提到的那個 <strong>merge</strong></p>
-<p>所以  <code>git pull</code>  的意思是：「把分支內容從遠端拿回來」+「把遠端拉回來的內容合併到目前分支中」！</p>
+ <code>git fetch</code>  這個指令，是用來把遠端儲存庫（remote repository）所有最新的歷史記錄（commits）、分支（branches）、標籤（tags）更新，但並不將這些更新合併到目前所在的工作目錄。<br>
+<strong>merge</strong> 就是在 <a href="/git-note/gn-branch/#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF">合併分支</a> 的章節提到的那個 <strong>merge</strong>。</p>
+<p>知道這兩個指令之後，應該就能了解  <code>git pull</code>  的意思是：「把分支內容從遠端拿回來」+「把遠端拉回來的內容合併到目前分支中」！</p>
 <h2 id="刪除遠端分支"><a class="markdownIt-Anchor" href="#刪除遠端分支">#</a> 刪除遠端分支</h2>
 <p>當我們的開發分支合併回主要分支之後，既然已經沒有存在的必要，那就可以刪掉他<br>
 如果刪除地端分支，用 <code>git branch -d 分支名稱</code> 即可，不過遠端分支並不會因為地端分支刪除而不見</p>
 <p>必須另外下指令才能處理，有兩個指令可以完成這件事</p>
 <ol>
-<li>用 --delete 參數<br>
-這個指令很清楚能從指令猜到是要刪除分支，應該沒什麼問題</li>
+<li>用  <code>--delete</code>  參數</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> 遠端分支名稱</pre></td></tr></table></figure><ol start="2">
-<li>用 push 指令完整的語法<br>
-而這個指令比較令人詫異的地方是，為什麼是  <code>:分支名稱</code> <br>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> 遠端分支名稱</pre></td></tr></table></figure><p>這個指令很清楚能從指令猜到是要刪除分支，應該沒什麼問題</p>
+<ol start="2">
+<li>用 push 指令完整的語法</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin :遠端分支名稱</pre></td></tr></table></figure><p>而這個指令比較令人詫異的地方是，為什麼是  <code>:分支名稱</code> <br>
 還記得之前有提到 push 指令完整語法是  <code>git push origin 地端分支:遠端分支</code>  嗎？<br>
 在  <code>:</code>  前面不寫地端分支，其實也就代表著，要把空的分支推送到遠端分支中<br>
-既然是空的分支，言下之意就是要把遠端的分支變成空分支，也就是刪除囉！</li>
-</ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin :遠端分支名稱</pre></td></tr></table></figure>
+既然是空的分支，言下之意就是要把遠端的分支變成空分支，也就是刪除囉！</p>
+
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
       </div>
@@ -266,7 +341,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-26 18:24:42" itemprop="dateModified" datetime="2023-07-26T18:24:42+08:00">2023-07-26</time>
+    <time title="修改時間：2023-07-27 14:49:26" itemprop="dateModified" datetime="2023-07-27T14:49:26+08:00">2023-07-27</time>
   </span>
   <span id="git-note/gn-github/" class="item leancloud_visitors" data-flag-title="【Git筆記】使用 GitHub" title="閱讀次數">
       <span class="icon">
@@ -306,7 +381,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-note/gn-rebase-modify-commit/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;8gupmbA.jpg" title="【Git筆記】用 rebase 來修改歷史 commit">
+  <a href="/git-note/gn-rebase-modify-commit/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;tXRAhpc.jpg" title="【Git筆記】用 rebase 來修改歷史 commit">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】用 rebase 來修改歷史 commit</h3>
@@ -316,7 +391,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/vue-note/vite-start/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;dOvnXNe.jpg" title="初始化 Vue3 專案的幾種指令">
+  <a href="/vue-note/vite-start/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;8gupmbA.jpg" title="初始化 Vue3 專案的幾種指令">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Vue 筆記</span>
   <h3>初始化 Vue3 專案的幾種指令</h3>
@@ -337,7 +412,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-github-%E7%9A%84%E5%B0%88%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text"> 建立 GitHub 的專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text"> 新增遠端儲存庫位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E9%81%A0%E7%AB%AF%E6%95%B8%E6%93%9A%E5%BA%AB%E4%BD%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text"> 查詢遠端數據庫位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E7%9A%84%E8%B3%87%E6%96%99%E6%8E%A8%E5%88%B0%E9%81%A0%E7%AB%AF"><span class="toc-number">4.</span> <span class="toc-text"> 將本地分支的資料推到遠端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">5.</span> <span class="toc-text"> 地端分支、遠端分支、遠端追蹤分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E7%9B%AE%E5%89%8D%E9%81%A0%E7%AB%AF%E6%89%80%E8%BF%BD%E8%B9%A4%E7%9A%84%E5%88%86%E6%94%AF"><span class="toc-number">5.1.</span> <span class="toc-text"> 查詢目前遠端所追蹤的分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%90%AB%E9%81%A0%E7%AB%AF%E7%9A%84%E6%89%80%E6%9C%89%E5%88%86%E6%94%AF"><span class="toc-number">5.2.</span> <span class="toc-text"> 查詢含遠端的所有分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E9%81%A0%E7%AB%AF%E5%B0%8D%E6%87%89%E4%BD%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text"> 更改遠端對應位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%88%B0%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">7.</span> <span class="toc-text"> 推送全部的分支到遠端儲存庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E6%96%B0%E7%9A%84%E5%85%A7%E5%AE%B9%E6%9B%B4%E6%96%B0%E5%88%B0%E5%9C%B0%E7%AB%AF"><span class="toc-number">8.</span> <span class="toc-text"> 把遠端分支新的內容，更新到地端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">9.</span> <span class="toc-text"> 刪除遠端分支</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A4%87%E8%A3%BD%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E5%85%A7%E5%AE%B9%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9B%BB%E8%85%A6"><span class="toc-number">1.</span> <span class="toc-text"> 複製遠端儲存庫的內容到自己的電腦</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%8B%89%E6%AA%94%E6%A1%88%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text"> 最基本的拉檔案方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%B3%87%E6%96%99%E5%A4%BE%E5%90%8D%E7%A8%B1"><span class="toc-number">1.2.</span> <span class="toc-text"> 指定資料夾名稱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clone-%E4%BD%86%E4%B8%8D-checkout"><span class="toc-number">1.3.</span> <span class="toc-text"> clone 但不 checkout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%83%85%E4%B8%8B%E8%BC%89-repository-%E6%9C%AC%E8%BA%AB"><span class="toc-number">1.4.</span> <span class="toc-text"> 僅下載 repository 本身</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text"> 地端分支、遠端分支、遠端追蹤分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E7%9B%AE%E5%89%8D%E6%89%80%E6%9C%89%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.1.</span> <span class="toc-text"> 查詢目前所有遠端追蹤分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%90%AB%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF%E7%9A%84%E6%89%80%E6%9C%89%E5%88%86%E6%94%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 查詢含 遠端追蹤分支 的所有分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E5%88%B0%E9%81%A0%E7%AB%AF%E7%9A%84%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="toc-number">3.</span> <span class="toc-text"> 切換到遠端的其他分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-github-%E7%9A%84%E5%B0%88%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text"> 建立 GitHub 的專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E4%BD%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text"> 新增遠端儲存庫位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E9%81%A0%E7%AB%AF%E6%95%B8%E6%93%9A%E5%BA%AB%E4%BD%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text"> 查詢遠端數據庫位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%87%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E7%9A%84%E8%B3%87%E6%96%99%E6%8E%A8%E5%88%B0%E9%81%A0%E7%AB%AF"><span class="toc-number">7.</span> <span class="toc-text"> 將本地分支的資料推到遠端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E9%81%A0%E7%AB%AF%E5%B0%8D%E6%87%89%E4%BD%8D%E7%BD%AE"><span class="toc-number">8.</span> <span class="toc-text"> 更改遠端對應位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%85%A8%E9%83%A8%E7%9A%84%E5%88%86%E6%94%AF%E5%88%B0%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">9.</span> <span class="toc-text"> 推送全部的分支到遠端儲存庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E6%96%B0%E7%9A%84%E5%85%A7%E5%AE%B9%E6%9B%B4%E6%96%B0%E5%88%B0%E5%9C%B0%E7%AB%AF"><span class="toc-number">10.</span> <span class="toc-text"> 把遠端分支新的內容，更新到地端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">11.</span> <span class="toc-text"> 刪除遠端分支</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -431,25 +506,6 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
@@ -460,10 +516,10 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
   </li>
 
       
@@ -490,6 +546,16 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
@@ -500,10 +566,20 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
   </li>
 
       
@@ -520,10 +596,10 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
   </li>
 
   </ul>
@@ -544,13 +620,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">52k 字</span>
+    <span title="總字數">56k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">47 分鐘</span>
+    <span title="所需總閱讀時間">51 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

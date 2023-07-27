@@ -85,12 +85,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
         </ul>
       </div>
     </header>
@@ -219,6 +219,27 @@ google
 
           
 <section class="item">
+  <div class="cover" data-background-image="/js-note/cover.jpg">
+    <h2 class="title">JavaScript 筆記</h2>
+  </div>
+  <div class="info">
+    <div class="ribbon"><a href="/categories/js-note/" itemprop="url" title="JavaScript 筆記">JavaScript 筆記</a></div>
+    <div class="inner">
+        <ul class="posts">
+            <li><a title="一個好用的時間處理套件 - Dayjs" href="/js-note/day-js/">一個好用的時間處理套件 - Dayjs</a></li>
+        </ul>
+        <div class="meta footer">
+          <span>
+            <i class="ic i-file"></i>1 篇文章
+          </span>
+        </div>
+        <a href="/categories/js-note/" itemprop="url" title="JavaScript 筆記" class="btn">more...</a>
+    </div>
+  </div>
+</section>
+
+          
+<section class="item">
   <div class="cover" data-background-image="/git-note/cover.jpg">
     <h2 class="title">Git 筆記</h2>
   </div>
@@ -239,27 +260,6 @@ google
           </span>
         </div>
         <a href="/categories/git-note/" itemprop="url" title="Git 筆記" class="btn">more...</a>
-    </div>
-  </div>
-</section>
-
-          
-<section class="item">
-  <div class="cover" data-background-image="/js-note/cover.jpg">
-    <h2 class="title">JavaScript 筆記</h2>
-  </div>
-  <div class="info">
-    <div class="ribbon"><a href="/categories/js-note/" itemprop="url" title="JavaScript 筆記">JavaScript 筆記</a></div>
-    <div class="inner">
-        <ul class="posts">
-            <li><a title="一個好用的時間處理套件 - Dayjs" href="/js-note/day-js/">一個好用的時間處理套件 - Dayjs</a></li>
-        </ul>
-        <div class="meta footer">
-          <span>
-            <i class="ic i-file"></i>1 篇文章
-          </span>
-        </div>
-        <a href="/categories/js-note/" itemprop="url" title="JavaScript 筆記" class="btn">more...</a>
     </div>
   </div>
 </section>
@@ -292,7 +292,7 @@ google
         
 <article class="item">
   <div class="cover">
-    <a href="/vue-note/vite-start/" itemprop="url" title="初始化 Vue3 專案的幾種指令"><img data-src="https://i.imgur.com/kctRHYg.jpg"></a>
+    <a href="/vue-note/vite-start/" itemprop="url" title="初始化 Vue3 專案的幾種指令"><img data-src="https://i.imgur.com/qhft9aC.png"></a>
   </div>
   <div class="info">
     
@@ -339,7 +339,7 @@ $ npm init vue@latestVue.js - The Progressive JavaScript...
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-github/" itemprop="url" title="【Git筆記】使用 GitHub"><img data-src="https://i.imgur.com/QdkMVTt.jpg"></a>
+    <a href="/git-note/gn-github/" itemprop="url" title="【Git筆記】使用 GitHub"><img data-src="https://i.imgur.com/rt4bUdl.jpg"></a>
   </div>
   <div class="info">
     
@@ -354,33 +354,28 @@ $ npm init vue@latestVue.js - The Progressive JavaScript...
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>3.1k</span>
+    <span>7.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
     <span class="icon">
       <i class="ic i-clock"></i>
     </span>
-    <span>3 分鐘</span>
+    <span>7 分鐘</span>
   </span>
 </div>
 
     <h3><a href="/git-note/gn-github/" itemprop="url" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></h3>
     <div class="excerpt">
-        # 建立 GitHub 的專案
-要在 GitHub 同步地端的資料，首先要在 GitHub 建立一個 repository
+        # 複製遠端儲存庫的內容到自己的電腦
+Git Server 最方便的地方，大概就是可以跟任何人共享專案，或許是團隊、或許是陌生人
+身為一個工程師界的菜鳥，在還不太會開發程式的情況下，有蠻多情境可以去抓別人提供在 Git Server 上面開源的程式碼來研究
+先建立一個觀念，每一個 Git 遠端儲存庫都會有一個網址，我們需要透過這個網址把專案拉下來，以 GitHub 來說，這個網址會出現在 Code 按鈕內
 
-找到建立 repository 的按鈕
-據我所知 GitHub 好像已經改版面很多次，每次按鈕位置都不太一樣
-不過基本上都會在顯眼的位置，就找到之後點開他
-
-針對這個 repository 命名，點選 create repository
-一般來本地資料夾叫什麼名字，這個名稱就會叫什麼名字
-
-完成
-repository 建立成功之後，會看到類似下面這樣的畫面，有提示教學怎麼把地端的 Git 專案與這個專案連結
-
-#...
+# 最基本的拉檔案方式
+把這包專案拉下來最簡單的方式，就是先找到專案程式碼的網址，並且使用 git clone 指令
+git clone [專案網址]實際執行起來大概會長這樣
+$ git...
     </div>
     <div class="meta footer">
       <span>
@@ -394,7 +389,7 @@ repository 建立成功之後，會看到類似下面這樣的畫面，有提示
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-rebase-modify-commit/" itemprop="url" title="【Git筆記】用 rebase 來修改歷史 commit"><img data-src="https://i.imgur.com/eWxuYmg.jpg"></a>
+    <a href="/git-note/gn-rebase-modify-commit/" itemprop="url" title="【Git筆記】用 rebase 來修改歷史 commit"><img data-src="https://i.imgur.com/wW2x12h.png"></a>
   </div>
   <div class="info">
     
@@ -445,7 +440,7 @@ git rebase -i commitID由於 rebase 是要更動基底，所以互動模式會�
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-rebase-merge/" itemprop="url" title="【Git筆記】用 rebase 來合併分支"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
+    <a href="/git-note/gn-rebase-merge/" itemprop="url" title="【Git筆記】用 rebase 來合併分支"><img data-src="https://i.imgur.com/HsDjgUN.jpg"></a>
   </div>
   <div class="info">
     
@@ -495,7 +490,7 @@ $ git rebase masterSuccessfully rebased and updated refs/heads/dev.
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-reset/" itemprop="url" title="【Git筆記】用 Reset 還原資料"><img data-src="https://i.imgur.com/8gupmbA.jpg"></a>
+    <a href="/git-note/gn-reset/" itemprop="url" title="【Git筆記】用 Reset 還原資料"><img data-src="https://i.imgur.com/yYb3MY4.jpg"></a>
   </div>
   <div class="info">
     
@@ -544,7 +539,7 @@ $ git rebase masterSuccessfully rebased and updated refs/heads/dev.
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-branch/" itemprop="url" title="【Git筆記】使用 Git 分支"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
+    <a href="/git-note/gn-branch/" itemprop="url" title="【Git筆記】使用 Git 分支"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
   </div>
   <div class="info">
     
@@ -594,7 +589,7 @@ $ git rebase masterSuccessfully rebased and updated refs/heads/dev.
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-commit-amend/" itemprop="url" title="【Git筆記】修改 commit 紀錄"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
+    <a href="/git-note/gn-commit-amend/" itemprop="url" title="【Git筆記】修改 commit 紀錄"><img data-src="https://i.imgur.com/77JuPV6.png"></a>
   </div>
   <div class="info">
     
@@ -643,7 +638,7 @@ $ git rebase masterSuccessfully rebased and updated refs/heads/dev.
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-situation/" itemprop="url" title="【Git筆記】commit 前的狀況處理"><img data-src="https://i.imgur.com/wW2x12h.png"></a>
+    <a href="/git-note/gn-situation/" itemprop="url" title="【Git筆記】commit 前的狀況處理"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
   </div>
   <div class="info">
     
@@ -697,7 +692,7 @@ git reset 檔案名稱git reset 除了把暫存區檔案還原狀態的功能之
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git"><img data-src="https://i.imgur.com/P69ZGGo.jpg"></a>
+    <a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
   </div>
   <div class="info">
     
@@ -748,7 +743,7 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念"><img data-src="https://i.imgur.com/qhft9aC.png"></a>
+    <a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念"><img data-src="https://i.imgur.com/fG7Vwmv.jpg"></a>
   </div>
   <div class="info">
     
@@ -906,26 +901,7 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
   </li>
 
       
@@ -952,6 +928,46 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
@@ -962,20 +978,10 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
       
@@ -986,16 +992,6 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
 </div>
 
     <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
   </ul>
@@ -1016,13 +1012,13 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">52k 字</span>
+    <span title="總字數">56k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">47 分鐘</span>
+    <span title="所需總閱讀時間">51 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

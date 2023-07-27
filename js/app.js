@@ -1770,30 +1770,31 @@ const postBeauty = function () {
 
   postFancybox('.post.block');
 
-  $('.post.block').oncopy = function(event) {
-    showtip(LOCAL.copyright)
+  // 複製網站內容時，顯示版權資訊
+  // $('.post.block').oncopy = function(event) {
+  //   showtip(LOCAL.copyright)
 
-    if(LOCAL.nocopy) {
-      event.preventDefault()
-      return
-    }
+  //   if(LOCAL.nocopy) {
+  //     event.preventDefault()
+  //     return
+  //   }
 
-    var copyright = $('#copyright')
-    if(window.getSelection().toString().length > 30 && copyright) {
-      event.preventDefault();
-      var author = "# " + copyright.child('.author').innerText
-      var link = "# " + copyright.child('.link').innerText
-      var license = "# " + copyright.child('.license').innerText
-      var htmlData = author + "<br>" + link + "<br>" + license + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");;
-      var textData = author + "\n" + link + "\n" + license + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
-      if (event.clipboardData) {
-          event.clipboardData.setData("text/html", htmlData);
-          event.clipboardData.setData("text/plain", textData);
-      } else if (window.clipboardData) {
-          return window.clipboardData.setData("text", textData);
-      }
-    }
-  }
+  //   var copyright = $('#copyright')
+  //   if(window.getSelection().toString().length > 30 && copyright) {
+  //     event.preventDefault();
+  //     var author = "# " + copyright.child('.author').innerText
+  //     var link = "# " + copyright.child('.link').innerText
+  //     var license = "# " + copyright.child('.license').innerText
+  //     var htmlData = author + "<br>" + link + "<br>" + license + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");;
+  //     var textData = author + "\n" + link + "\n" + license + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
+  //     if (event.clipboardData) {
+  //         event.clipboardData.setData("text/html", htmlData);
+  //         event.clipboardData.setData("text/plain", textData);
+  //     } else if (window.clipboardData) {
+  //         return window.clipboardData.setData("text", textData);
+  //     }
+  //   }
+  // }
 
   $.each('li ruby', function(element) {
     var parent = element.parentNode;

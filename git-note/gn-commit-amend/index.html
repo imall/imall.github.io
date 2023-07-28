@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>993</span>
+    <span>1k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
         </ul>
       </div>
     </header>
@@ -165,39 +165,34 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>有時候我們 commit 一個版本後，覺得某些檔案可以進一步修改再 commit，或是某些檔案沒 commit ，甚至已經 commit 但後悔了。<br>
-又或者單純想修改一下 commit 的訊息，這些狀況其實都很常見，畢竟難免會打錯字或改變心意。</p>
+    <p>有時候我們 commit 一個版本後，覺得某些檔案可以進一步修改再commit，或是某些檔案沒 commit ，甚至已經 commit 但後悔了。<br>又或者單純想修改一下 commit 的訊息，這些狀況其實都很常見，畢竟難免會打錯字或改變心意。</p>
 <p>有幾種方法可以修改 commit 的紀錄</p>
 <ol>
-<li>把 .git 檔案直接刪了  ((別！！</li>
+<li>把 .git 檔案直接刪了  ((別!!</li>
 <li>用 git rebase 來修改歷史</li>
 <li>先用 git rest 回到上一個 commit 之後，再重新 commit 一次</li>
-<li>使用 --amend 參數直接更動最後一次的 commit</li>
+<li>使用 –amend 參數直接更動最後一次的 commit</li>
 </ol>
-<p>首先，第一種方法等於直接讓專案取消版控機制，同時會刪掉所有版控的紀錄，如果非必要，實在不建議用這個方式，畢竟這麼一來，將專案進行版控的意義就沒了。<br>
-第二種方式本身有許多細節需要討論，預計之後會在介紹 (吧)<br>
- 第三種方式是一個比較大的主題，可以參考 <a href="/git-note/gn-reset/">這篇文章</a> 的內容<br>
-第四種則相對單純一些，會在接下來的內容介紹。</p>
+<p>首先，第一種方法等於直接讓專案取消版控機制，同時會刪掉所有版控的紀錄，如果非必要，實在不建議用這個方式，畢竟這麼一來，將專案進行版控的意義就沒了。<br>第二種方式本身有許多細節需要討論，預計之後會在介紹 (吧)<br>第三種方式是一個比較大的主題，可以參考 <a href="/git-note/gn-reset/">這篇文章</a> 的內容<br>第四種則相對單純一些，會在接下來的內容介紹。</p>
 <blockquote>
 <p>接下來的內容，都只會針對 「上一個版本 commit」 進行操作</p>
 </blockquote>
-<h2 id="修改-commit-的訊息"><a class="markdownIt-Anchor" href="#修改-commit-的訊息">#</a> 修改 commit 的訊息</h2>
-<p>修改最後一個版本的訊息，就是很單純的使用  <code>--amend</code>  參數之後，再加上  <code>-m</code>  參數即可進行訊息的更動</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token parameter variable">-m</span> <span class="token string">"新的訊息"</span></pre></td></tr></table></figure><h2 id="修改-commit-的檔案"><a class="markdownIt-Anchor" href="#修改-commit-的檔案">#</a> 修改 commit 的檔案</h2>
-<p>如果我們在 commit 之後，發現好像要調整某些檔案內容，這樣的話可以透過這個指令來處理</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr></table></figure><p>先透過  <code>--amend</code>  參數來宣告要修改最後一次的 commit ，在加上 <code>--no-edit</code>   來聲明這次的 commit 。<br>
-在執行之後，暫存區的更動將會合併到最後一次的 commit 內，同時保持原來的提交訊息不變。<br>
-這在想要修正最後一次提交的錯誤或者添加遺漏的檔案時很有用。</p>
+<h2 id="修改-commit-的訊息"><a href="#修改-commit-的訊息" class="headerlink" title="修改 commit 的訊息"></a>修改 commit 的訊息</h2><p>修改最後一個版本的訊息，就是很單純的使用 <code>--amend</code> 參數之後，再加上 <code>-m</code> 參數即可進行訊息的更動 </p>
+<pre><code class="sh">git commit --amend -m &quot;新的訊息&quot;
+</code></pre>
+<h2 id="修改-commit-的檔案"><a href="#修改-commit-的檔案" class="headerlink" title="修改 commit 的檔案"></a>修改 commit 的檔案</h2><p>如果我們在 commit 之後，發現好像要調整某些檔案內容，這樣的話可以透過這個指令來處理</p>
+<pre><code class="sh">git commit --amend --no-edit
+</code></pre>
+<p>先透過 <code>--amend</code> 參數來宣告要修改最後一次的 commit ，在加上<code>--no-edit</code>  來聲明這次的 commit 。<br>在執行之後，暫存區的更動將會合併到最後一次的 commit 內，同時保持原來的提交訊息不變。<br>這在想要修正最後一次提交的錯誤或者添加遺漏的檔案時很有用。</p>
 <p>如果想要 <strong>新增</strong>或<strong>修改</strong>檔案到上一個 commit 的話，直接修改檔案並且 add 到暫存區後，執行指令即可。</p>
 <p>但如果是要刪除，則需要多一個動作：</p>
-<h2 id="刪除-commit-的檔案"><a class="markdownIt-Anchor" href="#刪除-commit-的檔案">#</a> 刪除 commit 的檔案</h2>
-<p>這個問題需要搭配 <a href="/git-note/gn-situation/#%E6%9C%89%E4%BA%9B%E6%AA%94%E6%A1%88%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E7%89%88%E6%8E%A7%E4%BA%86">之前</a> 提到的指令把檔案移除 Git 管控</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">rm</span> 檔案名稱 <span class="token parameter variable">--cached</span></pre></td></tr></table></figure><p>再使用上面提到的指令，才能達成目的哦～</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr></table></figure><div class="note danger no-icon">
-<p><code>--amend</code>  指令與看起來只是純粹的修改最後一次的 commit 而已<br>
-不過對 Git 來說，卻是一筆全新的紀錄，可以注意到每次的  <code>--amend</code>  都會更新最後一次 commit 的 SHA-1 編碼。<br>
-所以即使 Git 能讓我們修改歷史紀錄，也盡量不要去修改已經 push 過後的內容，免得造成團隊的麻煩哦！</p>
-</div>
+<h2 id="刪除-commit-的檔案"><a href="#刪除-commit-的檔案" class="headerlink" title="刪除 commit 的檔案"></a>刪除 commit 的檔案</h2><p>這個問題需要搭配 <a href="/git-note/gn-situation/#%E6%9C%89%E4%BA%9B%E6%AA%94%E6%A1%88%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E7%89%88%E6%8E%A7%E4%BA%86">之前</a> 提到的指令把檔案移除 Git 管控 </p>
+<pre><code class="sh">git rm 檔案名稱 --cached
+</code></pre>
+<p>再使用上面提到的指令，才能達成目的哦~</p>
+<pre><code class="sh">git commit --amend --no-edit
+</code></pre>
+<p>:::danger no-icon<br><code>--amend</code> 指令與看起來只是純粹的修改最後一次的 commit 而已<br>不過對 Git 來說，卻是一筆全新的紀錄，可以注意到每次的 <code>--amend</code> 都會更新最後一次 commit 的 SHA-1 編碼。<br>所以即使 Git 能讓我們修改歷史紀錄，也盡量不要去修改已經 push 過後的內容，免得造成團隊的麻煩哦！<br>:::</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -252,7 +247,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-note/gn-situation/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】commit 前的狀況處理">
+  <a href="/git-note/gn-situation/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;tXRAhpc.jpg" title="【Git筆記】commit 前的狀況處理">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】commit 前的狀況處理</h3>
@@ -283,11 +278,11 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-commit-%E7%9A%84%E8%A8%8A%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 修改 commit 的訊息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-commit-%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text"> 修改 commit 的檔案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4-commit-%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text"> 刪除 commit 的檔案</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-commit-%E7%9A%84%E8%A8%8A%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">修改 commit 的訊息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-commit-%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">修改 commit 的檔案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4-commit-%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">刪除 commit 的檔案</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li><a href="/git-note/gn-situation/" rel="bookmark" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></li><li class="active"><a href="/git-note/gn-commit-amend/" rel="bookmark" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li><li><a href="/git-note/gn-github/" rel="bookmark" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></li>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li><a href="/git-note/gn-situation/" rel="bookmark" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></li><li class="active"><a href="/git-note/gn-commit-amend/" rel="bookmark" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li><li><a href="/git-note/gn-github/" rel="bookmark" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></li><li><a href="/git-note/gn-alias/" rel="bookmark" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -301,7 +296,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">16</span>
+        <span class="count">17</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -377,6 +372,56 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
@@ -390,27 +435,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
   </li>
 
       
@@ -420,36 +445,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
   </li>
 
       
@@ -469,7 +465,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
   </li>
 
   </ul>
@@ -490,13 +486,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">56k 字</span>
+    <span title="總字數">62k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">51 分鐘</span>
+    <span title="所需總閱讀時間">56 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

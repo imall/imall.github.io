@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>2.6k</span>
+    <span>2.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,76 +165,99 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <div class="note info no-icon">
-<p>在使用 Git 的過程，或許會遇到一些指令執行完卻希望能還原的狀況，這篇文章來記錄一下可能會用到的狀況。</p>
-</div>
-<h2 id="檔案-add-之後希望能還原狀態"><a class="markdownIt-Anchor" href="#檔案-add-之後希望能還原狀態">#</a> 檔案 add 之後，希望能還原狀態</h2>
-<p>有時候我們放在暫存區的檔案，可能因為某些原因想取消暫存，有兩個指令可以完成這個任務。</p>
+    <p>:::info no-icon<br>在使用 Git 的過程，或許會遇到一些指令執行完卻希望能還原的狀況，這篇文章來記錄一下可能會用到的狀況。<br>:::</p>
+<h2 id="檔案-add-之後，希望能還原狀態"><a href="#檔案-add-之後，希望能還原狀態" class="headerlink" title="檔案 add 之後，希望能還原狀態"></a>檔案 add 之後，希望能還原狀態</h2><p>有時候我們放在暫存區的檔案，可能因為某些原因想取消暫存，有兩個指令可以完成這個任務。</p>
 <ol>
-<li>使用  <code>git restore --staged 檔名</code></li>
+<li>使用 <code>git restore --staged 檔名</code></li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> restore <span class="token parameter variable">--staged</span> 檔名</pre></td></tr></table></figure><ol start="2">
-<li>使用  <code>git reset 檔名</code></li>
+<pre><code class="sh">git restore --staged 檔名
+</code></pre>
+<ol start="2">
+<li>使用 <code>git reset 檔名</code></li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset 檔案名稱</pre></td></tr></table></figure><p><code>git reset</code>  除了把暫存區檔案還原狀態的功能之外，他在 Git 最主要的功能，則是 reset 不同的 <strong>commit</strong><br>
- 因為內容比較複雜，預計之後會<a href="/git-note/gn-reset/">獨立一個篇章</a>來說明這個議題。</p>
-<h2 id="修改了某個檔案的一堆內容想還原檔案原始樣貌"><a class="markdownIt-Anchor" href="#修改了某個檔案的一堆內容想還原檔案原始樣貌">#</a> 修改了某個檔案的一堆內容，想還原檔案原始樣貌</h2>
-<p>這個問題實際上又能區分為兩種情境</p>
+<pre><code class="sh">git reset 檔案名稱
+</code></pre>
+<p><code>git reset</code> 除了把暫存區檔案還原狀態的功能之外，他在 Git 最主要的功能，則是 reset 不同的 <strong>commit</strong><br>因為內容比較複雜，預計之後會<a href="/git-note/gn-reset/">獨立一個篇章</a>來說明這個議題。</p>
+<h2 id="修改了某個檔案的一堆內容，想還原檔案原始樣貌"><a href="#修改了某個檔案的一堆內容，想還原檔案原始樣貌" class="headerlink" title="修改了某個檔案的一堆內容，想還原檔案原始樣貌"></a>修改了某個檔案的一堆內容，想還原檔案原始樣貌</h2><p>這個問題實際上又能區分為兩種情境</p>
 <ol>
-<li>尚未將檔案  <code>add</code>  到暫存區</li>
+<li>尚未將檔案 <code>add</code> 到暫存區</li>
 </ol>
-<p>若是這樣，可以直接使用 checkout 指令來還原。<br>
-雖然 checkout 指令一般用來 <a href="/git-note/gn-branch/#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF">切換分支</a>，不過如果是 checkout 檔名時，則會把 <strong>目前這個分支的索引所存的內容</strong>，直接取代掉<strong>工作目錄</strong>的檔案。<br>
-在使用的時候，建議加上  <code>--</code>  ，以避免檔名本身剛好等同於某個分支，而直接切換了分支。</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout -- 檔名</pre></td></tr></table></figure><ol start="2">
-<li>已經將檔案  <code>add</code>  到暫存區<br>
-上文有提到，checkout 指令其實是把 <strong>索引的資料</strong> 拿來取代掉 <strong>目前工作目錄</strong> 的資料<br>
-但如果已經使用了 add 指令，就等同於把檔案資料，存到索引裡面，如果這時使用 checkout 指令來還原檔案<br>
-因為索引內容已經跟工作目錄內容一致，檔案本身就不會有任何改變</li>
+<p>若是這樣，可以直接使用 checkout 指令來還原。<br>雖然 checkout 指令一般用來 <a href="/git-note/gn-branch/#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF">切換分支</a>，不過如果是 checkout 檔名時，則會把 <strong>目前這個分支的索引所存的內容</strong>，直接取代掉<strong>工作目錄</strong>的檔案。<br>在使用的時候，建議加上 <code>--</code> ，以避免檔名本身剛好等同於某個分支，而直接切換了分支。</p>
+<pre><code class="sh">git checkout -- 檔名
+</code></pre>
+<ol start="2">
+<li>已經將檔案 <code>add</code> 到暫存區<br>上文有提到，checkout 指令其實是把 <strong>索引的資料</strong> 拿來取代掉 <strong>目前工作目錄</strong> 的資料<br>但如果已經使用了 add 指令，就等同於把檔案資料，存到索引裡面，如果這時使用 checkout 指令來還原檔案<br>因為索引內容已經跟工作目錄內容一致，檔案本身就不會有任何改變</li>
 </ol>
 <p>這時候要復原檔案內容的話，可以搭配 <a href="/git-note/gn-situation/#%E6%AA%94%E6%A1%88-add-%E4%B9%8B%E5%BE%8C%E5%B8%8C%E6%9C%9B%E8%83%BD%E9%82%84%E5%8E%9F%E7%8B%80%E6%85%8B">第一點</a> 提到的 reset 指令先進行 add 的還原，在使用 checkout 指令復原檔案內容</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset 檔名</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> checkout -- 檔名</pre></td></tr></table></figure><blockquote>
-<p>無論是使用 <strong>checkout</strong> 還是 <strong>reset</strong> 指令，都是要操控 Git 已追蹤的檔案  (或者說索引已經存在的檔案)<br>
- 新增的檔案因為還是未追蹤的檔案，Git 不知道要去控管他，使用這兩個指令，是影響不到新增加檔案的內容的哦！</p>
+<pre><code class="sh">git reset 檔名
+git checkout -- 檔名
+</code></pre>
+<blockquote>
+<p>無論是使用 <strong>checkout</strong> 還是 <strong>reset</strong> 指令，都是要操控 Git 已追蹤的檔案  (或者說索引已經存在的檔案)<br>新增的檔案因為還是未追蹤的檔案，Git 不知道要去控管他，使用這兩個指令，是影響不到新增加檔案的內容的哦！</p>
 </blockquote>
-<h2 id="改了一堆檔案能一次還原到這個版本的狀態嗎"><a class="markdownIt-Anchor" href="#改了一堆檔案能一次還原到這個版本的狀態嗎">#</a> 改了一堆檔案，能一次還原到這個版本的狀態嗎？</h2>
-<p>兩個指令可以達成這件事情</p>
+<h2 id="改了一堆檔案，能一次還原到這個版本的狀態嗎？"><a href="#改了一堆檔案，能一次還原到這個版本的狀態嗎？" class="headerlink" title="改了一堆檔案，能一次還原到這個版本的狀態嗎？"></a>改了一堆檔案，能一次還原到這個版本的狀態嗎？</h2><p>兩個指令可以達成這件事情</p>
 <ol>
 <li>checkout</li>
 </ol>
-<p>還沒 add 所有檔案的話，可以用上面提到的指令加上 <code>.</code>  代表要把所有在索引的檔案資料取代目前工作目錄的檔案</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout -- <span class="token builtin class-name">.</span></pre></td></tr></table></figure><ol start="2">
-<li>reset --hard 模式<br>
-透過 reset --hard 模式，直接把目前所在的這個 commit 內容，強制取代掉工作目錄的所有資料</li>
+<p>還沒 add 所有檔案的話，可以用上面提到的指令加上<code>.</code>代表要把所有在索引的檔案資料取代目前工作目錄的檔案</p>
+<pre><code class="sh">git checkout -- .
+</code></pre>
+<ol start="2">
+<li>reset –hard 模式<br>透過 reset –hard 模式，直接把目前所在的這個 commit 內容，強制取代掉工作目錄的所有資料</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset <span class="token parameter variable">--hard</span></pre></td></tr></table></figure><blockquote>
+<pre><code class="sh">git reset --hard
+</code></pre>
+<blockquote>
 <p>關於 reset 詳細的介紹，可以參考<a href="/git-note/gn-reset/">這篇文章</a></p>
 </blockquote>
-<h2 id="能在-git-版控狀況下刪除檔案或更改檔案名稱嗎"><a class="markdownIt-Anchor" href="#能在-git-版控狀況下刪除檔案或更改檔案名稱嗎">#</a> 能在 Git 版控狀況下刪除檔案或更改檔案名稱嗎？</h2>
-<p>初學 Git 的時候，我曾經一度疑惑這個操作會不會影響到 Git 版控過程<br>
-不過實務上我們進行檔案的操作也是很常見的問題，畢竟開發過程總是會做這些事情吧！</p>
-<h3 id="刪除檔案"><a class="markdownIt-Anchor" href="#刪除檔案">#</a> 刪除檔案</h3>
-<p>如果想刪除檔案，可以直接刪了他，或是透過 Git 的指令  <code>git rm [檔案名稱]</code>  來刪除<br>
-兩個行為的差異我們用下面這個實驗來展示：</p>
-<p>首先我們建立<strong>直接刪掉.txt</strong> 檔案跟<strong> git rm 刪掉.txt</strong> 檔案<br>
-分別進行相對應的操作後，透過  <code>git status</code>  指令看看兩個檔案的狀態</p>
-<p>我們可以看到，使用 Git 指令刪除的檔案，會直接被放到 <strong>暫存庫</strong> 的區塊<br>
-而刪掉工作目錄的檔案，則是被 Git 視為一種 <strong>檔案更動</strong> 行為<br>
-如果需要放到 <strong>暫存庫</strong> ，再執行一次 add 指令即可</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch main</pre></td></tr><tr><td data-num="3"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        deleted:    <span class="token function">git</span> <span class="token function">rm</span> 刪掉.txt</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        deleted:    直接刪掉.txt</pre></td></tr></table></figure><p>結論：這兩個操作對我們來說都是把檔案刪掉，只對 Git 來說，檔案的狀態不同！</p>
-<h3 id="改檔名"><a class="markdownIt-Anchor" href="#改檔名">#</a> 改檔名</h3>
-<p>這個狀況跟刪除檔案一樣，可以直接更改工作目錄檔案，或是透過 Git 指令  <code>git mv 舊檔名 新檔名</code>  來處理<br>
-這邊一樣在修改後，查看檔案的狀態</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span> </pre></td></tr><tr><td data-num="3"></td><td><pre>        renamed:    準備用git改檔名.txt -<span class="token operator">></span> 用git改檔名.txt</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span>        </pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        deleted:    準備自己改掉檔名.html</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>Untracked files:</pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        自己改的檔名.html</pre></td></tr></table></figure><p>比較不同的是，如果手動更改工作目錄的檔名，Git 會視為原本的檔案已經刪掉，並且新增加了一個檔案<br>
-而使用指令更改檔名，因為已經讓 Git 去修改，Git 會知道這個檔案是 <strong>變更檔名</strong> 的狀態</p>
-<p>不過就算是自己手動改檔名，再透過  <code>git add</code>  指令把檔案狀態都加回暫存區<br>
-就我們使用檔案的結果而言，也沒什麼差別，就看個人喜好使用了</p>
-<h2 id="有些檔案我不想再版控了"><a class="markdownIt-Anchor" href="#有些檔案我不想再版控了">#</a> 有些檔案我不想再版控了</h2>
-<p>如果有些檔案正在被 Git 進行版控 (已經 commit 了)，但實際上不需要提交的話，可以執行這個指令</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> 檔名</pre></td></tr></table></figure><p>這會告訴 Git 「我想要 remove 這個檔案，但不是真的要從工作目錄中刪除，而是要取消檔案的控管」<br>
-實際上也可以看得出是透過 rm 指令，再加上  <code>--cached</code>  參數來做處理 。</p>
+<h2 id="能在-Git-版控狀況下刪除檔案或更改檔案名稱嗎？"><a href="#能在-Git-版控狀況下刪除檔案或更改檔案名稱嗎？" class="headerlink" title="能在 Git 版控狀況下刪除檔案或更改檔案名稱嗎？"></a>能在 Git 版控狀況下刪除檔案或更改檔案名稱嗎？</h2><p>初學 Git 的時候，我曾經一度疑惑這個操作會不會影響到 Git 版控過程<br>不過實務上我們進行檔案的操作也是很常見的問題，畢竟開發過程總是會做這些事情吧！</p>
+<h3 id="刪除檔案"><a href="#刪除檔案" class="headerlink" title="刪除檔案"></a>刪除檔案</h3><p>如果想刪除檔案，可以直接刪了他，或是透過 Git 的指令 <code>git rm [檔案名稱]</code> 來刪除<br>兩個行為的差異我們用下面這個實驗來展示：</p>
+<p>首先我們建立<strong>直接刪掉.txt</strong>檔案跟<strong>git rm 刪掉.txt</strong>檔案<br>分別進行相對應的操作後，透過 <code>git status</code> 指令看看兩個檔案的狀態</p>
+<p>我們可以看到，使用 Git 指令刪除的檔案，會直接被放到 <strong>暫存庫</strong> 的區塊<br>而刪掉工作目錄的檔案，則是被 Git 視為一種 <strong>檔案更動</strong> 行為<br>如果需要放到 <strong>暫存庫</strong> ，再執行一次 add 指令即可</p>
+<pre><code class="sh">$ git status
+On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+        deleted:    git rm 刪掉.txt
+
+Changes not staged for commit:
+  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        deleted:    直接刪掉.txt
+</code></pre>
+<p>結論：這兩個操作對我們來說都是把檔案刪掉，只對 Git 來說，檔案的狀態不同！</p>
+<h3 id="改檔名"><a href="#改檔名" class="headerlink" title="改檔名"></a>改檔名</h3><p>這個狀況跟刪除檔案一樣，可以直接更改工作目錄檔案，或是透過 Git 指令 <code>git mv 舊檔名 新檔名</code> 來處理<br>這邊一樣在修改後，查看檔案的狀態</p>
+<pre><code class="sh">Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage) 
+        renamed:    準備用git改檔名.txt -&gt; 用git改檔名.txt
+
+Changes not staged for commit:
+  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)        
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        deleted:    準備自己改掉檔名.html
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        自己改的檔名.html
+</code></pre>
+<p>比較不同的是，如果手動更改工作目錄的檔名，Git 會視為原本的檔案已經刪掉，並且新增加了一個檔案<br>而使用指令更改檔名，因為已經讓 Git 去修改，Git 會知道這個檔案是 <strong>變更檔名</strong> 的狀態</p>
+<p>不過就算是自己手動改檔名，再透過 <code>git add</code> 指令把檔案狀態都加回暫存區<br>就我們使用檔案的結果而言，也沒什麼差別，就看個人喜好使用了</p>
+<h2 id="有些檔案我不想再版控了"><a href="#有些檔案我不想再版控了" class="headerlink" title="有些檔案我不想再版控了"></a>有些檔案我不想再版控了</h2><p>如果有些檔案正在被 Git 進行版控(已經commit了)，但實際上不需要提交的話，可以執行這個指令</p>
+<pre><code class="sh">git rm --cached 檔名 
+</code></pre>
+<p>這會告訴 Git 「我想要 remove 這個檔案，但不是真的要從工作目錄中刪除，而是要取消檔案的控管」<br>實際上也可以看得出是透過 rm 指令，再加上 <code>--cached</code> 參數來做處理 。</p>
 <p>執行完這個指令之後，使用 git status ，可以看到檔案本身在 Git 變成刪除的異動，但同時又處在未追蹤的新增狀態！</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr><td data-num="3"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        deleted:    readme.txt</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Untracked files:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        readme.txt</pre></td></tr></table></figure>
+<pre><code class="sh">$ git status
+On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+        deleted:    readme.txt
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        readme.txt
+</code></pre>
+
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
       </div>
@@ -288,7 +311,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-note/gn-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】開始使用 Git">
+  <a href="/git-note/gn-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;fG7Vwmv.jpg" title="【Git筆記】開始使用 Git">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】開始使用 Git</h3>
@@ -298,7 +321,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-note/gn-commit-amend/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;rt4bUdl.jpg" title="【Git筆記】修改 commit 紀錄">
+  <a href="/git-note/gn-commit-amend/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;fG7Vwmv.jpg" title="【Git筆記】修改 commit 紀錄">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】修改 commit 紀錄</h3>
@@ -319,11 +342,11 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AA%94%E6%A1%88-add-%E4%B9%8B%E5%BE%8C%E5%B8%8C%E6%9C%9B%E8%83%BD%E9%82%84%E5%8E%9F%E7%8B%80%E6%85%8B"><span class="toc-number">1.</span> <span class="toc-text"> 檔案 add 之後，希望能還原狀態</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%BA%86%E6%9F%90%E5%80%8B%E6%AA%94%E6%A1%88%E7%9A%84%E4%B8%80%E5%A0%86%E5%85%A7%E5%AE%B9%E6%83%B3%E9%82%84%E5%8E%9F%E6%AA%94%E6%A1%88%E5%8E%9F%E5%A7%8B%E6%A8%A3%E8%B2%8C"><span class="toc-number">2.</span> <span class="toc-text"> 修改了某個檔案的一堆內容，想還原檔案原始樣貌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E4%BA%86%E4%B8%80%E5%A0%86%E6%AA%94%E6%A1%88%E8%83%BD%E4%B8%80%E6%AC%A1%E9%82%84%E5%8E%9F%E5%88%B0%E9%80%99%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84%E7%8B%80%E6%85%8B%E5%97%8E"><span class="toc-number">3.</span> <span class="toc-text"> 改了一堆檔案，能一次還原到這個版本的狀態嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E5%9C%A8-git-%E7%89%88%E6%8E%A7%E7%8B%80%E6%B3%81%E4%B8%8B%E5%88%AA%E9%99%A4%E6%AA%94%E6%A1%88%E6%88%96%E6%9B%B4%E6%94%B9%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1%E5%97%8E"><span class="toc-number">4.</span> <span class="toc-text"> 能在 Git 版控狀況下刪除檔案或更改檔案名稱嗎？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E6%AA%94%E6%A1%88"><span class="toc-number">4.1.</span> <span class="toc-text"> 刪除檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E6%AA%94%E5%90%8D"><span class="toc-number">4.2.</span> <span class="toc-text"> 改檔名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E4%BA%9B%E6%AA%94%E6%A1%88%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E7%89%88%E6%8E%A7%E4%BA%86"><span class="toc-number">5.</span> <span class="toc-text"> 有些檔案我不想再版控了</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AA%94%E6%A1%88-add-%E4%B9%8B%E5%BE%8C%EF%BC%8C%E5%B8%8C%E6%9C%9B%E8%83%BD%E9%82%84%E5%8E%9F%E7%8B%80%E6%85%8B"><span class="toc-number">1.</span> <span class="toc-text">檔案 add 之後，希望能還原狀態</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%BA%86%E6%9F%90%E5%80%8B%E6%AA%94%E6%A1%88%E7%9A%84%E4%B8%80%E5%A0%86%E5%85%A7%E5%AE%B9%EF%BC%8C%E6%83%B3%E9%82%84%E5%8E%9F%E6%AA%94%E6%A1%88%E5%8E%9F%E5%A7%8B%E6%A8%A3%E8%B2%8C"><span class="toc-number">2.</span> <span class="toc-text">修改了某個檔案的一堆內容，想還原檔案原始樣貌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E4%BA%86%E4%B8%80%E5%A0%86%E6%AA%94%E6%A1%88%EF%BC%8C%E8%83%BD%E4%B8%80%E6%AC%A1%E9%82%84%E5%8E%9F%E5%88%B0%E9%80%99%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84%E7%8B%80%E6%85%8B%E5%97%8E%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">改了一堆檔案，能一次還原到這個版本的狀態嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%BD%E5%9C%A8-Git-%E7%89%88%E6%8E%A7%E7%8B%80%E6%B3%81%E4%B8%8B%E5%88%AA%E9%99%A4%E6%AA%94%E6%A1%88%E6%88%96%E6%9B%B4%E6%94%B9%E6%AA%94%E6%A1%88%E5%90%8D%E7%A8%B1%E5%97%8E%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">能在 Git 版控狀況下刪除檔案或更改檔案名稱嗎？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E6%AA%94%E6%A1%88"><span class="toc-number">4.1.</span> <span class="toc-text">刪除檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E6%AA%94%E5%90%8D"><span class="toc-number">4.2.</span> <span class="toc-text">改檔名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E4%BA%9B%E6%AA%94%E6%A1%88%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E7%89%88%E6%8E%A7%E4%BA%86"><span class="toc-number">5.</span> <span class="toc-text">有些檔案我不想再版控了</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li class="active"><a href="/git-note/gn-situation/" rel="bookmark" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></li><li><a href="/git-note/gn-commit-amend/" rel="bookmark" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li><li><a href="/git-note/gn-github/" rel="bookmark" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></li>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li class="active"><a href="/git-note/gn-situation/" rel="bookmark" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></li><li><a href="/git-note/gn-commit-amend/" rel="bookmark" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li><li><a href="/git-note/gn-github/" rel="bookmark" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></li><li><a href="/git-note/gn-alias/" rel="bookmark" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="本站概要">
@@ -337,7 +360,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">16</span>
+        <span class="count">17</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -413,10 +436,39 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
       
@@ -436,17 +488,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
       
@@ -456,7 +498,27 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
       
@@ -467,46 +529,6 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
   </ul>
@@ -527,13 +549,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">56k 字</span>
+    <span title="總字數">62k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">51 分鐘</span>
+    <span title="所需總閱讀時間">56 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

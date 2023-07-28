@@ -1,0 +1,592 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-note/gn-alias/">
+
+
+
+  <title>
+【Git筆記】設定指令簡寫 - Git 筆記 |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">【Git筆記】設定指令簡寫
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-07-27 17:35:57">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-27T17:35:57+08:00">2023-07-27</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>3.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-note/" itemprop="item" rel="index" title="分類於 Git 筆記"><span itemprop="name">Git 筆記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-note/gn-alias/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>:::info no-icon<br>我們在下 Git 指令的時候做的事情幾乎是大同小異，不外乎 <code>git status</code>、<code>git log</code>、<code>git add</code>、<code>git commit -m</code> 等指令不斷的重複操作<br>打一次可能覺得還好，但如果持續操作的過程，不知不覺中是會浪費很多打字的時間的<br>常用的指令設定縮寫，<del>下指令時會有種快感</del>，可以節省很多時間！<br>:::</p>
+<h2 id="設定簡寫的指令"><a href="#設定簡寫的指令" class="headerlink" title="設定簡寫的指令"></a>設定簡寫的指令</h2><p>而那個設定簡寫的指令長這樣：</p>
+<pre><code class="sh">git config --global alias.[想要簡寫的名稱] [原本的指令]
+</code></pre>
+<h2 id="常用的簡寫"><a href="#常用的簡寫" class="headerlink" title="常用的簡寫"></a>常用的簡寫</h2><h3 id="status"><a href="#status" class="headerlink" title="status"></a><code>status</code></h3><p>以我最常執行的 <code>git status</code> 來說，可以這樣設定簡寫</p>
+<pre><code class="sh">git config --global alias.st status
+</code></pre>
+<p>設定完之後，當需要用到 <code>git status</code> 的場景，只要執行這串，就會有<code>git status</code>的功能</p>
+<pre><code class="sh">git st
+</code></pre>
+<h3 id="log"><a href="#log" class="headerlink" title="log"></a><code>log</code></h3><p><a href="/git-note/gn-start/#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">這篇文章</a> 提到查詢 log 的方式，有說到一些參數能處理 log 的顯示，這些參數如果沒有常使用，很難在需要的時候去記憶。<br>如果使用簡寫的話，就連記都不用去記了：</p>
+<h4 id="設為一行、顯示基本圖表"><a href="#設為一行、顯示基本圖表" class="headerlink" title="設為一行、顯示基本圖表"></a>設為一行、顯示基本圖表</h4><pre><code class="sh">git config --global alias.l  &quot;log --oneline --graph&quot;
+</code></pre>
+<p>實務上我很少直接使用 <code>git log</code> 指令，因為<del>螢幕不夠大</del>顯示的資料不夠精簡，導致能一次顯示的內容太少，大多數的情況下都會加上 <code>--oneline --graph</code>參數<br>設定好上面指令後，我只要執行 <code>git l</code> 就可以看到想要的效果</p>
+<p>甚至可以設定一些 format 的 log 訊息讓資訊更精美：</p>
+<h4 id="顯示-format-資訊"><a href="#顯示-format-資訊" class="headerlink" title="顯示 format 資訊"></a>顯示 format 資訊</h4><pre><code class="sh">git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;
+</code></pre>
+<p><del>不要問我這指令的內容是什麼，我也是抄來的</del></p>
+<p>設定好之後執行 <code>git lg</code> 就會跑出這樣的格式內容<br><img data-src="https://i.imgur.com/FxD2AHZ.jpg"></p>
+<blockquote>
+<p><a href="/git-note/gn-start/#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">文章</a>中也有提到，當有其他 Git GUI 可以查看線圖的時候，<code>git log</code> 系列指令真的變得很少用到了</p>
+</blockquote>
+<h3 id="add"><a href="#add" class="headerlink" title="add"></a><code>add</code></h3><p>啥？ <code>git add</code> 也要簡寫？對，我就懶！</p>
+<h4 id="將更動的所有內容都加到暫存區"><a href="#將更動的所有內容都加到暫存區" class="headerlink" title="將更動的所有內容都加到暫存區"></a>將更動的所有內容都加到暫存區</h4><p>我設定了這個指令取代 <code>add .</code> 或 <code>add --all</code>，我就不用多去打 <code>.</code> 或是 <code>--all</code> 了</p>
+<pre><code class="sh">git config --global alias.all  &quot;add --all&quot;
+</code></pre>
+<h4 id="將檔案內容移出暫存區"><a href="#將檔案內容移出暫存區" class="headerlink" title="將檔案內容移出暫存區"></a>將檔案內容移出暫存區</h4><p>在不知道 <code>git reset</code> 也有移除暫存區功能前，我始終記不起來 <code>restore --staged</code> ，所以設定了這個：</p>
+<pre><code class="sh">git config --global alias.rmadd &quot;restore --staged&quot;
+</code></pre>
+<p>以<code>rm</code>開頭，代表<code>remove</code>的概念，不過自從知道 <code>reset</code> 也能做到一樣的功能時，這指令就很少用了  ~~字數一樣是要簡寫個毛 XD ~~</p>
+<h3 id="commit"><a href="#commit" class="headerlink" title="commit"></a><code>commit</code></h3><p>commit 系列就精彩了，除了基本的 commit 之外，一堆修改內容的指令都屬於 commit 這類<br>紀錄一下我設定了哪些東西：</p>
+<h4 id="commit-本身的簡寫"><a href="#commit-本身的簡寫" class="headerlink" title="commit 本身的簡寫"></a><code>commit</code> 本身的簡寫</h4><p>前面說道，很多動作都是需要 commit 開頭，於是先把 commit 設定一個縮寫</p>
+<pre><code class="sh">git config --global alias.cm commit
+</code></pre>
+<h4 id="commit-message"><a href="#commit-message" class="headerlink" title="commit message"></a>commit message</h4><p>最基本的提交版本簡寫，應該來一下的</p>
+<pre><code class="sh">git config --global alias.cmm &quot;commit -m&quot;
+</code></pre>
+<p>命名概念很單純，就是 <code>commit</code> + <code>-m</code>  &#x3D; <code>cmm</code> 而已</p>
+<h4 id="git-add-git-commit"><a href="#git-add-git-commit" class="headerlink" title="git add + git commit"></a><code>git add</code> + <code>git commit</code></h4><p>當不想先 <code>git add</code> 再 <code>git commit</code> 的話 <code>git commit -a -m</code> 會是個方便的指令</p>
+<p>但懶還要更懶！ 來設定這樣的縮寫</p>
+<pre><code class="sh">git config --global alias.cmam &quot;commit -am&quot;
+</code></pre>
+<h4 id="更改上一版-commit-的內容"><a href="#更改上一版-commit-的內容" class="headerlink" title="更改上一版 commit 的內容"></a>更改上一版 commit 的內容</h4><pre><code class="sh">git config --global alias.cmcm &quot;commit --amend --no-edit&quot;
+</code></pre>
+<p>這算是一個蠻常用的指令，在還沒 push 之前，透過這個指令來修改上一個版本內容<br>由於參數有點多，我就兩個 commit ： <code>commit</code> + <code>commit</code> 這個概念，代表要對上一次的內容進行更動</p>
+<h4 id="更改上一版-commit-的訊息"><a href="#更改上一版-commit-的訊息" class="headerlink" title="更改上一版 commit 的訊息"></a>更改上一版 commit 的訊息</h4><pre><code class="sh">git config --global alias.cmrn &quot;commit --amend -m&quot;
+</code></pre>
+<p>當打錯字的時候，用這個指令來改訊息頗為方便<br>我的命名概念是 <code>commit</code> + <code>rename</code> &#x3D; <code>cmrn</code></p>
+<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a><code>branch</code></h3><h4 id="branch-本身的縮寫"><a href="#branch-本身的縮寫" class="headerlink" title="branch 本身的縮寫"></a><code>branch</code> 本身的縮寫</h4><pre><code class="sh">git config --global alias.br branch
+</code></pre>
+<p>branch 本身就有查看分支的用途，對他設定縮寫合情合理</p>
+<h4 id="重新命名目前分支"><a href="#重新命名目前分支" class="headerlink" title="重新命名目前分支"></a>重新命名目前分支</h4><pre><code class="sh">git config --global alias.brm &quot;branch -m&quot;
+</code></pre>
+<p>這個指令也算是很常用的，分支就是個怎麼改名都不會影響專案內容的東西XD</p>
+<h4 id="刪除分支"><a href="#刪除分支" class="headerlink" title="刪除分支"></a>刪除分支</h4><pre><code class="sh">git config --global alias.brd &quot;branch -d&quot;
+</code></pre>
+<h4 id="強制建立分支"><a href="#強制建立分支" class="headerlink" title="強制建立分支"></a>強制建立分支</h4><pre><code class="sh">git config --global alias.brf &quot;branch -f&quot;
+</code></pre>
+<p>這個指令我比較多用在把已存在的分支強制移動到最新的分支之上，也算是個好用的指令</p>
+<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a><code>checkout</code></h3><h4 id="checkout-本身的縮寫"><a href="#checkout-本身的縮寫" class="headerlink" title="checkout 本身的縮寫"></a><code>checkout</code> 本身的縮寫</h4><pre><code class="sh">git config --global alias.co checkout
+</code></pre>
+<h4 id="建立並切換分支"><a href="#建立並切換分支" class="headerlink" title="建立並切換分支"></a>建立並切換分支</h4><pre><code class="sh">git config --global alias.cob &quot;checkout -b&quot;
+</code></pre>
+<p>相信大部分的人新增分支都會的下一步都會直接切換過去，這個指令可以讓速度快還要更快！</p>
+<h3 id="reset"><a href="#reset" class="headerlink" title="reset"></a><code>reset</code></h3><h4 id="reset-本身的縮寫"><a href="#reset-本身的縮寫" class="headerlink" title="reset 本身的縮寫"></a><code>reset</code> 本身的縮寫</h4><pre><code class="sh">git config --global alias.r reset
+</code></pre>
+<p>可能會有人覺得除了 reset 之外 ，還有 rebase 、 revert 都是 r 開頭的指令<br>不過我認為這其中，reset 屬於最常用到的，把 r 作為 reset 的代表是可以的。但這就自由心證囉</p>
+<h4 id="reset-的-hard-模式"><a href="#reset-的-hard-模式" class="headerlink" title="reset 的 hard 模式"></a>reset 的 hard 模式</h4><pre><code class="sh">git config --global alias.rh &quot;reset --hard&quot;
+</code></pre>
+<p>reset 指令很多情況幾乎都是要用 hard 模式，於是我設定了這個縮寫</p>
+<h4 id="還原所有檔案"><a href="#還原所有檔案" class="headerlink" title="還原所有檔案"></a>還原所有檔案</h4><pre><code class="sh">git config --global alias.rall &quot;reset --hard HEAD&quot;
+</code></pre>
+<p>我很常會使用 <code>git rest --hard HEAD</code> 指令還原到上一版的原始狀態，乾脆設一個縮寫。</p>
+<h3 id="把設定好的縮寫刪掉"><a href="#把設定好的縮寫刪掉" class="headerlink" title="把設定好的縮寫刪掉"></a>把設定好的縮寫刪掉</h3><p>當發現有些縮寫設定後卻都用不到，可以下這個指令把縮寫移除</p>
+<pre><code class="sh">git config --global --unset alias.[縮寫名稱]
+</code></pre>
+<p>除此之外，也可以直接去<a href="/git-note/gn-alias/#%E5%88%B0gitconfig%E6%9F%A5%E8%A9%A2">查看<code>.gitconfig</code>檔案</a>把縮寫刪除</p>
+<h3 id="查看設定了哪些指令"><a href="#查看設定了哪些指令" class="headerlink" title="查看設定了哪些指令"></a>查看設定了哪些指令</h3><h4 id="透過指令查詢"><a href="#透過指令查詢" class="headerlink" title="透過指令查詢"></a>透過指令查詢</h4><p>要查看自己設定了哪些縮寫的話，可以這樣下指令查詢：</p>
+<pre><code class="sh">git config --get-regexp alias
+</code></pre>
+<p>這個指令我常常記不起來，乾脆對這個指令也下一個縮寫</p>
+<pre><code class="sh">git config --global alias.getalias &quot;config --get-regexp alias&quot;
+</code></pre>
+<h4 id="到-gitconfig查詢"><a href="#到-gitconfig查詢" class="headerlink" title="到.gitconfig查詢"></a>到<code>.gitconfig</code>查詢</h4><ol>
+<li><p>Windows 系統使用者，要到這個路徑找<code>.gitconfig</code>檔案： <code>C:\Users\[你的名字]</code></p>
+</li>
+<li><p>Mac 使用者則是到終端機執行 <code>open ~/.gitconfig</code> 指令開啟</p>
+</li>
+</ol>
+<p>找到 <strong>[alias]</strong> 區塊，就可以看到設定的所有資訊：</p>
+<p><img data-src="https://i.imgur.com/ju4FGsP.jpg"></p>
+<p>實際上只要按照這個格式去設定、刪除，就可以做到上面指令的效果，當知道這件事情後，也不太需要去下指令設定縮寫了。</p>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-07-28 14:01:06" itemprop="dateModified" datetime="2023-07-28T14:01:06+08:00">2023-07-28</time>
+  </span>
+  <span id="git-note/gn-alias/" class="item leancloud_visitors" data-flag-title="【Git筆記】設定指令簡寫" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">https://imall.github.io/git-note/gn-alias/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/vue-note/vite-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mubtL63.png" title="初始化 Vue3 專案的幾種指令">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> Vue 筆記</span>
+  <h3>初始化 Vue3 專案的幾種指令</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E7%B0%A1%E5%AF%AB%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">設定簡寫的指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B0%A1%E5%AF%AB"><span class="toc-number">2.</span> <span class="toc-text">常用的簡寫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#status"><span class="toc-number">2.1.</span> <span class="toc-text">status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log"><span class="toc-number">2.2.</span> <span class="toc-text">log</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A8%AD%E7%82%BA%E4%B8%80%E8%A1%8C%E3%80%81%E9%A1%AF%E7%A4%BA%E5%9F%BA%E6%9C%AC%E5%9C%96%E8%A1%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">設為一行、顯示基本圖表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%AF%E7%A4%BA-format-%E8%B3%87%E8%A8%8A"><span class="toc-number">2.2.2.</span> <span class="toc-text">顯示 format 資訊</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add"><span class="toc-number">2.3.</span> <span class="toc-text">add</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%87%E6%9B%B4%E5%8B%95%E7%9A%84%E6%89%80%E6%9C%89%E5%85%A7%E5%AE%B9%E9%83%BD%E5%8A%A0%E5%88%B0%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.3.1.</span> <span class="toc-text">將更動的所有內容都加到暫存區</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E5%85%A7%E5%AE%B9%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.3.2.</span> <span class="toc-text">將檔案內容移出暫存區</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commit"><span class="toc-number">2.4.</span> <span class="toc-text">commit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#commit-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B0%A1%E5%AF%AB"><span class="toc-number">2.4.1.</span> <span class="toc-text">commit 本身的簡寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#commit-message"><span class="toc-number">2.4.2.</span> <span class="toc-text">commit message</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-add-git-commit"><span class="toc-number">2.4.3.</span> <span class="toc-text">git add + git commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%8A%E4%B8%80%E7%89%88-commit-%E7%9A%84%E5%85%A7%E5%AE%B9"><span class="toc-number">2.4.4.</span> <span class="toc-text">更改上一版 commit 的內容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%8A%E4%B8%80%E7%89%88-commit-%E7%9A%84%E8%A8%8A%E6%81%AF"><span class="toc-number">2.4.5.</span> <span class="toc-text">更改上一版 commit 的訊息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch"><span class="toc-number">2.5.</span> <span class="toc-text">branch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#branch-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.5.1.</span> <span class="toc-text">branch 本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D%E7%9B%AE%E5%89%8D%E5%88%86%E6%94%AF"><span class="toc-number">2.5.2.</span> <span class="toc-text">重新命名目前分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.5.3.</span> <span class="toc-text">刪除分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B7%E5%88%B6%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">2.5.4.</span> <span class="toc-text">強制建立分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkout"><span class="toc-number">2.6.</span> <span class="toc-text">checkout</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#checkout-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.6.1.</span> <span class="toc-text">checkout 本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%A6%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF"><span class="toc-number">2.6.2.</span> <span class="toc-text">建立並切換分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reset"><span class="toc-number">2.7.</span> <span class="toc-text">reset</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reset-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.7.1.</span> <span class="toc-text">reset 本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reset-%E7%9A%84-hard-%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.7.2.</span> <span class="toc-text">reset 的 hard 模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%84%E5%8E%9F%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88"><span class="toc-number">2.7.3.</span> <span class="toc-text">還原所有檔案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E8%A8%AD%E5%AE%9A%E5%A5%BD%E7%9A%84%E7%B8%AE%E5%AF%AB%E5%88%AA%E6%8E%89"><span class="toc-number">2.8.</span> <span class="toc-text">把設定好的縮寫刪掉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A8%AD%E5%AE%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E6%8C%87%E4%BB%A4"><span class="toc-number">2.9.</span> <span class="toc-text">查看設定了哪些指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E9%81%8E%E6%8C%87%E4%BB%A4%E6%9F%A5%E8%A9%A2"><span class="toc-number">2.9.1.</span> <span class="toc-text">透過指令查詢</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B0-gitconfig%E6%9F%A5%E8%A9%A2"><span class="toc-number">2.9.2.</span> <span class="toc-text">到.gitconfig查詢</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-note/gn-intro/" rel="bookmark" title="【Git筆記】序章">【Git筆記】序章</a></li><li><a href="/git-note/gn-concept/" rel="bookmark" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></li><li><a href="/git-note/gn-start/" rel="bookmark" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></li><li><a href="/git-note/gn-situation/" rel="bookmark" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></li><li><a href="/git-note/gn-commit-amend/" rel="bookmark" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></li><li><a href="/git-note/gn-branch/" rel="bookmark" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></li><li><a href="/git-note/gn-reset/" rel="bookmark" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></li><li><a href="/git-note/gn-rebase-merge/" rel="bookmark" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></li><li><a href="/git-note/gn-rebase-modify-commit/" rel="bookmark" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></li><li><a href="/git-note/gn-github/" rel="bookmark" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></li><li class="active"><a href="/git-note/gn-alias/" rel="bookmark" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">17</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">62k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">56 分鐘</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-note/gn-alias/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

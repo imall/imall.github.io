@@ -115,11 +115,11 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <div id="imgs" class="pjax">
         <ul>
           <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,64 +165,24 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>:::info no-icon<br>發現 <span class="exturl" data-url="aHR0cHM6Ly92dWVqcy5vcmcvZ3VpZGUvcXVpY2stc3RhcnQuaHRtbCNjcmVhdGluZy1hLXZ1ZS1hcHBsaWNhdGlvbg==">Vue 官網</span> 與 <span class="exturl" data-url="aHR0cHM6Ly92aXRlanMuZGV2L2d1aWRlLyNzY2FmZm9sZGluZy15b3VyLWZpcnN0LXZpdGUtcHJvamVjdA==">vite 官網</span> 所記錄的開發起手式不太一樣，紀錄一下以不同指令進行 vue 的起手差異。<br>:::</p>
-<p>由於目前為止(2023.7) Vue 推薦開發配套會是 <span class="exturl" data-url="aHR0cHM6Ly92dWVqcy5vcmcvYXBpL3NmYy1zY3JpcHQtc2V0dXAuaHRtbA==">Vue3 script setup 語法</span> 、 <span class="exturl" data-url="aHR0cHM6Ly92aXRlanMuZGV2Lw==">vite</span> 與 <span class="exturl" data-url="aHR0cHM6Ly9waW5pYS52dWVqcy5vcmcv">pinia</span> 作為主流，未來的文章將會以這幾種配套做為主。</p>
-<p>另外，因為筆者習慣使用 npm 來設定套件，內容也多會以 npm 為主，如果習慣其他套件管理工具，例如 <code>yarn</code> 、 <code>pnpm</code> ，也是可以替換使用的！</p>
-<h2 id="npm-init-vue-latest"><a href="#npm-init-vue-latest" class="headerlink" title="npm init vue@latest"></a>npm init vue@latest</h2><pre><code class="sh">$ npm init vue@latest
-
-Vue.js - The Progressive JavaScript Framework
-
-√ Project name: ... initVue3
-√ Add TypeScript? ... No / Yes
-√ Add JSX Support? ... No / Yes
-√ Add Vue Router for Single Page Application development? ... No / Yes
-√ Add Pinia for state management? ... No / Yes
-√ Add Vitest for Unit Testing? ... No / Yes
-√ Add an End-to-End Testing Solution? » No
-√ Add ESLint for code quality? ... No / Yes
-
-Scaffolding project in D:\GitHub\initVue3...
-
-Done. Now run:
-
-  cd initVue3
-  npm install
-  npm run dev
-</code></pre>
-<p>生成結果：<br><img data-src="https://i.imgur.com/yiEu7q6.jpg"></p>
-<h2 id="npm-init-vite-latest"><a href="#npm-init-vite-latest" class="headerlink" title="npm init vite@latest"></a>npm init vite@latest</h2><pre><code class="sh">$ npm create vite@latest
-
-√ Project name: ... createVite
-√ Select a framework: » Vue
-√ Select a variant: » JavaScript
-
-Scaffolding project in D:\GitHub\createVite...
-
-Done. Now run:
-
-  cd createVite
-  npm install
-  npm run dev
-</code></pre>
-<p>生成結果：<br><img data-src="https://i.imgur.com/Ka3ersK.jpg"></p>
-<h2 id="npm-create-vite-latest"><a href="#npm-create-vite-latest" class="headerlink" title="npm create vite@latest"></a>npm create vite@latest</h2><pre><code class="sh">$ npm init vite@latest
-
-√ Project name: ... initVite
-√ Select a framework: » Vue
-√ Select a variant: » JavaScript
-
-Scaffolding project in D:\GitHub\initVite...
-
-Done. Now run:
-
-  cd initVite
-  npm install
-  npm run dev
-</code></pre>
-<p>生成結果：<br><img data-src="https://i.imgur.com/Ka3ersK.jpg"></p>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>事實上三個指令大同小異，其中 <a href="/vue-note/vite-start/#npm-init-vitelatest">npm init vite</a> 與 <a href="/vue-note/vite-start/#npm-init-vitelatest">npm create vite</a>操作上完全一樣(畢竟都是 vite 官方文件的指令)</p>
+    <div class="note info no-icon">
+<p>發現 <span class="exturl" data-url="aHR0cHM6Ly92dWVqcy5vcmcvZ3VpZGUvcXVpY2stc3RhcnQuaHRtbCNjcmVhdGluZy1hLXZ1ZS1hcHBsaWNhdGlvbg==">Vue 官網</span> 與 <span class="exturl" data-url="aHR0cHM6Ly92aXRlanMuZGV2L2d1aWRlLyNzY2FmZm9sZGluZy15b3VyLWZpcnN0LXZpdGUtcHJvamVjdA==">vite 官網</span> 所記錄的開發起手式不太一樣，紀錄一下以不同指令進行 vue 的起手差異。</p>
+</div>
+<p>由於目前為止 (2023.7) Vue 推薦開發配套會是 <span class="exturl" data-url="aHR0cHM6Ly92dWVqcy5vcmcvYXBpL3NmYy1zY3JpcHQtc2V0dXAuaHRtbA==">Vue3 script setup 語法</span> 、 <span class="exturl" data-url="aHR0cHM6Ly92aXRlanMuZGV2Lw==">vite</span> 與 <span class="exturl" data-url="aHR0cHM6Ly9waW5pYS52dWVqcy5vcmcv">pinia</span> 作為主流，未來的文章將會以這幾種配套做為主。</p>
+<p>另外，因為筆者習慣使用 npm 來設定套件，內容也多會以 npm 為主，如果習慣其他套件管理工具，例如  <code>yarn</code>  、  <code>pnpm</code>  ，也是可以替換使用的！</p>
+<h2 id="npm-init-vuelatest"><a class="markdownIt-Anchor" href="#npm-init-vuelatest">#</a> npm init vue@latest</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">npm</span> init vue@latest</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>Vue.js - The Progressive JavaScript Framework</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>√ Project name: <span class="token punctuation">..</span>. initVue3</pre></td></tr><tr><td data-num="6"></td><td><pre>√ Add TypeScript? <span class="token punctuation">..</span>. No / Yes</pre></td></tr><tr><td data-num="7"></td><td><pre>√ Add JSX Support? <span class="token punctuation">..</span>. No / Yes</pre></td></tr><tr><td data-num="8"></td><td><pre>√ Add Vue Router <span class="token keyword">for</span> Single Page Application development? <span class="token punctuation">..</span>. No / Yes</pre></td></tr><tr><td data-num="9"></td><td><pre>√ Add Pinia <span class="token keyword">for</span> state management? <span class="token punctuation">..</span>. No / Yes</pre></td></tr><tr><td data-num="10"></td><td><pre>√ Add Vitest <span class="token keyword">for</span> Unit Testing? <span class="token punctuation">..</span>. No / Yes</pre></td></tr><tr><td data-num="11"></td><td><pre>√ Add an End-to-End Testing Solution? » No</pre></td></tr><tr><td data-num="12"></td><td><pre>√ Add ESLint <span class="token keyword">for</span> code quality? <span class="token punctuation">..</span>. No / Yes</pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>Scaffolding project <span class="token keyword">in</span> D:<span class="token punctuation">\</span>GitHub<span class="token punctuation">\</span>initVue3<span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>Done. Now run:</pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token builtin class-name">cd</span> initVue3</pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token function">npm</span> <span class="token function">install</span></pre></td></tr><tr><td data-num="20"></td><td><pre>  <span class="token function">npm</span> run dev</pre></td></tr></table></figure><p>生成結果：<br>
+<img data-src="https://i.imgur.com/yiEu7q6.jpg" alt=""></p>
+<h2 id="npm-init-vitelatest"><a class="markdownIt-Anchor" href="#npm-init-vitelatest">#</a> npm init vite@latest</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">npm</span> create vite@latest</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>√ Project name: <span class="token punctuation">..</span>. createVite</pre></td></tr><tr><td data-num="4"></td><td><pre>√ Select a framework: » Vue</pre></td></tr><tr><td data-num="5"></td><td><pre>√ Select a variant: » JavaScript</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Scaffolding project <span class="token keyword">in</span> D:<span class="token punctuation">\</span>GitHub<span class="token punctuation">\</span>createVite<span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>Done. Now run:</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token builtin class-name">cd</span> createVite</pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token function">npm</span> <span class="token function">install</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token function">npm</span> run dev</pre></td></tr></table></figure><p>生成結果：<br>
+<img data-src="https://i.imgur.com/Ka3ersK.jpg" alt=""></p>
+<h2 id="npm-create-vitelatest"><a class="markdownIt-Anchor" href="#npm-create-vitelatest">#</a> npm create vite@latest</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">npm</span> init vite@latest</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>√ Project name: <span class="token punctuation">..</span>. initVite</pre></td></tr><tr><td data-num="4"></td><td><pre>√ Select a framework: » Vue</pre></td></tr><tr><td data-num="5"></td><td><pre>√ Select a variant: » JavaScript</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Scaffolding project <span class="token keyword">in</span> D:<span class="token punctuation">\</span>GitHub<span class="token punctuation">\</span>initVite<span class="token punctuation">..</span>.</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>Done. Now run:</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>  <span class="token builtin class-name">cd</span> initVite</pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token function">npm</span> <span class="token function">install</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token function">npm</span> run dev</pre></td></tr></table></figure><p>生成結果：<br>
+<img data-src="https://i.imgur.com/Ka3ersK.jpg" alt=""></p>
+<h2 id="結論"><a class="markdownIt-Anchor" href="#結論">#</a> 結論</h2>
+<p>事實上三個指令大同小異，其中 <a href="/vue-note/vite-start/#npm-init-vitelatest">npm init vite</a> 與 <a href="/vue-note/vite-start/#npm-init-vitelatest">npm create vite</a> 操作上完全一樣 (畢竟都是 vite 官方文件的指令)</p>
 <p>比較不同的是，使用 <a href="/vue-note/vite-start/#npm-init-vuelatest">npm init vue@latest</a> 指令，操作步驟會額外詢問是否要建置 router 、 pinia，甚至一些測試框架</p>
-<p>以結果來說，如果希望起手式就先幫忙配套好較為完整的內容，建議使用<a href="/vue-note/vite-start/#npm-init-vuelatest">init vue@latest</a> 來建置</p>
+<p>以結果來說，如果希望起手式就先幫忙配套好較為完整的內容，建議使用<a href="/vue-note/vite-start/#npm-init-vuelatest"> init vue@latest</a> 來建置</p>
 <p>但如果希望起手式可以越簡單越好，其他功能之後再增加的話，直接使用 <a href="/vue-note/vite-start/#npm-init-vitelatest">npm init vite</a> 或是 <a href="/vue-note/vite-start/#npm-init-vitelatest">npm create vite</a> 即可</p>
 
       <div class="tags">
@@ -278,7 +238,7 @@ Done. Now run:
     <div class="item left">
       
 
-  <a href="/git-note/gn-github/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;rt4bUdl.jpg" title="【Git筆記】使用 GitHub">
+  <a href="/git-note/gn-github/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="【Git筆記】使用 GitHub">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】使用 GitHub</h3>
@@ -288,7 +248,7 @@ Done. Now run:
     <div class="item right">
       
 
-  <a href="/git-note/gn-alias/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;8gupmbA.jpg" title="【Git筆記】設定指令簡寫">
+  <a href="/git-note/gn-alias/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mp3vta6.jpg" title="【Git筆記】設定指令簡寫">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】設定指令簡寫</h3>
@@ -309,7 +269,7 @@ Done. Now run:
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-init-vue-latest"><span class="toc-number">1.</span> <span class="toc-text">npm init vue@latest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-init-vite-latest"><span class="toc-number">2.</span> <span class="toc-text">npm init vite@latest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-create-vite-latest"><span class="toc-number">3.</span> <span class="toc-text">npm create vite@latest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-number">4.</span> <span class="toc-text">結論</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-init-vuelatest"><span class="toc-number">1.</span> <span class="toc-text"> npm init vue@latest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-init-vitelatest"><span class="toc-number">2.</span> <span class="toc-text"> npm init vite@latest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-create-vitelatest"><span class="toc-number">3.</span> <span class="toc-text"> npm create vite@latest</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-number">4.</span> <span class="toc-text"> 結論</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -403,49 +363,30 @@ Done. Now run:
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
       
@@ -465,27 +406,7 @@ Done. Now run:
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
   </li>
 
       
@@ -495,7 +416,47 @@ Done. Now run:
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
   </li>
 
   </ul>
@@ -516,13 +477,13 @@ Done. Now run:
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">62k 字</span>
+    <span title="總字數">60k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">56 分鐘</span>
+    <span title="所需總閱讀時間">55 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

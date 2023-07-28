@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>1.6k</span>
+    <span>1.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,50 +165,58 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>:::info no-icon<br>第一次提到 reset ，是在 <a href="/git-note/gn-situation/">這篇文章</a> 提到<br>當時只是拿來處理一些狀況題，卻沒有深入介紹，這篇就來說明一下 reset 比較常用的功能！</p>
-<p>不過 reset 指令還有一些參數值得獨立出來說明，為了使關注點聚焦，拉了一個單獨的篇章來筆記。<br>未來要找資料也能比較清楚一點。<br>:::</p>
-<p>我們在使用 <code>git reset</code> 後面接 <strong>commitID</strong> 時，是為了從目前的 commit 跳到 其他 commit ，在 <a href="/git-note/gn-situation/#%E9%80%99%E5%80%8B-commit-%E6%88%91%E4%B8%8D%E8%A6%81%E4%BA%86%E5%8F%AF%E4%BB%A5%E9%87%8D%E4%BE%86%E5%97%8E">反悔 commit</a> 章節所介紹的就是這個功能</p>
+    <div class="note info no-icon">
+<p>第一次提到 reset ，是在 <a href="/git-note/gn-situation/">這篇文章</a> 提到<br>
+當時只是拿來處理一些狀況題，卻沒有深入介紹，這篇就來說明一下 reset 比較常用的功能！</p>
+<p>不過 reset 指令還有一些參數值得獨立出來說明，為了使關注點聚焦，拉了一個單獨的篇章來筆記。<br>
+未來要找資料也能比較清楚一點。</p>
+</div>
+<p>我們在使用  <code>git reset</code>  後面接 <strong>commitID</strong> 時，是為了從目前的 commit 跳到 其他 commit ，在 <a href="/git-note/gn-situation/#%E9%80%99%E5%80%8B-commit-%E6%88%91%E4%B8%8D%E8%A6%81%E4%BA%86%E5%8F%AF%E4%BB%A5%E9%87%8D%E4%BE%86%E5%97%8E">反悔 commit</a> 章節所介紹的就是這個功能</p>
 <p>在使用 reset 時切換 commit 時，Git 需要考慮 <strong>reset 前</strong>、<strong>reset 後</strong> 的檔案差異應該要如何處理</p>
 <p>所謂的 <strong>reset 前</strong>、<strong>reset 後</strong> 分別是在說：</p>
 <blockquote>
-<p>reset 前：目前分支(HEAD)所在的 commit<br>reset 後：要跳轉過去的 commit</p>
+<p>reset 前：目前分支 (HEAD) 所在的 commit<br>
+reset 後：要跳轉過去的 commit</p>
 </blockquote>
 <p>reset 指令會有三種模式供我們選擇：</p>
 <ol>
-<li>mixed 模式：<br>這是 reset 的預設模式，會讓 <strong>reset 前</strong> 的工作目錄的資料呈現在 <strong>reset 後</strong> 的工作目錄內<br>在比對前後差異後，相對於 <strong>reset 後</strong> 的工作目錄檔案，如果 <strong>reset 前</strong>有新增刪除修改檔案<br>會讓這些檔案呈現 <strong>待追蹤</strong>(Untracked files) 或是 <strong>更動但尚未提交</strong>(Changes not staged for commit)</li>
+<li>mixed 模式：<br>
+這是 reset 的預設模式，會讓 <strong>reset 前</strong> 的工作目錄的資料呈現在 <strong>reset 後</strong> 的工作目錄內<br>
+在比對前後差異後，相對於 <strong>reset 後</strong> 的工作目錄檔案，如果 <strong>reset 前</strong>有新增刪除修改檔案<br>
+會讓這些檔案呈現 <strong>待追蹤</strong> (Untracked files) 或是 <strong>更動但尚未提交</strong> (Changes not staged for commit)</li>
 </ol>
-<pre><code class="sh">Changes not staged for commit:
-  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
-        modified:   被修改的.js
-        deleted:    被刪掉的.js
-
-Untracked files:
-  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-        新增加的JS.js
-</code></pre>
-<ol start="2">
-<li>hard 模式：<br>hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit 而且不保留任何修改資料」<br>執行完後，就會很單純的呈現出 <strong>reset 後</strong> 的commit 最原始的檔案內容<br>工作目錄下的檔案不會被 <strong>reset 前</strong> 的內容影響到</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add/rm &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        modified:   被修改的.js</pre></td></tr><tr><td data-num="5"></td><td><pre>        deleted:    被刪掉的.js</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Untracked files:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        新增加的JS.js</pre></td></tr></table></figure><ol start="2">
+<li>hard 模式：<br>
+hard 模式就很純粹明瞭，直接告訴 Git 「幫我切到某個 commit 而且不保留任何修改資料」<br>
+執行完後，就會很單純的呈現出 <strong>reset 後</strong> 的 commit 最原始的檔案內容<br>
+工作目錄下的檔案不會被 <strong>reset 前</strong> 的內容影響到</li>
 </ol>
 <p>這邊做個小結論：</p>
 <ol>
-<li>我們如果後悔 commit ，可以使用 <code>git reset HEAD^ --mixed</code> 回到上一個版本(<code>--mixed</code> 參數可省略)<br>這樣在 <strong>reset 後</strong>，就可以保留 <strong>reset 前</strong> 的檔案</li>
-<li>如果我們想讓分支回到某個版本最原始的狀態，則可以使用 <code>git reset HEAD^ --hard</code> 來執行操作</li>
+<li>我們如果後悔 commit ，可以使用  <code>git reset HEAD^ --mixed</code>  回到上一個版本 ( <code>--mixed</code>  參數可省略)<br>
+ 這樣在 <strong>reset 後</strong>，就可以保留 <strong>reset 前</strong> 的檔案</li>
+<li>如果我們想讓分支回到某個版本最原始的狀態，則可以使用  <code>git reset HEAD^ --hard</code>  來執行操作</li>
 </ol>
-<p>上述的內容總是使用 <strong>reset 前</strong> 、<strong>reset 後</strong> 來說明，是因為 reset 指令是可以不斷「重置」到不同的 commit 上<br>只要是 Git 版控的歷史已經存在的 commit，都可以使用 reset 進行「跳轉」</p>
-<p>:::primary no-icon<br>我曾經搞混 <code>git branch -f</code> 跟 <code>git reset (commitID)</code> 指令，因為好像都是在操控分支的指向<br>而實際上兩個指令本身用途不同</p>
+<p>上述的內容總是使用 <strong>reset 前</strong> 、<strong>reset 後</strong> 來說明，是因為 reset 指令是可以不斷「重置」到不同的 commit 上<br>
+只要是 Git 版控的歷史已經存在的 commit，都可以使用 reset 進行「跳轉」</p>
+<div class="note primary no-icon">
+<p>我曾經搞混  <code>git branch -f</code>  跟  <code>git reset (commitID)</code>  指令，因為好像都是在操控分支的指向<br>
+而實際上兩個指令本身用途不同</p>
 <ol>
-<li><code>git branch -f</code> 用來強制操控 <strong>非 HEAD</strong> 的分支指向<br> 由於 <strong>非 HEAD</strong> 的分支會是 commit 狀態，不用特別考慮 <strong>工作目錄</strong> 的檔案如何處理</li>
-<li><code>git reset (commitID)</code> 則是用來處理 HEAD 的分支位置<br> 因為 HEAD 所在分支可能會有以下狀態，所以在操控分支指向時，要多考慮不同狀態下的資料何去何從。</li>
+<li><code>git branch -f</code>  用來強制操控 <strong>非 HEAD</strong> 的分支指向<br>
+由於 <strong>非 HEAD</strong> 的分支會是 commit 狀態，不用特別考慮 <strong>工作目錄</strong> 的檔案如何處理</li>
+<li><code>git reset (commitID)</code>  則是用來處理 HEAD 的分支位置<br>
+因為 HEAD 所在分支可能會有以下狀態，所以在操控分支指向時，要多考慮不同狀態下的資料何去何從。</li>
 </ol>
 <ul>
 <li>新增檔案 (尚未列入追蹤的檔案) (untracked files)</li>
-<li>新增檔案 (已經加入索引的檔案) (tracked&#x2F;staged files)</li>
-<li>修改檔案 (尚未加入索引的檔案) (tracked&#x2F;unstaged files)</li>
-<li>修改檔案 (已經加入索引的檔案) (tracked&#x2F;staged files)</li>
-<li>刪除檔案 (尚未加入索引的檔案) (tracked&#x2F;unstaged files)</li>
-<li>刪除檔案 (已經加入索引的檔案) (tracked&#x2F;staged files)<br>:::</li>
+<li>新增檔案 (已經加入索引的檔案) (tracked/staged files)</li>
+<li>修改檔案 (尚未加入索引的檔案) (tracked/unstaged files)</li>
+<li>修改檔案 (已經加入索引的檔案) (tracked/staged files)</li>
+<li>刪除檔案 (尚未加入索引的檔案) (tracked/unstaged files)</li>
+<li>刪除檔案 (已經加入索引的檔案) (tracked/staged files)</li>
 </ul>
+</div>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -263,7 +271,7 @@ Untracked files:
     <div class="item left">
       
 
-  <a href="/git-note/gn-branch/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mubtL63.png" title="【Git筆記】使用 Git 分支">
+  <a href="/git-note/gn-branch/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】使用 Git 分支">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】使用 Git 分支</h3>
@@ -273,7 +281,7 @@ Untracked files:
     <div class="item right">
       
 
-  <a href="/git-note/gn-rebase-merge/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="【Git筆記】用 rebase 來合併分支">
+  <a href="/git-note/gn-rebase-merge/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】用 rebase 來合併分支">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】用 rebase 來合併分支</h3>
@@ -387,10 +395,10 @@ Untracked files:
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
       
@@ -410,7 +418,47 @@ Untracked files:
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
+    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
   </li>
 
       
@@ -430,7 +478,7 @@ Untracked files:
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
+    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
   </li>
 
       
@@ -440,46 +488,7 @@ Untracked files:
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
   </li>
 
   </ul>
@@ -500,13 +509,13 @@ Untracked files:
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">62k 字</span>
+    <span title="總字數">60k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">56 分鐘</span>
+    <span title="所需總閱讀時間">55 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>9.8k</span>
+    <span>9.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
         </ul>
       </div>
     </header>
@@ -165,378 +165,186 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>:::info no-icon<br>起初在 <a href="/git-note/gn-start/#%E7%8B%80%E6%B3%81-5%E4%BF%AE%E6%94%B9-commit-%E7%B4%80%E9%8C%84">修改commit紀錄</a> 章節提到幾種方法來改 commit 紀錄<br>當時只提到如何修改最近一次的 commit 紀錄，同時挖了一個用 rebase 改歷史的坑還沒填<br>來把這個操作補一補吧<br>:::</p>
-<h2 id="rebase-的互動模式"><a href="#rebase-的互動模式" class="headerlink" title="rebase 的互動模式"></a>rebase 的互動模式</h2><p>上一篇文章有提到， rebase 是用來重新定義 commit 的基底。<br>而在重新定義分支基底的過程中，rebase 提供一個參數 <code>-i</code> 來讓操作者開啟互動模式進行操作。<br>其中<code>-i</code> 是 <code>interactive</code> 的意思。</p>
+    <div class="note info no-icon">
+<p>起初在 <a href="/git-note/gn-start/#%E7%8B%80%E6%B3%81-5%E4%BF%AE%E6%94%B9-commit-%E7%B4%80%E9%8C%84">修改 commit 紀錄</a> 章節提到幾種方法來改 commit 紀錄<br>
+當時只提到如何修改最近一次的 commit 紀錄，同時挖了一個用 rebase 改歷史的坑還沒填<br>
+來把這個操作補一補吧</p>
+</div>
+<h2 id="rebase-的互動模式"><a class="markdownIt-Anchor" href="#rebase-的互動模式">#</a> rebase 的互動模式</h2>
+<p>上一篇文章有提到， rebase 是用來重新定義 commit 的基底。<br>
+而在重新定義分支基底的過程中，rebase 提供一個參數  <code>-i</code>  來讓操作者開啟互動模式進行操作。<br>
+其中 <code>-i</code>  是  <code>interactive</code>  的意思。</p>
 <p>實際的指令會長這樣：</p>
-<pre><code class="sh">git rebase -i commitID
-</code></pre>
-<p>由於 rebase 是要更動基底，所以互動模式會讓你從<strong>某一個基底</strong> 開始處理這 <strong>之後</strong> 的更變<br>所以這個 <strong>commitID</strong> 要帶入 <strong>想修改的 commit</strong> 的 <strong>前一個 ID</strong>。</p>
-<p>假設我目前的log 長這樣，並且執行 <code>git rebase -i 6e72bd7</code>，意思是要告訴 Git ，我現在希望從 <code>6e72bd7</code> 開始重新定義之後的基底。<br>Git 聽到後就會自動幫我挑出 <code>890f0e6</code> 、<code>9e24364</code>、<code>3d415c5</code> 這三個 commit ，並且問我接下來要怎麼做。</p>
-<pre><code class="sh">$ git log --oneline --graph -5
-* 3d415c5 (HEAD -&gt; master) 版本4
-* 9e24364 版本3
-* 890f0e6 版本2
-* 6e72bd7 版本1
-</code></pre>
-<h2 id="刪除某一個-commit"><a href="#刪除某一個-commit" class="headerlink" title="刪除某一個 commit"></a>刪除某一個 commit</h2><p>先直接執行 <code>git rebase -i 6e72bd7</code> 指令之後，終端機會呈現這樣的資訊，提示我們正在等我們編輯或關閉檔案</p>
-<pre><code class="sh">$ git rebase -i 6e72bd7
-hint: Waiting for your editor to close the file...
-</code></pre>
-<p>所謂的檔案，則是Git 會透過預設的 Git 編輯器跳出的這些內容，可以看到我們寫在指令的那個 commit 並沒有出現在文字之中，而是那個 commit 之後的所有 commit 都出現了。</p>
-<p>假設我們要刪除 <code>9e24364</code> 這個分支，只要把這行 <strong>刪掉</strong> 之後 <strong>存檔</strong> 即可。</p>
-<pre><code class="raw">pick a7bb7f7 版本2
-pick fbd51f3 版本3
-pick 916368f 版本4
-
-# Rebase 3b2363a..916368f onto 3b2363a (3 commands)
-#
-# Commands:
-# p, pick &lt;commit&gt; = use commit
-# r, reword &lt;commit&gt; = use commit, but edit the commit message
-# e, edit &lt;commit&gt; = use commit, but stop for amending
-# s, squash &lt;commit&gt; = use commit, but meld into previous commit
-(下略...)
-</code></pre>
-<p>成功之後，就會跳出這樣的訊息</p>
-<pre><code class="sh">$ git rebase -i 6e72bd7
-Successfully rebased and updated refs/heads/master.
-</code></pre>
-<h2 id="恢復上一動"><a href="#恢復上一動" class="headerlink" title="恢復上一動"></a>恢復上一動</h2><p>rebase 指令屬於一個比較「危險」的指令，Git 針對一些危險的指令給了一個復原的方式</p>
-<pre><code class="sh">git reset ORIG_HEAD --hard
-</code></pre>
-<p>這個 <code>ORIG_HEAD</code> 是 Git 自動幫我們紀錄的原始位置，而 –hard 參數如果不熟的話，可以參考<a href="/git-note/gn-reset/">這篇文章</a></p>
-<h2 id="修改歷史-commit-訊息"><a href="#修改歷史-commit-訊息" class="headerlink" title="修改歷史 commit 訊息"></a>修改歷史 commit 訊息</h2><p>這個需求有幾個步驟需要執行，我們一樣使用 <code>git rebase -i</code>的指令來處理</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> commitID</pre></td></tr></table></figure><p>由於 rebase 是要更動基底，所以互動模式會讓你從<strong>某一個基底</strong> 開始處理這 <strong>之後</strong> 的更變<br>
+所以這個 <strong>commitID</strong> 要帶入 <strong>想修改的 commit</strong> 的 <strong>前一個 ID</strong>。</p>
+<p>假設我目前的 log 長這樣，並且執行  <code>git rebase -i 6e72bd7</code> ，意思是要告訴 Git ，我現在希望從  <code>6e72bd7</code>  開始重新定義之後的基底。<br>
+Git 聽到後就會自動幫我挑出  <code>890f0e6</code>  、 <code>9e24364</code> 、 <code>3d415c5</code>  這三個 commit ，並且問我接下來要怎麼做。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">-5</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* 3d415c5 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> 版本4</pre></td></tr><tr><td data-num="3"></td><td><pre>* 9e24364 版本3</pre></td></tr><tr><td data-num="4"></td><td><pre>* 890f0e6 版本2</pre></td></tr><tr><td data-num="5"></td><td><pre>* 6e72bd7 版本1</pre></td></tr></table></figure><h2 id="刪除某一個-commit"><a class="markdownIt-Anchor" href="#刪除某一個-commit">#</a> 刪除某一個 commit</h2>
+<p>先直接執行  <code>git rebase -i 6e72bd7</code>  指令之後，終端機會呈現這樣的資訊，提示我們正在等我們編輯或關閉檔案</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr><tr><td data-num="2"></td><td><pre>hint: Waiting <span class="token keyword">for</span> your editor to close the file<span class="token punctuation">..</span>.</pre></td></tr></table></figure><p>所謂的檔案，則是 Git 會透過預設的 Git 編輯器跳出的這些內容，可以看到我們寫在指令的那個 commit 並沒有出現在文字之中，而是那個 commit 之後的所有 commit 都出現了。</p>
+<p>假設我們要刪除  <code>9e24364</code>  這個分支，只要把這行 <strong>刪掉</strong> 之後 <strong>存檔</strong> 即可。</p>
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>pick a7bb7f7 版本 2</pre></td></tr><tr><td data-num="2"></td><td><pre>pick fbd51f3 版本 3</pre></td></tr><tr><td data-num="3"></td><td><pre>pick 916368f 版本 4</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre># Rebase 3b2363a..916368f onto 3b2363a (3 commands)</pre></td></tr><tr><td data-num="6"></td><td><pre>#</pre></td></tr><tr><td data-num="7"></td><td><pre># Commands:</pre></td></tr><tr><td data-num="8"></td><td><pre># p, pick &lt;commit&gt; &#x3D; use commit</pre></td></tr><tr><td data-num="9"></td><td><pre># r, reword &lt;commit&gt; &#x3D; use commit, but edit the commit message</pre></td></tr><tr><td data-num="10"></td><td><pre># e, edit &lt;commit&gt; &#x3D; use commit, but stop for amending</pre></td></tr><tr><td data-num="11"></td><td><pre># s, squash &lt;commit&gt; &#x3D; use commit, but meld into previous commit</pre></td></tr><tr><td data-num="12"></td><td><pre>(下略...)</pre></td></tr></table></figure><p>成功之後，就會跳出這樣的訊息</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><h2 id="恢復上一動"><a class="markdownIt-Anchor" href="#恢復上一動">#</a> 恢復上一動</h2>
+<p>rebase 指令屬於一個比較「危險」的指令，Git 針對一些危險的指令給了一個復原的方式</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset ORIG_HEAD <span class="token parameter variable">--hard</span></pre></td></tr></table></figure><p>這個  <code>ORIG_HEAD</code>  是 Git 自動幫我們紀錄的原始位置，而 --hard 參數如果不熟的話，可以參考<a href="/git-note/gn-reset/">這篇文章</a></p>
+<h2 id="修改歷史-commit-訊息"><a class="markdownIt-Anchor" href="#修改歷史-commit-訊息">#</a> 修改歷史 commit 訊息</h2>
+<p>這個需求有幾個步驟需要執行，我們一樣使用  <code>git rebase -i</code>  的指令來處理</p>
 <ol>
-<li>執行<code>git rebase -i</code>指令</li>
+<li>執行 <code>git rebase -i</code>  指令</li>
 </ol>
-<pre><code class="sh">$ git rebase -i 6e72bd7
-hint: Waiting for your editor to close the file...
-</code></pre>
-<ol start="2">
-<li>跳出這個訊息的時候，把要修改的那個 commit 前面的參數改成 <code>edit</code> 或是 <code>e</code>，例如我想更改<code>fbd51f3</code>的紀錄，就把他的 <strong>pick</strong> 改成 <strong>e</strong></li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr><tr><td data-num="2"></td><td><pre>hint: Waiting <span class="token keyword">for</span> your editor to close the file<span class="token punctuation">..</span>.</pre></td></tr></table></figure><ol start="2">
+<li>跳出這個訊息的時候，把要修改的那個 commit 前面的參數改成  <code>edit</code>  或是  <code>e</code> ，例如我想更改 <code>fbd51f3</code>  的紀錄，就把他的 <strong>pick</strong> 改成 <strong>e</strong></li>
 </ol>
-<pre><code class="raw">pick a7bb7f7 版本2
-e fbd51f3 版本3
-pick 916368f 版本4
-
-# Rebase 3b2363a..916368f onto 3b2363a (3 commands)
-#
-# Commands:
-# p, pick &lt;commit&gt; = use commit
-# r, reword &lt;commit&gt; = use commit, but edit the commit message
-# e, edit &lt;commit&gt; = use commit, but stop for amending
-# s, squash &lt;commit&gt; = use commit, but meld into previous commit
-# f, fixup [-C | -c] &lt;commit&gt; = like &quot;squash&quot; but keep only the previous
-
-(下略...)
-</code></pre>
-<ol start="3">
-<li>終端機此時會跳出這些訊息，提示我們可以使用 <code>git commit --amend</code> 指令來修改版本</li>
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>pick a7bb7f7 版本 2</pre></td></tr><tr><td data-num="2"></td><td><pre>e fbd51f3 版本 3</pre></td></tr><tr><td data-num="3"></td><td><pre>pick 916368f 版本 4</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre># Rebase 3b2363a..916368f onto 3b2363a (3 commands)</pre></td></tr><tr><td data-num="6"></td><td><pre>#</pre></td></tr><tr><td data-num="7"></td><td><pre># Commands:</pre></td></tr><tr><td data-num="8"></td><td><pre># p, pick &lt;commit&gt; &#x3D; use commit</pre></td></tr><tr><td data-num="9"></td><td><pre># r, reword &lt;commit&gt; &#x3D; use commit, but edit the commit message</pre></td></tr><tr><td data-num="10"></td><td><pre># e, edit &lt;commit&gt; &#x3D; use commit, but stop for amending</pre></td></tr><tr><td data-num="11"></td><td><pre># s, squash &lt;commit&gt; &#x3D; use commit, but meld into previous commit</pre></td></tr><tr><td data-num="12"></td><td><pre># f, fixup [-C | -c] &lt;commit&gt; &#x3D; like &quot;squash&quot; but keep only the previous</pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>(下略...)</pre></td></tr></table></figure><ol start="3">
+<li>終端機此時會跳出這些訊息，提示我們可以使用  <code>git commit --amend</code>  指令來修改版本</li>
 </ol>
-<pre><code class="sh">$ git rebase -i 6e72bd7     
-Stopped at fbd51f3...  版本3
-You can amend the commit now, with
-
-  git commit --amend
-
-Once you are satisfied with your changes, run
-
-  git rebase --continue
-</code></pre>
-<ol start="4">
-<li><p>這個指令跟<a href="/git-note/gn-start/#%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E8%A8%8A%E6%81%AF">修改上一個版本的 commit 的訊息</a> 以及<a href="/git-note/gn-start/#%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E5%85%A7%E5%AE%B9">修改上一個版本的 commit 的內容</a> 完全一樣，基本上就是依照這個修改囉</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7     </pre></td></tr><tr><td data-num="2"></td><td><pre>Stopped at fbd51f3<span class="token punctuation">..</span>.  版本3</pre></td></tr><tr><td data-num="3"></td><td><pre>You can amend the commit now, with</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token function">git</span> commit <span class="token parameter variable">--amend</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Once you are satisfied with your changes, run</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr></table></figure><ol start="4">
+<li>
+<p>這個指令跟<a href="/git-note/gn-start/#%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E8%A8%8A%E6%81%AF">修改上一個版本的 commit 的訊息</a> 以及<a href="/git-note/gn-start/#%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84-commit-%E7%9A%84%E5%85%A7%E5%AE%B9">修改上一個版本的 commit 的內容</a> 完全一樣，基本上就是依照這個修改囉</p>
 </li>
-<li><p>當修改完之後，請再執行 <code>git rebase --continue</code> 指令 ，系統應該會自動跳出 <strong>Successfully rebased and updated refs&#x2F;heads&#x2F;[你的分支].</strong> 的訊息</p>
+<li>
+<p>當修改完之後，請再執行  <code>git rebase --continue</code>  指令 ，系統應該會自動跳出 <strong>Successfully rebased and updated refs/heads/[你的分支].</strong> 的訊息</p>
 </li>
 </ol>
-<pre><code class="sh">$ git rebase --continue
-Successfully rebased and updated refs/heads/master.
-</code></pre>
-<p>:::danger no-icon<br>如果要修改的歷史 commit 在未來已經有好幾個分支 commit 出去<br>由於指令只會更改當下分支的基底，而不會更改到其他分支的基底<br>這會導致分支圖直接被岔開新的分支，可能會造成團隊的不便<br>所以這個指令比較適合在還沒推上去之前，整理自己的分支用途<br>並不建議去修改太久之前的歷史訊息！<br>:::</p>
-<h2 id="把多個-commit-整合成一個-commit"><a href="#把多個-commit-整合成一個-commit" class="headerlink" title="把多個 commit 整合成一個 commit"></a>把多個 commit 整合成一個 commit</h2><p>有時候我們因為 commit 的太瑣碎，希望把一些 commit 集結起來 <del>(Avengers Assemble！)</del><br>這需求會在執行互動模式時，把想要集結的 commit 設定成 <strong>squash</strong>，<strong>squash</strong> 這傢伙的概念，是要把新的 commit 合併到過往 commit 上頭，<br>假設我們的版本順序是 <strong>1</strong>、<strong>2</strong>、<strong>3</strong>，如果想把這三個版本都合併起來的話，就在編輯器將 <strong>2</strong> 、<strong>3</strong> 這兩個版本 改成 <code>squash</code>  或 <code>s</code>，Git 就會幫我們把 <strong>2</strong> 、<strong>3</strong> 這兩個版本 併到 <strong>1</strong> 囉！</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><div class="note danger no-icon">
+<p>如果要修改的歷史 commit 在未來已經有好幾個分支 commit 出去<br>
+由於指令只會更改當下分支的基底，而不會更改到其他分支的基底<br>
+這會導致分支圖直接被岔開新的分支，可能會造成團隊的不便<br>
+所以這個指令比較適合在還沒推上去之前，整理自己的分支用途<br>
+並不建議去修改太久之前的歷史訊息！</p>
+</div>
+<h2 id="把多個-commit-整合成一個-commit"><a class="markdownIt-Anchor" href="#把多個-commit-整合成一個-commit">#</a> 把多個 commit 整合成一個 commit</h2>
+<p>有時候我們因為 commit 的太瑣碎，希望把一些 commit 集結起來 <s>(Avengers Assemble！)</s><br>
+ 這需求會在執行互動模式時，把想要集結的 commit 設定成 <strong>squash</strong>，<strong>squash</strong> 這傢伙的概念，是要把新的 commit 合併到過往 commit 上頭，<br>
+假設我們的版本順序是 <strong>1</strong>、<strong>2</strong>、<strong>3</strong>，如果想把這三個版本都合併起來的話，就在編輯器將 <strong>2</strong> 、<strong>3</strong> 這兩個版本 改成  <code>squash</code>   或  <code>s</code> ，Git 就會幫我們把 <strong>2</strong> 、<strong>3</strong> 這兩個版本 併到 <strong>1</strong> 囉！</p>
 <p>假設我們的 log 現在長這樣：</p>
-<pre><code class="sh">$ git log --oneline --graph -5
-* e1e87c5 (HEAD -&gt; master) 版本5
-* 5fd8125 版本4
-* 91c7d9f 版本3
-* 890f0e6 版本2
-* 6e72bd7 版本1
-</code></pre>
-<p>如果我希望把 <strong>版本4</strong> 、<strong>版本3</strong>合併到 <strong>版本2</strong>的話，可以執行這些步驟</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">-5</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* e1e87c5 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> 版本5</pre></td></tr><tr><td data-num="3"></td><td><pre>* 5fd8125 版本4</pre></td></tr><tr><td data-num="4"></td><td><pre>* 91c7d9f 版本3</pre></td></tr><tr><td data-num="5"></td><td><pre>* 890f0e6 版本2</pre></td></tr><tr><td data-num="6"></td><td><pre>* 6e72bd7 版本1</pre></td></tr></table></figure><p>如果我希望把 <strong>版本 4</strong> 、<strong>版本 3</strong> 合併到 <strong>版本 2</strong> 的話，可以執行這些步驟</p>
 <ol>
-<li>執行 <code>git rebase -i 6e72bd7</code>，代表我們希望更改 <strong>6e72bd7之後</strong> 的所有 commit</li>
+<li>執行  <code>git rebase -i 6e72bd7</code> ，代表我們希望更改 <strong>6e72bd7 之後</strong> 的所有 commit</li>
 </ol>
-<pre><code class="sh">git rebase -i 6e72bd7
-</code></pre>
-<ol start="2">
-<li>把編輯器 <strong>版本4</strong> 跟 <strong>版本3</strong> 的 <strong>pick</strong> 都改成 <strong>s</strong></li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 6e72bd7</pre></td></tr></table></figure><ol start="2">
+<li>把編輯器 <strong>版本 4</strong> 跟 <strong>版本 3</strong> 的 <strong>pick</strong> 都改成 <strong>s</strong></li>
 </ol>
-<pre><code class="raw">pick 890f0e6 版本2
-s 91c7d9f 版本3
-s 5fd8125 版本4
-pick e1e87c5 版本5
-
-# Rebase 6e72bd7..e1e87c5 onto 6e72bd7 (4 commands)
-#
-# Commands:
-# p, pick &lt;commit&gt; = use commit
-# r, reword &lt;commit&gt; = use commit, but edit the commit message
-# e, edit &lt;commit&gt; = use commit, but stop for amending
-# s, squash &lt;commit&gt; = use commit, but meld into previous commit
-(下略)
-</code></pre>
-<blockquote>
-<p>這邊注意一下，編輯器的版本會由「舊」到「新」陳列出來<br>執行 squash 的時候，第一個(最舊的) commit 不可以改成 s！<br>不然就沒有分支是要「被集結」了！！</p>
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>pick 890f0e6 版本 2</pre></td></tr><tr><td data-num="2"></td><td><pre>s 91c7d9f 版本 3</pre></td></tr><tr><td data-num="3"></td><td><pre>s 5fd8125 版本 4</pre></td></tr><tr><td data-num="4"></td><td><pre>pick e1e87c5 版本 5</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre># Rebase 6e72bd7..e1e87c5 onto 6e72bd7 (4 commands)</pre></td></tr><tr><td data-num="7"></td><td><pre>#</pre></td></tr><tr><td data-num="8"></td><td><pre># Commands:</pre></td></tr><tr><td data-num="9"></td><td><pre># p, pick &lt;commit&gt; &#x3D; use commit</pre></td></tr><tr><td data-num="10"></td><td><pre># r, reword &lt;commit&gt; &#x3D; use commit, but edit the commit message</pre></td></tr><tr><td data-num="11"></td><td><pre># e, edit &lt;commit&gt; &#x3D; use commit, but stop for amending</pre></td></tr><tr><td data-num="12"></td><td><pre># s, squash &lt;commit&gt; &#x3D; use commit, but meld into previous commit</pre></td></tr><tr><td data-num="13"></td><td><pre>(下略)</pre></td></tr></table></figure><blockquote>
+<p>這邊注意一下，編輯器的版本會由「舊」到「新」陳列出來<br>
+執行 squash 的時候，第一個 (最舊的) commit 不可以改成 s！<br>
+不然就沒有分支是要「被集結」了！！</p>
 </blockquote>
 <ol start="3">
 <li>存檔之後，Git 會沒完沒了的再跳出這樣的訊息，show 出這些 commit 原本的訊息，讓我們針對這次的集結做紀錄</li>
 </ol>
-<pre><code class="raw"># This is a combination of 3 commits.
-# This is the 1st commit message:
-
-版本2
-
-# This is the commit message #2:
-
-版本3
-
-# This is the commit message #3:
-
-版本4
-
-# Please enter the commit message for your changes. Lines starting
-# with &#39;#&#39; will be ignored, and an empty message aborts the commit.
-(下略)
-</code></pre>
-<ol start="4">
-<li>最後就執行 <code>git rebase --continue</code> 就完成囉！</li>
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre># This is a combination of 3 commits.</pre></td></tr><tr><td data-num="2"></td><td><pre># This is the 1st commit message:</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>版本 2</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre># This is the commit message #2:</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>版本 3</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre># This is the commit message #3:</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>版本 4</pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre># Please enter the commit message for your changes. Lines starting</pre></td></tr><tr><td data-num="15"></td><td><pre># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</pre></td></tr><tr><td data-num="16"></td><td><pre>(下略)</pre></td></tr></table></figure><ol start="4">
+<li>最後就執行  <code>git rebase --continue</code>  就完成囉！</li>
 </ol>
-<pre><code class="sh">$ git rebase --continue
-Successfully rebased and updated refs/heads/master.
-</code></pre>
-<h2 id="把一個-commit-拆成多個"><a href="#把一個-commit-拆成多個" class="headerlink" title="把一個 commit 拆成多個"></a>把一個 commit 拆成多個</h2><p>記得之前在聊 <a href="/git-note/gn-start/#%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E8%A6%81-commit">什麼時間點適合進行 commit</a> 的時候，有提到如果把一大堆不相干主題的修改全部 commit 在一起時，要 code review 某個 commit 會變得很不方便。<br>如果只是上一個版本想要拆掉重來，用 reset 就可以很方便的達成，不過如果想拆更之前的 commit，就需要用到 <strong>rebase -i</strong> 了！</p>
-<p>前置動作，來查看一下目前的 log，我希望拆掉 commit 訊息是<strong>三個檔案</strong>的那個commit：</p>
-<pre><code class="sh">$ git log --oneline --graph -5
-* 437654e (HEAD -&gt; master) 一個檔案
-* fb8abbf 三個檔案     #我要拆掉這一個
-* 9b3bf83 一起
-* 0b454ad 版本2
-* 6e72bd7 版本1
-</code></pre>
-<ol>
-<li>起手是還是一樣，使用 <code>git rebase -i commitID</code>，記得這個 ID 會是要處理的commit 的<strong>前一個</strong> commitID：</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><h2 id="把一個-commit-拆成多個"><a class="markdownIt-Anchor" href="#把一個-commit-拆成多個">#</a> 把一個 commit 拆成多個</h2>
+<p>記得之前在聊 <a href="/git-note/gn-start/#%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E8%A6%81-commit">什麼時間點適合進行 commit</a> 的時候，有提到如果把一大堆不相干主題的修改全部 commit 在一起時，要 code review 某個 commit 會變得很不方便。<br>
+如果只是上一個版本想要拆掉重來，用 reset 就可以很方便的達成，不過如果想拆更之前的 commit，就需要用到 <strong>rebase -i</strong> 了！</p>
+<p>前置動作，來查看一下目前的 log，我希望拆掉 commit 訊息是<strong>三個檔案</strong>的那個 commit：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">-5</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* 437654e <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> 一個檔案</pre></td></tr><tr><td data-num="3"></td><td><pre>* fb8abbf 三個檔案     <span class="token comment">#我要拆掉這一個</span></pre></td></tr><tr><td data-num="4"></td><td><pre>* 9b3bf83 一起</pre></td></tr><tr><td data-num="5"></td><td><pre>* 0b454ad 版本2</pre></td></tr><tr><td data-num="6"></td><td><pre>* 6e72bd7 版本1</pre></td></tr></table></figure><ol>
+<li>起手是還是一樣，使用  <code>git rebase -i commitID</code> ，記得這個 ID 會是要處理的 commit 的<strong>前一個</strong> commitID：</li>
 </ol>
-<pre><code class="sh">git rebase -i 9b3bf83
-</code></pre>
-<ol start="2">
-<li>接著，把想要「拆」的那個 commit 改成 <code>edit</code> 或是 <code>e</code>：</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 9b3bf83</pre></td></tr></table></figure><ol start="2">
+<li>接著，把想要「拆」的那個 commit 改成  <code>edit</code>  或是  <code>e</code> ：</li>
 </ol>
-<pre><code class="raw">edit fb8abbf 三個檔案
-pick 437654e 一個檔案
-
-# Rebase 9b3bf83..437654e onto 9b3bf83 (2 commands)
-#
-# Commands:
-# p, pick &lt;commit&gt; = use commit
-# r, reword &lt;commit&gt; = use commit, but edit the commit message
-# e, edit &lt;commit&gt; = use commit, but stop for amending
-(下略)
-</code></pre>
-<ol start="3">
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>edit fb8abbf 三個檔案</pre></td></tr><tr><td data-num="2"></td><td><pre>pick 437654e 一個檔案</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre># Rebase 9b3bf83..437654e onto 9b3bf83 (2 commands)</pre></td></tr><tr><td data-num="5"></td><td><pre>#</pre></td></tr><tr><td data-num="6"></td><td><pre># Commands:</pre></td></tr><tr><td data-num="7"></td><td><pre># p, pick &lt;commit&gt; &#x3D; use commit</pre></td></tr><tr><td data-num="8"></td><td><pre># r, reword &lt;commit&gt; &#x3D; use commit, but edit the commit message</pre></td></tr><tr><td data-num="9"></td><td><pre># e, edit &lt;commit&gt; &#x3D; use commit, but stop for amending</pre></td></tr><tr><td data-num="10"></td><td><pre>(下略)</pre></td></tr></table></figure><ol start="3">
 <li>存檔之後，系統會顯示這樣的資訊，到這邊的步驟跟開頭 <a href="/git-note/gn-rebase/#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2-commit-%E5%85%A7%E5%AE%B9">修改歷史 commit 內容</a> 完全一樣。</li>
 </ol>
-<pre><code class="sh">$ git rebase -i 9b3bf83  #這是第一步執行的指令，第二步執行完會出現下面的訊息
-Stopped at fb8abbf...  三個檔案
-You can amend the commit now, with
-
-  git commit --amend
-
-Once you are satisfied with your changes, run
-
-  git rebase --continue
-</code></pre>
-<ol start="4">
-<li>到這邊應該會停留在「要拆」的 commit 上，接著我們就可以下 <code>git reset HEAD^</code> 指令把目前這個 commit 解開<br>如果不懂為什麼的話 ，可以參考 <a href="/git-note/gn-reset/">這篇文章</a> 小結論的部分。</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> 9b3bf83  <span class="token comment">#這是第一步執行的指令，第二步執行完會出現下面的訊息</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Stopped at fb8abbf<span class="token punctuation">..</span>.  三個檔案</pre></td></tr><tr><td data-num="3"></td><td><pre>You can amend the commit now, with</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token function">git</span> commit <span class="token parameter variable">--amend</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Once you are satisfied with your changes, run</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr></table></figure><ol start="4">
+<li>到這邊應該會停留在「要拆」的 commit 上，接著我們就可以下  <code>git reset HEAD^</code>  指令把目前這個 commit 解開<br>
+如果不懂為什麼的話 ，可以參考 <a href="/git-note/gn-reset/">這篇文章</a> 小結論的部分。</li>
 </ol>
-<pre><code class="sh">git reset HEAD^
-</code></pre>
-<ol start="5">
-<li>此時可以用 <code>git status</code> 確認一下，我們執行 <code>edit</code> 參數的 commit 裡頭的檔案，是不是都變成 <strong>未暫存</strong> (Unstaged) 的狀態？</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset HEAD^</pre></td></tr></table></figure><ol start="5">
+<li>此時可以用  <code>git status</code>  確認一下，我們執行  <code>edit</code>  參數的 commit 裡頭的檔案，是不是都變成 <strong>未暫存</strong> (Unstaged) 的狀態？</li>
 </ol>
-<p>仔細讀一下 status 的訊息<br>提及說，上一個 command 已經結束了，是 <strong>edit fb8abbf</strong> commit。<br>下一個 commit 是 <strong>pick 437654e</strong> ，正準備要執行。<br>可以注意到因為我們 <code>reset HEAD^</code> 的關係，現在停留的 commit 剛好就是要拆的 commit 的前一個 commit <strong>9b3bf83</strong>。</p>
+<p>仔細讀一下 status 的訊息<br>
+提及說，上一個 command 已經結束了，是 <strong>edit fb8abbf</strong> commit。<br>
+下一個 commit 是 <strong>pick 437654e</strong> ，正準備要執行。<br>
+可以注意到因為我們  <code>reset HEAD^</code>  的關係，現在停留的 commit 剛好就是要拆的 commit 的前一個 commit <strong>9b3bf83</strong>。</p>
 <p>訊息的最後，可以看到有幾個檔案是<strong>未暫存</strong> (Unstaged) 的狀態，這些就是原本在 <strong>fb8abbf</strong> 版本已經被 commit 的檔案了！</p>
-<pre><code class="sh">$ git status
-interactive rebase in progress; onto 9b3bf83
-Last command done (1 command done):
-   edit fb8abbf 三個檔案
-Next command to do (1 remaining command):
-   pick 437654e 一個檔案
-  (use &quot;git rebase --edit-todo&quot; to view and edit)
-You are currently splitting a commit while rebasing branch &#39;master&#39; on &#39;9b3bf83&#39;.
-  (Once your working directory is clean, run &quot;git rebase --continue&quot;)
-
-Changes not staged for commit:
-  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
-        modified:   1.txt
-        modified:   2.txt
-        modified:   3.txt
-
-no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
-</code></pre>
-<ol start="6">
-<li>一步一步執行 <code>git add</code> 跟 <code>git commit</code> 吧！</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>interactive rebase <span class="token keyword">in</span> progress<span class="token punctuation">;</span> onto 9b3bf83</pre></td></tr><tr><td data-num="3"></td><td><pre>Last <span class="token builtin class-name">command</span> <span class="token keyword">done</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token builtin class-name">command</span> <span class="token keyword">done</span><span class="token punctuation">)</span>:</pre></td></tr><tr><td data-num="4"></td><td><pre>   edit fb8abbf 三個檔案</pre></td></tr><tr><td data-num="5"></td><td><pre>Next <span class="token builtin class-name">command</span> to <span class="token keyword">do</span> <span class="token punctuation">(</span><span class="token number">1</span> remaining <span class="token builtin class-name">command</span><span class="token punctuation">)</span>:</pre></td></tr><tr><td data-num="6"></td><td><pre>   pick 437654e 一個檔案</pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git rebase --edit-todo"</span> to view and edit<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>You are currently splitting a commit <span class="token keyword">while</span> rebasing branch <span class="token string">'master'</span> on <span class="token string">'9b3bf83'</span><span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">(</span>Once your working directory is clean, run <span class="token string">"git rebase --continue"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="12"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        modified:   <span class="token number">1</span>.txt</pre></td></tr><tr><td data-num="15"></td><td><pre>        modified:   <span class="token number">2</span>.txt</pre></td></tr><tr><td data-num="16"></td><td><pre>        modified:   <span class="token number">3</span>.txt</pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>no changes added to commit <span class="token punctuation">(</span>use <span class="token string">"git add"</span> and/or <span class="token string">"git commit -a"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ol start="6">
+<li>一步一步執行  <code>git add</code>  跟  <code>git commit</code>  吧！</li>
 </ol>
-<pre><code class="sh">$ git add 1.txt
-$ git commit -m &quot;新增1&quot;
-$ git add 2.txt
-$ git commit -m &quot;新增2&quot;
-$ git add 3.txt
-$ git commit -m &quot;新增3&quot;
-</code></pre>
-<ol start="7">
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> <span class="token function">add</span> <span class="token number">1</span>.txt</pre></td></tr><tr><td data-num="2"></td><td><pre>$ <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"新增1"</span></pre></td></tr><tr><td data-num="3"></td><td><pre>$ <span class="token function">git</span> <span class="token function">add</span> <span class="token number">2</span>.txt</pre></td></tr><tr><td data-num="4"></td><td><pre>$ <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"新增2"</span></pre></td></tr><tr><td data-num="5"></td><td><pre>$ <span class="token function">git</span> <span class="token function">add</span> <span class="token number">3</span>.txt</pre></td></tr><tr><td data-num="6"></td><td><pre>$ <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"新增3"</span></pre></td></tr></table></figure><ol start="7">
 <li>再來看一下 status 的狀態，會注意到基本訊息沒什麼變動，但現在處在 <strong>nothing to commit</strong> 的狀態了！</li>
 </ol>
-<pre><code class="sh">$ git status
-interactive rebase in progress; onto 9b3bf83
-Last command done (1 command done):
-   edit fb8abbf 三個檔案
-Next command to do (1 remaining command):
-   pick 437654e 一個檔案
-  (use &quot;git rebase --edit-todo&quot; to view and edit)
-You are currently editing a commit while rebasing branch &#39;master&#39; on &#39;9b3bf83&#39;.
-  (use &quot;git commit --amend&quot; to amend the current commit)
-  (use &quot;git rebase --continue&quot; once you are satisfied with your changes)
-
-nothing to commit, working tree clean
-</code></pre>
-<ol start="8">
-<li>執行 <code>git rebase --continue</code> 來完成這次的 rebase</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>interactive rebase <span class="token keyword">in</span> progress<span class="token punctuation">;</span> onto 9b3bf83</pre></td></tr><tr><td data-num="3"></td><td><pre>Last <span class="token builtin class-name">command</span> <span class="token keyword">done</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token builtin class-name">command</span> <span class="token keyword">done</span><span class="token punctuation">)</span>:</pre></td></tr><tr><td data-num="4"></td><td><pre>   edit fb8abbf 三個檔案</pre></td></tr><tr><td data-num="5"></td><td><pre>Next <span class="token builtin class-name">command</span> to <span class="token keyword">do</span> <span class="token punctuation">(</span><span class="token number">1</span> remaining <span class="token builtin class-name">command</span><span class="token punctuation">)</span>:</pre></td></tr><tr><td data-num="6"></td><td><pre>   pick 437654e 一個檔案</pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git rebase --edit-todo"</span> to view and edit<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>You are currently editing a commit <span class="token keyword">while</span> rebasing branch <span class="token string">'master'</span> on <span class="token string">'9b3bf83'</span><span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git commit --amend"</span> to amend the current commit<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git rebase --continue"</span> once you are satisfied with your changes<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>nothing to commit, working tree clean</pre></td></tr></table></figure><ol start="8">
+<li>執行  <code>git rebase --continue</code>  來完成這次的 rebase</li>
 </ol>
-<pre><code class="sh">$ git rebase --continue 
-Successfully rebased and updated refs/heads/master.
-</code></pre>
-<h2 id="在-commit-與-commit-插入額外的-commit"><a href="#在-commit-與-commit-插入額外的-commit" class="headerlink" title="在 commit 與 commit 插入額外的 commit"></a>在 commit 與 commit 插入額外的 commit</h2><p>這個需求要操作的動作跟 <a href="/git-note/gn-rebase/#%E6%8A%8A%E4%B8%80%E5%80%8B-commit-%E6%8B%86%E6%88%90%E5%A4%9A%E5%80%8B">把一個 commit 拆成多個</a> 所做的事情大概有87% 像。</p>
-<p>把 commit 拆成多個，會用到 reset 拆掉當下的 commit ，而現在這個需求，只要省略 reset 的動作 ，直接處理檔案之後，執行 <code>git add</code> 跟 <code>git commit -m</code> 指令即可！</p>
-<p>記得最後要再執行 <code>git rebase --continue</code> 來完成 rebase！</p>
-<h2 id="修改commit-順序與-rebase-衝突"><a href="#修改commit-順序與-rebase-衝突" class="headerlink" title="修改commit 順序與 rebase 衝突"></a>修改commit 順序與 rebase 衝突</h2><p>rebase 本身就是在進行修改歷史的動作，操作過程難免會有衝突，除了等等要示範的<strong>修改 commit 順序</strong>之外，<a href="/git-note/gn-rebase/#%E5%88%AA%E9%99%A4%E6%9F%90%E4%B8%80%E5%80%8B-commit">刪除某個 commit</a> 、<a href="/git-note/gn-rebase/#%E5%9C%A8-commit-%E8%88%87-commit-%E6%8F%92%E5%85%A5%E9%A1%8D%E5%A4%96%E7%9A%84-commit">在 commit 與 commit 之間插入 commit</a> 也都有可能會發生衝突。</p>
-<p>原因很單純：在 rebase 的過程中，當<strong>已經 rebase 完成版本的檔案</strong>與<strong>rebase 過程修改且準備 commit 的檔案</strong>出現<strong>同一行內容不一致</strong>時，由於 Git 不清楚應該保留<strong>rebase 過程已經 commit 的檔案</strong>還是下一步版本的更改，就會發生衝突。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span> </pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><h2 id="在-commit-與-commit-插入額外的-commit"><a class="markdownIt-Anchor" href="#在-commit-與-commit-插入額外的-commit">#</a> 在 commit 與 commit 插入額外的 commit</h2>
+<p>這個需求要操作的動作跟 <a href="/git-note/gn-rebase/#%E6%8A%8A%E4%B8%80%E5%80%8B-commit-%E6%8B%86%E6%88%90%E5%A4%9A%E5%80%8B">把一個 commit 拆成多個</a> 所做的事情大概有 87% 像。</p>
+<p>把 commit 拆成多個，會用到 reset 拆掉當下的 commit ，而現在這個需求，只要省略 reset 的動作 ，直接處理檔案之後，執行  <code>git add</code>  跟  <code>git commit -m</code>  指令即可！</p>
+<p>記得最後要再執行  <code>git rebase --continue</code>  來完成 rebase！</p>
+<h2 id="修改commit-順序與-rebase-衝突"><a class="markdownIt-Anchor" href="#修改commit-順序與-rebase-衝突">#</a> 修改 commit 順序與 rebase 衝突</h2>
+<p>rebase 本身就是在進行修改歷史的動作，操作過程難免會有衝突，除了等等要示範的<strong>修改 commit 順序</strong>之外，<a href="/git-note/gn-rebase/#%E5%88%AA%E9%99%A4%E6%9F%90%E4%B8%80%E5%80%8B-commit">刪除某個 commit</a> 、<a href="/git-note/gn-rebase/#%E5%9C%A8-commit-%E8%88%87-commit-%E6%8F%92%E5%85%A5%E9%A1%8D%E5%A4%96%E7%9A%84-commit">在 commit 與 commit 之間插入 commit</a> 也都有可能會發生衝突。</p>
+<p>原因很單純：在 rebase 的過程中，當<strong>已經 rebase 完成版本的檔案</strong>與<strong> rebase 過程修改且準備 commit 的檔案</strong>出現<strong>同一行內容不一致</strong>時，由於 Git 不清楚應該保留<strong> rebase 過程已經 commit 的檔案</strong>還是下一步版本的更改，就會發生衝突。</p>
 <p>這個概念跟 <a href="/git-note/gn-branch/#%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81">分支合併衝突</a> 的原因一樣，都是在操作 Git 指令時，Git 不知道我們這些操作者想要保留的到底是哪個版本，只好訊息讓我們自己解決。</p>
 <blockquote>
 <p>衝突並不可怕，因為不知道為什麼會發生衝突才可怕</p>
 </blockquote>
 <p>假設我們的 log 長這樣，我在某個檔案先處理 banner 區塊，再處理 header 區塊</p>
-<pre><code class="sh">$ git log --oneline --graph -3
-* 7a569ff (HEAD -&gt; master) header區塊
-* 41b39c6 banner區塊
-* 8195886 基本架構
-</code></pre>
-<p>但我希望這兩個版本對調一下，感覺比較合情合理，步驟大概會是這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">-3</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* 7a569ff <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> header區塊</pre></td></tr><tr><td data-num="3"></td><td><pre>* 41b39c6 banner區塊</pre></td></tr><tr><td data-num="4"></td><td><pre>* <span class="token number">8195886</span> 基本架構</pre></td></tr></table></figure><p>但我希望這兩個版本對調一下，感覺比較合情合理，步驟大概會是這樣：</p>
 <ol>
-<li>執行 <code>git rebase -i</code> 來調整</li>
+<li>執行  <code>git rebase -i</code>  來調整</li>
 </ol>
-<pre><code class="sh">git rebase -i HEAD^^
-</code></pre>
-<ol start="2">
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> HEAD^^</pre></td></tr></table></figure><ol start="2">
 <li>把 commit 順序調換</li>
 </ol>
 <p>原本的訊息是先 commit <strong>41b39c6</strong> 後 commit <strong>7a569ff</strong> (越先出現的 commit 越舊)：</p>
-<pre><code class="raw">pick 41b39c6 banner區塊
-pick 7a569ff header區塊
-
-# Rebase 8195886..7a569ff onto 8195886 (2 commands)
-</code></pre>
-<p>把它改成這樣然後存檔</p>
-<pre><code class="raw">pick 7a569ff header區塊
-pick 41b39c6 banner區塊
-
-# Rebase 8195886..7a569ff onto 8195886 (2 commands)
-</code></pre>
-<ol start="3">
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>pick 41b39c6 banner 區塊</pre></td></tr><tr><td data-num="2"></td><td><pre>pick 7a569ff header 區塊</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre># Rebase 8195886..7a569ff onto 8195886 (2 commands)</pre></td></tr></table></figure><p>把它改成這樣然後存檔</p>
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>pick 7a569ff header 區塊</pre></td></tr><tr><td data-num="2"></td><td><pre>pick 41b39c6 banner 區塊</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre># Rebase 8195886..7a569ff onto 8195886 (2 commands)</pre></td></tr></table></figure><ol start="3">
 <li>系統會直接跳 <strong>衝突訊息</strong> 出來！</li>
 </ol>
-<pre><code class="sh">$ git rebase -i HEAD^^  # 這是第一步執行的指令，第二步完成後會跑出下面的資料
-Auto-merging 示範衝突.html
-CONFLICT (content): Merge conflict in 示範衝突.html
-error: could not apply 7a569ff... header區塊
-hint: Resolve all conflicts manually, mark them as resolved with
-hint: &quot;git add/rm &lt;conflicted_files&gt;&quot;, then run &quot;git rebase --continue&quot;.
-hint: You can instead skip this commit: run &quot;git rebase --skip&quot;.
-hint: To abort and get back to the state before &quot;git rebase&quot;, run &quot;git rebase --abort&quot;.
-Could not apply 7a569ff... header區塊
-</code></pre>
-<p>告訴我們 <strong>示範衝突.html</strong> 這個檔案發生了衝突，有幾種解決方法</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> HEAD^^  <span class="token comment"># 這是第一步執行的指令，第二步完成後會跑出下面的資料</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Auto-merging 示範衝突.html</pre></td></tr><tr><td data-num="3"></td><td><pre>CONFLICT <span class="token punctuation">(</span>content<span class="token punctuation">)</span>: Merge conflict <span class="token keyword">in</span> 示範衝突.html</pre></td></tr><tr><td data-num="4"></td><td><pre>error: could not apply 7a569ff<span class="token punctuation">..</span>. header區塊</pre></td></tr><tr><td data-num="5"></td><td><pre>hint: Resolve all conflicts manually, mark them as resolved with</pre></td></tr><tr><td data-num="6"></td><td><pre>hint: <span class="token string">"git add/rm &lt;conflicted_files>"</span>, <span class="token keyword">then</span> run <span class="token string">"git rebase --continue"</span><span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="7"></td><td><pre>hint: You can instead skip this commit: run <span class="token string">"git rebase --skip"</span><span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="8"></td><td><pre>hint: To abort and get back to the state before <span class="token string">"git rebase"</span>, run <span class="token string">"git rebase --abort"</span><span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="9"></td><td><pre>Could not apply 7a569ff<span class="token punctuation">..</span>. header區塊</pre></td></tr></table></figure><p>告訴我們 <strong>示範衝突.html</strong> 這個檔案發生了衝突，有幾種解決方法</p>
 <ul>
-<li>解決衝突，並且使用<code>git add</code>指令標記衝突已解決，並且 <strong>執行 <code>git rebase --continue</code> 指令</strong></li>
-<li>你可以直接不要這個 commit ，執行 <code>git rebase --skip</code> 即可</li>
-<li>你可以放棄這個 rebase ，執行 <code>git rebase --abort</code> 來放棄</li>
+<li>解決衝突，並且使用 <code>git add</code>  指令標記衝突已解決，並且 <strong>執行  <code>git rebase --continue</code>  指令</strong></li>
+<li>你可以直接不要這個 commit ，執行  <code>git rebase --skip</code>  即可</li>
+<li>你可以放棄這個 rebase ，執行  <code>git rebase --abort</code>  來放棄</li>
 </ul>
-<p>如果不熟 rebase 操作的過程，直接使用最後一個建議 <strong>放棄 rebase</strong> 會是非常合理的作法<br>因為 rebase 一個操作不當，又不知道怎麼還原的情況，很容易造成整個專案直接壞掉無法正常執行</p>
-<p>如果使用 <code>git rebase --skip</code> 指令的話，則會在專案 Git 歷史中 「拔除」目前所在的這個 commit<br>由於會報衝突的 commit，一定是最新的版本之前的commit，這個做法至少可以確保最新的 commit 是沒問題的<br>但代價是 Git 的歷史中會少了這個版本</p>
-<p>最後就來示範一下 使用<code>git add</code>指令標記衝突已解決，並且 <strong>執行 <code>git rebase --continue</code> 指令</strong> 來解決衝突吧：</p>
+<p>如果不熟 rebase 操作的過程，直接使用最後一個建議 <strong>放棄 rebase</strong> 會是非常合理的作法<br>
+因為 rebase 一個操作不當，又不知道怎麼還原的情況，很容易造成整個專案直接壞掉無法正常執行</p>
+<p>如果使用  <code>git rebase --skip</code>  指令的話，則會在專案 Git 歷史中 「拔除」目前所在的這個 commit<br>
+ 由於會報衝突的 commit，一定是最新的版本之前的 commit，這個做法至少可以確保最新的 commit 是沒問題的<br>
+但代價是 Git 的歷史中會少了這個版本</p>
+<p>最後就來示範一下 使用 <code>git add</code>  指令標記衝突已解決，並且 <strong>執行  <code>git rebase --continue</code>  指令</strong> 來解決衝突吧：</p>
 <ol start="4">
-<li>把發生衝突的檔案打開，會看到<del>熟悉的</del>合併衝突看過的符號再度出現<br>從訊息看得出：目前 commit (8195886) 的檔案，跟準備要 commit 的 (7a569ff) 檔案內容發生衝突！</li>
+<li>把發生衝突的檔案打開，會看到<s>熟悉的</s>合併衝突看過的符號再度出現<br>
+從訊息看得出：目前 commit (8195886) 的檔案，跟準備要 commit 的 (7a569ff) 檔案內容發生衝突！</li>
 </ol>
-<pre><code class="html">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-    
-=======
-    &lt;div class=&quot;header&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;banner&quot;&gt;&lt;/div&gt;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 7a569ff (header區塊)
-</code></pre>
-<p>此時此刻，我們處理的內容，會是預計要在 <strong>7a569ff</strong> 這個版本，也就是 commit 訊息為 <code>header區塊</code> 這個版本的檔案內容！</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</pre></td></tr><tr><td data-num="2"></td><td><pre>    </pre></td></tr><tr><td data-num="3"></td><td><pre>=======</pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>banner<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre>>>>>>>> 7a569ff (header區塊)</pre></td></tr></table></figure><p>此時此刻，我們處理的內容，會是預計要在 <strong>7a569ff</strong> 這個版本，也就是 commit 訊息為  <code>header區塊</code>  這個版本的檔案內容！</p>
 <ol start="5">
 <li>修改他吧！讓檔案呈現 header 區塊的樣貌，</li>
 </ol>
-<pre><code class="html">    &lt;div class=&quot;header&quot;&gt;&lt;/div&gt;
-</code></pre>
-<ol start="6">
-<li>接著執行 <code>git add</code> 指令</li>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ol start="6">
+<li>接著執行  <code>git add</code>  指令</li>
 </ol>
-<pre><code class="sh">git add 示範衝突.html
-</code></pre>
-<ol start="7">
-<li>然後執行 <code>git rebase --continue</code></li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> 示範衝突.html</pre></td></tr></table></figure><ol start="7">
+<li>然後執行  <code>git rebase --continue</code></li>
 </ol>
-<pre><code class="sh">git rebase --continue
-</code></pre>
-<p>這一步很重要， rebase 互動模式的過程，沒有要新增任何版本的話，就不會用到 <code>git commit -m</code> 的指令提交 commit<br>而是用 <code>git rebase --continue</code> 讓 rebase 繼續執行！</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr></table></figure><p>這一步很重要， rebase 互動模式的過程，沒有要新增任何版本的話，就不會用到  <code>git commit -m</code>  的指令提交 commit<br>
+ 而是用  <code>git rebase --continue</code>  讓 rebase 繼續執行！</p>
 <ol start="8">
-<li>修改 commit 訊息<br>因為我們剛剛的 add 指令 與 rebase continue ，是在處理 7a569ff header區塊 的衝突<br>系統預設會把訊息帶出來，讓我們去修改，由於改變了歷史，這個訊息能寫多就盡量寫多，讓其他團隊成員知道發生什麼事情</li>
+<li>修改 commit 訊息<br>
+因為我們剛剛的 add 指令 與 rebase continue ，是在處理 7a569ff header 區塊 的衝突<br>
+系統預設會把訊息帶出來，讓我們去修改，由於改變了歷史，這個訊息能寫多就盡量寫多，讓其他團隊成員知道發生什麼事情</li>
 </ol>
-<pre><code class="raw">header區塊
-
-# Please enter the commit message for your changes. Lines starting
-# with &#39;#&#39; will be ignored, and an empty message aborts the commit.
-#
-# interactive rebase in progress; onto 8195886
-# Last command done (1 command done):
-#    pick 7a569ff header區塊
-# Next command to do (1 remaining command):
-#    pick 41b39c6 banner區塊
-# You are currently rebasing branch &#39;master&#39; on &#39;8195886&#39;.
-#
-# Changes to be committed:
-#	modified:   示範衝突.html
-#
-</code></pre>
-<ol start="9">
-<li>再執行 <code>git rebase --continue</code></li>
+<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>header 區塊</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre># Please enter the commit message for your changes. Lines starting</pre></td></tr><tr><td data-num="4"></td><td><pre># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</pre></td></tr><tr><td data-num="5"></td><td><pre>#</pre></td></tr><tr><td data-num="6"></td><td><pre># interactive rebase in progress; onto 8195886</pre></td></tr><tr><td data-num="7"></td><td><pre># Last command done (1 command done):</pre></td></tr><tr><td data-num="8"></td><td><pre>#    pick 7a569ff header 區塊</pre></td></tr><tr><td data-num="9"></td><td><pre># Next command to do (1 remaining command):</pre></td></tr><tr><td data-num="10"></td><td><pre>#    pick 41b39c6 banner 區塊</pre></td></tr><tr><td data-num="11"></td><td><pre># You are currently rebasing branch &#39;master&#39; on &#39;8195886&#39;.</pre></td></tr><tr><td data-num="12"></td><td><pre>#</pre></td></tr><tr><td data-num="13"></td><td><pre># Changes to be committed:</pre></td></tr><tr><td data-num="14"></td><td><pre>#	modified:   示範衝突.html</pre></td></tr><tr><td data-num="15"></td><td><pre>#</pre></td></tr></table></figure><ol start="9">
+<li>再執行  <code>git rebase --continue</code></li>
 </ol>
-<pre><code class="sh">git rebase --continue
-</code></pre>
-<ol start="10">
-<li>如果有衝突 ，重複 <code>4</code> 、<code>5</code> 、<code>6</code> 、<code>7</code>  步，如果沒有的話，上一步指令完成時，則會出現 rebase 成功的訊息</li>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr></table></figure><ol start="10">
+<li>如果有衝突 ，重複  <code>4</code>  、 <code>5</code>  、 <code>6</code>  、 <code>7</code>   步，如果沒有的話，上一步指令完成時，則會出現 rebase 成功的訊息</li>
 </ol>
-<pre><code class="sh">$ git rebase --continue
-Successfully rebased and updated refs/heads/master.
-</code></pre>
-<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>rebase 修改歷史的指令憑良心說起來，真的很複雜<br>即使我把 rebase 可能會用到的功能都記錄下來，也不敢直接說「這是一個看起來很難，執行起來很簡單的指令」</p>
-<p>畢竟使用 rebase 的過程，操作步驟十分繁瑣，而且訊息繁雜，一下子要在終端機執行，一下子又會跳出編輯器要編輯訊息<br>執行 <code>git add</code> 之後如果腦袋不清楚的狀況，一個不小心 <code>git commit</code>下去，可能造成非預期的結果。</p>
-<p>話說回來，Git 版控只要有關修改歷史的行為，都建議是在沒有 push 到遠端 server 之前執行<br>像是自己在本機開發之後，發現自己的 commit 太零散或是太集中，用 rebase 整理一下再 push ，會是一個不錯的做法</p>
-<p>不建議因為遠端分支太亂，就在沒跟團隊討論的情況下修改歷史後 force push 回遠端分支，這很大機率會造成團隊的困擾<br>畢竟 Git Server 本質會團隊共用的遠端儲存庫，更改了遠端 commit ，可能使其他成員 pull 下來的資料有問題</p>
-<p>除非跟團隊討論過決議要執行遠端的歷史異動，或是團隊就只有自己一個人，否則修改歷史的行為務必在本機端完成後，再進行push。</p>
-<p>總而言之，自己開發的分支在 push 到遠端 server 之前，要 commit 幾次、reset 幾次、 rebase 幾次都沒關係<br>而 push 到遠端的 commit ，能不要動就不要動！</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase <span class="token parameter variable">--continue</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><h2 id="後記"><a class="markdownIt-Anchor" href="#後記">#</a> 後記</h2>
+<p>rebase 修改歷史的指令憑良心說起來，真的很複雜<br>
+即使我把 rebase 可能會用到的功能都記錄下來，也不敢直接說「這是一個看起來很難，執行起來很簡單的指令」</p>
+<p>畢竟使用 rebase 的過程，操作步驟十分繁瑣，而且訊息繁雜，一下子要在終端機執行，一下子又會跳出編輯器要編輯訊息<br>
+執行  <code>git add</code>  之後如果腦袋不清楚的狀況，一個不小心  <code>git commit</code>  下去，可能造成非預期的結果。</p>
+<p>話說回來，Git 版控只要有關修改歷史的行為，都建議是在沒有 push 到遠端 server 之前執行<br>
+像是自己在本機開發之後，發現自己的 commit 太零散或是太集中，用 rebase 整理一下再 push ，會是一個不錯的做法</p>
+<p>不建議因為遠端分支太亂，就在沒跟團隊討論的情況下修改歷史後 force push 回遠端分支，這很大機率會造成團隊的困擾<br>
+畢竟 Git Server 本質會團隊共用的遠端儲存庫，更改了遠端 commit ，可能使其他成員 pull 下來的資料有問題</p>
+<p>除非跟團隊討論過決議要執行遠端的歷史異動，或是團隊就只有自己一個人，否則修改歷史的行為務必在本機端完成後，再進行 push。</p>
+<p>總而言之，自己開發的分支在 push 到遠端 server 之前，要 commit 幾次、reset 幾次、 rebase 幾次都沒關係<br>
+而 push 到遠端的 commit ，能不要動就不要動！</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -591,7 +399,7 @@ Successfully rebased and updated refs/heads/master.
     <div class="item left">
       
 
-  <a href="/git-note/gn-rebase-merge/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】用 rebase 來合併分支">
+  <a href="/git-note/gn-rebase-merge/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;qhft9aC.png" title="【Git筆記】用 rebase 來合併分支">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】用 rebase 來合併分支</h3>
@@ -601,7 +409,7 @@ Successfully rebased and updated refs/heads/master.
     <div class="item right">
       
 
-  <a href="/git-note/gn-github/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="【Git筆記】使用 GitHub">
+  <a href="/git-note/gn-github/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;eWxuYmg.jpg" title="【Git筆記】使用 GitHub">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】使用 GitHub</h3>
@@ -622,7 +430,7 @@ Successfully rebased and updated refs/heads/master.
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#rebase-%E7%9A%84%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">rebase 的互動模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E6%9F%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">2.</span> <span class="toc-text">刪除某一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%81%A2%E5%BE%A9%E4%B8%8A%E4%B8%80%E5%8B%95"><span class="toc-number">3.</span> <span class="toc-text">恢復上一動</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2-commit-%E8%A8%8A%E6%81%AF"><span class="toc-number">4.</span> <span class="toc-text">修改歷史 commit 訊息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E5%A4%9A%E5%80%8B-commit-%E6%95%B4%E5%90%88%E6%88%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">5.</span> <span class="toc-text">把多個 commit 整合成一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E4%B8%80%E5%80%8B-commit-%E6%8B%86%E6%88%90%E5%A4%9A%E5%80%8B"><span class="toc-number">6.</span> <span class="toc-text">把一個 commit 拆成多個</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-commit-%E8%88%87-commit-%E6%8F%92%E5%85%A5%E9%A1%8D%E5%A4%96%E7%9A%84-commit"><span class="toc-number">7.</span> <span class="toc-text">在 commit 與 commit 插入額外的 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9commit-%E9%A0%86%E5%BA%8F%E8%88%87-rebase-%E8%A1%9D%E7%AA%81"><span class="toc-number">8.</span> <span class="toc-text">修改commit 順序與 rebase 衝突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%8C%E8%A8%98"><span class="toc-number">9.</span> <span class="toc-text">後記</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#rebase-%E7%9A%84%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> rebase 的互動模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E6%9F%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">2.</span> <span class="toc-text"> 刪除某一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%81%A2%E5%BE%A9%E4%B8%8A%E4%B8%80%E5%8B%95"><span class="toc-number">3.</span> <span class="toc-text"> 恢復上一動</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2-commit-%E8%A8%8A%E6%81%AF"><span class="toc-number">4.</span> <span class="toc-text"> 修改歷史 commit 訊息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E5%A4%9A%E5%80%8B-commit-%E6%95%B4%E5%90%88%E6%88%90%E4%B8%80%E5%80%8B-commit"><span class="toc-number">5.</span> <span class="toc-text"> 把多個 commit 整合成一個 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E4%B8%80%E5%80%8B-commit-%E6%8B%86%E6%88%90%E5%A4%9A%E5%80%8B"><span class="toc-number">6.</span> <span class="toc-text"> 把一個 commit 拆成多個</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-commit-%E8%88%87-commit-%E6%8F%92%E5%85%A5%E9%A1%8D%E5%A4%96%E7%9A%84-commit"><span class="toc-number">7.</span> <span class="toc-text"> 在 commit 與 commit 插入額外的 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9commit-%E9%A0%86%E5%BA%8F%E8%88%87-rebase-%E8%A1%9D%E7%AA%81"><span class="toc-number">8.</span> <span class="toc-text"> 修改 commit 順序與 rebase 衝突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%8C%E8%A8%98"><span class="toc-number">9.</span> <span class="toc-text"> 後記</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -716,10 +524,30 @@ Successfully rebased and updated refs/heads/master.
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
   </li>
 
       
@@ -749,56 +577,7 @@ Successfully rebased and updated refs/heads/master.
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
     <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
   </li>
 
       
@@ -809,6 +588,36 @@ Successfully rebased and updated refs/heads/master.
 </div>
 
     <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
   </li>
 
   </ul>
@@ -829,13 +638,13 @@ Successfully rebased and updated refs/heads/master.
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">62k 字</span>
+    <span title="總字數">60k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">56 分鐘</span>
+    <span title="所需總閱讀時間">55 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

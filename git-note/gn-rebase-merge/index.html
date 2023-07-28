@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>935</span>
+    <span>939</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,11 +114,11 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
         </ul>
       </div>
@@ -165,22 +165,29 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h2 id="用-rebase-來合併分支"><a href="#用-rebase-來合併分支" class="headerlink" title="用 rebase 來合併分支"></a>用 rebase 來合併分支</h2><p>合併分支除了使用 merge 指令之外，用 rebase 指令也可以達到<strong>另一種形式</strong>的合併分支<br>為什麼會說叫做另外一種形式呢？在解答之前，直接先來看一下 rebase 指令合併分支的使用<br>假設目前的線圖長這樣，並且希望把 dev 分支的內容合併到 master 中<br><img data-src="https://i.imgur.com/HJeDKKS.jpg"></p>
+    <h2 id="用-rebase-來合併分支"><a class="markdownIt-Anchor" href="#用-rebase-來合併分支">#</a> 用 rebase 來合併分支</h2>
+<p>合併分支除了使用 merge 指令之外，用 rebase 指令也可以達到<strong>另一種形式</strong>的合併分支<br>
+為什麼會說叫做另外一種形式呢？在解答之前，直接先來看一下 rebase 指令合併分支的使用<br>
+假設目前的線圖長這樣，並且希望把 dev 分支的內容合併到 master 中<br>
+<img data-src="https://i.imgur.com/HJeDKKS.jpg" alt=""></p>
 <p>那我們可以先切換到 dev 分支後，執行 rebase 指令，完成之後，線圖應該就會成功被合併：</p>
-<pre><code class="sh">$ git rebase master
-Successfully rebased and updated refs/heads/dev.
-</code></pre>
-<p><img data-src="https://i.imgur.com/4mxASVb.jpg"></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase master</pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/dev.</pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/4mxASVb.jpg" alt=""></p>
 <p>從結果可以看得出，整個合併的形式好像跟 <strong>merge</strong> 不一樣</p>
-<h2 id="什麼是-rebase？"><a href="#什麼是-rebase？" class="headerlink" title="什麼是 rebase？"></a>什麼是 rebase？</h2><p>就字面上的意思來說，rebase 就是「重新定義基底」的意思。<br>例如最一開始的線圖中，我們可以說 <strong>123456</strong> 這個 <strong>commit</strong> 是 <strong>dev</strong> 的基底，同時也是 <strong>master</strong> 的基底<br><img data-src="https://i.imgur.com/HJeDKKS.jpg"></p>
+<h2 id="什麼是-rebase"><a class="markdownIt-Anchor" href="#什麼是-rebase">#</a> 什麼是 rebase？</h2>
+<p>就字面上的意思來說，rebase 就是「重新定義基底」的意思。<br>
+例如最一開始的線圖中，我們可以說 <strong>123456</strong> 這個 <strong>commit</strong> 是 <strong>dev</strong> 的基底，同時也是 <strong>master</strong> 的基底<br>
+<img data-src="https://i.imgur.com/HJeDKKS.jpg" alt=""></p>
 <p>而上面的示範，則是使用 <strong>rebase</strong> 指令 來重新定義 <strong>dev</strong> 分支的基底，把 <strong>dev</strong> 分支的基底定義為 <strong>master</strong> 分支。</p>
-<h2 id="如果反過來操作會怎麼樣？"><a href="#如果反過來操作會怎麼樣？" class="headerlink" title="如果反過來操作會怎麼樣？"></a>如果反過來操作會怎麼樣？</h2><p>到這可能會有人疑惑，明明當初 <a href="/git-note/gn-branch/#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF">merge 指令</a> 是說要切到 <strong>master</strong> 之後下指令去合併 <strong>dev</strong> 分支<br>怎麼這邊 <strong>rebase</strong> 指令 變成用 <strong>dev</strong> 去 rebase master？</p>
+<h2 id="如果反過來操作會怎麼樣"><a class="markdownIt-Anchor" href="#如果反過來操作會怎麼樣">#</a> 如果反過來操作會怎麼樣？</h2>
+<p>到這可能會有人疑惑，明明當初 <a href="/git-note/gn-branch/#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF">merge 指令</a> 是說要切到 <strong>master</strong> 之後下指令去合併 <strong>dev</strong> 分支<br>
+怎麼這邊 <strong>rebase</strong> 指令 變成用 <strong>dev</strong> 去 rebase master？</p>
 <p>先回答標題的問題，如果在 <strong>master</strong> 分支 <strong>rebase</strong> <strong>dev</strong> 的話，「最終」得到的 <strong>commit</strong> 都會是一樣的，差別在於線圖會變成這樣的形式：</p>
-<pre><code class="sh">$ git rebase dev   
-Successfully rebased and updated refs/heads/master.
-</code></pre>
-<p><img data-src="https://i.imgur.com/QDdcxy2.jpg"><br>這邊可以注意到，原本 <strong>master</strong> 的基底是 <strong>123456</strong> 這個 <strong>commit</strong>，但因為被 <strong>rebase</strong>(重新定義基底) 了，這導致 <strong>master</strong> 所在的 <strong>commit</strong> 以及 <strong>master</strong> 與 <strong>123456</strong> 之間的所有 <strong>commit</strong> ，都被重新定義到 <strong>dev</strong> 身上了</p>
-<h2 id="所以到底是要誰-rebase-誰？"><a href="#所以到底是要誰-rebase-誰？" class="headerlink" title="所以到底是要誰 rebase 誰？"></a>所以到底是要誰 rebase 誰？</h2><p>這個問題的答案取決於使用者們希望最後的線圖長成怎樣，以及每個 <strong>commit</strong> 要被放置的順序<br>就上面的例子來說，我希望每一個 <strong>commit</strong> 按照時間來排序的話，那我就會用第一個方式，把 <strong>dev</strong> 分支 <strong>rebase</strong> <strong>master</strong> 分支<br>但如果我不管 <strong>commit</strong> 順序，只希望 master 最後就是要跑在最前面，那操作方式就會反過來</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> rebase dev   </pre></td></tr><tr><td data-num="2"></td><td><pre>Successfully rebased and updated refs/heads/master.</pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/QDdcxy2.jpg" alt=""><br>
+這邊可以注意到，原本 <strong>master</strong> 的基底是 <strong>123456</strong> 這個 <strong>commit</strong>，但因為被 <strong>rebase</strong> (重新定義基底) 了，這導致 <strong>master</strong> 所在的 <strong>commit</strong> 以及 <strong>master</strong> 與 <strong>123456</strong> 之間的所有 <strong>commit</strong> ，都被重新定義到 <strong>dev</strong> 身上了</p>
+<h2 id="所以到底是要誰-rebase-誰"><a class="markdownIt-Anchor" href="#所以到底是要誰-rebase-誰">#</a> 所以到底是要誰 rebase 誰？</h2>
+<p>這個問題的答案取決於使用者們希望最後的線圖長成怎樣，以及每個 <strong>commit</strong> 要被放置的順序<br>
+就上面的例子來說，我希望每一個 <strong>commit</strong> 按照時間來排序的話，那我就會用第一個方式，把 <strong>dev</strong> 分支 <strong>rebase</strong> <strong>master</strong> 分支<br>
+但如果我不管 <strong>commit</strong> 順序，只希望 master 最後就是要跑在最前面，那操作方式就會反過來</p>
 <p>但如果我全都要的話呢？</p>
 <p>那這種合併反而適合使用 <a href="/git-note/gn-branch/#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF">merge 指令</a> 來操作了！</p>
 
@@ -237,7 +244,7 @@ Successfully rebased and updated refs/heads/master.
     <div class="item left">
       
 
-  <a href="/git-note/gn-reset/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】用 Reset 還原資料">
+  <a href="/git-note/gn-reset/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;IXkGvGY.jpg" title="【Git筆記】用 Reset 還原資料">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】用 Reset 還原資料</h3>
@@ -247,7 +254,7 @@ Successfully rebased and updated refs/heads/master.
     <div class="item right">
       
 
-  <a href="/git-note/gn-rebase-modify-commit/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="【Git筆記】用 rebase 來修改歷史 commit">
+  <a href="/git-note/gn-rebase-modify-commit/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;QdkMVTt.jpg" title="【Git筆記】用 rebase 來修改歷史 commit">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】用 rebase 來修改歷史 commit</h3>
@@ -268,7 +275,7 @@ Successfully rebased and updated refs/heads/master.
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-rebase-%E4%BE%86%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF"><span class="toc-number">1.</span> <span class="toc-text">用 rebase 來合併分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-rebase%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什麼是 rebase？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%8F%8D%E9%81%8E%E4%BE%86%E6%93%8D%E4%BD%9C%E6%9C%83%E6%80%8E%E9%BA%BC%E6%A8%A3%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">如果反過來操作會怎麼樣？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E4%BB%A5%E5%88%B0%E5%BA%95%E6%98%AF%E8%A6%81%E8%AA%B0-rebase-%E8%AA%B0%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">所以到底是要誰 rebase 誰？</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-rebase-%E4%BE%86%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF"><span class="toc-number">1.</span> <span class="toc-text"> 用 rebase 來合併分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-rebase"><span class="toc-number">2.</span> <span class="toc-text"> 什麼是 rebase？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%8F%8D%E9%81%8E%E4%BE%86%E6%93%8D%E4%BD%9C%E6%9C%83%E6%80%8E%E9%BA%BC%E6%A8%A3"><span class="toc-number">3.</span> <span class="toc-text"> 如果反過來操作會怎麼樣？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%80%E4%BB%A5%E5%88%B0%E5%BA%95%E6%98%AF%E8%A6%81%E8%AA%B0-rebase-%E8%AA%B0"><span class="toc-number">4.</span> <span class="toc-text"> 所以到底是要誰 rebase 誰？</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -365,7 +372,7 @@ Successfully rebased and updated refs/heads/master.
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
   </li>
 
       
@@ -375,7 +382,7 @@ Successfully rebased and updated refs/heads/master.
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
   </li>
 
       
@@ -392,20 +399,10 @@ Successfully rebased and updated refs/heads/master.
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
   </li>
 
       
@@ -425,16 +422,7 @@ Successfully rebased and updated refs/heads/master.
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
   </li>
 
       
@@ -451,10 +439,29 @@ Successfully rebased and updated refs/heads/master.
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
   </ul>
@@ -475,13 +482,13 @@ Successfully rebased and updated refs/heads/master.
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">62k 字</span>
+    <span title="總字數">60k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">56 分鐘</span>
+    <span title="所需總閱讀時間">55 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

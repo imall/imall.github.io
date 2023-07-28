@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>3.1k</span>
+    <span>4k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -84,7 +84,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">所需閱讀時間</span>
-    <span>3 分鐘</span>
+    <span>4 分鐘</span>
   </span>
 </div>
 
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,98 +165,93 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>:::info no-icon<br>我們在下 Git 指令的時候做的事情幾乎是大同小異，不外乎 <code>git status</code>、<code>git log</code>、<code>git add</code>、<code>git commit -m</code> 等指令不斷的重複操作<br>打一次可能覺得還好，但如果持續操作的過程，不知不覺中是會浪費很多打字的時間的<br>常用的指令設定縮寫，<del>下指令時會有種快感</del>，可以節省很多時間！<br>:::</p>
-<h2 id="設定簡寫的指令"><a href="#設定簡寫的指令" class="headerlink" title="設定簡寫的指令"></a>設定簡寫的指令</h2><p>而那個設定簡寫的指令長這樣：</p>
-<pre><code class="sh">git config --global alias.[想要簡寫的名稱] [原本的指令]
-</code></pre>
-<h2 id="常用的簡寫"><a href="#常用的簡寫" class="headerlink" title="常用的簡寫"></a>常用的簡寫</h2><h3 id="status"><a href="#status" class="headerlink" title="status"></a><code>status</code></h3><p>以我最常執行的 <code>git status</code> 來說，可以這樣設定簡寫</p>
-<pre><code class="sh">git config --global alias.st status
-</code></pre>
-<p>設定完之後，當需要用到 <code>git status</code> 的場景，只要執行這串，就會有<code>git status</code>的功能</p>
-<pre><code class="sh">git st
-</code></pre>
-<h3 id="log"><a href="#log" class="headerlink" title="log"></a><code>log</code></h3><p><a href="/git-note/gn-start/#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">這篇文章</a> 提到查詢 log 的方式，有說到一些參數能處理 log 的顯示，這些參數如果沒有常使用，很難在需要的時候去記憶。<br>如果使用簡寫的話，就連記都不用去記了：</p>
-<h4 id="設為一行、顯示基本圖表"><a href="#設為一行、顯示基本圖表" class="headerlink" title="設為一行、顯示基本圖表"></a>設為一行、顯示基本圖表</h4><pre><code class="sh">git config --global alias.l  &quot;log --oneline --graph&quot;
-</code></pre>
-<p>實務上我很少直接使用 <code>git log</code> 指令，因為<del>螢幕不夠大</del>顯示的資料不夠精簡，導致能一次顯示的內容太少，大多數的情況下都會加上 <code>--oneline --graph</code>參數<br>設定好上面指令後，我只要執行 <code>git l</code> 就可以看到想要的效果</p>
+    <div class="note info no-icon">
+<p>我們在下 Git 指令的時候做的事情幾乎是大同小異，不外乎  <code>git status</code> 、 <code>git log</code> 、 <code>git add</code> 、 <code>git commit -m</code>  等指令不斷的重複操作<br>
+打一次可能覺得還好，但如果持續操作的過程，不知不覺中是會浪費很多打字的時間的<br>
+常用的指令設定縮寫，<s>下指令時會有種快感</s>，可以節省很多時間！</p>
+</div>
+<h2 id="設定簡寫的指令"><a class="markdownIt-Anchor" href="#設定簡寫的指令">#</a> 設定簡寫的指令</h2>
+<p>而那個設定簡寫的指令長這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.<span class="token punctuation">[</span>想要簡寫的名稱<span class="token punctuation">]</span> <span class="token punctuation">[</span>原本的指令<span class="token punctuation">]</span></pre></td></tr></table></figure><h2 id="常用的簡寫"><a class="markdownIt-Anchor" href="#常用的簡寫">#</a> 常用的簡寫</h2>
+<h3 id="status"><a class="markdownIt-Anchor" href="#status">#</a>  <code>status</code></h3>
+<p>以我最常執行的  <code>git status</code>  來說，可以這樣設定簡寫</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.st status</pre></td></tr></table></figure><p>設定完之後，當需要用到  <code>git status</code>  的場景，只要執行這串，就會有 <code>git status</code>  的功能</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> st</pre></td></tr></table></figure><h3 id="log"><a class="markdownIt-Anchor" href="#log">#</a>  <code>log</code></h3>
+<p><a href="/git-note/gn-start/#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">這篇文章</a> 提到查詢 log 的方式，有說到一些參數能處理 log 的顯示，這些參數如果沒有常使用，很難在需要的時候去記憶。<br>
+如果使用簡寫的話，就連記都不用去記了：</p>
+<h4 id="設為一行-顯示基本圖表"><a class="markdownIt-Anchor" href="#設為一行-顯示基本圖表">#</a> 設為一行、顯示基本圖表</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.l  <span class="token string">"log --oneline --graph"</span></pre></td></tr></table></figure><p>實務上我很少直接使用  <code>git log</code>  指令，因為<s>螢幕不夠大</s>顯示的資料不夠精簡，導致能一次顯示的內容太少，大多數的情況下都會加上  <code>--oneline --graph</code>  參數<br>
+設定好上面指令後，我只要執行  <code>git l</code>  就可以看到想要的效果</p>
 <p>甚至可以設定一些 format 的 log 訊息讓資訊更精美：</p>
-<h4 id="顯示-format-資訊"><a href="#顯示-format-資訊" class="headerlink" title="顯示 format 資訊"></a>顯示 format 資訊</h4><pre><code class="sh">git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;
-</code></pre>
-<p><del>不要問我這指令的內容是什麼，我也是抄來的</del></p>
-<p>設定好之後執行 <code>git lg</code> 就會跑出這樣的格式內容<br><img data-src="https://i.imgur.com/FxD2AHZ.jpg"></p>
+<h4 id="顯示-format-資訊"><a class="markdownIt-Anchor" href="#顯示-format-資訊">#</a> 顯示 format 資訊</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.lg <span class="token string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset' --abbrev-commit"</span></pre></td></tr></table></figure><p><s>不要問我這指令的內容是什麼，我也是抄來的</s></p>
+<p>設定好之後執行  <code>git lg</code>  就會跑出這樣的格式內容<br>
+<img data-src="https://i.imgur.com/FxD2AHZ.jpg" alt=""></p>
 <blockquote>
-<p><a href="/git-note/gn-start/#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">文章</a>中也有提到，當有其他 Git GUI 可以查看線圖的時候，<code>git log</code> 系列指令真的變得很少用到了</p>
+<p><a href="/git-note/gn-start/#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">文章</a>中也有提到，當有其他 Git GUI 可以查看線圖的時候， <code>git log</code>  系列指令真的變得很少用到了</p>
 </blockquote>
-<h3 id="add"><a href="#add" class="headerlink" title="add"></a><code>add</code></h3><p>啥？ <code>git add</code> 也要簡寫？對，我就懶！</p>
-<h4 id="將更動的所有內容都加到暫存區"><a href="#將更動的所有內容都加到暫存區" class="headerlink" title="將更動的所有內容都加到暫存區"></a>將更動的所有內容都加到暫存區</h4><p>我設定了這個指令取代 <code>add .</code> 或 <code>add --all</code>，我就不用多去打 <code>.</code> 或是 <code>--all</code> 了</p>
-<pre><code class="sh">git config --global alias.all  &quot;add --all&quot;
-</code></pre>
-<h4 id="將檔案內容移出暫存區"><a href="#將檔案內容移出暫存區" class="headerlink" title="將檔案內容移出暫存區"></a>將檔案內容移出暫存區</h4><p>在不知道 <code>git reset</code> 也有移除暫存區功能前，我始終記不起來 <code>restore --staged</code> ，所以設定了這個：</p>
-<pre><code class="sh">git config --global alias.rmadd &quot;restore --staged&quot;
-</code></pre>
-<p>以<code>rm</code>開頭，代表<code>remove</code>的概念，不過自從知道 <code>reset</code> 也能做到一樣的功能時，這指令就很少用了  ~~字數一樣是要簡寫個毛 XD ~~</p>
-<h3 id="commit"><a href="#commit" class="headerlink" title="commit"></a><code>commit</code></h3><p>commit 系列就精彩了，除了基本的 commit 之外，一堆修改內容的指令都屬於 commit 這類<br>紀錄一下我設定了哪些東西：</p>
-<h4 id="commit-本身的簡寫"><a href="#commit-本身的簡寫" class="headerlink" title="commit 本身的簡寫"></a><code>commit</code> 本身的簡寫</h4><p>前面說道，很多動作都是需要 commit 開頭，於是先把 commit 設定一個縮寫</p>
-<pre><code class="sh">git config --global alias.cm commit
-</code></pre>
-<h4 id="commit-message"><a href="#commit-message" class="headerlink" title="commit message"></a>commit message</h4><p>最基本的提交版本簡寫，應該來一下的</p>
-<pre><code class="sh">git config --global alias.cmm &quot;commit -m&quot;
-</code></pre>
-<p>命名概念很單純，就是 <code>commit</code> + <code>-m</code>  &#x3D; <code>cmm</code> 而已</p>
-<h4 id="git-add-git-commit"><a href="#git-add-git-commit" class="headerlink" title="git add + git commit"></a><code>git add</code> + <code>git commit</code></h4><p>當不想先 <code>git add</code> 再 <code>git commit</code> 的話 <code>git commit -a -m</code> 會是個方便的指令</p>
+<h3 id="add"><a class="markdownIt-Anchor" href="#add">#</a>  <code>add</code></h3>
+<p>啥？  <code>git add</code>  也要簡寫？對，我就懶！</p>
+<h4 id="將更動的所有內容都加到暫存區"><a class="markdownIt-Anchor" href="#將更動的所有內容都加到暫存區">#</a> 將更動的所有內容都加到暫存區</h4>
+<p>我設定了這個指令取代  <code>add .</code>  或  <code>add --all</code> ，我就不用多去打  <code>.</code>  或是  <code>--all</code>  了</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.all  <span class="token string">"add --all"</span></pre></td></tr></table></figure><h4 id="將檔案內容移出暫存區"><a class="markdownIt-Anchor" href="#將檔案內容移出暫存區">#</a> 將檔案內容移出暫存區</h4>
+<p>在不知道  <code>git reset</code>  也有移除暫存區功能前，我始終記不起來  <code>restore --staged</code>  ，所以設定了這個：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rmadd <span class="token string">"restore --staged"</span></pre></td></tr></table></figure><p>以 <code>rm</code>  開頭，代表 <code>remove</code>  的概念，不過自從知道  <code>reset</code>  也能做到一樣的功能時，這指令就很少用了  <s>字數一樣是要簡寫個毛</s></p>
+<h3 id="commit"><a class="markdownIt-Anchor" href="#commit">#</a>  <code>commit</code></h3>
+<p>commit 系列就精彩了，除了基本的 commit 之外，一堆修改內容的指令都屬於 commit 這類<br>
+紀錄一下我設定了哪些東西：</p>
+<h4 id="commit-本身的簡寫"><a class="markdownIt-Anchor" href="#commit-本身的簡寫">#</a>  <code>commit</code>  本身的簡寫</h4>
+<p>前面說道，很多動作都是需要 commit 開頭，於是先把 commit 設定一個縮寫</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.cm commit</pre></td></tr></table></figure><h4 id="commit-message"><a class="markdownIt-Anchor" href="#commit-message">#</a> commit message</h4>
+<p>最基本的提交版本簡寫，應該來一下的</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.cmm <span class="token string">"commit -m"</span></pre></td></tr></table></figure><p>命名概念很單純，就是  <code>commit</code>  +  <code>-m</code>   =  <code>cmm</code>  而已</p>
+<h4 id="git-add-git-commit"><a class="markdownIt-Anchor" href="#git-add-git-commit">#</a>  <code>git add</code>  +  <code>git commit</code></h4>
+<p>當不想先  <code>git add</code>  再  <code>git commit</code>  的話  <code>git commit -a -m</code>  會是個方便的指令</p>
 <p>但懶還要更懶！ 來設定這樣的縮寫</p>
-<pre><code class="sh">git config --global alias.cmam &quot;commit -am&quot;
-</code></pre>
-<h4 id="更改上一版-commit-的內容"><a href="#更改上一版-commit-的內容" class="headerlink" title="更改上一版 commit 的內容"></a>更改上一版 commit 的內容</h4><pre><code class="sh">git config --global alias.cmcm &quot;commit --amend --no-edit&quot;
-</code></pre>
-<p>這算是一個蠻常用的指令，在還沒 push 之前，透過這個指令來修改上一個版本內容<br>由於參數有點多，我就兩個 commit ： <code>commit</code> + <code>commit</code> 這個概念，代表要對上一次的內容進行更動</p>
-<h4 id="更改上一版-commit-的訊息"><a href="#更改上一版-commit-的訊息" class="headerlink" title="更改上一版 commit 的訊息"></a>更改上一版 commit 的訊息</h4><pre><code class="sh">git config --global alias.cmrn &quot;commit --amend -m&quot;
-</code></pre>
-<p>當打錯字的時候，用這個指令來改訊息頗為方便<br>我的命名概念是 <code>commit</code> + <code>rename</code> &#x3D; <code>cmrn</code></p>
-<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a><code>branch</code></h3><h4 id="branch-本身的縮寫"><a href="#branch-本身的縮寫" class="headerlink" title="branch 本身的縮寫"></a><code>branch</code> 本身的縮寫</h4><pre><code class="sh">git config --global alias.br branch
-</code></pre>
-<p>branch 本身就有查看分支的用途，對他設定縮寫合情合理</p>
-<h4 id="重新命名目前分支"><a href="#重新命名目前分支" class="headerlink" title="重新命名目前分支"></a>重新命名目前分支</h4><pre><code class="sh">git config --global alias.brm &quot;branch -m&quot;
-</code></pre>
-<p>這個指令也算是很常用的，分支就是個怎麼改名都不會影響專案內容的東西XD</p>
-<h4 id="刪除分支"><a href="#刪除分支" class="headerlink" title="刪除分支"></a>刪除分支</h4><pre><code class="sh">git config --global alias.brd &quot;branch -d&quot;
-</code></pre>
-<h4 id="強制建立分支"><a href="#強制建立分支" class="headerlink" title="強制建立分支"></a>強制建立分支</h4><pre><code class="sh">git config --global alias.brf &quot;branch -f&quot;
-</code></pre>
-<p>這個指令我比較多用在把已存在的分支強制移動到最新的分支之上，也算是個好用的指令</p>
-<h3 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a><code>checkout</code></h3><h4 id="checkout-本身的縮寫"><a href="#checkout-本身的縮寫" class="headerlink" title="checkout 本身的縮寫"></a><code>checkout</code> 本身的縮寫</h4><pre><code class="sh">git config --global alias.co checkout
-</code></pre>
-<h4 id="建立並切換分支"><a href="#建立並切換分支" class="headerlink" title="建立並切換分支"></a>建立並切換分支</h4><pre><code class="sh">git config --global alias.cob &quot;checkout -b&quot;
-</code></pre>
-<p>相信大部分的人新增分支都會的下一步都會直接切換過去，這個指令可以讓速度快還要更快！</p>
-<h3 id="reset"><a href="#reset" class="headerlink" title="reset"></a><code>reset</code></h3><h4 id="reset-本身的縮寫"><a href="#reset-本身的縮寫" class="headerlink" title="reset 本身的縮寫"></a><code>reset</code> 本身的縮寫</h4><pre><code class="sh">git config --global alias.r reset
-</code></pre>
-<p>可能會有人覺得除了 reset 之外 ，還有 rebase 、 revert 都是 r 開頭的指令<br>不過我認為這其中，reset 屬於最常用到的，把 r 作為 reset 的代表是可以的。但這就自由心證囉</p>
-<h4 id="reset-的-hard-模式"><a href="#reset-的-hard-模式" class="headerlink" title="reset 的 hard 模式"></a>reset 的 hard 模式</h4><pre><code class="sh">git config --global alias.rh &quot;reset --hard&quot;
-</code></pre>
-<p>reset 指令很多情況幾乎都是要用 hard 模式，於是我設定了這個縮寫</p>
-<h4 id="還原所有檔案"><a href="#還原所有檔案" class="headerlink" title="還原所有檔案"></a>還原所有檔案</h4><pre><code class="sh">git config --global alias.rall &quot;reset --hard HEAD&quot;
-</code></pre>
-<p>我很常會使用 <code>git rest --hard HEAD</code> 指令還原到上一版的原始狀態，乾脆設一個縮寫。</p>
-<h3 id="把設定好的縮寫刪掉"><a href="#把設定好的縮寫刪掉" class="headerlink" title="把設定好的縮寫刪掉"></a>把設定好的縮寫刪掉</h3><p>當發現有些縮寫設定後卻都用不到，可以下這個指令把縮寫移除</p>
-<pre><code class="sh">git config --global --unset alias.[縮寫名稱]
-</code></pre>
-<p>除此之外，也可以直接去<a href="/git-note/gn-alias/#%E5%88%B0gitconfig%E6%9F%A5%E8%A9%A2">查看<code>.gitconfig</code>檔案</a>把縮寫刪除</p>
-<h3 id="查看設定了哪些指令"><a href="#查看設定了哪些指令" class="headerlink" title="查看設定了哪些指令"></a>查看設定了哪些指令</h3><h4 id="透過指令查詢"><a href="#透過指令查詢" class="headerlink" title="透過指令查詢"></a>透過指令查詢</h4><p>要查看自己設定了哪些縮寫的話，可以這樣下指令查詢：</p>
-<pre><code class="sh">git config --get-regexp alias
-</code></pre>
-<p>這個指令我常常記不起來，乾脆對這個指令也下一個縮寫</p>
-<pre><code class="sh">git config --global alias.getalias &quot;config --get-regexp alias&quot;
-</code></pre>
-<h4 id="到-gitconfig查詢"><a href="#到-gitconfig查詢" class="headerlink" title="到.gitconfig查詢"></a>到<code>.gitconfig</code>查詢</h4><ol>
-<li><p>Windows 系統使用者，要到這個路徑找<code>.gitconfig</code>檔案： <code>C:\Users\[你的名字]</code></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.cmam <span class="token string">"commit -am"</span></pre></td></tr></table></figure><h4 id="更改上一版-commit-的內容"><a class="markdownIt-Anchor" href="#更改上一版-commit-的內容">#</a> 更改上一版 commit 的內容</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.cmcm <span class="token string">"commit --amend --no-edit"</span></pre></td></tr></table></figure><p>這算是一個蠻常用的指令，在還沒 push 之前，透過這個指令來修改上一個版本內容<br>
+由於參數有點多，我就兩個 commit ：  <code>commit</code>  +  <code>commit</code>  這個概念，代表要對上一次的內容進行更動</p>
+<h4 id="更改上一版-commit-的訊息"><a class="markdownIt-Anchor" href="#更改上一版-commit-的訊息">#</a> 更改上一版 commit 的訊息</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.cmrn <span class="token string">"commit --amend -m"</span></pre></td></tr></table></figure><p>當打錯字的時候，用這個指令來改訊息頗為方便<br>
+我的命名概念是  <code>commit</code>  +  <code>rename</code>  =  <code>cmrn</code></p>
+<h3 id="branch"><a class="markdownIt-Anchor" href="#branch">#</a>  <code>branch</code></h3>
+<h4 id="branch-本身的縮寫"><a class="markdownIt-Anchor" href="#branch-本身的縮寫">#</a>  <code>branch</code>  本身的縮寫</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.br branch</pre></td></tr></table></figure><p>branch 本身就有查看分支的用途，對他設定縮寫合情合理</p>
+<h4 id="重新命名目前分支"><a class="markdownIt-Anchor" href="#重新命名目前分支">#</a> 重新命名目前分支</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.brm <span class="token string">"branch -m"</span></pre></td></tr></table></figure><p>這個指令也算是很常用的，分支就是個怎麼改名都不會影響專案內容的東西 XD</p>
+<h4 id="刪除分支"><a class="markdownIt-Anchor" href="#刪除分支">#</a> 刪除分支</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.brd <span class="token string">"branch -d"</span></pre></td></tr></table></figure><h4 id="強制建立分支"><a class="markdownIt-Anchor" href="#強制建立分支">#</a> 強制建立分支</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.brf <span class="token string">"branch -f"</span></pre></td></tr></table></figure><p>這個指令我比較多用在把已存在的分支強制移動到最新的分支之上，也算是個好用的指令</p>
+<h3 id="checkout"><a class="markdownIt-Anchor" href="#checkout">#</a>  <code>checkout</code></h3>
+<h4 id="checkout-本身的縮寫"><a class="markdownIt-Anchor" href="#checkout-本身的縮寫">#</a>  <code>checkout</code>  本身的縮寫</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.co checkout</pre></td></tr></table></figure><h4 id="建立並切換分支"><a class="markdownIt-Anchor" href="#建立並切換分支">#</a> 建立並切換分支</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.cob <span class="token string">"checkout -b"</span></pre></td></tr></table></figure><p>相信大部分的人新增分支都會的下一步都會直接切換過去，這個指令可以讓速度快還要更快！</p>
+<h3 id="reset"><a class="markdownIt-Anchor" href="#reset">#</a>  <code>reset</code></h3>
+<h4 id="reset-本身的縮寫"><a class="markdownIt-Anchor" href="#reset-本身的縮寫">#</a>  <code>reset</code>  本身的縮寫</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.r reset</pre></td></tr></table></figure><p>可能會有人覺得除了 reset 之外 ，還有 rebase 、 revert 都是 r 開頭的指令<br>
+不過我認為這其中，reset 屬於最常用到的，把 r 作為 reset 的代表是可以的。但這就自由心證囉</p>
+<h4 id="reset-的-hard-模式"><a class="markdownIt-Anchor" href="#reset-的-hard-模式">#</a> reset 的 hard 模式</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rh <span class="token string">"reset --hard"</span></pre></td></tr></table></figure><p>reset 指令很多情況幾乎都是要用 hard 模式，於是我設定了這個縮寫</p>
+<h4 id="還原所有檔案"><a class="markdownIt-Anchor" href="#還原所有檔案">#</a> 還原所有檔案</h4>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rall <span class="token string">"reset --hard HEAD"</span></pre></td></tr></table></figure><p>我很常會使用  <code>git rest --hard HEAD</code>  指令還原到上一版的原始狀態，乾脆設一個縮寫。</p>
+<h2 id="把設定好的縮寫刪掉"><a class="markdownIt-Anchor" href="#把設定好的縮寫刪掉">#</a> 把設定好的縮寫刪掉</h2>
+<p>當發現有些縮寫設定後卻都用不到，可以下這個指令把縮寫移除</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> <span class="token parameter variable">--unset</span> alias.<span class="token punctuation">[</span>縮寫名稱<span class="token punctuation">]</span></pre></td></tr></table></figure><p>除此之外，也可以直接去<a href="/git-note/gn-alias/#%E5%88%B0gitconfig%E6%9F%A5%E8%A9%A2">查看 <code>.gitconfig</code>  檔案</a>把縮寫刪除</p>
+<h2 id="查看設定了哪些指令"><a class="markdownIt-Anchor" href="#查看設定了哪些指令">#</a> 查看設定了哪些指令</h2>
+<h3 id="透過指令查詢"><a class="markdownIt-Anchor" href="#透過指令查詢">#</a> 透過指令查詢</h3>
+<p>要查看自己設定了哪些縮寫的話，可以這樣下指令查詢：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config --get-regexp <span class="token builtin class-name">alias</span></pre></td></tr></table></figure><p>這個指令我常常記不起來，乾脆對這個指令也下一個縮寫</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.getalias <span class="token string">"config --get-regexp alias"</span></pre></td></tr></table></figure><h3 id="到gitconfig查詢"><a class="markdownIt-Anchor" href="#到gitconfig查詢">#</a> 到 <code>.gitconfig</code>  查詢</h3>
+<ol>
+<li>
+<p>Windows 系統使用者，要到這個路徑找 <code>.gitconfig</code>  檔案：  <code>C:\Users\[你的名字]</code></p>
 </li>
-<li><p>Mac 使用者則是到終端機執行 <code>open ~/.gitconfig</code> 指令開啟</p>
+<li>
+<p>Mac 使用者則是到終端機執行  <code>open ~/.gitconfig</code>  指令開啟</p>
 </li>
 </ol>
 <p>找到 <strong>[alias]</strong> 區塊，就可以看到設定的所有資訊：</p>
-<p><img data-src="https://i.imgur.com/ju4FGsP.jpg"></p>
-<p>實際上只要按照這個格式去設定、刪除，就可以做到上面指令的效果，當知道這件事情後，也不太需要去下指令設定縮寫了。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"><span>.gitconfig</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>alias<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token comment"># status	</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	st <span class="token operator">=</span> status</pre></td></tr><tr><td data-num="4"></td><td><pre>	</pre></td></tr><tr><td data-num="5"></td><td><pre>	<span class="token comment">#log</span></pre></td></tr><tr><td data-num="6"></td><td><pre>	l <span class="token operator">=</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token comment"># 顯示 log</span></pre></td></tr><tr><td data-num="7"></td><td><pre>	<span class="token function">ls</span> <span class="token operator">=</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token punctuation">\</span>"%h <span class="token operator">&lt;</span>%an<span class="token operator">></span> %ar %s<span class="token punctuation">\</span>" <span class="token comment"># 格式化 log</span></pre></td></tr><tr><td data-num="8"></td><td><pre>	lg <span class="token operator">=</span> log <span class="token parameter variable">--color</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token string">'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset'</span> --abbrev-commit</pre></td></tr><tr><td data-num="9"></td><td><pre>	rl <span class="token operator">=</span> reflog <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token punctuation">\</span>"%Cred%h%Creset %C<span class="token punctuation">(</span>auto<span class="token punctuation">)</span>%gd%Creset %C<span class="token punctuation">(</span>auto<span class="token punctuation">)</span>%gs%C<span class="token punctuation">(</span>reset<span class="token punctuation">)</span> %C<span class="token punctuation">(</span>green<span class="token punctuation">)</span><span class="token punctuation">(</span>%cr<span class="token punctuation">)</span>%C<span class="token punctuation">(</span>reset<span class="token punctuation">)</span> %C<span class="token punctuation">(</span>bold blue<span class="token punctuation">)</span><span class="token operator">&lt;</span>%an<span class="token operator">></span>%Creset<span class="token punctuation">\</span>"</pre></td></tr><tr><td data-num="10"></td><td><pre>	</pre></td></tr><tr><td data-num="11"></td><td><pre>	<span class="token comment"># add</span></pre></td></tr><tr><td data-num="12"></td><td><pre>	all <span class="token operator">=</span> <span class="token function">add</span> <span class="token parameter variable">--all</span></pre></td></tr><tr><td data-num="13"></td><td><pre>	rmadd <span class="token operator">=</span> restore <span class="token parameter variable">--staged</span> <span class="token comment"># 取消 add</span></pre></td></tr><tr><td data-num="14"></td><td><pre>	</pre></td></tr><tr><td data-num="15"></td><td><pre>	<span class="token comment"># commit</span></pre></td></tr><tr><td data-num="16"></td><td><pre>	cm <span class="token operator">=</span> commit <span class="token comment"># commit</span></pre></td></tr><tr><td data-num="17"></td><td><pre>	cmm <span class="token operator">=</span> commit <span class="token parameter variable">-m</span> <span class="token comment"># commit message</span></pre></td></tr><tr><td data-num="18"></td><td><pre>	cmam <span class="token operator">=</span> commit <span class="token parameter variable">-am</span> <span class="token comment"># 一次整合 add 跟 commit</span></pre></td></tr><tr><td data-num="19"></td><td><pre>	cmcm <span class="token operator">=</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr><tr><td data-num="20"></td><td><pre>	cmrn <span class="token operator">=</span> commit <span class="token parameter variable">--amend</span> <span class="token parameter variable">-m</span> <span class="token comment"># 重新更改最近一次的 commit 訊息</span></pre></td></tr><tr><td data-num="21"></td><td><pre>	cmempty <span class="token operator">=</span> commit --allow-empty <span class="token parameter variable">-m</span> --no-edit <span class="token comment"># 建立一個空的 commit</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>	<span class="token comment"># branch</span></pre></td></tr><tr><td data-num="24"></td><td><pre>	br <span class="token operator">=</span> branch <span class="token comment"># 顯示所有 branch</span></pre></td></tr><tr><td data-num="25"></td><td><pre>	brv <span class="token operator">=</span> branch <span class="token parameter variable">-v</span> <span class="token comment"># 顯示所有 branch 的最後一次 commit</span></pre></td></tr><tr><td data-num="26"></td><td><pre>	brm <span class="token operator">=</span> branch <span class="token parameter variable">-m</span> <span class="token comment"># 重新命名 branch</span></pre></td></tr><tr><td data-num="27"></td><td><pre>	brd <span class="token operator">=</span> branch <span class="token parameter variable">-d</span> <span class="token comment"># 刪除 branch</span></pre></td></tr><tr><td data-num="28"></td><td><pre>	brf <span class="token operator">=</span> branch <span class="token parameter variable">-f</span> <span class="token comment"># 強制建立、更名分支 ## 如果用在已存在的分支上，會變成強制移動分支</span></pre></td></tr><tr><td data-num="29"></td><td><pre>	</pre></td></tr><tr><td data-num="30"></td><td><pre>	<span class="token comment"># checkout</span></pre></td></tr><tr><td data-num="31"></td><td><pre>	co <span class="token operator">=</span> checkout <span class="token comment"># 切換分支</span></pre></td></tr><tr><td data-num="32"></td><td><pre>	cob <span class="token operator">=</span> checkout <span class="token parameter variable">-b</span> <span class="token comment"># 建立並切換分支</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>	<span class="token comment"># reset</span></pre></td></tr><tr><td data-num="35"></td><td><pre>	r <span class="token operator">=</span> reset <span class="token comment"># 取消 add</span></pre></td></tr><tr><td data-num="36"></td><td><pre>	rh <span class="token operator">=</span> reset <span class="token parameter variable">--hard</span> <span class="token comment"># reset hard 模式</span></pre></td></tr><tr><td data-num="37"></td><td><pre>	rall <span class="token operator">=</span> reset <span class="token parameter variable">--hard</span> HEAD</pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre>	<span class="token comment"># remove</span></pre></td></tr><tr><td data-num="40"></td><td><pre>	rmcach <span class="token operator">=</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> <span class="token comment"># 清除在 reop 的檔案</span></pre></td></tr><tr><td data-num="41"></td><td><pre>	rmallcach <span class="token operator">=</span> <span class="token function">rm</span> <span class="token parameter variable">-r</span> <span class="token parameter variable">--cached</span> <span class="token builtin class-name">.</span> <span class="token comment"># 清除所有在 reop 的檔案</span></pre></td></tr><tr><td data-num="42"></td><td><pre>	clf <span class="token operator">=</span> clean <span class="token parameter variable">-fX</span> <span class="token comment"># 強制清除被忽略的檔案</span></pre></td></tr><tr><td data-num="43"></td><td><pre></pre></td></tr><tr><td data-num="44"></td><td><pre>	<span class="token comment">#rebase</span></pre></td></tr><tr><td data-num="45"></td><td><pre>	rb <span class="token operator">=</span> rebase <span class="token comment"># rebase</span></pre></td></tr><tr><td data-num="46"></td><td><pre>	rbi <span class="token operator">=</span> rebase <span class="token parameter variable">-i</span> <span class="token comment"># 互動式 rebase</span></pre></td></tr><tr><td data-num="47"></td><td><pre>	rbc <span class="token operator">=</span> rebase <span class="token parameter variable">--continue</span> <span class="token comment"># 繼續 rebase</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>	getalias <span class="token operator">=</span> config --get-regexp <span class="token builtin class-name">alias</span></pre></td></tr></table></figure><p>實際上只要按照這個格式去設定、刪除，就可以做到上面指令的效果，當知道這件事情後，也不太需要去下指令設定縮寫了。</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -271,7 +266,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-28 14:01:06" itemprop="dateModified" datetime="2023-07-28T14:01:06+08:00">2023-07-28</time>
+    <time title="修改時間：2023-07-28 14:11:26" itemprop="dateModified" datetime="2023-07-28T14:11:26+08:00">2023-07-28</time>
   </span>
   <span id="git-note/gn-alias/" class="item leancloud_visitors" data-flag-title="【Git筆記】設定指令簡寫" title="閱讀次數">
       <span class="icon">
@@ -311,7 +306,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/vue-note/vite-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mubtL63.png" title="初始化 Vue3 專案的幾種指令">
+  <a href="/vue-note/vite-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;rt4bUdl.jpg" title="初始化 Vue3 專案的幾種指令">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Vue 筆記</span>
   <h3>初始化 Vue3 專案的幾種指令</h3>
@@ -334,7 +329,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E7%B0%A1%E5%AF%AB%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">設定簡寫的指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B0%A1%E5%AF%AB"><span class="toc-number">2.</span> <span class="toc-text">常用的簡寫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#status"><span class="toc-number">2.1.</span> <span class="toc-text">status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log"><span class="toc-number">2.2.</span> <span class="toc-text">log</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A8%AD%E7%82%BA%E4%B8%80%E8%A1%8C%E3%80%81%E9%A1%AF%E7%A4%BA%E5%9F%BA%E6%9C%AC%E5%9C%96%E8%A1%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">設為一行、顯示基本圖表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%AF%E7%A4%BA-format-%E8%B3%87%E8%A8%8A"><span class="toc-number">2.2.2.</span> <span class="toc-text">顯示 format 資訊</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add"><span class="toc-number">2.3.</span> <span class="toc-text">add</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%87%E6%9B%B4%E5%8B%95%E7%9A%84%E6%89%80%E6%9C%89%E5%85%A7%E5%AE%B9%E9%83%BD%E5%8A%A0%E5%88%B0%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.3.1.</span> <span class="toc-text">將更動的所有內容都加到暫存區</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E5%85%A7%E5%AE%B9%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.3.2.</span> <span class="toc-text">將檔案內容移出暫存區</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commit"><span class="toc-number">2.4.</span> <span class="toc-text">commit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#commit-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B0%A1%E5%AF%AB"><span class="toc-number">2.4.1.</span> <span class="toc-text">commit 本身的簡寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#commit-message"><span class="toc-number">2.4.2.</span> <span class="toc-text">commit message</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-add-git-commit"><span class="toc-number">2.4.3.</span> <span class="toc-text">git add + git commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%8A%E4%B8%80%E7%89%88-commit-%E7%9A%84%E5%85%A7%E5%AE%B9"><span class="toc-number">2.4.4.</span> <span class="toc-text">更改上一版 commit 的內容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%8A%E4%B8%80%E7%89%88-commit-%E7%9A%84%E8%A8%8A%E6%81%AF"><span class="toc-number">2.4.5.</span> <span class="toc-text">更改上一版 commit 的訊息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch"><span class="toc-number">2.5.</span> <span class="toc-text">branch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#branch-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.5.1.</span> <span class="toc-text">branch 本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D%E7%9B%AE%E5%89%8D%E5%88%86%E6%94%AF"><span class="toc-number">2.5.2.</span> <span class="toc-text">重新命名目前分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.5.3.</span> <span class="toc-text">刪除分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B7%E5%88%B6%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">2.5.4.</span> <span class="toc-text">強制建立分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkout"><span class="toc-number">2.6.</span> <span class="toc-text">checkout</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#checkout-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.6.1.</span> <span class="toc-text">checkout 本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%A6%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF"><span class="toc-number">2.6.2.</span> <span class="toc-text">建立並切換分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reset"><span class="toc-number">2.7.</span> <span class="toc-text">reset</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reset-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.7.1.</span> <span class="toc-text">reset 本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reset-%E7%9A%84-hard-%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.7.2.</span> <span class="toc-text">reset 的 hard 模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%84%E5%8E%9F%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88"><span class="toc-number">2.7.3.</span> <span class="toc-text">還原所有檔案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E8%A8%AD%E5%AE%9A%E5%A5%BD%E7%9A%84%E7%B8%AE%E5%AF%AB%E5%88%AA%E6%8E%89"><span class="toc-number">2.8.</span> <span class="toc-text">把設定好的縮寫刪掉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A8%AD%E5%AE%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E6%8C%87%E4%BB%A4"><span class="toc-number">2.9.</span> <span class="toc-text">查看設定了哪些指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%8F%E9%81%8E%E6%8C%87%E4%BB%A4%E6%9F%A5%E8%A9%A2"><span class="toc-number">2.9.1.</span> <span class="toc-text">透過指令查詢</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B0-gitconfig%E6%9F%A5%E8%A9%A2"><span class="toc-number">2.9.2.</span> <span class="toc-text">到.gitconfig查詢</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E7%B0%A1%E5%AF%AB%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text"> 設定簡寫的指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B0%A1%E5%AF%AB"><span class="toc-number">2.</span> <span class="toc-text"> 常用的簡寫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#status"><span class="toc-number">2.1.</span> <span class="toc-text">  status</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#log"><span class="toc-number">2.2.</span> <span class="toc-text">  log</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A8%AD%E7%82%BA%E4%B8%80%E8%A1%8C-%E9%A1%AF%E7%A4%BA%E5%9F%BA%E6%9C%AC%E5%9C%96%E8%A1%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 設為一行、顯示基本圖表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%AF%E7%A4%BA-format-%E8%B3%87%E8%A8%8A"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 顯示 format 資訊</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add"><span class="toc-number">2.3.</span> <span class="toc-text">  add</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%87%E6%9B%B4%E5%8B%95%E7%9A%84%E6%89%80%E6%9C%89%E5%85%A7%E5%AE%B9%E9%83%BD%E5%8A%A0%E5%88%B0%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 將更動的所有內容都加到暫存區</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%87%E6%AA%94%E6%A1%88%E5%85%A7%E5%AE%B9%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.3.2.</span> <span class="toc-text"> 將檔案內容移出暫存區</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commit"><span class="toc-number">2.4.</span> <span class="toc-text">  commit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#commit-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B0%A1%E5%AF%AB"><span class="toc-number">2.4.1.</span> <span class="toc-text">  commit  本身的簡寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#commit-message"><span class="toc-number">2.4.2.</span> <span class="toc-text"> commit message</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-add-git-commit"><span class="toc-number">2.4.3.</span> <span class="toc-text">  git add  +  git commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%8A%E4%B8%80%E7%89%88-commit-%E7%9A%84%E5%85%A7%E5%AE%B9"><span class="toc-number">2.4.4.</span> <span class="toc-text"> 更改上一版 commit 的內容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%8A%E4%B8%80%E7%89%88-commit-%E7%9A%84%E8%A8%8A%E6%81%AF"><span class="toc-number">2.4.5.</span> <span class="toc-text"> 更改上一版 commit 的訊息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch"><span class="toc-number">2.5.</span> <span class="toc-text">  branch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#branch-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.5.1.</span> <span class="toc-text">  branch  本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%91%BD%E5%90%8D%E7%9B%AE%E5%89%8D%E5%88%86%E6%94%AF"><span class="toc-number">2.5.2.</span> <span class="toc-text"> 重新命名目前分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.5.3.</span> <span class="toc-text"> 刪除分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%B7%E5%88%B6%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">2.5.4.</span> <span class="toc-text"> 強制建立分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checkout"><span class="toc-number">2.6.</span> <span class="toc-text">  checkout</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#checkout-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.6.1.</span> <span class="toc-text">  checkout  本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E4%B8%A6%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF"><span class="toc-number">2.6.2.</span> <span class="toc-text"> 建立並切換分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reset"><span class="toc-number">2.7.</span> <span class="toc-text">  reset</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reset-%E6%9C%AC%E8%BA%AB%E7%9A%84%E7%B8%AE%E5%AF%AB"><span class="toc-number">2.7.1.</span> <span class="toc-text">  reset  本身的縮寫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reset-%E7%9A%84-hard-%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.7.2.</span> <span class="toc-text"> reset 的 hard 模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%84%E5%8E%9F%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88"><span class="toc-number">2.7.3.</span> <span class="toc-text"> 還原所有檔案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E8%A8%AD%E5%AE%9A%E5%A5%BD%E7%9A%84%E7%B8%AE%E5%AF%AB%E5%88%AA%E6%8E%89"><span class="toc-number">3.</span> <span class="toc-text"> 把設定好的縮寫刪掉</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A8%AD%E5%AE%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E6%8C%87%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text"> 查看設定了哪些指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E9%81%8E%E6%8C%87%E4%BB%A4%E6%9F%A5%E8%A9%A2"><span class="toc-number">4.1.</span> <span class="toc-text"> 透過指令查詢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B0gitconfig%E6%9F%A5%E8%A9%A2"><span class="toc-number">4.2.</span> <span class="toc-text"> 到 .gitconfig  查詢</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -426,79 +421,10 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
     <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
       
@@ -515,10 +441,80 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-commit-amend/" title="【Git筆記】修改 commit 紀錄">【Git筆記】修改 commit 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
   </li>
 
   </ul>
@@ -539,13 +535,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">62k 字</span>
+    <span title="總字數">60k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">56 分鐘</span>
+    <span title="所需總閱讀時間">55 分鐘</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

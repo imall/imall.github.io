@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
         </ul>
       </div>
     </header>
@@ -186,7 +186,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <h4 id="顯示-format-資訊"><a class="markdownIt-Anchor" href="#顯示-format-資訊">#</a> 顯示 format 資訊</h4>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.lg <span class="token string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset' --abbrev-commit"</span></pre></td></tr></table></figure><p><s>不要問我這指令的內容是什麼，我也是抄來的</s></p>
 <p>設定好之後執行  <code>git lg</code>  就會跑出這樣的格式內容<br>
-<img data-src="https://i.imgur.com/FxD2AHZ.jpg" alt=""></p>
+<img data-src="https://i.imgur.com/kkgZJVs.jpg" alt=""></p>
 <blockquote>
 <p><a href="/git-note/gn-start/#%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">文章</a>中也有提到，當有其他 Git GUI 可以查看線圖的時候， <code>git log</code>  系列指令真的變得很少用到了</p>
 </blockquote>
@@ -218,7 +218,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <h4 id="branch-本身的縮寫"><a class="markdownIt-Anchor" href="#branch-本身的縮寫">#</a>  <code>branch</code>  本身的縮寫</h4>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.br branch</pre></td></tr></table></figure><p>branch 本身就有查看分支的用途，對他設定縮寫合情合理</p>
 <h4 id="重新命名目前分支"><a class="markdownIt-Anchor" href="#重新命名目前分支">#</a> 重新命名目前分支</h4>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.brm <span class="token string">"branch -m"</span></pre></td></tr></table></figure><p>這個指令也算是很常用的，分支就是個怎麼改名都不會影響專案內容的東西 XD</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.brm <span class="token string">"branch -m"</span></pre></td></tr></table></figure><p>這個指令也算是很常用的，畢竟分支就是個怎麼改名都不會影響專案內容的東西 XD</p>
 <h4 id="刪除分支"><a class="markdownIt-Anchor" href="#刪除分支">#</a> 刪除分支</h4>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.brd <span class="token string">"branch -d"</span></pre></td></tr></table></figure><h4 id="強制建立分支"><a class="markdownIt-Anchor" href="#強制建立分支">#</a> 強制建立分支</h4>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.brf <span class="token string">"branch -f"</span></pre></td></tr></table></figure><p>這個指令我比較多用在把已存在的分支強制移動到最新的分支之上，也算是個好用的指令</p>
@@ -228,12 +228,11 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.cob <span class="token string">"checkout -b"</span></pre></td></tr></table></figure><p>相信大部分的人新增分支都會的下一步都會直接切換過去，這個指令可以讓速度快還要更快！</p>
 <h3 id="reset"><a class="markdownIt-Anchor" href="#reset">#</a>  <code>reset</code></h3>
 <h4 id="reset-本身的縮寫"><a class="markdownIt-Anchor" href="#reset-本身的縮寫">#</a>  <code>reset</code>  本身的縮寫</h4>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.r reset</pre></td></tr></table></figure><p>可能會有人覺得除了 reset 之外 ，還有 rebase 、 revert 都是 r 開頭的指令<br>
-不過我認為這其中，reset 屬於最常用到的，把 r 作為 reset 的代表是可以的。但這就自由心證囉</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rs reset</pre></td></tr></table></figure><p>很單純的取一個  <code>re</code>  跟  <code>set</code>  的首字當作縮寫</p>
 <h4 id="reset-的-hard-模式"><a class="markdownIt-Anchor" href="#reset-的-hard-模式">#</a> reset 的 hard 模式</h4>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rh <span class="token string">"reset --hard"</span></pre></td></tr></table></figure><p>reset 指令很多情況幾乎都是要用 hard 模式，於是我設定了這個縮寫</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rsh <span class="token string">"reset --hard"</span></pre></td></tr></table></figure><p>reset 指令很多情況幾乎都是要用 hard 模式，於是我設定了這個縮寫</p>
 <h4 id="還原所有檔案"><a class="markdownIt-Anchor" href="#還原所有檔案">#</a> 還原所有檔案</h4>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rall <span class="token string">"reset --hard HEAD"</span></pre></td></tr></table></figure><p>我很常會使用  <code>git rest --hard HEAD</code>  指令還原到上一版的原始狀態，乾脆設一個縮寫。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.rsnow <span class="token string">"reset --hard HEAD"</span></pre></td></tr></table></figure><p>我很常會使用  <code>git rest --hard HEAD</code>  指令還原到上一版的原始狀態，乾脆設一個縮寫。</p>
 <h2 id="把設定好的縮寫刪掉"><a class="markdownIt-Anchor" href="#把設定好的縮寫刪掉">#</a> 把設定好的縮寫刪掉</h2>
 <p>當發現有些縮寫設定後卻都用不到，可以下這個指令把縮寫移除</p>
 <figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> <span class="token parameter variable">--unset</span> alias.<span class="token punctuation">[</span>縮寫名稱<span class="token punctuation">]</span></pre></td></tr></table></figure><p>除此之外，也可以直接去<a href="/git-note/gn-alias/#%E5%88%B0gitconfig%E6%9F%A5%E8%A9%A2">查看 <code>.gitconfig</code>  檔案</a>把縮寫刪除</p>
@@ -251,7 +250,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </li>
 </ol>
 <p>找到 <strong>[alias]</strong> 區塊，就可以看到設定的所有資訊：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"><span>.gitconfig</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>alias<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token comment"># status	</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	st <span class="token operator">=</span> status</pre></td></tr><tr><td data-num="4"></td><td><pre>	</pre></td></tr><tr><td data-num="5"></td><td><pre>	<span class="token comment">#log</span></pre></td></tr><tr><td data-num="6"></td><td><pre>	l <span class="token operator">=</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token comment"># 顯示 log</span></pre></td></tr><tr><td data-num="7"></td><td><pre>	<span class="token function">ls</span> <span class="token operator">=</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token punctuation">\</span>"%h <span class="token operator">&lt;</span>%an<span class="token operator">></span> %ar %s<span class="token punctuation">\</span>" <span class="token comment"># 格式化 log</span></pre></td></tr><tr><td data-num="8"></td><td><pre>	lg <span class="token operator">=</span> log <span class="token parameter variable">--color</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token string">'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset'</span> --abbrev-commit</pre></td></tr><tr><td data-num="9"></td><td><pre>	rl <span class="token operator">=</span> reflog <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token punctuation">\</span>"%Cred%h%Creset %C<span class="token punctuation">(</span>auto<span class="token punctuation">)</span>%gd%Creset %C<span class="token punctuation">(</span>auto<span class="token punctuation">)</span>%gs%C<span class="token punctuation">(</span>reset<span class="token punctuation">)</span> %C<span class="token punctuation">(</span>green<span class="token punctuation">)</span><span class="token punctuation">(</span>%cr<span class="token punctuation">)</span>%C<span class="token punctuation">(</span>reset<span class="token punctuation">)</span> %C<span class="token punctuation">(</span>bold blue<span class="token punctuation">)</span><span class="token operator">&lt;</span>%an<span class="token operator">></span>%Creset<span class="token punctuation">\</span>"</pre></td></tr><tr><td data-num="10"></td><td><pre>	</pre></td></tr><tr><td data-num="11"></td><td><pre>	<span class="token comment"># add</span></pre></td></tr><tr><td data-num="12"></td><td><pre>	all <span class="token operator">=</span> <span class="token function">add</span> <span class="token parameter variable">--all</span></pre></td></tr><tr><td data-num="13"></td><td><pre>	rmadd <span class="token operator">=</span> restore <span class="token parameter variable">--staged</span> <span class="token comment"># 取消 add</span></pre></td></tr><tr><td data-num="14"></td><td><pre>	</pre></td></tr><tr><td data-num="15"></td><td><pre>	<span class="token comment"># commit</span></pre></td></tr><tr><td data-num="16"></td><td><pre>	cm <span class="token operator">=</span> commit <span class="token comment"># commit</span></pre></td></tr><tr><td data-num="17"></td><td><pre>	cmm <span class="token operator">=</span> commit <span class="token parameter variable">-m</span> <span class="token comment"># commit message</span></pre></td></tr><tr><td data-num="18"></td><td><pre>	cmam <span class="token operator">=</span> commit <span class="token parameter variable">-am</span> <span class="token comment"># 一次整合 add 跟 commit</span></pre></td></tr><tr><td data-num="19"></td><td><pre>	cmcm <span class="token operator">=</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr><tr><td data-num="20"></td><td><pre>	cmrn <span class="token operator">=</span> commit <span class="token parameter variable">--amend</span> <span class="token parameter variable">-m</span> <span class="token comment"># 重新更改最近一次的 commit 訊息</span></pre></td></tr><tr><td data-num="21"></td><td><pre>	cmempty <span class="token operator">=</span> commit --allow-empty <span class="token parameter variable">-m</span> --no-edit <span class="token comment"># 建立一個空的 commit</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>	<span class="token comment"># branch</span></pre></td></tr><tr><td data-num="24"></td><td><pre>	br <span class="token operator">=</span> branch <span class="token comment"># 顯示所有 branch</span></pre></td></tr><tr><td data-num="25"></td><td><pre>	brv <span class="token operator">=</span> branch <span class="token parameter variable">-v</span> <span class="token comment"># 顯示所有 branch 的最後一次 commit</span></pre></td></tr><tr><td data-num="26"></td><td><pre>	brm <span class="token operator">=</span> branch <span class="token parameter variable">-m</span> <span class="token comment"># 重新命名 branch</span></pre></td></tr><tr><td data-num="27"></td><td><pre>	brd <span class="token operator">=</span> branch <span class="token parameter variable">-d</span> <span class="token comment"># 刪除 branch</span></pre></td></tr><tr><td data-num="28"></td><td><pre>	brf <span class="token operator">=</span> branch <span class="token parameter variable">-f</span> <span class="token comment"># 強制建立、更名分支 ## 如果用在已存在的分支上，會變成強制移動分支</span></pre></td></tr><tr><td data-num="29"></td><td><pre>	</pre></td></tr><tr><td data-num="30"></td><td><pre>	<span class="token comment"># checkout</span></pre></td></tr><tr><td data-num="31"></td><td><pre>	co <span class="token operator">=</span> checkout <span class="token comment"># 切換分支</span></pre></td></tr><tr><td data-num="32"></td><td><pre>	cob <span class="token operator">=</span> checkout <span class="token parameter variable">-b</span> <span class="token comment"># 建立並切換分支</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>	<span class="token comment"># reset</span></pre></td></tr><tr><td data-num="35"></td><td><pre>	r <span class="token operator">=</span> reset <span class="token comment"># 取消 add</span></pre></td></tr><tr><td data-num="36"></td><td><pre>	rh <span class="token operator">=</span> reset <span class="token parameter variable">--hard</span> <span class="token comment"># reset hard 模式</span></pre></td></tr><tr><td data-num="37"></td><td><pre>	rall <span class="token operator">=</span> reset <span class="token parameter variable">--hard</span> HEAD</pre></td></tr><tr><td data-num="38"></td><td><pre></pre></td></tr><tr><td data-num="39"></td><td><pre>	<span class="token comment"># remove</span></pre></td></tr><tr><td data-num="40"></td><td><pre>	rmcach <span class="token operator">=</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> <span class="token comment"># 清除在 reop 的檔案</span></pre></td></tr><tr><td data-num="41"></td><td><pre>	rmallcach <span class="token operator">=</span> <span class="token function">rm</span> <span class="token parameter variable">-r</span> <span class="token parameter variable">--cached</span> <span class="token builtin class-name">.</span> <span class="token comment"># 清除所有在 reop 的檔案</span></pre></td></tr><tr><td data-num="42"></td><td><pre>	clf <span class="token operator">=</span> clean <span class="token parameter variable">-fX</span> <span class="token comment"># 強制清除被忽略的檔案</span></pre></td></tr><tr><td data-num="43"></td><td><pre></pre></td></tr><tr><td data-num="44"></td><td><pre>	<span class="token comment">#rebase</span></pre></td></tr><tr><td data-num="45"></td><td><pre>	rb <span class="token operator">=</span> rebase <span class="token comment"># rebase</span></pre></td></tr><tr><td data-num="46"></td><td><pre>	rbi <span class="token operator">=</span> rebase <span class="token parameter variable">-i</span> <span class="token comment"># 互動式 rebase</span></pre></td></tr><tr><td data-num="47"></td><td><pre>	rbc <span class="token operator">=</span> rebase <span class="token parameter variable">--continue</span> <span class="token comment"># 繼續 rebase</span></pre></td></tr><tr><td data-num="48"></td><td><pre></pre></td></tr><tr><td data-num="49"></td><td><pre>	getalias <span class="token operator">=</span> config --get-regexp <span class="token builtin class-name">alias</span></pre></td></tr></table></figure><p>實際上只要按照這個格式去設定、刪除，就可以做到上面指令的效果，當知道這件事情後，也不太需要去下指令設定縮寫了。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"><span>.gitconfig</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>alias<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token comment"># status	</span></pre></td></tr><tr><td data-num="3"></td><td><pre>	st <span class="token operator">=</span> status</pre></td></tr><tr><td data-num="4"></td><td><pre>	</pre></td></tr><tr><td data-num="5"></td><td><pre>	<span class="token comment">#log</span></pre></td></tr><tr><td data-num="6"></td><td><pre>	l <span class="token operator">=</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token comment"># 顯示 log</span></pre></td></tr><tr><td data-num="7"></td><td><pre>	<span class="token function">ls</span> <span class="token operator">=</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token punctuation">\</span>"%h <span class="token operator">&lt;</span>%an<span class="token operator">></span> %ar %s<span class="token punctuation">\</span>" <span class="token comment"># 格式化 log</span></pre></td></tr><tr><td data-num="8"></td><td><pre>	lg <span class="token operator">=</span> log <span class="token parameter variable">--color</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token string">'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an>%Creset'</span> --abbrev-commit</pre></td></tr><tr><td data-num="9"></td><td><pre>	rl <span class="token operator">=</span> reflog <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token punctuation">\</span>"%Cred%h%Creset %C<span class="token punctuation">(</span>auto<span class="token punctuation">)</span>%gd%Creset %C<span class="token punctuation">(</span>auto<span class="token punctuation">)</span>%gs%C<span class="token punctuation">(</span>reset<span class="token punctuation">)</span> %C<span class="token punctuation">(</span>green<span class="token punctuation">)</span><span class="token punctuation">(</span>%cr<span class="token punctuation">)</span>%C<span class="token punctuation">(</span>reset<span class="token punctuation">)</span> %C<span class="token punctuation">(</span>bold blue<span class="token punctuation">)</span><span class="token operator">&lt;</span>%an<span class="token operator">></span>%Creset<span class="token punctuation">\</span>"</pre></td></tr><tr><td data-num="10"></td><td><pre>	</pre></td></tr><tr><td data-num="11"></td><td><pre>	<span class="token comment"># add</span></pre></td></tr><tr><td data-num="12"></td><td><pre>	all <span class="token operator">=</span> <span class="token function">add</span> <span class="token parameter variable">--all</span></pre></td></tr><tr><td data-num="13"></td><td><pre>	rmadd <span class="token operator">=</span> restore <span class="token parameter variable">--staged</span> <span class="token comment"># 取消 add</span></pre></td></tr><tr><td data-num="14"></td><td><pre>	</pre></td></tr><tr><td data-num="15"></td><td><pre>	<span class="token comment"># commit</span></pre></td></tr><tr><td data-num="16"></td><td><pre>	cm <span class="token operator">=</span> commit <span class="token comment"># commit</span></pre></td></tr><tr><td data-num="17"></td><td><pre>	cmm <span class="token operator">=</span> commit <span class="token parameter variable">-m</span> <span class="token comment"># commit message</span></pre></td></tr><tr><td data-num="18"></td><td><pre>	cmam <span class="token operator">=</span> commit <span class="token parameter variable">-am</span> <span class="token comment"># 一次整合 add 跟 commit</span></pre></td></tr><tr><td data-num="19"></td><td><pre>	cmcm <span class="token operator">=</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr><tr><td data-num="20"></td><td><pre>	cmrn <span class="token operator">=</span> commit <span class="token parameter variable">--amend</span> <span class="token parameter variable">-m</span> <span class="token comment"># 重新更改最近一次的 commit 訊息</span></pre></td></tr><tr><td data-num="21"></td><td><pre>	cmempty <span class="token operator">=</span> commit --allow-empty <span class="token parameter variable">-m</span> --no-edit <span class="token comment"># 建立一個空的 commit</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    </pre></td></tr><tr><td data-num="23"></td><td><pre>	<span class="token comment"># branch</span></pre></td></tr><tr><td data-num="24"></td><td><pre>	br <span class="token operator">=</span> branch <span class="token comment"># 顯示所有 branch</span></pre></td></tr><tr><td data-num="25"></td><td><pre>	brv <span class="token operator">=</span> branch <span class="token parameter variable">-v</span> <span class="token comment"># 顯示所有 branch 的最後一次 commit</span></pre></td></tr><tr><td data-num="26"></td><td><pre>	brm <span class="token operator">=</span> branch <span class="token parameter variable">-m</span> <span class="token comment"># 重新命名 branch</span></pre></td></tr><tr><td data-num="27"></td><td><pre>	brd <span class="token operator">=</span> branch <span class="token parameter variable">-d</span> <span class="token comment"># 刪除 branch</span></pre></td></tr><tr><td data-num="28"></td><td><pre>	brf <span class="token operator">=</span> branch <span class="token parameter variable">-f</span> <span class="token comment"># 強制建立、更名分支 ## 如果用在已存在的分支上，會變成強制移動分支</span></pre></td></tr><tr><td data-num="29"></td><td><pre>	</pre></td></tr><tr><td data-num="30"></td><td><pre>	<span class="token comment"># checkout</span></pre></td></tr><tr><td data-num="31"></td><td><pre>	co <span class="token operator">=</span> checkout <span class="token comment"># 切換分支</span></pre></td></tr><tr><td data-num="32"></td><td><pre>	cob <span class="token operator">=</span> checkout <span class="token parameter variable">-b</span> <span class="token comment"># 建立並切換分支</span></pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>	<span class="token comment"># reset</span></pre></td></tr><tr><td data-num="35"></td><td><pre>	rs <span class="token operator">=</span> reset </pre></td></tr><tr><td data-num="36"></td><td><pre>	rsh <span class="token operator">=</span> reset <span class="token parameter variable">--hard</span> <span class="token comment"># reset hard 模式</span></pre></td></tr><tr><td data-num="37"></td><td><pre>	rsnow <span class="token operator">=</span> reset <span class="token parameter variable">--hard</span> HEAD <span class="token comment"># 回到最新的 commit</span></pre></td></tr><tr><td data-num="38"></td><td><pre>	rspre <span class="token operator">=</span> reset <span class="token parameter variable">--hard</span> HEAD^ <span class="token comment"># 回到上一個 commit</span></pre></td></tr><tr><td data-num="39"></td><td><pre></pre></td></tr><tr><td data-num="40"></td><td><pre>	<span class="token comment"># remove</span></pre></td></tr><tr><td data-num="41"></td><td><pre>	rmcach <span class="token operator">=</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> <span class="token comment"># 清除在 reop 的檔案</span></pre></td></tr><tr><td data-num="42"></td><td><pre>	rmallcach <span class="token operator">=</span> <span class="token function">rm</span> <span class="token parameter variable">-r</span> <span class="token parameter variable">--cached</span> <span class="token builtin class-name">.</span> <span class="token comment"># 清除所有在 reop 的檔案</span></pre></td></tr><tr><td data-num="43"></td><td><pre>	clf <span class="token operator">=</span> clean <span class="token parameter variable">-fX</span> <span class="token comment"># 強制清除被忽略的檔案</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>	<span class="token comment">#rebase</span></pre></td></tr><tr><td data-num="46"></td><td><pre>	rb <span class="token operator">=</span> rebase <span class="token comment"># rebase</span></pre></td></tr><tr><td data-num="47"></td><td><pre>	rbi <span class="token operator">=</span> rebase <span class="token parameter variable">-i</span> <span class="token comment"># 互動式 rebase</span></pre></td></tr><tr><td data-num="48"></td><td><pre>	rbc <span class="token operator">=</span> rebase <span class="token parameter variable">--continue</span> <span class="token comment"># 繼續 rebase</span></pre></td></tr><tr><td data-num="49"></td><td><pre></pre></td></tr><tr><td data-num="50"></td><td><pre>	getalias <span class="token operator">=</span> config --get-regexp <span class="token builtin class-name">alias</span></pre></td></tr></table></figure><p>實際上只要按照這個格式去設定、刪除，就可以做到上面指令的效果，當知道這件事情後，也不太需要去下指令設定縮寫了。</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -266,7 +265,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2023-07-28 14:14:05" itemprop="dateModified" datetime="2023-07-28T14:14:05+08:00">2023-07-28</time>
+    <time title="修改時間：2023-07-29 17:14:24" itemprop="dateModified" datetime="2023-07-29T17:14:24+08:00">2023-07-29</time>
   </span>
   <span id="git-note/gn-alias/" class="item leancloud_visitors" data-flag-title="【Git筆記】設定指令簡寫" title="閱讀次數">
       <span class="icon">
@@ -306,7 +305,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-note/gn-github/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="【Git筆記】使用 GitHub">
+  <a href="/git-note/gn-github/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="【Git筆記】使用 GitHub">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Git 筆記</span>
   <h3>【Git筆記】使用 GitHub</h3>
@@ -434,16 +433,6 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
     <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
   </li>
 
@@ -454,7 +443,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
+    <span><a href="/git-note/gn-concept/" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></span>
   </li>
 
       
@@ -474,16 +463,6 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
     <span><a href="/git-note/gn-rebase-modify-commit/" title="【Git筆記】用 rebase 來修改歷史 commit">【Git筆記】用 rebase 來修改歷史 commit</a></span>
   </li>
 
@@ -491,10 +470,10 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
       
@@ -504,7 +483,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
+    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
   </li>
 
       
@@ -521,10 +500,30 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-situation/" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
   </ul>

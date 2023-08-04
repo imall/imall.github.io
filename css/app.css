@@ -5083,6 +5083,9 @@ main >.inner {
   display: flex;
   max-height: 1.2rem;
 }
+.katex-html {
+  display: none;
+}
 .katex,
 .katex-display {
   user-select: all;

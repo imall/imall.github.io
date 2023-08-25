@@ -85,12 +85,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
         </ul>
       </div>
     </header>
@@ -116,7 +116,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-situation/" itemprop="url" title="【Git筆記】commit 前的狀況處理"><img data-src="https://i.imgur.com/IXkGvGY.jpg"></a>
+    <a href="/git-note/gn-situation/" itemprop="url" title="【Git筆記】commit 前的狀況處理"><img data-src="https://i.imgur.com/slJN1yE.jpg"></a>
   </div>
   <div class="info">
     
@@ -170,7 +170,7 @@ git reset 檔案名稱git reset 除了把暫存區檔案還原狀態的功能之
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git"><img data-src="https://i.imgur.com/8gupmbA.jpg"></a>
+    <a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git"><img data-src="https://i.imgur.com/fG7Vwmv.jpg"></a>
   </div>
   <div class="info">
     
@@ -199,9 +199,9 @@ git reset 檔案名稱git reset 除了把暫存區檔案還原狀態的功能之
     <h3><a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></h3>
     <div class="excerpt">
         # 初始化專案
-要進行版控，首先要先確定到底是哪包資料夾的內容要被 Git 控管？
+要進行版控，首先要先定義哪包資料夾的內容要被 Git 控管？
 確定好要控管的專案後，進到要版控的資料夾，開啟終端機執行下列指令進行 Git 的初始化
-git init執行完後，資料夾的內容會多一個 .git 的檔案夾
+git init執行完後，資料夾的內容會多一個 .git 的隱藏檔案夾
 這就是未來 Git 在進行所有版控功能的時候會使用到的東西
 資料夾內有了 .git 之後，我們就可以說這個資料夾是一個儲存庫 (repository)
 如果有什麼第三方的工具提示說要開啟 locol 端的 repository ，就是在說可以開啟這包資料夾
@@ -221,7 +221,7 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念"><img data-src="https://i.imgur.com/XEoNWeG.jpg"></a>
+    <a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念"><img data-src="https://i.imgur.com/IXkGvGY.jpg"></a>
   </div>
   <div class="info">
     
@@ -236,7 +236,7 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>2.2k</span>
+    <span>2.1k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -249,14 +249,15 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
 
     <h3><a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></h3>
     <div class="excerpt">
-        # 什麼 Git？
-「阿就… 版控工具阿？！」 這可能是大部分的人聽到 Git 之後的第一個直覺反應，畢竟業界現在提到版控這個詞，要不是提 Git 就是 SVN 。
-不過到底為什麼要用 Git ？我們直接把檔案 Ctrl + A 然後 包起來複製一份，不就控好了嗎？
-只要把每個檔案用日期當檔名，就可以知道是哪個時間操作的，很方便吧！
+        # 為什麼要用 Git？
+在沒有接觸到版控工具時，最傳統的版控方式，檔案不外乎是將檔案 Ctrl + A 然後複製一份，分好幾個資料夾進行版控。
+只要把每個資料夾用日期當檔名，就可以追蹤到版控的時間。
 這個方法很傳統也很簡單，可能隨便叫一個剛學會電腦的小學生，都知道可以這麼操作。
-不過如果我希望在一堆打包的備份檔案裡面，分辨每一包程式到底差異在哪，這可能會是很大的問題。
-又如果刪了某一包的備份，突然發現那份資料很重要需要復原，可能也有還原不了的風險存在。
-透過...
+不過如果我希望在一堆打包的資料夾中裡面，分辨每一包程式到底差異在哪，就不是那麼容易能做到。
+又如果在整理檔案時，誤刪了某一包的備份需要復原，可能也有還原不了的風險存在。
+上述這個方法充其量被我稱為「備份」
+透過 Git ，或許很多需要辨別檔案內容、操作檔案內容、更變檔案內容、了解內容版本的問題，可以很方便的解決！
+#...
     </div>
     <div class="meta footer">
       <span>
@@ -270,7 +271,7 @@ git init執行完後，資料夾的內容會多一個 .git 的檔案夾
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-intro/" itemprop="url" title="【Git筆記】序章"><img data-src="https://i.imgur.com/HsDjgUN.jpg"></a>
+    <a href="/git-note/gn-intro/" itemprop="url" title="【Git筆記】序章"><img data-src="https://i.imgur.com/slJN1yE.jpg"></a>
   </div>
   <div class="info">
     
@@ -368,7 +369,7 @@ git 的分支怎麼用？...
         
 <article class="item">
   <div class="cover">
-    <a href="/js-note/day-js/" itemprop="url" title="一個好用的時間處理套件 - Dayjs"><img data-src="https://i.imgur.com/dOvnXNe.jpg"></a>
+    <a href="/js-note/day-js/" itemprop="url" title="一個好用的時間處理套件 - Dayjs"><img data-src="https://i.imgur.com/mubtL63.png"></a>
   </div>
   <div class="info">
     
@@ -479,7 +480,7 @@ Vite 預設已經有個 defineConfig...
         
 <article class="item">
   <div class="cover">
-    <a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式"><img data-src="https://i.imgur.com/gYzRwq6.png"></a>
+    <a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
   </div>
   <div class="info">
     
@@ -639,6 +640,26 @@ c 的寬度為 7 x 20 = 140px
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+</div>
+
+    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
@@ -652,27 +673,17 @@ c 的寬度為 7 x 20 = 140px
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
+    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
   </li>
 
       
@@ -692,7 +703,7 @@ c 的寬度為 7 x 20 = 140px
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
+    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
   </li>
 
       
@@ -711,7 +722,7 @@ c 的寬度為 7 x 20 = 140px
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-intro/" title="【Git筆記】序章">【Git筆記】序章</a></span>
+    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
   </li>
 
       
@@ -721,17 +732,7 @@ c 的寬度為 7 x 20 = 140px
 <a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
 </div>
 
-    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
   </li>
 
   </ul>

@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
@@ -114,12 +116,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,111 +167,116 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇來說明要使用 Git 前「一定」要做的事情：設定使用者名稱、信箱。  </p>
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>這篇來說明要使用 Git 前「一定」要做的事情：設定使用者名稱、信箱。</p>
 <p>以及可以選擇性操作的：設定 Git 預設文字編輯器。</p>
-<h1 id="設定-Git-的使用者名稱與信箱"><a href="#設定-Git-的使用者名稱與信箱" class="headerlink" title="設定 Git 的使用者名稱與信箱"></a>設定 Git 的使用者名稱與信箱</h1><h2 id="用指令更改："><a href="#用指令更改：" class="headerlink" title="用指令更改："></a>用指令更改：</h2><p>我們開啟終端機，並且透過下面兩個指令來設定 Git 使用者資訊。<br>(建議兩個指令「分開複製」到終端機執行)</p>
-<pre><code class="sh">git config --global user.name &quot;這裡改你的名字&quot;
-git config --global user.email &quot;這裡改你的信箱&quot;
-</code></pre>
-<p>實際輸入的內容看起來會像這樣：</p>
-<pre><code class="sh">git config --global user.name &quot;imall&quot;
-git config --global user.email &quot;imall841110@gmail.com&quot;
-</code></pre>
-<p>如果想輸入的資訊 <strong>「沒有空格(空白鍵)」</strong>，也可以不寫雙引號(<code>&quot;&quot;</code>)：</p>
-<pre><code class="sh">git config --global user.name imall
-git config --global user.email imall841110@gmail.com
-</code></pre>
-<p>要確認有沒有設定成功，可以直接輸入下列指令：</p>
-<pre><code class="sh">git config --global user.name
-git config --global user.email
-</code></pre>
-<p>如果有成功，終端機就會顯示設定好的資料：</p>
-<pre><code class="sh">$ git config --global user.name
-imall
-
-$ git config --global user.email
-imall841110@gmail.com
-</code></pre>
-<h2 id="用-Fork-更改"><a href="#用-Fork-更改" class="headerlink" title="用 Fork 更改"></a>用 Fork 更改</h2><ol>
-<li>請先選到 <strong>file</strong> &gt; <strong>perference</strong><br><img data-src="https://i.imgur.com/C6qpJBR.png" alt="Fork 更改全域使用者步驟1"></li>
-<li>找到 <strong>Git</strong> 的分頁，並且輸入您的想設定的名稱與信箱<br><img data-src="https://i.imgur.com/t6xaOPu.png" alt="輸入使用者資訊"></li>
+<h1 id="設定-git-的使用者名稱與信箱"><a class="markdownIt-Anchor" href="#設定-git-的使用者名稱與信箱">#</a> 設定 Git 的使用者名稱與信箱</h1>
+<h2 id="用指令更改"><a class="markdownIt-Anchor" href="#用指令更改">#</a> 用指令更改：</h2>
+<p>我們開啟終端機，並且透過下面兩個指令來設定 Git 使用者資訊。<br>
+(建議兩個指令「分開複製」到終端機執行)</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"這裡改你的名字"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"這裡改你的信箱"</span></pre></td></tr></table></figure><p>實際輸入的內容看起來會像這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"imall"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"imall841110@gmail.com"</span></pre></td></tr></table></figure><p>如果想輸入的資訊 <strong>「沒有空格 (空白鍵)」</strong>，也可以不寫雙引號 ( <code>&quot;&quot;</code> )：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name imall</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email imall841110@gmail.com</pre></td></tr></table></figure><p>要確認有沒有設定成功，可以直接輸入下列指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email</pre></td></tr></table></figure><p>如果有成功，終端機就會顯示設定好的資料：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name</pre></td></tr><tr><td data-num="2"></td><td><pre>imall</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>$ <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email</pre></td></tr><tr><td data-num="5"></td><td><pre>imall841110@gmail.com</pre></td></tr></table></figure><h2 id="用-fork-更改"><a class="markdownIt-Anchor" href="#用-fork-更改">#</a> 用 Fork 更改</h2>
+<ol>
+<li>請先選到 <strong>file</strong> &gt; <strong>perference</strong><br>
+<img data-src="https://i.imgur.com/C6qpJBR.png" alt="Fork 更改全域使用者步驟1"></li>
+<li>找到 <strong>Git</strong> 的分頁，並且輸入您的想設定的名稱與信箱<br>
+<img data-src="https://i.imgur.com/t6xaOPu.png" alt="輸入使用者資訊"></li>
 <li>關閉視窗就設定完成了。</li>
 </ol>
-<h1 id="更改-Git-預設的文字編輯器"><a href="#更改-Git-預設的文字編輯器" class="headerlink" title="更改 Git 預設的文字編輯器"></a>更改 Git 預設的文字編輯器</h1><p>要更改 Git 預設文字編輯器，可以使用下列的指令：  </p>
-<pre><code class="sh">git config --global core.editor &quot;編輯器執行檔位置&quot;
-</code></pre>
-<p>以設定為 <code>VSCode</code> 為例，輸入的指令會是這樣：  </p>
-<pre><code class="sh">git config --global core.editor &quot;code --wait&quot;
-</code></pre>
-<p>由於編輯器的設定可能會因為作業系統的不同，而須輸入不同的資訊。  </p>
+<h1 id="更改-git-預設的文字編輯器"><a class="markdownIt-Anchor" href="#更改-git-預設的文字編輯器">#</a> 更改 Git 預設的文字編輯器</h1>
+<p>要更改 Git 預設文字編輯器，可以使用下列的指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.editor <span class="token string">"編輯器執行檔位置"</span></pre></td></tr></table></figure><p>以設定為  <code>VSCode</code>  為例，輸入的指令會是這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.editor <span class="token string">"code --wait"</span></pre></td></tr></table></figure><p>由於編輯器的設定可能會因為作業系統的不同，而須輸入不同的資訊。</p>
 <p>讀者們可以到 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vZ2V0LXN0YXJ0ZWQvZ2V0dGluZy1zdGFydGVkLXdpdGgtZ2l0L2Fzc29jaWF0aW5nLXRleHQtZWRpdG9ycy13aXRoLWdpdA==">這個連結</span> 尋找適合自己的資訊操作。</p>
 <blockquote>
-<p>補充：曾經有使用 Mac 的朋友將預設編輯器設定成 VSCode 後，在執行會用到文字編輯器的 Git 指令時，出現 <code>zsh:command not found: code</code> 的錯誤訊息，這是因為 mac 的終端機 <code>zsh</code> 還沒將 <code>VSCode</code> 加入環境變數的關係。  </p>
+<p>補充：曾經有使用 Mac 的朋友將預設編輯器設定成 VSCode 後，在執行會用到文字編輯器的 Git 指令時，出現  <code>zsh:command not found: code</code>  的錯誤訊息，這是因為 mac 的終端機  <code>zsh</code>  還沒將  <code>VSCode</code>  加入環境變數的關係。</p>
 <p>若有遇到一樣情況的讀者，可以參考 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20vZG9jcy9zZXR1cC9tYWMjX2xhdW5jaGluZy1mcm9tLXRoZS1jb21tYW5kLWxpbmU=">這個連結</span> 來處理。</p>
 </blockquote>
-<h1 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h1><h2 id="1-為什麼使用-Git-還要設定使用者資訊與信箱？"><a href="#1-為什麼使用-Git-還要設定使用者資訊與信箱？" class="headerlink" title="1. 為什麼使用 Git 還要設定使用者資訊與信箱？"></a>1. 為什麼使用 Git 還要設定使用者資訊與信箱？</h2><p>為了讓 Git 能紀錄「發佈版本的人」。</p>
+<h1 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h1>
+<h2 id="1-為什麼使用-git-還要設定使用者資訊與信箱"><a class="markdownIt-Anchor" href="#1-為什麼使用-git-還要設定使用者資訊與信箱">#</a> 1. 為什麼使用 Git 還要設定使用者資訊與信箱？</h2>
+<p>為了讓 Git 能紀錄「發佈版本的人」。</p>
 <p>一個人版控可能比較無感，不過如果是團隊協作版控，這個機制可以在「發現某個版本有問題」時，比較容易去追蹤是誰發佈的版本。</p>
-<p>舉例來說，今天 <code>菜月昴</code>、<code>愛蜜莉雅</code>、<code>雷姆</code>、<code>拉姆</code>，在合作開發同一個專案，每個人被分配到不同的內容。  </p>
-<p><code>雷姆</code>、<code>拉姆</code>、<code>愛蜜莉雅</code>完成自己的資料後，<code>羅茲瓦爾</code>(主管) 看了覺得做得太完美了，就把她們開發的內容合併到 dev 裡面準備讓測試團隊測試。  </p>
-<p><code>羅茲瓦爾</code> 繼續 code review 的過程，看到 「<code>80153555</code>」編號的 commit，內容一蹋糊塗！ </p>
-<p>因為每個人使用 Git 都必須設定使用者資訊，<code>羅茲瓦爾</code> 從 Git 線圖的內容就能找到是 <code>菜月昴</code> 在雷，於是把他抓出來教訓一頓，要他重改！<br><img data-src="https://i.imgur.com/f061mqr.png" alt="線圖示意"></p>
-<h2 id="2-在-Git-設定的信箱需要跟-GitHub-帳號一樣嗎？"><a href="#2-在-Git-設定的信箱需要跟-GitHub-帳號一樣嗎？" class="headerlink" title="2. 在 Git 設定的信箱需要跟 GitHub 帳號一樣嗎？"></a>2. 在 Git 設定的信箱需要跟 GitHub 帳號一樣嗎？</h2><p>可以不用。</p>
+<p>舉例來說，今天  <code>菜月昴</code> 、 <code>愛蜜莉雅</code> 、 <code>雷姆</code> 、 <code>拉姆</code> ，在合作開發同一個專案，每個人被分配到不同的內容。</p>
+<p><code>雷姆</code> 、 <code>拉姆</code> 、 <code>愛蜜莉雅</code> 完成自己的資料後， <code>羅茲瓦爾</code>  (主管) 看了覺得做得太完美了，就把她們開發的內容合併到 dev 裡面準備讓測試團隊測試。</p>
+<p><code>羅茲瓦爾</code>  繼續 code review 的過程，看到 「 <code>80153555</code> 」編號的 commit，內容一蹋糊塗！</p>
+<p>因為每個人使用 Git 都必須設定使用者資訊， <code>羅茲瓦爾</code>  從 Git 線圖的內容就能找到是  <code>菜月昴</code>  在雷，於是把他抓出來教訓一頓，要他重改！<br>
+<img data-src="https://i.imgur.com/f061mqr.png" alt="線圖示意"></p>
+<h2 id="2-在-git-設定的信箱需要跟-github-帳號一樣嗎"><a class="markdownIt-Anchor" href="#2-在-git-設定的信箱需要跟-github-帳號一樣嗎">#</a> 2. 在 Git 設定的信箱需要跟 GitHub 帳號一樣嗎？</h2>
+<p>可以不用。</p>
 <p>初始設定的使用者、信箱的設定只是為了把發佈者資訊紀錄在版本內，與 GitHub 、GitLab 平台帳密之間沒有任何關係。</p>
-<h2 id="3-使用者名稱跟信箱設定完，在-Git-會被綁定嗎？"><a href="#3-使用者名稱跟信箱設定完，在-Git-會被綁定嗎？" class="headerlink" title="3. 使用者名稱跟信箱設定完，在 Git 會被綁定嗎？"></a>3. 使用者名稱跟信箱設定完，在 Git 會被綁定嗎？</h2><p>不會。</p>
+<h2 id="3-使用者名稱跟信箱設定完在-git-會被綁定嗎"><a class="markdownIt-Anchor" href="#3-使用者名稱跟信箱設定完在-git-會被綁定嗎">#</a> 3. 使用者名稱跟信箱設定完，在 Git 會被綁定嗎？</h2>
+<p>不會。</p>
 <p>這兩個資訊在設定完成後，依然可以修改，而且沒有任何修改限制。</p>
-<p><del>如果會綁定還不能改，我上面那張圖的假資料根本做不出來 XD</del></p>
-<h2 id="4-我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？"><a href="#4-我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？" class="headerlink" title="4. 我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？"></a>4. 我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？</h2><p><code>.gitconfig</code> 被更動了。</p>
-<p>上文提到的兩個指令是在設定 Git 的 <code>.gitconfig</code> 檔案<br>Mac 可以在這個路徑找到： <code> ~/.gitconfig</code><br>Windows 則是在這個路徑： <code>C:\Users\你的使用者名字\.gitconfig</code>  </p>
-<p>如果讀者已經有成功設定使用者資料，用文字編輯器打開這個檔案 (記事本、notepad++、VSCode 都可以) ，應該可以在檔案內容看到框起來的文字。<br><img data-src="https://i.imgur.com/pP6y34a.png" alt="Alt text"></p>
-<p>我們在下指令的時候看到的 <code>user.XXXX</code> 以及 <code>core.XXX</code>，其實就是對應 <code>.gitconfig</code> 裡面的 <code>[user]</code> 與 <code>[core]</code> 區域內的資訊 。</p>
-<p>了解其背後的原理之後，讀者應該已經猜到，如果直接設定 <code>.gitconfig</code>，也可以完成下指令做的事情！</p>
-<h2 id="5-指令有-global-參數，難道也有-local-參數嗎？"><a href="#5-指令有-global-參數，難道也有-local-參數嗎？" class="headerlink" title="5. 指令有 global 參數，難道也有 local 參數嗎？"></a>5. 指令有 global 參數，難道也有 local 參數嗎？</h2><p>答案是「有」。</p>
+<p><s>如果會綁定還不能改，我上面那張圖的假資料根本做不出來 XD</s></p>
+<h2 id="4-我打完指令後什麼訊息都沒跑出來所以是發生什麼事情了"><a class="markdownIt-Anchor" href="#4-我打完指令後什麼訊息都沒跑出來所以是發生什麼事情了">#</a> 4. 我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？</h2>
+<p><code>.gitconfig</code>  被更動了。</p>
+<p>上文提到的兩個指令是在設定 Git 的  <code>.gitconfig</code>  檔案<br>
+ Mac 可以在這個路徑找到：  <code> ~/.gitconfig</code> <br>
+Windows 則是在這個路徑：  <code>C:\Users\你的使用者名字\.gitconfig</code></p>
+<p>如果讀者已經有成功設定使用者資料，用文字編輯器打開這個檔案 (記事本、notepad++、VSCode 都可以) ，應該可以在檔案內容看到框起來的文字。<br>
+<img data-src="https://i.imgur.com/pP6y34a.png" alt="Alt text"></p>
+<p>我們在下指令的時候看到的  <code>user.XXXX</code>  以及  <code>core.XXX</code> ，其實就是對應  <code>.gitconfig</code>  裡面的  <code>[user]</code>  與  <code>[core]</code>  區域內的資訊 。</p>
+<p>了解其背後的原理之後，讀者應該已經猜到，如果直接設定  <code>.gitconfig</code> ，也可以完成下指令做的事情！</p>
+<h2 id="5-指令有-global-參數難道也有-local-參數嗎"><a class="markdownIt-Anchor" href="#5-指令有-global-參數難道也有-local-參數嗎">#</a> 5. 指令有 global 參數，難道也有 local 參數嗎？</h2>
+<p>答案是「有」。</p>
 <blockquote>
-<p>接下來會提到尚未介紹的 <code>.git</code> 資料夾，觀念會在「建立儲存庫」的章節介紹，這裡先帶讀者理解 Git 的「區域」與「全域」設定觀念。</p>
+<p>接下來會提到尚未介紹的  <code>.git</code>  資料夾，觀念會在「建立儲存庫」的章節介紹，這裡先帶讀者理解 Git 的「區域」與「全域」設定觀念。</p>
 </blockquote>
-<p>上面的問題帶大家認識 <code>git config</code> 是操作設定檔的指令。  </p>
-<p>如果帶上 <code>--global</code> 參數，會是設定 <strong>「全域」</strong> 設定檔，會去更動 <code>.gitconfig</code> 檔案；<br>如果帶上 <code>--local</code> 參數，則是設定 <strong>「區域」</strong> 設定檔，會去更動不同專案中 <code>.git 隱藏夾</code> 裡面的 <code>config</code> 檔案。</p>
-<p><code>.git</code> 裡面的 <code>config</code> 跟 <code>.gitconfig</code> 用途一樣，都是處理 Git 的設定資訊，兩者只有「區域」跟「全域」的差異： <code>.gitconfig</code> 是整台電腦都會使用的設定，而 <code>config</code> 是個別工作目錄的專屬設定。</p>
-<p>有了這個觀念後，就可以依據需求來決定 <code>git config</code> 要添加什麼參數了。</p>
-<pre><code class="sh">git config --global (某個設定)
-git config --local (某個設定)
-</code></pre>
-<h2 id="6-能不能在不同專案使用不同使用者名稱跟信箱？"><a href="#6-能不能在不同專案使用不同使用者名稱跟信箱？" class="headerlink" title="6. 能不能在不同專案使用不同使用者名稱跟信箱？"></a>6. 能不能在不同專案使用不同使用者名稱跟信箱？</h2><p>可以。</p>
-<p>我們已經知道 <code>git config --global</code> 可以拿來設定全域的設定。  </p>
-<p>如果希望在不同專案設定不同的使用者，例如 A 專案叫 <strong>「冰結魔女愛蜜莉雅」</strong> 、B 專案叫 <strong>「擅長捉弄人的高木同學」</strong> 之類的，可以透過 <code>--local</code> 參數定義不同專案的資訊。  </p>
+<p>上面的問題帶大家認識  <code>git config</code>  是操作設定檔的指令。</p>
+<p>如果帶上  <code>--global</code>  參數，會是設定 <strong>「全域」</strong> 設定檔，會去更動  <code>.gitconfig</code>  檔案；<br>
+如果帶上  <code>--local</code>  參數，則是設定 <strong>「區域」</strong> 設定檔，會去更動不同專案中  <code>.git 隱藏夾</code>  裡面的  <code>config</code>  檔案。</p>
+<p><code>.git</code>  裡面的  <code>config</code>  跟  <code>.gitconfig</code>  用途一樣，都是處理 Git 的設定資訊，兩者只有「區域」跟「全域」的差異：  <code>.gitconfig</code>  是整台電腦都會使用的設定，而  <code>config</code>  是個別工作目錄的專屬設定。</p>
+<p>有了這個觀念後，就可以依據需求來決定  <code>git config</code>  要添加什麼參數了。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> <span class="token punctuation">(</span>某個設定<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--local</span> <span class="token punctuation">(</span>某個設定<span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="6-能不能在不同專案使用不同使用者名稱跟信箱"><a class="markdownIt-Anchor" href="#6-能不能在不同專案使用不同使用者名稱跟信箱">#</a> 6. 能不能在不同專案使用不同使用者名稱跟信箱？</h2>
+<p>可以。</p>
+<p>我們已經知道  <code>git config --global</code>  可以拿來設定全域的設定。</p>
+<p>如果希望在不同專案設定不同的使用者，例如 A 專案叫 <strong>「冰結魔女愛蜜莉雅」</strong> 、B 專案叫 <strong>「擅長捉弄人的高木同學」</strong> 之類的，可以透過  <code>--local</code>  參數定義不同專案的資訊。</p>
 <p>以下帶大家了解指令與 Fork 的設定方式：</p>
-<h3 id="用指令設定-local-使用者名稱與信箱"><a href="#用指令設定-local-使用者名稱與信箱" class="headerlink" title="用指令設定 local 使用者名稱與信箱"></a>用指令設定 local 使用者名稱與信箱</h3><pre><code class="sh">git config --local user.name &quot;你的名字&quot;
-git config --local user.email &quot;你的信箱&quot;
-</code></pre>
-<p>跟一開始介紹的指令，只差在 <code>--local</code> 參數，其他設置都一樣。</p>
-<h3 id="用-fork-設定-local-使用者名稱與信箱"><a href="#用-fork-設定-local-使用者名稱與信箱" class="headerlink" title="用 fork 設定 local 使用者名稱與信箱"></a>用 fork 設定 local 使用者名稱與信箱</h3><ol>
-<li><p>點擊左上角 <strong>Repository</strong> &gt;  <strong>Settings for This Repository…</strong><br><img data-src="https://i.imgur.com/6iyF5Gv.png" alt="儲存庫設定"></p>
+<h3 id="用指令設定-local-使用者名稱與信箱"><a class="markdownIt-Anchor" href="#用指令設定-local-使用者名稱與信箱">#</a> 用指令設定 local 使用者名稱與信箱</h3>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--local</span> user.name <span class="token string">"你的名字"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--local</span> user.email <span class="token string">"你的信箱"</span></pre></td></tr></table></figure><p>跟一開始介紹的指令，只差在  <code>--local</code>  參數，其他設置都一樣。</p>
+<h3 id="用-fork-設定-local-使用者名稱與信箱"><a class="markdownIt-Anchor" href="#用-fork-設定-local-使用者名稱與信箱">#</a> 用 fork 設定 local 使用者名稱與信箱</h3>
+<ol>
+<li>
+<p>點擊左上角 <strong>Repository</strong> &gt;  <strong>Settings for This Repository…</strong><br>
+<img data-src="https://i.imgur.com/6iyF5Gv.png" alt="儲存庫設定"></p>
 </li>
-<li><p>把 <strong>Use global git credentials</strong> 的勾勾拿掉  </p>
+<li>
+<p>把 <strong>Use global git credentials</strong> 的勾勾拿掉</p>
 </li>
-<li><p>輸入專案的使用者資訊<br><img data-src="https://i.imgur.com/3NF1yMV.png" alt="輸入專案的使用者資訊 "></p>
+<li>
+<p>輸入專案的使用者資訊<br>
+<img data-src="https://i.imgur.com/3NF1yMV.png" alt="輸入專案的使用者資訊 "></p>
 </li>
-<li><p>關閉視窗就設定完成囉！</p>
+<li>
+<p>關閉視窗就設定完成囉！</p>
 </li>
 </ol>
 <blockquote>
 <p>從 Fork 預設的畫面可以注意到，如果我們沒有特別設定專案的使用者，則專案就會直接抓全域使用者的資料。</p>
 <p><img data-src="https://i.imgur.com/5PU6sRC.png" alt="Fork 區域使用者預設抓全域資料"></p>
 </blockquote>
-<h2 id="7-我用-local-參數設定了使用者，想刪掉怎麼辦…"><a href="#7-我用-local-參數設定了使用者，想刪掉怎麼辦…" class="headerlink" title="7. 我用 --local 參數設定了使用者，想刪掉怎麼辦…"></a>7. 我用 <code>--local</code> 參數設定了使用者，想刪掉怎麼辦…</h2><p><del>我知道新手毛很多</del>  </p>
-<p>開玩笑的，拜託先別走…  </p>
+<h2 id="7-我用-local-參數設定了使用者想刪掉怎麼辦"><a class="markdownIt-Anchor" href="#7-我用-local-參數設定了使用者想刪掉怎麼辦">#</a> 7. 我用  <code>--local</code>  參數設定了使用者，想刪掉怎麼辦…</h2>
+<p><s>我知道新手毛很多</s></p>
+<p>開玩笑的，拜託先別走…</p>
 <p>這問題算是我還是新手時期最畏懼的事情，常常擔心跟著步驟走錯一步，電腦就會被我搞壞。</p>
 <p>這題有兩種做法可以操作：</p>
-<h3 id="編輯-config-檔案將-local-使用者資料刪除："><a href="#編輯-config-檔案將-local-使用者資料刪除：" class="headerlink" title="編輯 config 檔案將 local 使用者資料刪除："></a>編輯 <code>config</code> 檔案將 local 使用者資料刪除：</h3><ol>
-<li>打開專案中的 <code>.git</code> 資料夾，開啟 <code>config</code> 檔案</li>
-<li>檔案應該會有 <code>[user]</code> 相關的文字<br><img data-src="https://i.imgur.com/6rQ51G1.png" alt="專案 config 使用者資訊"></li>
+<h3 id="編輯-config-檔案將-local-使用者資料刪除"><a class="markdownIt-Anchor" href="#編輯-config-檔案將-local-使用者資料刪除">#</a> 編輯  <code>config</code>  檔案將 local 使用者資料刪除：</h3>
+<ol>
+<li>打開專案中的  <code>.git</code>  資料夾，開啟  <code>config</code>  檔案</li>
+<li>檔案應該會有  <code>[user]</code>  相關的文字<br>
+<img data-src="https://i.imgur.com/6rQ51G1.png" alt="專案 config 使用者資訊"></li>
 <li>直接刪除這段然後「存檔」</li>
-<li>完成 ~</li>
+<li>完成～</li>
 </ol>
-<h3 id="使用-Fork-刪除-local-使用者資料"><a href="#使用-Fork-刪除-local-使用者資料" class="headerlink" title="使用 Fork 刪除 local 使用者資料"></a>使用 Fork 刪除 local 使用者資料</h3><ol>
-<li>點擊左上角 <strong>Repository</strong> &gt;  <strong>Settings for This Repository…</strong> (參考第6題的說明)</li>
-<li>把 <strong>Use global git credentials</strong> 的勾選框打勾<br><img data-src="https://i.imgur.com/odzV4vv.png" alt="勾選專案使用全域使用者資訊"></li>
-<li>完成 ~</li>
+<h3 id="使用-fork-刪除-local-使用者資料"><a class="markdownIt-Anchor" href="#使用-fork-刪除-local-使用者資料">#</a> 使用 Fork 刪除 local 使用者資料</h3>
+<ol>
+<li>點擊左上角 <strong>Repository</strong> &gt;  <strong>Settings for This Repository…</strong> (參考第 6 題的說明)</li>
+<li>把 <strong>Use global git credentials</strong> 的勾選框打勾<br>
+<img data-src="https://i.imgur.com/odzV4vv.png" alt="勾選專案使用全域使用者資訊"></li>
+<li>完成～</li>
 </ol>
 
       <div class="tags">
@@ -325,7 +332,7 @@ git config --local user.email &quot;你的信箱&quot;
     <div class="item left">
       
 
-  <a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;dOvnXNe.jpg" title="安裝 Git 、 Git GUI 工具">
+  <a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;IXkGvGY.jpg" title="安裝 Git 、 Git GUI 工具">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>安裝 Git 、 Git GUI 工具</h3>
@@ -335,7 +342,7 @@ git config --local user.email &quot;你的信箱&quot;
     <div class="item right">
       
 
-  <a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mubtL63.png" title="建立 Git 儲存庫">
+  <a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;fG7Vwmv.jpg" title="建立 Git 儲存庫">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>建立 Git 儲存庫</h3>
@@ -356,7 +363,7 @@ git config --local user.email &quot;你的信箱&quot;
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-Git-%E7%9A%84%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">2.</span> <span class="toc-text">設定 Git 的使用者名稱與信箱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%9B%B4%E6%94%B9%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">用指令更改：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-Fork-%E6%9B%B4%E6%94%B9"><span class="toc-number">2.2.</span> <span class="toc-text">用 Fork 更改</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-Git-%E9%A0%90%E8%A8%AD%E7%9A%84%E6%96%87%E5%AD%97%E7%B7%A8%E8%BC%AF%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">更改 Git 預設的文字編輯器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">4.</span> <span class="toc-text">常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%BF%E7%94%A8-Git-%E9%82%84%E8%A6%81%E8%A8%AD%E5%AE%9A%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E8%A8%8A%E8%88%87%E4%BF%A1%E7%AE%B1%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">1. 為什麼使用 Git 還要設定使用者資訊與信箱？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9C%A8-Git-%E8%A8%AD%E5%AE%9A%E7%9A%84%E4%BF%A1%E7%AE%B1%E9%9C%80%E8%A6%81%E8%B7%9F-GitHub-%E5%B8%B3%E8%99%9F%E4%B8%80%E6%A8%A3%E5%97%8E%EF%BC%9F"><span class="toc-number">4.2.</span> <span class="toc-text">2. 在 Git 設定的信箱需要跟 GitHub 帳號一樣嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%B7%9F%E4%BF%A1%E7%AE%B1%E8%A8%AD%E5%AE%9A%E5%AE%8C%EF%BC%8C%E5%9C%A8-Git-%E6%9C%83%E8%A2%AB%E7%B6%81%E5%AE%9A%E5%97%8E%EF%BC%9F"><span class="toc-number">4.3.</span> <span class="toc-text">3. 使用者名稱跟信箱設定完，在 Git 會被綁定嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%88%91%E6%89%93%E5%AE%8C%E6%8C%87%E4%BB%A4%E5%BE%8C%EF%BC%8C%E4%BB%80%E9%BA%BC%E8%A8%8A%E6%81%AF%E9%83%BD%E6%B2%92%E8%B7%91%E5%87%BA%E4%BE%86%EF%BC%8C%E6%89%80%E4%BB%A5%E6%98%AF%E7%99%BC%E7%94%9F%E4%BB%80%E9%BA%BC%E4%BA%8B%E6%83%85%E4%BA%86%EF%BC%9F"><span class="toc-number">4.4.</span> <span class="toc-text">4. 我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8C%87%E4%BB%A4%E6%9C%89-global-%E5%8F%83%E6%95%B8%EF%BC%8C%E9%9B%A3%E9%81%93%E4%B9%9F%E6%9C%89-local-%E5%8F%83%E6%95%B8%E5%97%8E%EF%BC%9F"><span class="toc-number">4.5.</span> <span class="toc-text">5. 指令有 global 參數，難道也有 local 參數嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%83%BD%E4%B8%8D%E8%83%BD%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%B0%88%E6%A1%88%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%B7%9F%E4%BF%A1%E7%AE%B1%EF%BC%9F"><span class="toc-number">4.6.</span> <span class="toc-text">6. 能不能在不同專案使用不同使用者名稱跟信箱？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E8%A8%AD%E5%AE%9A-local-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.1.</span> <span class="toc-text">用指令設定 local 使用者名稱與信箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-fork-%E8%A8%AD%E5%AE%9A-local-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.2.</span> <span class="toc-text">用 fork 設定 local 使用者名稱與信箱</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%88%91%E7%94%A8-local-%E5%8F%83%E6%95%B8%E8%A8%AD%E5%AE%9A%E4%BA%86%E4%BD%BF%E7%94%A8%E8%80%85%EF%BC%8C%E6%83%B3%E5%88%AA%E6%8E%89%E6%80%8E%E9%BA%BC%E8%BE%A6%E2%80%A6"><span class="toc-number">4.7.</span> <span class="toc-text">7. 我用 --local 參數設定了使用者，想刪掉怎麼辦…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B7%A8%E8%BC%AF-config-%E6%AA%94%E6%A1%88%E5%B0%87-local-%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99%E5%88%AA%E9%99%A4%EF%BC%9A"><span class="toc-number">4.7.1.</span> <span class="toc-text">編輯 config 檔案將 local 使用者資料刪除：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Fork-%E5%88%AA%E9%99%A4-local-%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99"><span class="toc-number">4.7.2.</span> <span class="toc-text">使用 Fork 刪除 local 使用者資料</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-git-%E7%9A%84%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">2.</span> <span class="toc-text"> 設定 Git 的使用者名稱與信箱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%9B%B4%E6%94%B9"><span class="toc-number">2.1.</span> <span class="toc-text"> 用指令更改：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-%E6%9B%B4%E6%94%B9"><span class="toc-number">2.2.</span> <span class="toc-text"> 用 Fork 更改</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-git-%E9%A0%90%E8%A8%AD%E7%9A%84%E6%96%87%E5%AD%97%E7%B7%A8%E8%BC%AF%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text"> 更改 Git 預設的文字編輯器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">4.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%BF%E7%94%A8-git-%E9%82%84%E8%A6%81%E8%A8%AD%E5%AE%9A%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E8%A8%8A%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.1.</span> <span class="toc-text"> 1. 為什麼使用 Git 還要設定使用者資訊與信箱？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9C%A8-git-%E8%A8%AD%E5%AE%9A%E7%9A%84%E4%BF%A1%E7%AE%B1%E9%9C%80%E8%A6%81%E8%B7%9F-github-%E5%B8%B3%E8%99%9F%E4%B8%80%E6%A8%A3%E5%97%8E"><span class="toc-number">4.2.</span> <span class="toc-text"> 2. 在 Git 設定的信箱需要跟 GitHub 帳號一樣嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%B7%9F%E4%BF%A1%E7%AE%B1%E8%A8%AD%E5%AE%9A%E5%AE%8C%E5%9C%A8-git-%E6%9C%83%E8%A2%AB%E7%B6%81%E5%AE%9A%E5%97%8E"><span class="toc-number">4.3.</span> <span class="toc-text"> 3. 使用者名稱跟信箱設定完，在 Git 會被綁定嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%88%91%E6%89%93%E5%AE%8C%E6%8C%87%E4%BB%A4%E5%BE%8C%E4%BB%80%E9%BA%BC%E8%A8%8A%E6%81%AF%E9%83%BD%E6%B2%92%E8%B7%91%E5%87%BA%E4%BE%86%E6%89%80%E4%BB%A5%E6%98%AF%E7%99%BC%E7%94%9F%E4%BB%80%E9%BA%BC%E4%BA%8B%E6%83%85%E4%BA%86"><span class="toc-number">4.4.</span> <span class="toc-text"> 4. 我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8C%87%E4%BB%A4%E6%9C%89-global-%E5%8F%83%E6%95%B8%E9%9B%A3%E9%81%93%E4%B9%9F%E6%9C%89-local-%E5%8F%83%E6%95%B8%E5%97%8E"><span class="toc-number">4.5.</span> <span class="toc-text"> 5. 指令有 global 參數，難道也有 local 參數嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%83%BD%E4%B8%8D%E8%83%BD%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%B0%88%E6%A1%88%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%B7%9F%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.</span> <span class="toc-text"> 6. 能不能在不同專案使用不同使用者名稱跟信箱？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E8%A8%AD%E5%AE%9A-local-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.1.</span> <span class="toc-text"> 用指令設定 local 使用者名稱與信箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-fork-%E8%A8%AD%E5%AE%9A-local-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.2.</span> <span class="toc-text"> 用 fork 設定 local 使用者名稱與信箱</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%88%91%E7%94%A8-local-%E5%8F%83%E6%95%B8%E8%A8%AD%E5%AE%9A%E4%BA%86%E4%BD%BF%E7%94%A8%E8%80%85%E6%83%B3%E5%88%AA%E6%8E%89%E6%80%8E%E9%BA%BC%E8%BE%A6"><span class="toc-number">4.7.</span> <span class="toc-text"> 7. 我用  --local  參數設定了使用者，想刪掉怎麼辦…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B7%A8%E8%BC%AF-config-%E6%AA%94%E6%A1%88%E5%B0%87-local-%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99%E5%88%AA%E9%99%A4"><span class="toc-number">4.7.1.</span> <span class="toc-text"> 編輯  config  檔案將 local 使用者資料刪除：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork-%E5%88%AA%E9%99%A4-local-%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99"><span class="toc-number">4.7.2.</span> <span class="toc-text"> 使用 Fork 刪除 local 使用者資料</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -463,7 +470,27 @@ git config --local user.email &quot;你的信箱&quot;
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
+    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
   </li>
 
       
@@ -483,7 +510,7 @@ git config --local user.email &quot;你的信箱&quot;
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
   </li>
 
       
@@ -493,17 +520,7 @@ git config --local user.email &quot;你的信箱&quot;
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></span>
+    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
   </li>
 
       
@@ -522,27 +539,17 @@ git config --local user.email &quot;你的信箱&quot;
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
+    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
     <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">版控的類別</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
   </li>
 
   </ul>
@@ -563,13 +570,13 @@ git config --local user.email &quot;你的信箱&quot;
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">137k 字</span>
+    <span title="總字數">134k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:05</span>
+    <span title="所需總閱讀時間">2:01</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

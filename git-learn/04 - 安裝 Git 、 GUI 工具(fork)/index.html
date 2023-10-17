@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
@@ -114,12 +116,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,110 +167,171 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>到了目前為止，大家應該對於 Git 已經有基本的認識，並且知道 Git 是一套在自己電腦就能運作的軟體。</p>
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>到了目前為止，大家應該對於 Git 已經有基本的認識，並且知道 Git 是一套在自己電腦就能運作的軟體。</p>
 <p>這篇文章，一起來安裝 Git ，以及 Git GUI 工具吧！</p>
-<h1 id="安裝-Git"><a href="#安裝-Git" class="headerlink" title="安裝 Git"></a>安裝 Git</h1><h2 id="在-Windows-系統安裝-Git"><a href="#在-Windows-系統安裝-Git" class="headerlink" title="在 Windows 系統安裝 Git"></a>在 Windows 系統安裝 Git</h2><p>在 Windows 環境安裝 Git ，其實無腦下一步就能裝好，不過筆者想帶大家認識每一步在做的事。  </p>
-<p>由於步驟之繁雜，如果是想節省時間 <del>懶得看</del> 的讀者，只要稍微注意 <strong>「第六步」</strong> 、 <strong>「第八步」</strong> 的設定，其他步驟都可以直接點下一步，直到安裝完成即可。</p>
+<h1 id="安裝-git"><a class="markdownIt-Anchor" href="#安裝-git">#</a> 安裝 Git</h1>
+<h2 id="在-windows-系統安裝-git"><a class="markdownIt-Anchor" href="#在-windows-系統安裝-git">#</a> 在 Windows 系統安裝 Git</h2>
+<p>在 Windows 環境安裝 Git ，其實無腦下一步就能裝好，不過筆者想帶大家認識每一步在做的事。</p>
+<p>由於步驟之繁雜，如果是想節省時間 <s>懶得看</s> 的讀者，只要稍微注意 <strong>「第六步」</strong> 、 <strong>「第八步」</strong> 的設定，其他步驟都可以直接點下一步，直到安裝完成即可。</p>
 <ol>
-<li><p>請先進入 Git 的<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">官網</span>，找到下面這個按鈕點進去。<br><img data-src="https://i.imgur.com/uIuHbte.jpg" alt="官網安裝圖示"></p>
+<li>
+<p>請先進入 Git 的<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS8=">官網</span>，找到下面這個按鈕點進去。<br>
+<img data-src="https://i.imgur.com/uIuHbte.jpg" alt="官網安裝圖示"></p>
 </li>
-<li><p>可以直接點擊「click here to download」安裝最新版 64 位元版本的 Git，或是依據需求下載 32 位元或是 64 位元的執行檔。<br><img data-src="https://i.imgur.com/diZXI0z.png" alt="下載安裝檔"></p>
+<li>
+<p>可以直接點擊「click here to download」安裝最新版 64 位元版本的 Git，或是依據需求下載 32 位元或是 64 位元的執行檔。<br>
+<img data-src="https://i.imgur.com/diZXI0z.png" alt="下載安裝檔"></p>
 </li>
 </ol>
 <blockquote>
 <p>如果不確定自己電腦位元，可參考 <span class="exturl" data-url="aHR0cHM6Ly9yZXVybC5jYy9RWjdBTnA=">微軟官網位元查詢教學</span> 的步驟查詢</p>
 </blockquote>
 <ol start="3">
-<li><p>打開執行檔，點擊執行。<br><img data-src="https://i.imgur.com/OtRMdEU.png" alt="開啟執行檔"></p>
+<li>
+<p>打開執行檔，點擊執行。<br>
+<img data-src="https://i.imgur.com/OtRMdEU.png" alt="開啟執行檔"></p>
 </li>
-<li><p>一些 Git 有關的資訊，繼續點擊下一步。<br><img data-src="https://i.imgur.com/2Q8OzXq.png" alt="Git 基本資訊"></p>
+<li>
+<p>一些 Git 有關的資訊，繼續點擊下一步。<br>
+<img data-src="https://i.imgur.com/2Q8OzXq.png" alt="Git 基本資訊"></p>
 </li>
-<li><p>選擇想要把 Git 安裝在哪個目錄中，如果沒特殊需求，放在預設目錄即可。<br><img data-src="https://i.imgur.com/q8bZDYO.png" alt="選擇安裝路徑"></p>
+<li>
+<p>選擇想要把 Git 安裝在哪個目錄中，如果沒特殊需求，放在預設目錄即可。<br>
+<img data-src="https://i.imgur.com/q8bZDYO.png" alt="選擇安裝路徑"></p>
 </li>
-<li><p>前面依照步驟點擊下一步後，會遇到這個畫面，建議調整兩個選項：</p>
+<li>
+<p>前面依照步驟點擊下一步後，會遇到這個畫面，建議調整兩個選項：</p>
 </li>
 </ol>
 <ul>
 <li>「取消勾選」 Git GUI 工具，這是 Git 內建的 GUI，不過未來用不到。</li>
-<li>「勾選」 <code>check daily for git for windows updates</code>，讓系統每天自動檢查 Git 更新，未來如果有安全性更新，就可以隨時接收到消息 。<br><img data-src="https://i.imgur.com/B1EpBih.png" alt="選擇基本安裝項目"></li>
+<li>「勾選」  <code>check daily for git for windows updates</code> ，讓系統每天自動檢查 Git 更新，未來如果有安全性更新，就可以隨時接收到消息 。<br>
+<img data-src="https://i.imgur.com/B1EpBih.png" alt="選擇基本安裝項目"></li>
 </ul>
 <ol start="7">
-<li><p>這步能設定 Git 相關的軟體要放在 Windows 的「開始選單」的哪個資料夾內，預設是幫我們新增一個 「Git」 資料夾將軟體放在裡面，如果想把資料放在不同位置，可以在這步設定。<br><img data-src="https://i.imgur.com/qC5jlVV.png" alt="於開始選單存放位置"></p>
+<li>
+<p>這步能設定 Git 相關的軟體要放在 Windows 的「開始選單」的哪個資料夾內，預設是幫我們新增一個 「Git」 資料夾將軟體放在裡面，如果想把資料放在不同位置，可以在這步設定。<br>
+<img data-src="https://i.imgur.com/qC5jlVV.png" alt="於開始選單存放位置"></p>
 </li>
-<li><p>這一步是要選擇 Git 預設的編輯器， Git 預設使用的編輯器是 <code>Vim</code>，如果跟他不熟，建議更改成習慣的編輯器。<br>例如想把預設編輯器改成 VSCode，可以選擇 <code>Use Visual Stuido Code as Git&#39;s default editor</code>。<br>這個設定在安裝完成後若想更改也可以，後續的文章會說明更改步驟。<br><img data-src="https://i.imgur.com/9eS2otH.png" alt="選擇預設文字編輯器"></p>
+<li>
+<p>這一步是要選擇 Git 預設的編輯器， Git 預設使用的編輯器是  <code>Vim</code> ，如果跟他不熟，建議更改成習慣的編輯器。<br>
+例如想把預設編輯器改成 VSCode，可以選擇  <code>Use Visual Stuido Code as Git's default editor</code> 。<br>
+這個設定在安裝完成後若想更改也可以，後續的文章會說明更改步驟。<br>
+<img data-src="https://i.imgur.com/9eS2otH.png" alt="選擇預設文字編輯器"></p>
 </li>
-<li><p>這裡讓我們設定「預設分支」名稱。<br>第一個選項(預設)會把分支設定成 <code>master</code>。<br>第二個則能讓我們自定義，例如有人希望預設分支叫 <code>main</code>，可以在這裡設定。<br>這個設定如果未來有需要，也可以去 Git 的設定檔添加設定。<br><img data-src="https://i.imgur.com/b9osvp9.png" alt="設定預設分支名稱"></p>
+<li>
+<p>這裡讓我們設定「預設分支」名稱。<br>
+第一個選項 (預設) 會把分支設定成  <code>master</code> 。<br>
+第二個則能讓我們自定義，例如有人希望預設分支叫  <code>main</code> ，可以在這裡設定。<br>
+這個設定如果未來有需要，也可以去 Git 的設定檔添加設定。<br>
+<img data-src="https://i.imgur.com/b9osvp9.png" alt="設定預設分支名稱"></p>
 </li>
-<li><p>這步特別重要，預設的選項(紅框)會幫我們把 Git 工具加到 「命令提示字元」的環境變數，讓我們在 <code>CMD</code> 或 <code>PowerShell</code> 也能執行 Git 指令，這步記得要 <strong>維持預設值</strong>。<br><img data-src="https://i.imgur.com/ddJ6QKk.png" alt="設定 Git 在命令提示字元的環境變數"></p>
+<li>
+<p>這步特別重要，預設的選項 (紅框) 會幫我們把 Git 工具加到 「命令提示字元」的環境變數，讓我們在  <code>CMD</code>  或  <code>PowerShell</code>  也能執行 Git 指令，這步記得要 <strong>維持預設值</strong>。<br>
+<img data-src="https://i.imgur.com/ddJ6QKk.png" alt="設定 Git 在命令提示字元的環境變數"></p>
 </li>
-<li><p>再來是詢問我們要用預設還是外部 SSH，這裡 <strong>維持預設值</strong> 即可。<br><img data-src="https://i.imgur.com/yfpsKfK.png" alt="預設或外部 SSH"></p>
+<li>
+<p>再來是詢問我們要用預設還是外部 SSH，這裡 <strong>維持預設值</strong> 即可。<br>
+<img data-src="https://i.imgur.com/yfpsKfK.png" alt="預設或外部 SSH"></p>
 </li>
-<li><p>這步是要設定我們在「地端儲存庫」要與「遠端儲存庫」連線時預設使用的機制，若沒特殊需求(例如須透過 AD 網域連線)，<strong>維持預設值</strong> 即可。<br><img data-src="https://i.imgur.com/wpPnhTw.png" alt="地端儲存庫與遠端儲存庫預設連線機制"></p>
+<li>
+<p>這步是要設定我們在「地端儲存庫」要與「遠端儲存庫」連線時預設使用的機制，若沒特殊需求 (例如須透過 AD 網域連線)，<strong>維持預設值</strong> 即可。<br>
+<img data-src="https://i.imgur.com/wpPnhTw.png" alt="地端儲存庫與遠端儲存庫預設連線機制"></p>
 </li>
-<li><p>在團隊如果同時有 Mac 以及 Windows 電腦的使用者，這裡的選擇就會影響彼此的合作。由於 Windows 在文件的換行符號是 CRLF ，而 Mac 電腦則是 LF ，預設選項在檔案紀錄在儲存庫時，會自動把換行符號轉換成 LF，保持一致性，所以這步建議一定要 <strong>維持預設值</strong> 。<br><img data-src="https://i.imgur.com/2Vz38t2.png" alt="選擇 window commit 轉換換行符號"></p>
+<li>
+<p>在團隊如果同時有 Mac 以及 Windows 電腦的使用者，這裡的選擇就會影響彼此的合作。由於 Windows 在文件的換行符號是 CRLF ，而 Mac 電腦則是 LF ，預設選項在檔案紀錄在儲存庫時，會自動把換行符號轉換成 LF，保持一致性，所以這步建議一定要 <strong>維持預設值</strong> 。<br>
+<img data-src="https://i.imgur.com/2Vz38t2.png" alt="選擇 window commit 轉換換行符號"></p>
 </li>
 </ol>
 <blockquote>
 <p>對 CRLF 跟 LF 有興趣的讀者，可以參考保哥寫的 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLm1pbmlhc3AuY29tL3Bvc3QvMjAxMy8wOS8xNS9HaXQtZm9yLVdpbmRvd3MtTGluZS1FbmRpbmctQ29udmVyc2lvbi1Ob3Rlcw==">這篇文章</span></p>
 </blockquote>
 <ol start="14">
-<li><p>這步在設定 Git Bash 環境指令(預設是linux指令) 是否要改成 windows 的指令。<br>如果有這個需求可以在這裡更改，用不到 <del>(或看不懂這在說啥)</del> 的話，<strong>維持預設值</strong> 就好。<br><img data-src="https://i.imgur.com/LLb8qND.png" alt="設定 git bash 是否更換預設指令"></p>
+<li>
+<p>這步在設定 Git Bash 環境指令 (預設是 linux 指令) 是否要改成 windows 的指令。<br>
+如果有這個需求可以在這裡更改，用不到 <s>(或看不懂這在說啥)</s> 的話，<strong>維持預設值</strong> 就好。<br>
+<img data-src="https://i.imgur.com/LLb8qND.png" alt="設定 git bash 是否更換預設指令"></p>
 </li>
-<li><p>這步在設定預設的 <code>git pull</code> 要用什麼方式，一樣 <strong>維持預設值</strong> 值即可。<br><img data-src="https://i.imgur.com/eA1mIq9.png" alt="設定 git pull 模式"></p>
+<li>
+<p>這步在設定預設的  <code>git pull</code>  要用什麼方式，一樣 <strong>維持預設值</strong> 值即可。<br>
+<img data-src="https://i.imgur.com/eA1mIq9.png" alt="設定 git pull 模式"></p>
 </li>
-<li><p>這步是讓我們設定預設的密碼管理工具，用來記憶在 Git 輸入的密碼，<strong>維持預設值</strong> 即可。<br><img data-src="https://i.imgur.com/litdv9G.png" alt="設定密碼管理工具"></p>
+<li>
+<p>這步是讓我們設定預設的密碼管理工具，用來記憶在 Git 輸入的密碼，<strong>維持預設值</strong> 即可。<br>
+<img data-src="https://i.imgur.com/litdv9G.png" alt="設定密碼管理工具"></p>
 </li>
-<li><p>這步是設定一些額外的操作，像是第一個選項可以對檔案進行一些快取，加快我們使用 Git 的體感。<br><img data-src="https://i.imgur.com/Yu2QFVL.png" alt="設定額外操作"></p>
+<li>
+<p>這步是設定一些額外的操作，像是第一個選項可以對檔案進行一些快取，加快我們使用 Git 的體感。<br>
+<img data-src="https://i.imgur.com/Yu2QFVL.png" alt="設定額外操作"></p>
 </li>
-<li><p>最後則是一些實驗性功能選項，畢竟還沒穩定，我們就 <strong>維持預設值</strong> 不勾選，直接點擊「安裝」按鈕。<br><img data-src="https://i.imgur.com/Bv760oS.png" alt="設定實驗性選項"></p>
+<li>
+<p>最後則是一些實驗性功能選項，畢竟還沒穩定，我們就 <strong>維持預設值</strong> 不勾選，直接點擊「安裝」按鈕。<br>
+<img data-src="https://i.imgur.com/Bv760oS.png" alt="設定實驗性選項"></p>
 </li>
-<li><p>安裝完成後會看到這個畫面，筆者習慣取消勾選 「View Release Notes」 再按「結束」。<br><img data-src="https://i.imgur.com/cElSAMt.png" alt="Git 安裝完成畫面"></p>
+<li>
+<p>安裝完成後會看到這個畫面，筆者習慣取消勾選 「View Release Notes」 再按「結束」。<br>
+<img data-src="https://i.imgur.com/cElSAMt.png" alt="Git 安裝完成畫面"></p>
 </li>
-<li><p>安裝完成之後，我們可以打開 「Git Bash」或是「命令提示字元」。<br>輸入 <code>git -v</code> 看到「版本資訊」，或是輸入 <code>git</code>，看到一堆像「亂碼」的內容，就代表 Git 已經安裝成功。<br><img data-src="https://i.imgur.com/vrWLH7l.png" alt="確認 Git 已安裝完成"></p>
+<li>
+<p>安裝完成之後，我們可以打開 「Git Bash」或是「命令提示字元」。<br>
+輸入  <code>git -v</code>  看到「版本資訊」，或是輸入  <code>git</code> ，看到一堆像「亂碼」的內容，就代表 Git 已經安裝成功。<br>
+<img data-src="https://i.imgur.com/vrWLH7l.png" alt="確認 Git 已安裝完成"></p>
 </li>
 </ol>
 <blockquote>
-<p>若 Git 官方推出新的版本，安裝過程可能會跟上述步驟有落差，若有讀者發現步驟不同，還是依照讀者實際的步驟為主。  </p>
+<p>若 Git 官方推出新的版本，安裝過程可能會跟上述步驟有落差，若有讀者發現步驟不同，還是依照讀者實際的步驟為主。</p>
 </blockquote>
-<h2 id="在-Mac-系統安裝-Git"><a href="#在-Mac-系統安裝-Git" class="headerlink" title="在 Mac 系統安裝 Git"></a>在 Mac 系統安裝 Git</h2><p>Mac 系統有兩種安裝方式，先說結論，推薦使用 <strong>HomeBrew</strong> 來安裝，因為速度會比較快。</p>
-<h3 id="1-在終端機執行-git-version"><a href="#1-在終端機執行-git-version" class="headerlink" title="1. 在終端機執行 git --version"></a>1. 在終端機執行 <code>git --version</code></h3><ol>
-<li><p>打開 MAC 終端機(Terminal)，位置在「應用程式&#x2F;工具程式&#x2F;終端機」</p>
+<h2 id="在-mac-系統安裝-git"><a class="markdownIt-Anchor" href="#在-mac-系統安裝-git">#</a> 在 Mac 系統安裝 Git</h2>
+<p>Mac 系統有兩種安裝方式，先說結論，推薦使用 <strong>HomeBrew</strong> 來安裝，因為速度會比較快。</p>
+<h3 id="1-在終端機執行-git-version"><a class="markdownIt-Anchor" href="#1-在終端機執行-git-version">#</a> 1. 在終端機執行  <code>git --version</code></h3>
+<ol>
+<li>
+<p>打開 MAC 終端機 (Terminal)，位置在「應用程式 / 工具程式 / 終端機」</p>
 </li>
-<li><p>輸入 <code>git --version</code> 後點選確定</p>
+<li>
+<p>輸入  <code>git --version</code>  後點選確定</p>
 </li>
-<li><p>此時視窗會跳出是否要安裝 <code>Xcode</code> ，因為 <code>Xcode</code> 這套軟體已內建好 Git 的命令，所以安裝  <code>Xcode</code> 的過程也會安裝 Git 命令列工具，這個步驟直接選擇安裝即可，</p>
+<li>
+<p>此時視窗會跳出是否要安裝  <code>Xcode</code>  ，因為  <code>Xcode</code>  這套軟體已內建好 Git 的命令，所以安裝   <code>Xcode</code>  的過程也會安裝 Git 命令列工具，這個步驟直接選擇安裝即可，</p>
 </li>
-<li><p>等待時間依使用者電腦不同而不同，根據使用 Mac 的朋友的說法，視窗可能會顯示 40 小時之久，若執行環境較佳的話，約莫 15 ~30 分鐘即可安裝完成。</p>
+<li>
+<p>等待時間依使用者電腦不同而不同，根據使用 Mac 的朋友的說法，視窗可能會顯示 40 小時之久，若執行環境較佳的話，約莫 15 ~30 分鐘即可安裝完成。</p>
 </li>
-<li><p>安裝完成後，於終端機再次輸入 <code>git --version</code>，如果跳出版本訊息，則代表安裝成功。</p>
-</li>
-</ol>
-<h3 id="2-用-HomeBrew-安裝"><a href="#2-用-HomeBrew-安裝" class="headerlink" title="2. 用 HomeBrew 安裝"></a>2. 用 HomeBrew 安裝</h3><ol>
-<li><p>進入 <span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoL3poLXR3Lw==">Homebrew 官網</span></p>
-</li>
-<li><p>複製官方網站上的指令來安裝 HomeBrew，如果讀者已經安裝過 HomeBrew ，可以直接跳到第四步。</p>
-</li>
-</ol>
-<pre><code class="sh">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
-</code></pre>
-<ol start="3">
-<li><p>打開終端機(Terminal) 貼上第二步複製的資料，點確定安裝 HomeBrew。</p>
-</li>
-<li><p>安裝好 HomeBrew 後，在終端機中下 Git 安裝指令，即可安裝 Git。</p>
+<li>
+<p>安裝完成後，於終端機再次輸入  <code>git --version</code> ，如果跳出版本訊息，則代表安裝成功。</p>
 </li>
 </ol>
-<pre><code class="sh">brew install git
-</code></pre>
-<ol start="5">
-<li>安裝過程結束後，在終端機輸入 <code>git --version</code> ，如果有看到版本資訊，代表 Git 已經安裝成功。</li>
+<h3 id="2-用-homebrew-安裝"><a class="markdownIt-Anchor" href="#2-用-homebrew-安裝">#</a> 2. 用 HomeBrew 安裝</h3>
+<ol>
+<li>
+<p>進入 <span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoL3poLXR3Lw==">Homebrew 官網</span></p>
+</li>
+<li>
+<p>複製官方網站上的指令來安裝 HomeBrew，如果讀者已經安裝過 HomeBrew ，可以直接跳到第四步。</p>
+</li>
 </ol>
-<h1 id="安裝-Git-GUI"><a href="#安裝-Git-GUI" class="headerlink" title="安裝 Git GUI"></a>安裝 Git GUI</h1><h2 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h2><p>Fork 的安裝方式相對於 Git 來說就很單純，它跟一般軟體安裝一樣，儘管按下一步直到安裝完成即可，這邊就不特別列步驟說明，請各位點選 <span class="exturl" data-url="aHR0cHM6Ly9naXQtZm9yay5jb20v">Fork</span> 連結進到官網安裝吧！</p>
-<p>雖然系列文是以 Fork 介紹，不過市面上的 Git GUI 工具並不是只有它，比較常見的還有 <code>SourceTree</code> 、<code>GitKraken</code>、<code>GitHub Desktop</code>，讀者可以選一個自己喜歡的使用。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>/bin/bash <span class="token parameter variable">-c</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="token variable">)</span></span>"</span></pre></td></tr></table></figure><ol start="3">
+<li>
+<p>打開終端機 (Terminal) 貼上第二步複製的資料，點確定安裝 HomeBrew。</p>
+</li>
+<li>
+<p>安裝好 HomeBrew 後，在終端機中下 Git 安裝指令，即可安裝 Git。</p>
+</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>brew <span class="token function">install</span> <span class="token function">git</span></pre></td></tr></table></figure><ol start="5">
+<li>安裝過程結束後，在終端機輸入  <code>git --version</code>  ，如果有看到版本資訊，代表 Git 已經安裝成功。</li>
+</ol>
+<h1 id="安裝-git-gui"><a class="markdownIt-Anchor" href="#安裝-git-gui">#</a> 安裝 Git GUI</h1>
+<h2 id="fork"><a class="markdownIt-Anchor" href="#fork">#</a> Fork</h2>
+<p>Fork 的安裝方式相對於 Git 來說就很單純，它跟一般軟體安裝一樣，儘管按下一步直到安裝完成即可，這邊就不特別列步驟說明，請各位點選 <span class="exturl" data-url="aHR0cHM6Ly9naXQtZm9yay5jb20v">Fork</span> 連結進到官網安裝吧！</p>
+<p>雖然系列文是以 Fork 介紹，不過市面上的 Git GUI 工具並不是只有它，比較常見的還有  <code>SourceTree</code>  、 <code>GitKraken</code> 、 <code>GitHub Desktop</code> ，讀者可以選一個自己喜歡的使用。</p>
 <blockquote>
-<p>fork 除了是一個 GUI 軟體工具之外，系列文最後會介紹到 GitHub 也有一個叫 <code>fork</code> 的功能，這兩者並沒有任何關係，純粹只是名稱取得一樣，請各位讀者千萬切記。</p>
+<p>fork 除了是一個 GUI 軟體工具之外，系列文最後會介紹到 GitHub 也有一個叫  <code>fork</code>  的功能，這兩者並沒有任何關係，純粹只是名稱取得一樣，請各位讀者千萬切記。</p>
 </blockquote>
-<h2 id="VSCode-中的套件-Git-Graph"><a href="#VSCode-中的套件-Git-Graph" class="headerlink" title="VSCode 中的套件 - Git Graph"></a>VSCode 中的套件 - Git Graph</h2><p>如果你也是 VSCode 的使用者，推薦你安裝 VSCode 中的套件 <span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPW1odXRjaGllLmdpdC1ncmFwaA==">Git Graph</span></p>
-<p>這個套件把 Git GUI 整合在 VSCode 之中，讓我們可以在開發過程不用刻意在切到其他視窗(例如 Fork) 處理 Git 的事情，是筆者很喜歡的一個套件之一。</p>
+<h2 id="vscode-中的套件-git-graph"><a class="markdownIt-Anchor" href="#vscode-中的套件-git-graph">#</a> VSCode 中的套件 - Git Graph</h2>
+<p>如果你也是 VSCode 的使用者，推薦你安裝 VSCode 中的套件 <span class="exturl" data-url="aHR0cHM6Ly9tYXJrZXRwbGFjZS52aXN1YWxzdHVkaW8uY29tL2l0ZW1zP2l0ZW1OYW1lPW1odXRjaGllLmdpdC1ncmFwaA==">Git Graph</span></p>
+<p>這個套件把 Git GUI 整合在 VSCode 之中，讓我們可以在開發過程不用刻意在切到其他視窗 (例如 Fork) 處理 Git 的事情，是筆者很喜歡的一個套件之一。</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -333,7 +396,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;aq0kjdS.jpg" title="Git 初始化設定">
+  <a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="Git 初始化設定">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>Git 初始化設定</h3>
@@ -354,7 +417,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-Git"><span class="toc-number">2.</span> <span class="toc-text">安裝 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-Windows-%E7%B3%BB%E7%B5%B1%E5%AE%89%E8%A3%9D-Git"><span class="toc-number">2.1.</span> <span class="toc-text">在 Windows 系統安裝 Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-Mac-%E7%B3%BB%E7%B5%B1%E5%AE%89%E8%A3%9D-Git"><span class="toc-number">2.2.</span> <span class="toc-text">在 Mac 系統安裝 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9C%A8%E7%B5%82%E7%AB%AF%E6%A9%9F%E5%9F%B7%E8%A1%8C-git-version"><span class="toc-number">2.2.1.</span> <span class="toc-text">1. 在終端機執行 git --version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%A8-HomeBrew-%E5%AE%89%E8%A3%9D"><span class="toc-number">2.2.2.</span> <span class="toc-text">2. 用 HomeBrew 安裝</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-Git-GUI"><span class="toc-number">3.</span> <span class="toc-text">安裝 Git GUI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork"><span class="toc-number">3.1.</span> <span class="toc-text">Fork</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode-%E4%B8%AD%E7%9A%84%E5%A5%97%E4%BB%B6-Git-Graph"><span class="toc-number">3.2.</span> <span class="toc-text">VSCode 中的套件 - Git Graph</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-git"><span class="toc-number">2.</span> <span class="toc-text"> 安裝 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-windows-%E7%B3%BB%E7%B5%B1%E5%AE%89%E8%A3%9D-git"><span class="toc-number">2.1.</span> <span class="toc-text"> 在 Windows 系統安裝 Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-mac-%E7%B3%BB%E7%B5%B1%E5%AE%89%E8%A3%9D-git"><span class="toc-number">2.2.</span> <span class="toc-text"> 在 Mac 系統安裝 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9C%A8%E7%B5%82%E7%AB%AF%E6%A9%9F%E5%9F%B7%E8%A1%8C-git-version"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 1. 在終端機執行  git --version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%A8-homebrew-%E5%AE%89%E8%A3%9D"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 2. 用 HomeBrew 安裝</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-git-gui"><span class="toc-number">3.</span> <span class="toc-text"> 安裝 Git GUI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fork"><span class="toc-number">3.1.</span> <span class="toc-text"> Fork</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode-%E4%B8%AD%E7%9A%84%E5%A5%97%E4%BB%B6-git-graph"><span class="toc-number">3.2.</span> <span class="toc-text"> VSCode 中的套件 - Git Graph</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -451,17 +514,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
   </li>
 
       
@@ -471,27 +524,17 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
       
@@ -501,7 +544,17 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
   </li>
 
       
@@ -521,7 +574,27 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
   </li>
 
       
@@ -532,16 +605,6 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
   </li>
 
   </ul>
@@ -562,13 +625,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">137k 字</span>
+    <span title="總字數">134k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:05</span>
+    <span title="所需總閱讀時間">2:01</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

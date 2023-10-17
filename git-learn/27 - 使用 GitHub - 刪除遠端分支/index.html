@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
@@ -114,12 +116,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,87 +167,74 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">分支觀念篇</span>的文章中有介紹過，如果已經合併過的分支，即便刪除了也不會影響整個線圖，雖然當初是在講「地端分支」的觀念，但這個觀念其實也適用於「遠端分支」。  </p>
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>在<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">分支觀念篇</span>的文章中有介紹過，如果已經合併過的分支，即便刪除了也不會影響整個線圖，雖然當初是在講「地端分支」的觀念，但這個觀念其實也適用於「遠端分支」。</p>
 <p>不過我們也曾經說過，地端分支跟遠端分支是要分開看待的，所以要刪除的分支如果也存在於遠端，那麼即便地端分支已經被刪除，遠端的分支並不會因此自動被刪除，我們會需要額外處理「刪掉遠端分支」這件事。</p>
 <p>這篇文章，來說明如何刪除遠端分支，以及遠端分支被刪除之後，團隊成員需要注意的小地方。</p>
-<h1 id="刪除遠端分支"><a href="#刪除遠端分支" class="headerlink" title="刪除遠端分支"></a>刪除遠端分支</h1><p>刪除遠端分支的方式，一樣是使用 <code>git push</code> 指令，只要在使用指令時多加一個 <code>--delete</code> 即可。</p>
-<pre><code class="sh">git push origin --delete 分支名稱
-</code></pre>
-<p>或是使用 <code>--delete</code> 的簡寫 <code>-d</code>：</p>
-<pre><code class="sh">git push origin -d 分支名稱
-</code></pre>
-<p>除了<code>--delete</code> 參數之外，也可以使用下面指令來刪除遠端分支：</p>
-<pre><code class="sh">git push origin :遠端分支名稱
-</code></pre>
-<p>這個神奇的指令的概念是將「空的分支」推到遠端已經存在的分支上，藉此把遠端分支刪除。</p>
-<h1 id="在遠端分支被刪除後，團隊成員需要注意的小地方"><a href="#在遠端分支被刪除後，團隊成員需要注意的小地方" class="headerlink" title="在遠端分支被刪除後，團隊成員需要注意的小地方"></a>在遠端分支被刪除後，團隊成員需要注意的小地方</h1><p>來做個實驗吧，我開啟兩個終端機視窗，模擬兩個開發者地端儲存庫的狀況。<br><img data-src="https://i.imgur.com/RNNAJ7T.png"></p>
-<p>左邊是 <code>愛蜜莉雅</code> 的工作視窗，右邊是 <code>雷姆</code> 的工作視窗。</p>
-<p><code>愛蜜莉雅</code> 的開發分支是 <code>Emilia</code>，而 <code>雷姆</code> 的開發分支是 <code>Rem</code>，由於 <code>愛蜜莉雅</code> 之前為了幫 <code>雷姆</code> 看他的開發內容，曾經把 <code>Rem</code> 分支拉回地端查看資料，所以 <code>愛蜜莉雅</code> 的地端儲存庫中也有 <code>Rem</code> 分支。</p>
-<p><code>雷姆</code> 剛把專案開發完成，她的 <code>Rem</code> 分支已經被合併回主要分支了，<code>Rem</code> 分支在地端與遠端都可以不用再出現。 </p>
-<p>此時 <code>雷姆</code> 需要執行兩個指令，分別刪除「地端」與「遠端」的分支：</p>
+<h1 id="刪除遠端分支"><a class="markdownIt-Anchor" href="#刪除遠端分支">#</a> 刪除遠端分支</h1>
+<p>刪除遠端分支的方式，一樣是使用  <code>git push</code>  指令，只要在使用指令時多加一個  <code>--delete</code>  即可。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> 分支名稱</pre></td></tr></table></figure><p>或是使用  <code>--delete</code>  的簡寫  <code>-d</code> ：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin <span class="token parameter variable">-d</span> 分支名稱</pre></td></tr></table></figure><p>除了 <code>--delete</code>  參數之外，也可以使用下面指令來刪除遠端分支：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin :遠端分支名稱</pre></td></tr></table></figure><p>這個神奇的指令的概念是將「空的分支」推到遠端已經存在的分支上，藉此把遠端分支刪除。</p>
+<h1 id="在遠端分支被刪除後團隊成員需要注意的小地方"><a class="markdownIt-Anchor" href="#在遠端分支被刪除後團隊成員需要注意的小地方">#</a> 在遠端分支被刪除後，團隊成員需要注意的小地方</h1>
+<p>來做個實驗吧，我開啟兩個終端機視窗，模擬兩個開發者地端儲存庫的狀況。<br>
+<img data-src="https://i.imgur.com/RNNAJ7T.png" alt=""></p>
+<p>左邊是  <code>愛蜜莉雅</code>  的工作視窗，右邊是  <code>雷姆</code>  的工作視窗。</p>
+<p><code>愛蜜莉雅</code>  的開發分支是  <code>Emilia</code> ，而  <code>雷姆</code>  的開發分支是  <code>Rem</code> ，由於  <code>愛蜜莉雅</code>  之前為了幫  <code>雷姆</code>  看他的開發內容，曾經把  <code>Rem</code>  分支拉回地端查看資料，所以  <code>愛蜜莉雅</code>  的地端儲存庫中也有  <code>Rem</code>  分支。</p>
+<p><code>雷姆</code>  剛把專案開發完成，她的  <code>Rem</code>  分支已經被合併回主要分支了， <code>Rem</code>  分支在地端與遠端都可以不用再出現。</p>
+<p>此時  <code>雷姆</code>  需要執行兩個指令，分別刪除「地端」與「遠端」的分支：</p>
 <ul>
 <li>刪除地端分支</li>
 </ul>
-<pre><code class="sh">git branch -d Rem
-</code></pre>
-<ul>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-d</span> Rem</pre></td></tr></table></figure><ul>
 <li>刪除遠端分支</li>
 </ul>
-<pre><code class="sh">git push origin --delete Rem
-# 或是
-git push origin :Rem
-</code></pre>
-<p>執行完之後，打開遠端儲存庫的介面，確定沒有 <code>Rem</code> 分支了<br><img data-src="https://i.imgur.com/dPVWHjL.png"></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push origin <span class="token parameter variable">--delete</span> Rem</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 或是</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token function">git</span> push origin :Rem</pre></td></tr></table></figure><p>執行完之後，打開遠端儲存庫的介面，確定沒有  <code>Rem</code>  分支了<br>
+<img data-src="https://i.imgur.com/dPVWHjL.png" alt=""></p>
 <blockquote>
-<p>注意這個行為是 <code>雷姆</code> 在她的專案中執行 </p>
+<p>注意這個行為是  <code>雷姆</code>  在她的專案中執行</p>
 </blockquote>
-<p>此時我們回到 <code>愛蜜莉雅</code> 的專案上，執行查看所有分支的指令看看專案分支狀況：</p>
-<pre><code class="sh">git branch -a
-</code></pre>
-<p><img data-src="https://i.imgur.com/X8hdsG2.gif"></p>
-<p><code>愛蜜莉雅</code> 的專案上， <code>Rem</code> 分支並不會自動被刪除！！</p>
-<h1 id="修剪遠端追蹤分支"><a href="#修剪遠端追蹤分支" class="headerlink" title="修剪遠端追蹤分支"></a>修剪遠端追蹤分支</h1><p>團隊協作上要有一個觀念，每個人的「地端儲存庫」都是獨立的，已經存在的地端分支，不會因為「遠端儲存庫」的遠端分支有什麼異動而受到任何影響！</p>
+<p>此時我們回到  <code>愛蜜莉雅</code>  的專案上，執行查看所有分支的指令看看專案分支狀況：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/X8hdsG2.gif" alt=""></p>
+<p><code>愛蜜莉雅</code>  的專案上，  <code>Rem</code>  分支並不會自動被刪除！！</p>
+<h1 id="修剪遠端追蹤分支"><a class="markdownIt-Anchor" href="#修剪遠端追蹤分支">#</a> 修剪遠端追蹤分支</h1>
+<p>團隊協作上要有一個觀念，每個人的「地端儲存庫」都是獨立的，已經存在的地端分支，不會因為「遠端儲存庫」的遠端分支有什麼異動而受到任何影響！</p>
 <p>唯一有辦法影響自己地端儲存庫資料的人，只有你自己。</p>
-<p>銜接上面的例子，如果 <code>愛蜜莉雅</code> 知道 <code>雷姆</code> 的分支已經沒有要使用，而且 <code>Rem</code> 分支已經在遠端被刪除，她需要在自己的專案中做兩件事</p>
+<p>銜接上面的例子，如果  <code>愛蜜莉雅</code>  知道  <code>雷姆</code>  的分支已經沒有要使用，而且  <code>Rem</code>  分支已經在遠端被刪除，她需要在自己的專案中做兩件事</p>
 <ol>
-<li>刪除地端的 <code>Rem</code> 分支</li>
+<li>刪除地端的  <code>Rem</code>  分支</li>
 </ol>
-<pre><code class="sh">git branch -d Rem
-</code></pre>
-<ol start="2">
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-d</span> Rem</pre></td></tr></table></figure><ol start="2">
 <li>修剪遠端追蹤分支</li>
 </ol>
-<pre><code class="sh">git fetch --prune
-</code></pre>
-<p><code>git fetch</code> 指令，本身的作用是把<strong>所有</strong>「遠端分支」更新回地端「遠端追蹤分支」 的行為，不過如果遠端已經沒有分支，指令並不會主動把「遠端追蹤分支」刪除。</p>
-<p><code>--prune</code> 意思是修剪，把他加到 <code>git fetch</code> 指令後，整個指令就會去修剪已經不用存在的 「遠端追蹤分支」了</p>
-<pre><code class="sh">$ git fetch --prune
-From https://github.com/imall/GitLearn
- - [deleted]         (none)     -&gt; origin/Rem
-</code></pre>
-<p>執行完這個指令後，「遠端追蹤分支」就不會再出現已經不存在的「遠端分支」囉！</p>
-<pre><code class="sh">$ git branch -r
-  origin/Emilia
-  origin/HEAD -&gt; origin/main
-  origin/dev
-  origin/main
-</code></pre>
-<h1 id="使用-Fork-GUI-刪除遠端分支"><a href="#使用-Fork-GUI-刪除遠端分支" class="headerlink" title="使用 Fork GUI 刪除遠端分支"></a>使用 Fork GUI 刪除遠端分支</h1><p>假設 <code>雷姆</code> 完成了她的開發，想透過 Fork GUI 把 「遠端分支」 刪除。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> fetch <span class="token parameter variable">--prune</span></pre></td></tr></table></figure><p><code>git fetch</code>  指令，本身的作用是把<strong>所有</strong>「遠端分支」更新回地端「遠端追蹤分支」 的行為，不過如果遠端已經沒有分支，指令並不會主動把「遠端追蹤分支」刪除。</p>
+<p><code>--prune</code>  意思是修剪，把他加到  <code>git fetch</code>  指令後，整個指令就會去修剪已經不用存在的 「遠端追蹤分支」了</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> fetch <span class="token parameter variable">--prune</span></pre></td></tr><tr><td data-num="2"></td><td><pre>From https://github.com/imall/GitLearn</pre></td></tr><tr><td data-num="3"></td><td><pre> - <span class="token punctuation">[</span>deleted<span class="token punctuation">]</span>         <span class="token punctuation">(</span>none<span class="token punctuation">)</span>     -<span class="token operator">></span> origin/Rem</pre></td></tr></table></figure><p>執行完這個指令後，「遠端追蹤分支」就不會再出現已經不存在的「遠端分支」囉！</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  origin/Emilia</pre></td></tr><tr><td data-num="3"></td><td><pre>  origin/HEAD -<span class="token operator">></span> origin/main</pre></td></tr><tr><td data-num="4"></td><td><pre>  origin/dev</pre></td></tr><tr><td data-num="5"></td><td><pre>  origin/main</pre></td></tr></table></figure><h1 id="使用-fork-gui-刪除遠端分支"><a class="markdownIt-Anchor" href="#使用-fork-gui-刪除遠端分支">#</a> 使用 Fork GUI 刪除遠端分支</h1>
+<p>假設  <code>雷姆</code>  完成了她的開發，想透過 Fork GUI 把 「遠端分支」 刪除。</p>
 <ol>
-<li><p>到 GUI 左下角，對著 <code>Rem</code> 遠端追蹤分支點右鍵，選到刪除選項：<br><img data-src="https://i.imgur.com/7PBklsA.png"></p>
+<li>
+<p>到 GUI 左下角，對著  <code>Rem</code>  遠端追蹤分支點右鍵，選到刪除選項：<br>
+<img data-src="https://i.imgur.com/7PBklsA.png" alt=""></p>
 </li>
-<li><p>跳出的視窗點 <code>Delete</code> 就完成了<br><img data-src="https://i.imgur.com/TY6NuJ8.png"></p>
+<li>
+<p>跳出的視窗點  <code>Delete</code>  就完成了<br>
+<img data-src="https://i.imgur.com/TY6NuJ8.png" alt=""></p>
 </li>
 </ol>
-<p>操作如下：<br><img data-src="https://i.imgur.com/c5SYA0L.gif"></p>
-<h1 id="使用-Fork-GUI-修剪遠端追蹤分支"><a href="#使用-Fork-GUI-修剪遠端追蹤分支" class="headerlink" title="使用 Fork GUI 修剪遠端追蹤分支"></a>使用 Fork GUI 修剪遠端追蹤分支</h1><p><code>愛蜜莉雅</code> 要更新遠端已經被刪除的分支，在 Fork GUI 中點選左上角的 <code>Fetch</code> 按鈕即可：<br><img data-src="https://i.imgur.com/eIddWDq.png"></p>
+<p>操作如下：<br>
+<img data-src="https://i.imgur.com/c5SYA0L.gif" alt=""></p>
+<h1 id="使用-fork-gui-修剪遠端追蹤分支"><a class="markdownIt-Anchor" href="#使用-fork-gui-修剪遠端追蹤分支">#</a> 使用 Fork GUI 修剪遠端追蹤分支</h1>
+<p><code>愛蜜莉雅</code>  要更新遠端已經被刪除的分支，在 Fork GUI 中點選左上角的  <code>Fetch</code>  按鈕即可：<br>
+<img data-src="https://i.imgur.com/eIddWDq.png" alt=""></p>
 <p>操作如下：</p>
-<p><img data-src="https://i.imgur.com/Ds93Y4y.gif"></p>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>總結一下這篇的重點</p>
+<p><img data-src="https://i.imgur.com/Ds93Y4y.gif" alt=""></p>
+<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
+<p>總結一下這篇的重點</p>
 <ol>
 <li>若已經開發完畢，地端分支、遠端分支需要分開刪除。</li>
 <li>遠端分支被刪除後，團隊成員的地端儲存庫不會有影響。</li>
-<li>要將遠端刪除的分支狀態同步回地端，使用 <code>git fetch --prune</code> 指令。</li>
+<li>要將遠端刪除的分支狀態同步回地端，使用  <code>git fetch --prune</code>  指令。</li>
 </ol>
 
       <div class="tags">
@@ -301,7 +290,7 @@ From https://github.com/imall/GitLearn
     <div class="item left">
       
 
-  <a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;qhft9aC.png" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">
+  <a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;wW2x12h.png" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>使用 GitHub：地端分支、遠端分支、遠端追蹤分支</h3>
@@ -311,7 +300,7 @@ From https://github.com/imall/GitLearn
     <div class="item right">
       
 
-  <a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;tXRAhpc.jpg" title="使用 GitHub：將遠端儲存庫搬家">
+  <a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;qhft9aC.png" title="使用 GitHub：將遠端儲存庫搬家">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>使用 GitHub：將遠端儲存庫搬家</h3>
@@ -332,7 +321,7 @@ From https://github.com/imall/GitLearn
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text">刪除遠端分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E8%A2%AB%E5%88%AA%E9%99%A4%E5%BE%8C%EF%BC%8C%E5%9C%98%E9%9A%8A%E6%88%90%E5%93%A1%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E5%9C%B0%E6%96%B9"><span class="toc-number">3.</span> <span class="toc-text">在遠端分支被刪除後，團隊成員需要注意的小地方</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E5%89%AA%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text">修剪遠端追蹤分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Fork-GUI-%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">5.</span> <span class="toc-text">使用 Fork GUI 刪除遠端分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Fork-GUI-%E4%BF%AE%E5%89%AA%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">6.</span> <span class="toc-text">使用 Fork GUI 修剪遠端追蹤分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">7.</span> <span class="toc-text">總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text"> 刪除遠端分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E8%A2%AB%E5%88%AA%E9%99%A4%E5%BE%8C%E5%9C%98%E9%9A%8A%E6%88%90%E5%93%A1%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E5%9C%B0%E6%96%B9"><span class="toc-number">3.</span> <span class="toc-text"> 在遠端分支被刪除後，團隊成員需要注意的小地方</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E5%89%AA%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text"> 修剪遠端追蹤分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork-gui-%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">5.</span> <span class="toc-text"> 使用 Fork GUI 刪除遠端分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork-gui-%E4%BF%AE%E5%89%AA%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">6.</span> <span class="toc-text"> 使用 Fork GUI 修剪遠端追蹤分支</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">7.</span> <span class="toc-text"> 總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -429,6 +418,26 @@ From https://github.com/imall/GitLearn
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
+    <span><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
     <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
   </li>
 
@@ -439,37 +448,27 @@ From https://github.com/imall/GitLearn
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
+    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
   </li>
 
       
@@ -479,7 +478,27 @@ From https://github.com/imall/GitLearn
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
+    <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
       
@@ -490,36 +509,6 @@ From https://github.com/imall/GitLearn
 </div>
 
     <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
   </li>
 
   </ul>
@@ -540,13 +529,13 @@ From https://github.com/imall/GitLearn
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">137k 字</span>
+    <span title="總字數">134k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:05</span>
+    <span title="所需總閱讀時間">2:01</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

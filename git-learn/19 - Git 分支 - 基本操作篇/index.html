@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
@@ -114,12 +116,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,122 +167,117 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇文章，開始來介紹該如何開始使用分支吧！</p>
-<p>一樣介紹完指令之後，來介紹 GUI 的操作方式。<br>老樣子，我可能會直接在指令操作的內容敘述一些觀念，也請 GUI 派的讀者也稍微看一下指令的內容。</p>
-<h1 id="使用指令操作分支"><a href="#使用指令操作分支" class="headerlink" title="使用指令操作分支"></a>使用指令操作分支</h1><p>跟分支有關的指令需要認識兩個英文單字：  </p>
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>這篇文章，開始來介紹該如何開始使用分支吧！</p>
+<p>一樣介紹完指令之後，來介紹 GUI 的操作方式。<br>
+老樣子，我可能會直接在指令操作的內容敘述一些觀念，也請 GUI 派的讀者也稍微看一下指令的內容。</p>
+<h1 id="使用指令操作分支"><a class="markdownIt-Anchor" href="#使用指令操作分支">#</a> 使用指令操作分支</h1>
+<p>跟分支有關的指令需要認識兩個英文單字：</p>
 <ol>
-<li><code>branch</code> ，也就是分支本身</li>
-<li><code>checkout</code>， 中文是取出</li>
+<li><code>branch</code>  ，也就是分支本身</li>
+<li><code>checkout</code> ， 中文是取出</li>
 </ol>
-<p>不過我看著「取出」兩個字，實在想不到他的意義是什麼。<br>所以 <code>checkout</code> 我會直接把他想成「切換」。</p>
-<h2 id="查詢分支"><a href="#查詢分支" class="headerlink" title="查詢分支"></a>查詢分支</h2><p>若要查詢目前專案中的分支，直接使用這個指令就可以了：  </p>
-<pre><code class="sh">git branch
-</code></pre>
-<pre><code class="sh">$ git branch
-* master
-</code></pre>
-<p>尚未建立任何分支前，指令會跑出預設分支 <code>master</code>，並且注意分支前面有一個星號(<code>*</code>)，是用來提示我們目前所在的分支位置。</p>
-<h2 id="建立分支"><a href="#建立分支" class="headerlink" title="建立分支"></a>建立分支</h2><p>要建立分支，在 <code>git branch</code> 指令之後加上 <strong>分支名稱</strong> 即可：</p>
-<pre><code class="sh">git branch 分支名稱
-</code></pre>
-<p>新增一個 <strong>new-branch</strong> 分支，可以這麼執行指令：</p>
-<pre><code class="sh">git branch new-branch
-</code></pre>
-<p>接著如果再執行一次 <code>git branch</code> 會看到多了一個名稱：</p>
-<pre><code class="sh">$ git branch
- * master
-   new-branch
-</code></pre>
-<p>注意到 <code>*</code> 依然在 <code>master</code> 前面，因為 <code>git branch 分支名稱</code> 指令只會幫我們建立分支，並不會主動幫我們切換分支。  </p>
-<p>上一篇文章中有說到，分支是 <strong>便籤</strong>，所以建立分支代表撕一張新的便籤起來寫上名稱。  </p>
-<p>預設的建立分支行為，Git 會把這張寫好名稱的便籤貼到目前所在的 commit 上面。  </p>
-<p>就以上面的例子來說，原本的線圖會長這樣，目前所在 <code>master</code> 分支上：<br><img data-src="https://i.imgur.com/ZwLxIZ7.png"></p>
-<p>執行完 <code>git branch new-branch</code> 指令後，線圖會在原本的位置多一個分支便籤：<br><img data-src="https://i.imgur.com/55j9t8t.png"></p>
+<p>不過我看著「取出」兩個字，實在想不到他的意義是什麼。<br>
+所以  <code>checkout</code>  我會直接把他想成「切換」。</p>
+<h2 id="查詢分支"><a class="markdownIt-Anchor" href="#查詢分支">#</a> 查詢分支</h2>
+<p>若要查詢目前專案中的分支，直接使用這個指令就可以了：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch</pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre>* master</pre></td></tr></table></figure><p>尚未建立任何分支前，指令會跑出預設分支  <code>master</code> ，並且注意分支前面有一個星號 ( <code>*</code> )，是用來提示我們目前所在的分支位置。</p>
+<h2 id="建立分支"><a class="markdownIt-Anchor" href="#建立分支">#</a> 建立分支</h2>
+<p>要建立分支，在  <code>git branch</code>  指令之後加上 <strong>分支名稱</strong> 即可：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch 分支名稱</pre></td></tr></table></figure><p>新增一個 <strong>new-branch</strong> 分支，可以這麼執行指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch new-branch</pre></td></tr></table></figure><p>接著如果再執行一次  <code>git branch</code>  會看到多了一個名稱：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre> * master</pre></td></tr><tr><td data-num="3"></td><td><pre>   new-branch</pre></td></tr></table></figure><p>注意到  <code>*</code>  依然在  <code>master</code>  前面，因為  <code>git branch 分支名稱</code>  指令只會幫我們建立分支，並不會主動幫我們切換分支。</p>
+<p>上一篇文章中有說到，分支是 <strong>便籤</strong>，所以建立分支代表撕一張新的便籤起來寫上名稱。</p>
+<p>預設的建立分支行為，Git 會把這張寫好名稱的便籤貼到目前所在的 commit 上面。</p>
+<p>就以上面的例子來說，原本的線圖會長這樣，目前所在  <code>master</code>  分支上：<br>
+<img data-src="https://i.imgur.com/ZwLxIZ7.png" alt=""></p>
+<p>執行完  <code>git branch new-branch</code>  指令後，線圖會在原本的位置多一個分支便籤：<br>
+<img data-src="https://i.imgur.com/55j9t8t.png" alt=""></p>
 <p>因為這兩個分支都是貼在同一個 commit，如果在兩個分支持續切換，並不會看到資料有任何改變，這也是有人會誤會建立分支會複製一份資料出來的原因。</p>
 <p>事實上，建立分支的行為沒有任何資料會被複製，純粹只是多了一張便籤貼在原本的位置而已。</p>
-<h2 id="切換分支"><a href="#切換分支" class="headerlink" title="切換分支"></a>切換分支</h2><p>雖然建立分支，會把分支便籤貼在原本的 commit 上，不過在 Git 提交的版本，會記錄在「目前所在」的分支，所以如果希望資料提交到哪個分支，就必須切換到那個分支再開發、提交。</p>
+<h2 id="切換分支"><a class="markdownIt-Anchor" href="#切換分支">#</a> 切換分支</h2>
+<p>雖然建立分支，會把分支便籤貼在原本的 commit 上，不過在 Git 提交的版本，會記錄在「目前所在」的分支，所以如果希望資料提交到哪個分支，就必須切換到那個分支再開發、提交。</p>
 <p>切換分支的指令是這樣：</p>
-<pre><code class="sh">git checkout 要切換的分支名稱
-</code></pre>
-<p>例如要切換到 <code>new-branch</code> 分支的指令會長這樣：</p>
-<pre><code class="sh">$ git checkout new-branch
-Switched to branch &#39;new-branch&#39;
-</code></pre>
-<p>此時執行 <code>git branch</code> 來查看分支：</p>
-<pre><code class="sh">$ git branch
-   master
- * new-branch
-</code></pre>
-<p>注意到星號 (<code>*</code>) 跑到 <code>new-branch</code> 去了，表示我們成功切換分支！</p>
-<p>而線圖會長這樣，注意到 <strong>圈圈</strong> 跑到 <code>new-master</code> 前面了：<br><img data-src="https://i.imgur.com/x80eQ1v.png"></p>
-<h2 id="建立與切換一次搞定"><a href="#建立與切換一次搞定" class="headerlink" title="建立與切換一次搞定"></a>建立與切換一次搞定</h2><p>我們建立一個分支之後，下一步通常就是要切過去，但要下兩個指令實在有點麻煩<br>實務上我常常會用下面這個指令，一次進行分支的建立與切換：</p>
-<pre><code class="sh">git checkout -b 新的分支名稱
-</code></pre>
-<p>透過「切換分支」的指令，並且多一個 <code>-b</code> 的參數<br>就可以跟 Git 說：「請幫我建立一個新分支，接著直接切換過去」</p>
-<h2 id="分支改名"><a href="#分支改名" class="headerlink" title="分支改名"></a>分支改名</h2><p>如果對於目前的分支有想改名的需求，可以使用 <code>-m</code> 參數來對分支進行更名。<br>假設目前 HEAD 是指著 <code>master</code> 分支，然後執行這個指令：</p>
-<pre><code class="sh">git branch -m changed-master  # 更改目前所在分支名稱
-</code></pre>
-<p>執行完指令後，master 分支，就會被改名叫 <code>changed-master</code> 了</p>
-<pre><code class="sh">$ git branch
- * changed-master
-   new-branch
-</code></pre>
-<p>當然也可以更改專案中的其他分支名稱，語法是這樣：</p>
-<pre><code class="sh">git branch -m 原有分支名稱 新的分支名稱
-</code></pre>
-<p>例如目前雖然還是在 <code>changed-master</code> 分支上，要更改 <code>new-branch</code> 名稱的話，可以執行這個指令：</p>
-<pre><code class="sh">git branch -m new-branch 改成中文名
-</code></pre>
-<p>此時執行 <code>git branch</code> ，就能看到改好的名稱了。</p>
-<pre><code class="sh">$ git branch
- * changed-master
-   改成中文名
-</code></pre>
-<h2 id="刪除分支"><a href="#刪除分支" class="headerlink" title="刪除分支"></a>刪除分支</h2><p>如果分支的任務已經完成，未來不再需要這個分支的話，可以使用 <code>-d</code> 參數進行分支的刪除<br>執行參數之後，會跳出 <strong>Deleted branch [分支名]</strong> 的訊息，告訴你已經刪除了某個分支</p>
-<pre><code class="sh">$ git branch -d 改成中文名
-Deleted branch 改成中文名
-</code></pre>
-<p>使用 <code>git branch</code> 確認一下，沒意外的話就可以看到分支被刪掉囉~</p>
-<pre><code class="sh">$ git branch
- * changed-master
-</code></pre>
-<h3 id="無法刪除分支的狀況"><a href="#無法刪除分支的狀況" class="headerlink" title="無法刪除分支的狀況"></a>無法刪除分支的狀況</h3><p>記得上一篇提到，分支有圖釘的特性，會把已經 commit 釘在線圖上。<br>Git 為了避免有 commit 不見，有幾種狀況會沒辦法使用 <code>-d</code> 參數刪除分支：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout 要切換的分支名稱</pre></td></tr></table></figure><p>例如要切換到  <code>new-branch</code>  分支的指令會長這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> checkout new-branch</pre></td></tr><tr><td data-num="2"></td><td><pre>Switched to branch <span class="token string">'new-branch'</span></pre></td></tr></table></figure><p>此時執行  <code>git branch</code>  來查看分支：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre>   master</pre></td></tr><tr><td data-num="3"></td><td><pre> * new-branch</pre></td></tr></table></figure><p>注意到星號 ( <code>*</code> ) 跑到  <code>new-branch</code>  去了，表示我們成功切換分支！</p>
+<p>而線圖會長這樣，注意到 <strong>圈圈</strong> 跑到  <code>new-master</code>  前面了：<br>
+<img data-src="https://i.imgur.com/x80eQ1v.png" alt=""></p>
+<h2 id="建立與切換一次搞定"><a class="markdownIt-Anchor" href="#建立與切換一次搞定">#</a> 建立與切換一次搞定</h2>
+<p>我們建立一個分支之後，下一步通常就是要切過去，但要下兩個指令實在有點麻煩<br>
+實務上我常常會用下面這個指令，一次進行分支的建立與切換：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout <span class="token parameter variable">-b</span> 新的分支名稱</pre></td></tr></table></figure><p>透過「切換分支」的指令，並且多一個  <code>-b</code>  的參數<br>
+就可以跟 Git 說：「請幫我建立一個新分支，接著直接切換過去」</p>
+<h2 id="分支改名"><a class="markdownIt-Anchor" href="#分支改名">#</a> 分支改名</h2>
+<p>如果對於目前的分支有想改名的需求，可以使用  <code>-m</code>  參數來對分支進行更名。<br>
+假設目前 HEAD 是指著  <code>master</code>  分支，然後執行這個指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-m</span> changed-master  <span class="token comment"># 更改目前所在分支名稱</span></pre></td></tr></table></figure><p>執行完指令後，master 分支，就會被改名叫  <code>changed-master</code>  了</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre> * changed-master</pre></td></tr><tr><td data-num="3"></td><td><pre>   new-branch</pre></td></tr></table></figure><p>當然也可以更改專案中的其他分支名稱，語法是這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-m</span> 原有分支名稱 新的分支名稱</pre></td></tr></table></figure><p>例如目前雖然還是在  <code>changed-master</code>  分支上，要更改  <code>new-branch</code>  名稱的話，可以執行這個指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-m</span> new-branch 改成中文名</pre></td></tr></table></figure><p>此時執行  <code>git branch</code>  ，就能看到改好的名稱了。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre> * changed-master</pre></td></tr><tr><td data-num="3"></td><td><pre>   改成中文名</pre></td></tr></table></figure><h2 id="刪除分支"><a class="markdownIt-Anchor" href="#刪除分支">#</a> 刪除分支</h2>
+<p>如果分支的任務已經完成，未來不再需要這個分支的話，可以使用  <code>-d</code>  參數進行分支的刪除<br>
+執行參數之後，會跳出 <strong>Deleted branch [分支名]</strong> 的訊息，告訴你已經刪除了某個分支</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-d</span> 改成中文名</pre></td></tr><tr><td data-num="2"></td><td><pre>Deleted branch 改成中文名</pre></td></tr></table></figure><p>使用  <code>git branch</code>  確認一下，沒意外的話就可以看到分支被刪掉囉～</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre> * changed-master</pre></td></tr></table></figure><h3 id="無法刪除分支的狀況"><a class="markdownIt-Anchor" href="#無法刪除分支的狀況">#</a> 無法刪除分支的狀況</h3>
+<p>記得上一篇提到，分支有圖釘的特性，會把已經 commit 釘在線圖上。<br>
+Git 為了避免有 commit 不見，有幾種狀況會沒辦法使用  <code>-d</code>  參數刪除分支：</p>
 <ol>
-<li><p>你目前所在的分支<br>如果把目前所在的分支刪除，HEAD 會沒有分支可以指著，他就只能直接指著 commit 了…<br>上一篇文章曾說過，沒事不要讓 HEAD 單獨指著 commit，Git 也不會希望這種事情發生，所以當我們執行指令(<code>git branch -d</code>)要刪除目前所在的分支時，Git 會阻止這個行為！</p>
+<li>
+<p>你目前所在的分支<br>
+如果把目前所在的分支刪除，HEAD 會沒有分支可以指著，他就只能直接指著 commit 了…<br>
+ 上一篇文章曾說過，沒事不要讓 HEAD 單獨指著 commit，Git 也不會希望這種事情發生，所以當我們執行指令 ( <code>git branch -d</code> ) 要刪除目前所在的分支時，Git 會阻止這個行為！</p>
 </li>
-<li><p>沒被合併的分支<br>也是上一篇文章的概念，如果「一枝獨秀」的分支被刪除，那分支線會直接從線圖中消失。<br>所以 Git 也不會讓我們用 <code>-d</code> 參數刪除這種分支。</p>
+<li>
+<p>沒被合併的分支<br>
+也是上一篇文章的概念，如果「一枝獨秀」的分支被刪除，那分支線會直接從線圖中消失。<br>
+所以 Git 也不會讓我們用  <code>-d</code>  參數刪除這種分支。</p>
 </li>
 </ol>
-<p>例如我們有個 <code>test</code> 分支，在線圖中長這樣：<br><img data-src="https://i.imgur.com/LI8l236.png"></p>
-<p>如果我們執行 <code>git branch -d test</code> 指令，會出現以下訊息：</p>
-<pre><code class="sh">$ git branch -d test
-error: The branch &#39;test&#39; is not fully merged.
-If you are sure you want to delete it, run &#39;git branch -D test&#39;.
-</code></pre>
-<p><code>error</code> 訊息就是在告訴我們，這個分支並沒有被合併(merged)，沒辦法刪除他。<br>而第二句話是說，「如果你真的想刪除的話，執行 <code>git branch -D test</code>」。</p>
-<p>所以 Git 其實也沒那麼強硬，如果我們堅持想刪除 <code>-d</code> 刪不掉的分支，那就把小寫改成大寫吧！</p>
-<h2 id="強制刪除分支"><a href="#強制刪除分支" class="headerlink" title="強制刪除分支"></a>強制刪除分支</h2><pre><code class="sh">git branch -D test
-</code></pre>
-<h1 id="使用-Fork-GUI-操作分支"><a href="#使用-Fork-GUI-操作分支" class="headerlink" title="使用 Fork GUI 操作分支"></a>使用 Fork GUI 操作分支</h1><h2 id="查詢分支-1"><a href="#查詢分支-1" class="headerlink" title="查詢分支"></a>查詢分支</h2><p>在 Fork GUI 中，要查詢分支，請先切到 <strong>All Commits</strong> ，接著所有分支都會呈現在紅框框的位置：<br><img data-src="https://i.imgur.com/57SLrAt.png"></p>
-<h2 id="建立分支-1"><a href="#建立分支-1" class="headerlink" title="建立分支"></a>建立分支</h2><p>建立分支，則是在上方選單有一個 <code>branch</code> 的按鈕點進去<br>就會讓我們輸入分支名稱，建立新的分支</p>
-<p><img data-src="https://i.imgur.com/a9NlH7i.png"></p>
-<p>同時有一個  <strong>Check out after create</strong> 的勾選框，表是建立後可以直接切換過去。<br><img data-src="https://i.imgur.com/ppq8ERG.png"></p>
-<p><strong>補充：</strong><br>如果分支名稱用一個 <code>/</code> 來命名：</p>
-<pre><code class="sh">開發者名稱/功能
-</code></pre>
-<p>在 Fork GUI 的分支區塊，會跑出一個以 <strong>開發者名稱</strong> 命名的資料夾：<br><img data-src="https://i.imgur.com/ZBw8Dda.png"></p>
-<p>不過對 Git 來說，分支名稱並 <strong>沒有</strong> 資料夾這層涵義，所以實際名稱還是會長這樣 <code>開發者名稱/功能</code>，如同 commit 上面呈現的便籤一樣。</p>
-<p>這樣命名的一個好處是，如果是團隊開發，GUI 就會自動幫我們把每個人的分支分門別類。<br>當需要找特定人員使用的分支，就會比較好找。</p>
-<p>當然，<code>/</code> 前面不一定要是開發者，可以依照專案需求去定義名稱。</p>
+<p>例如我們有個  <code>test</code>  分支，在線圖中長這樣：<br>
+<img data-src="https://i.imgur.com/LI8l236.png" alt=""></p>
+<p>如果我們執行  <code>git branch -d test</code>  指令，會出現以下訊息：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch <span class="token parameter variable">-d</span> <span class="token builtin class-name">test</span></pre></td></tr><tr><td data-num="2"></td><td><pre>error: The branch <span class="token string">'test'</span> is not fully merged.</pre></td></tr><tr><td data-num="3"></td><td><pre>If you are sure you want to delete it, run <span class="token string">'git branch -D test'</span><span class="token builtin class-name">.</span></pre></td></tr></table></figure><p><code>error</code>  訊息就是在告訴我們，這個分支並沒有被合併 (merged)，沒辦法刪除他。<br>
+而第二句話是說，「如果你真的想刪除的話，執行  <code>git branch -D test</code> 」。</p>
+<p>所以 Git 其實也沒那麼強硬，如果我們堅持想刪除  <code>-d</code>  刪不掉的分支，那就把小寫改成大寫吧！</p>
+<h2 id="強制刪除分支"><a class="markdownIt-Anchor" href="#強制刪除分支">#</a> 強制刪除分支</h2>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-D</span> <span class="token builtin class-name">test</span></pre></td></tr></table></figure><h1 id="使用-fork-gui-操作分支"><a class="markdownIt-Anchor" href="#使用-fork-gui-操作分支">#</a> 使用 Fork GUI 操作分支</h1>
+<h2 id="查詢分支-2"><a class="markdownIt-Anchor" href="#查詢分支-2">#</a> 查詢分支</h2>
+<p>在 Fork GUI 中，要查詢分支，請先切到 <strong>All Commits</strong> ，接著所有分支都會呈現在紅框框的位置：<br>
+<img data-src="https://i.imgur.com/57SLrAt.png" alt=""></p>
+<h2 id="建立分支-2"><a class="markdownIt-Anchor" href="#建立分支-2">#</a> 建立分支</h2>
+<p>建立分支，則是在上方選單有一個  <code>branch</code>  的按鈕點進去<br>
+就會讓我們輸入分支名稱，建立新的分支</p>
+<p><img data-src="https://i.imgur.com/a9NlH7i.png" alt=""></p>
+<p>同時有一個  <strong>Check out after create</strong> 的勾選框，表是建立後可以直接切換過去。<br>
+<img data-src="https://i.imgur.com/ppq8ERG.png" alt=""></p>
+<p><strong>補充：</strong><br>
+如果分支名稱用一個  <code>/</code>  來命名：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>開發者名稱/功能</pre></td></tr></table></figure><p>在 Fork GUI 的分支區塊，會跑出一個以 <strong>開發者名稱</strong> 命名的資料夾：<br>
+<img data-src="https://i.imgur.com/ZBw8Dda.png" alt=""></p>
+<p>不過對 Git 來說，分支名稱並 <strong>沒有</strong> 資料夾這層涵義，所以實際名稱還是會長這樣  <code>開發者名稱/功能</code> ，如同 commit 上面呈現的便籤一樣。</p>
+<p>這樣命名的一個好處是，如果是團隊開發，GUI 就會自動幫我們把每個人的分支分門別類。<br>
+當需要找特定人員使用的分支，就會比較好找。</p>
+<p>當然， <code>/</code>  前面不一定要是開發者，可以依照專案需求去定義名稱。</p>
 <p>以上就給大家參考吧！</p>
-<h2 id="切換分支-1"><a href="#切換分支-1" class="headerlink" title="切換分支"></a>切換分支</h2><p>假設目前已經建立好 「新分支」 的分支：<br><img data-src="https://i.imgur.com/GpsC6ya.png"></p>
-<p>要切換過去的話，在左邊視窗對著分支名稱兩下即可：<br><img data-src="https://i.imgur.com/BVE8XXI.gif"></p>
-<h2 id="分支改名-1"><a href="#分支改名-1" class="headerlink" title="分支改名"></a>分支改名</h2><p>需要更改分支名稱，對 commit 按右鍵，就可以找到分支改名的選項：<br><img data-src="https://i.imgur.com/ZJuklXj.gif"></p>
-<p>也可以直接在左邊的分支名稱中改名：<br><img data-src="https://i.imgur.com/PP73bVi.gif"></p>
-<h2 id="刪除分支-1"><a href="#刪除分支-1" class="headerlink" title="刪除分支"></a>刪除分支</h2><p>刪除分支的動作跟分支改名差不多：<br><img data-src="https://i.imgur.com/NJv0rnt.gif"></p>
+<h2 id="切換分支-2"><a class="markdownIt-Anchor" href="#切換分支-2">#</a> 切換分支</h2>
+<p>假設目前已經建立好 「新分支」 的分支：<br>
+<img data-src="https://i.imgur.com/GpsC6ya.png" alt=""></p>
+<p>要切換過去的話，在左邊視窗對著分支名稱兩下即可：<br>
+<img data-src="https://i.imgur.com/BVE8XXI.gif" alt=""></p>
+<h2 id="分支改名-2"><a class="markdownIt-Anchor" href="#分支改名-2">#</a> 分支改名</h2>
+<p>需要更改分支名稱，對 commit 按右鍵，就可以找到分支改名的選項：<br>
+<img data-src="https://i.imgur.com/ZJuklXj.gif" alt=""></p>
+<p>也可以直接在左邊的分支名稱中改名：<br>
+<img data-src="https://i.imgur.com/PP73bVi.gif" alt=""></p>
+<h2 id="刪除分支-2"><a class="markdownIt-Anchor" href="#刪除分支-2">#</a> 刪除分支</h2>
+<p>刪除分支的動作跟分支改名差不多：<br>
+<img data-src="https://i.imgur.com/NJv0rnt.gif" alt=""></p>
 <p>刪除分支需要注意的事情，已經在上文指令的部分說明過了，就不再贅述。</p>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>這篇文章介紹了基礎分支操作，搭配 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">Git 分支：觀念篇</span> 的內容，我們已經可以開始使用分支進行開發，並且應該不會有什麼太大的疑惑了。</p>
-<p>只是建立分支開發到一段時間，總會需要將開發的資料合併回主要的分支。<br>所以下一篇文章，將進入分支合併的章節，會介紹 <code>git merge</code> 指令該如何使用。</p>
+<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
+<p>這篇文章介紹了基礎分支操作，搭配 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">Git 分支：觀念篇</span> 的內容，我們已經可以開始使用分支進行開發，並且應該不會有什麼太大的疑惑了。</p>
+<p>只是建立分支開發到一段時間，總會需要將開發的資料合併回主要的分支。<br>
+所以下一篇文章，將進入分支合併的章節，會介紹  <code>git merge</code>  指令該如何使用。</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -335,7 +332,7 @@ If you are sure you want to delete it, run &#39;git branch -D test&#39;.
     <div class="item left">
       
 
-  <a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;77JuPV6.png" title="Git 分支：觀念篇">
+  <a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="Git 分支：觀念篇">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>Git 分支：觀念篇</h3>
@@ -345,7 +342,7 @@ If you are sure you want to delete it, run &#39;git branch -D test&#39;.
     <div class="item right">
       
 
-  <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;dOvnXNe.jpg" title="Git 分支：分支合併篇">
+  <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="Git 分支：分支合併篇">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>Git 分支：分支合併篇</h3>
@@ -366,7 +363,7 @@ If you are sure you want to delete it, run &#39;git branch -D test&#39;.
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text">使用指令操作分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%88%86%E6%94%AF"><span class="toc-number">2.1.</span> <span class="toc-text">查詢分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">2.2.</span> <span class="toc-text">建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF"><span class="toc-number">2.3.</span> <span class="toc-text">切換分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E8%88%87%E5%88%87%E6%8F%9B%E4%B8%80%E6%AC%A1%E6%90%9E%E5%AE%9A"><span class="toc-number">2.4.</span> <span class="toc-text">建立與切換一次搞定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%94%B9%E5%90%8D"><span class="toc-number">2.5.</span> <span class="toc-text">分支改名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.6.</span> <span class="toc-text">刪除分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%84%A1%E6%B3%95%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF%E7%9A%84%E7%8B%80%E6%B3%81"><span class="toc-number">2.6.1.</span> <span class="toc-text">無法刪除分支的狀況</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%B7%E5%88%B6%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.7.</span> <span class="toc-text">強制刪除分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Fork-GUI-%E6%93%8D%E4%BD%9C%E5%88%86%E6%94%AF"><span class="toc-number">3.</span> <span class="toc-text">使用 Fork GUI 操作分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%88%86%E6%94%AF-1"><span class="toc-number">3.1.</span> <span class="toc-text">查詢分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF-1"><span class="toc-number">3.2.</span> <span class="toc-text">建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF-1"><span class="toc-number">3.3.</span> <span class="toc-text">切換分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%94%B9%E5%90%8D-1"><span class="toc-number">3.4.</span> <span class="toc-text">分支改名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF-1"><span class="toc-number">3.5.</span> <span class="toc-text">刪除分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">4.</span> <span class="toc-text">總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%E6%93%8D%E4%BD%9C%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text"> 使用指令操作分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%88%86%E6%94%AF"><span class="toc-number">2.1.</span> <span class="toc-text"> 查詢分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">2.2.</span> <span class="toc-text"> 建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF"><span class="toc-number">2.3.</span> <span class="toc-text"> 切換分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E8%88%87%E5%88%87%E6%8F%9B%E4%B8%80%E6%AC%A1%E6%90%9E%E5%AE%9A"><span class="toc-number">2.4.</span> <span class="toc-text"> 建立與切換一次搞定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%94%B9%E5%90%8D"><span class="toc-number">2.5.</span> <span class="toc-text"> 分支改名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.6.</span> <span class="toc-text"> 刪除分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%84%A1%E6%B3%95%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF%E7%9A%84%E7%8B%80%E6%B3%81"><span class="toc-number">2.6.1.</span> <span class="toc-text"> 無法刪除分支的狀況</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%B7%E5%88%B6%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.7.</span> <span class="toc-text"> 強制刪除分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork-gui-%E6%93%8D%E4%BD%9C%E5%88%86%E6%94%AF"><span class="toc-number">3.</span> <span class="toc-text"> 使用 Fork GUI 操作分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%A9%A2%E5%88%86%E6%94%AF-2"><span class="toc-number">3.1.</span> <span class="toc-text"> 查詢分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF-2"><span class="toc-number">3.2.</span> <span class="toc-text"> 建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF-2"><span class="toc-number">3.3.</span> <span class="toc-text"> 切換分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%94%B9%E5%90%8D-2"><span class="toc-number">3.4.</span> <span class="toc-text"> 分支改名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AA%E9%99%A4%E5%88%86%E6%94%AF-2"><span class="toc-number">3.5.</span> <span class="toc-text"> 刪除分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">4.</span> <span class="toc-text"> 總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -463,16 +460,57 @@ If you are sure you want to delete it, run &#39;git branch -D test&#39;.
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
+    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
   </li>
 
       
@@ -489,10 +527,9 @@ If you are sure you want to delete it, run &#39;git branch -D test&#39;.
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
       
@@ -502,47 +539,7 @@ If you are sure you want to delete it, run &#39;git branch -D test&#39;.
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
   </li>
 
       
@@ -573,13 +570,13 @@ If you are sure you want to delete it, run &#39;git branch -D test&#39;.
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">137k 字</span>
+    <span title="總字數">134k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:05</span>
+    <span title="所需總閱讀時間">2:01</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

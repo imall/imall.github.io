@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#FFF">
@@ -76,7 +78,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>4.7k</span>
+    <span>4.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +116,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
         </ul>
       </div>
     </header>
@@ -165,158 +167,171 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信看完分支的觀念與操作後，還是會有人對分支操作的某些「正常現象」還是會有疑惑，同時也有一些實務上的問題，在之前的文章礙於篇幅而沒有提及。</p>
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>相信看完分支的觀念與操作後，還是會有人對分支操作的某些「正常現象」還是會有疑惑，同時也有一些實務上的問題，在之前的文章礙於篇幅而沒有提及。</p>
 <p>這篇文章來說說筆者曾經疑惑，或是覺得可以記錄一下的內容。</p>
-<p>進入今天的主題：<br>:::info no-icon<br>分支操作常見問題<br>:::</p>
-<h1 id="建立分支提交的-commit，不是應該要有「岔路」嗎？"><a href="#建立分支提交的-commit，不是應該要有「岔路」嗎？" class="headerlink" title="建立分支提交的 commit，不是應該要有「岔路」嗎？"></a>建立分支提交的 commit，不是應該要有「岔路」嗎？</h1><p>只有在兩個分支分別走向不同的路，才會出現岔路。</p>
+<p>進入今天的主題：</p>
+<div class="note info no-icon">
+<p>分支操作常見問題</p>
+</div>
+<h1 id="建立分支提交的-commit不是應該要有岔路嗎"><a class="markdownIt-Anchor" href="#建立分支提交的-commit不是應該要有岔路嗎">#</a> 建立分支提交的 commit，不是應該要有「岔路」嗎？</h1>
+<p>只有在兩個分支分別走向不同的路，才會出現岔路。</p>
 <p>這個問題應該是新手初次接觸分支比較不好體會的地方，我們都以為建立了分支發佈版本之後，線圖應該會有另一個顏色進行區分。但實際操作下來，卻會發現新分支的 commit 好像跟原本的分支在同一條線…</p>
-<p>像是下圖的情境，開了新分支 <code>dev</code> 執行 commit ，但明明叫「分」支，線圖卻都沒有「分」出去欸…：<br><img data-src="https://i.imgur.com/0LsjpH9.png"></p>
-<p>這個案例可以合併快轉機制的例子說明，其實兩個分支原本都站在同一個位置，只是 <code>dev</code> 先往前走了兩步路，但是他們倆個人還是處在 <strong>同一條路</strong> 上，所以根本沒有「岔路」可言。</p>
-<p>要讓線圖產生「岔路」，必須讓 <code>master</code> <strong>不要</strong> 沿著 <code>dev</code> 走過的路行走，而是要跟 <code>dev</code> 分道揚鑣，走出 <code>master</code> 自己的道路。</p>
-<p>做法也很簡單，只要切換回 <code>master</code> 分支，在 <code>master</code> commit 版本，岔路就會出現了：<br><img data-src="https://i.imgur.com/xSSF6z3.png"></p>
+<p>像是下圖的情境，開了新分支  <code>dev</code>  執行 commit ，但明明叫「分」支，線圖卻都沒有「分」出去欸…：<br>
+<img data-src="https://i.imgur.com/0LsjpH9.png" alt=""></p>
+<p>這個案例可以合併快轉機制的例子說明，其實兩個分支原本都站在同一個位置，只是  <code>dev</code>  先往前走了兩步路，但是他們倆個人還是處在 <strong>同一條路</strong> 上，所以根本沒有「岔路」可言。</p>
+<p>要讓線圖產生「岔路」，必須讓  <code>master</code>  <strong>不要</strong> 沿著  <code>dev</code>  走過的路行走，而是要跟  <code>dev</code>  分道揚鑣，走出  <code>master</code>  自己的道路。</p>
+<p>做法也很簡單，只要切換回  <code>master</code>  分支，在  <code>master</code>  commit 版本，岔路就會出現了：<br>
+<img data-src="https://i.imgur.com/xSSF6z3.png" alt=""></p>
 <p>這個線圖就像是兩個人分道揚鑣，從此不相往來一樣，Git 為了記錄兩個人走過的路程，必須把這個岔路畫出來。</p>
-<p>如果你想再問為什麼 <code>master</code> 的線長得特別長，是因為 Git 線圖一般是會依照 <strong>時間順序</strong> 而繪製的。  </p>
-<p>因為 <code>master</code> 是在 <code>dev</code> 往前兩步後才出發，為了在線圖中看出先後順序，會讓 <code>master</code> 走的位置超過 <code>dev</code> 之前的 commit 點點。  </p>
-<p>知道這個觀念後，我們就可以從線圖中對分支 commit 的時間一目瞭然囉！  </p>
-<h1 id="能不能從過去的-Commit-時間點建立分支？"><a href="#能不能從過去的-Commit-時間點建立分支？" class="headerlink" title="能不能從過去的 Commit 時間點建立分支？"></a>能不能從過去的 Commit 時間點建立分支？</h1><p>可以。</p>
+<p>如果你想再問為什麼  <code>master</code>  的線長得特別長，是因為 Git 線圖一般是會依照 <strong>時間順序</strong> 而繪製的。</p>
+<p>因為  <code>master</code>  是在  <code>dev</code>  往前兩步後才出發，為了在線圖中看出先後順序，會讓  <code>master</code>  走的位置超過  <code>dev</code>  之前的 commit 點點。</p>
+<p>知道這個觀念後，我們就可以從線圖中對分支 commit 的時間一目瞭然囉！</p>
+<h1 id="能不能從過去的-commit-時間點建立分支"><a class="markdownIt-Anchor" href="#能不能從過去的-commit-時間點建立分支">#</a> 能不能從過去的 Commit 時間點建立分支？</h1>
+<p>可以。</p>
 <p>有幾種方式可以做到，一樣示範指令的做法，以及 Fork GUI 的做法。</p>
-<h2 id="建立分支完整指令"><a href="#建立分支完整指令" class="headerlink" title="建立分支完整指令"></a>建立分支完整指令</h2><p>我們已經知道建立分支的指令是這樣：</p>
-<pre><code class="sh">git branch 分支名稱
-</code></pre>
-<p>不過事實上這個指令省略了預設值 <code>HEAD</code>：</p>
-<pre><code class="sh">git branch 分支名稱 HEAD
-</code></pre>
-<p>這個指令可以想像成：「我要撕一張便籤起來，寫上『分支名稱』，然後貼在目前所在的 commit 上。」</p>
+<h2 id="建立分支完整指令"><a class="markdownIt-Anchor" href="#建立分支完整指令">#</a> 建立分支完整指令</h2>
+<p>我們已經知道建立分支的指令是這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch 分支名稱</pre></td></tr></table></figure><p>不過事實上這個指令省略了預設值  <code>HEAD</code> ：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch 分支名稱 HEAD</pre></td></tr></table></figure><p>這個指令可以想像成：「我要撕一張便籤起來，寫上『分支名稱』，然後貼在目前所在的 commit 上。」</p>
 <p>既然說是預設值，代表我們可以賦予他特定的資料值。</p>
-<h2 id="以-commitID-建立分支"><a href="#以-commitID-建立分支" class="headerlink" title="以 commitID 建立分支"></a>以 commitID 建立分支</h2><p>以這張圖為例子<br><img data-src="https://i.imgur.com/5rGUVKy.png"><br>想要在 <code>f3c45c2b</code> commit 上建立分支，直接這樣執行指令就可以了：</p>
-<pre><code class="sh">git branch 分支名稱 f3c45c2b
-</code></pre>
-<p><img data-src="https://i.imgur.com/tesqy0M.png"></p>
-<p>此外，我們既然知道建立分支的預設值是 <code>HEAD</code>，就代表我們可以先讓 <code>HEAD</code> 指著某個 commitID ，然後執行建立分支指令。</p>
-<h2 id="先切到某個-commitID，再建立分支"><a href="#先切到某個-commitID，再建立分支" class="headerlink" title="先切到某個 commitID，再建立分支"></a>先切到某個 commitID，再建立分支</h2><p>切換分支指令是這樣：</p>
-<pre><code class="sh">git checkout 分支名稱
-</code></pre>
-<p>如果把分支名稱改掉成 commitID ，那 HEAD 就會跑到 commitID 上：</p>
-<pre><code class="sh">git branch f3c45c2b
-</code></pre>
-<p><img data-src="https://i.imgur.com/1aBe15r.png"></p>
+<h2 id="以-commitid-建立分支"><a class="markdownIt-Anchor" href="#以-commitid-建立分支">#</a> 以 commitID 建立分支</h2>
+<p>以這張圖為例子<br>
+<img data-src="https://i.imgur.com/5rGUVKy.png" alt=""><br>
+想要在  <code>f3c45c2b</code>  commit 上建立分支，直接這樣執行指令就可以了：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch 分支名稱 f3c45c2b</pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/tesqy0M.png" alt=""></p>
+<p>此外，我們既然知道建立分支的預設值是  <code>HEAD</code> ，就代表我們可以先讓  <code>HEAD</code>  指著某個 commitID ，然後執行建立分支指令。</p>
+<h2 id="先切到某個-commitid再建立分支"><a class="markdownIt-Anchor" href="#先切到某個-commitid再建立分支">#</a> 先切到某個 commitID，再建立分支</h2>
+<p>切換分支指令是這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout 分支名稱</pre></td></tr></table></figure><p>如果把分支名稱改掉成 commitID ，那 HEAD 就會跑到 commitID 上：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch f3c45c2b</pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/1aBe15r.png" alt=""></p>
 <p>此時直接執行預設建立分支指令，就會在 commit 上成功貼上分支便籤了！</p>
-<pre><code class="sh">git checkout 分支名稱
-</code></pre>
-<p><img data-src="https://i.imgur.com/TUChMmh.png"><br>只不過要注意，建立分支指令不會幫我們切換分支，請記得要再切過去再開發！</p>
-<pre><code class="sh">git checkout 分支名稱
-</code></pre>
-<h2 id="用-Fork-在特定-commit-建立分支"><a href="#用-Fork-在特定-commit-建立分支" class="headerlink" title="用 Fork 在特定 commit 建立分支"></a>用 Fork 在特定 commit 建立分支</h2><p>我猜你看完上面原理，應該知道怎麼操作了。<br>其實就是在特定 commit 點右鍵，去找建立分支選項而已，很單純。</p>
-<p><img data-src="https://i.imgur.com/c29lST2.gif"></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout 分支名稱</pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/TUChMmh.png" alt=""><br>
+只不過要注意，建立分支指令不會幫我們切換分支，請記得要再切過去再開發！</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout 分支名稱</pre></td></tr></table></figure><h2 id="用-fork-在特定-commit-建立分支"><a class="markdownIt-Anchor" href="#用-fork-在特定-commit-建立分支">#</a> 用 Fork 在特定 commit 建立分支</h2>
+<p>我猜你看完上面原理，應該知道怎麼操作了。<br>
+其實就是在特定 commit 點右鍵，去找建立分支選項而已，很單純。</p>
+<p><img data-src="https://i.imgur.com/c29lST2.gif" alt=""></p>
 <p>這裡有刻意把 <strong>切換分支</strong> 的選項打勾，你也可以選擇不切換分支，就看當下的執行需求。</p>
-<h1 id="在Git-分支：觀念篇示範的「撕便籤」是什麼原理？"><a href="#在Git-分支：觀念篇示範的「撕便籤」是什麼原理？" class="headerlink" title="在Git 分支：觀念篇示範的「撕便籤」是什麼原理？"></a>在<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">Git 分支：觀念篇</span>示範的「撕便籤」是什麼原理？</h1><p>強迫建立了已經存在的分支。</p>
+<h1 id="在git-分支觀念篇示範的撕便籤是什麼原理"><a class="markdownIt-Anchor" href="#在git-分支觀念篇示範的撕便籤是什麼原理">#</a> 在<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg=="> Git 分支：觀念篇</span>示範的「撕便籤」是什麼原理？</h1>
+<p>強迫建立了已經存在的分支。</p>
 <p>一個專案中的分支是不能重複的，如果建立重複名稱的分支，Git 會直接彈出錯誤，告訴我們分支已經存在：</p>
-<pre><code class="sh">$ git branch dev     
-fatal: a branch named &#39;dev&#39; already exists
-</code></pre>
-<p>不過 Git 還是提供一個 <code>-f</code> 參數讓我們可以強迫建立分支。</p>
-<pre><code class="sh">git branch -f dev
-</code></pre>
-<p>用 <code>-f</code> 參數建立一個「不存在」的分支，結果會跟沒有 <code>-f</code> 參數沒兩樣。<br>但如果是建立「存在」的分支，在線圖中看起來就像分支被「撕」起來又貼到目前所在位置的感覺。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch dev     </pre></td></tr><tr><td data-num="2"></td><td><pre>fatal: a branch named <span class="token string">'dev'</span> already exists</pre></td></tr></table></figure><p>不過 Git 還是提供一個  <code>-f</code>  參數讓我們可以強迫建立分支。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-f</span> dev</pre></td></tr></table></figure><p>用  <code>-f</code>  參數建立一個「不存在」的分支，結果會跟沒有  <code>-f</code>  參數沒兩樣。<br>
+但如果是建立「存在」的分支，在線圖中看起來就像分支被「撕」起來又貼到目前所在位置的感覺。</p>
 <p>當然，也可以強迫建立「已存在的分支」到指定的 commit 上，只要再多加一個 commitID 參數給他即可：</p>
-<pre><code class="sh">git branch -f dev commitID
-</code></pre>
-<p>不過因為 <code>-f</code> 代表 <strong>強迫</strong>(force)，如果資料因為操作不當而遺失了，Git 是概不負責任的哦！</p>
-<p>看完以上內容，你應該能看懂我在 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">Git 分支：觀念篇</span> 幹的事情了：<br><img data-src="https://i.imgur.com/jumgVmR.gif"></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-f</span> dev commitID</pre></td></tr></table></figure><p>不過因為  <code>-f</code>  代表 <strong>強迫</strong> (force)，如果資料因為操作不當而遺失了，Git 是概不負責任的哦！</p>
+<p>看完以上內容，你應該能看懂我在 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">Git 分支：觀念篇</span> 幹的事情了：<br>
+<img data-src="https://i.imgur.com/jumgVmR.gif" alt=""></p>
 <p>上面動畫是用 GUI 操作，指令的話可以這樣下</p>
-<pre><code class="sh">git branch -f Emilia b1c40661
-</code></pre>
-<h1 id="開發到一半，需要切換分支怎麼辦"><a href="#開發到一半，需要切換分支怎麼辦" class="headerlink" title="開發到一半，需要切換分支怎麼辦"></a>開發到一半，需要切換分支怎麼辦</h1><p>有兩種做法可以應付這個需求</p>
-<h2 id="1-使用-git-reset-把尚未開發的資料暫存起來"><a href="#1-使用-git-reset-把尚未開發的資料暫存起來" class="headerlink" title="1. 使用 git reset 把尚未開發的資料暫存起來"></a>1. 使用 <code>git reset</code> 把尚未開發的資料暫存起來</h2><p>我們已經知道 reset 的預設模式會在 <code>HEAD</code> 移動過程，工作目錄的資料不會被異動，只有 commit 會被拆掉而已。<br>也就是說，我們可以利用這個特性來「還原資料」。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-f</span> Emilia b1c40661</pre></td></tr></table></figure><h1 id="開發到一半需要切換分支怎麼辦"><a class="markdownIt-Anchor" href="#開發到一半需要切換分支怎麼辦">#</a> 開發到一半，需要切換分支怎麼辦</h1>
+<p>有兩種做法可以應付這個需求</p>
+<h2 id="1-使用-git-reset-把尚未開發的資料暫存起來"><a class="markdownIt-Anchor" href="#1-使用-git-reset-把尚未開發的資料暫存起來">#</a> 1. 使用  <code>git reset</code>  把尚未開發的資料暫存起來</h2>
+<p>我們已經知道 reset 的預設模式會在  <code>HEAD</code>  移動過程，工作目錄的資料不會被異動，只有 commit 會被拆掉而已。<br>
+也就是說，我們可以利用這個特性來「還原資料」。</p>
 <p>當手上的東西處理到一半，我們可以先不管三七二十一把所有內容提交一個版本：</p>
-<pre><code class="sh">git commit -m &quot;temp&quot;
-</code></pre>
-<p>commit 訊息可以隨便打，他只是一個用來暫存資料的 commit，等等就移除了。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"temp"</span></pre></td></tr></table></figure><p>commit 訊息可以隨便打，他只是一個用來暫存資料的 commit，等等就移除了。</p>
 <p>接著就可以 <strong>安心的切換分支</strong> 去處理當下的需求。</p>
 <p>等到事情處理完，先 <strong>回到原本的分支</strong>，然後執行這個指令，資料就會還原到原本的狀態囉！</p>
-<pre><code class="sh">git reset HEAD^
-</code></pre>
-<blockquote>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset HEAD^</pre></td></tr></table></figure><blockquote>
 <p>如果你跟 reset 指令不熟，可以參考 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMjYzMQ==">用 reset 回到過去</span>，有詳細的 reset 操作模式說明。</p>
 </blockquote>
-<h2 id="2-使用-git-stash-把資料暫存起來"><a href="#2-使用-git-stash-把資料暫存起來" class="headerlink" title="2. 使用 git stash 把資料暫存起來"></a>2. 使用 <code>git stash</code> 把資料暫存起來</h2><p>Git 因應這種情況，其實有提供一個指令讓我們使用。</p>
-<pre><code class="sh">git stash
-</code></pre>
-<p>當專案有尚未 commit 的內容，執行這個指令之後 Git 會直接把這些資料直接暫存一個版本。  </p>
-<p>雖然說是版本，但他跟 commit 又不太一樣，而是標記一個叫 stash 的特殊版本，像是紅色箭頭指著的樣子：<br><img data-src="https://i.imgur.com/e8hK35R.png"></p>
-<p><code>stash</code> 會把所有尚未 commit 的資料 <strong>「暫存」</strong> 起來，所以即便隨意切換分支，也不用擔心有資料遺失或是資料混亂的情形！</p>
-<p>如果想查看 Git 目前有哪些 <code>stash</code> ，可以執行這個指令：</p>
-<pre><code class="sh">git stash list
-</code></pre>
-<pre><code class="sh">$ git stash list
-stash@&#123;0&#125;: WIP on 分支名稱: f3c45c2 新增童話歌詞
-</code></pre>
-<p><code>stash@&#123;0&#125;</code> 中的 <code>0</code> 是 <code>stash</code> 的序號，如果有多個 <code>stash</code> ，則會出現多個編號。</p>
-<p>要還原 <code>stash</code> 的內容，也是要先 <strong>切回原本的分支</strong> ，並且依據你想還原的 <code>stash</code> 執行指令：</p>
-<pre><code class="sh">git stash pop stash@&#123;0&#125;
-</code></pre>
-<p>理論上這樣就可以還原資料了！</p>
+<h2 id="2-使用-git-stash-把資料暫存起來"><a class="markdownIt-Anchor" href="#2-使用-git-stash-把資料暫存起來">#</a> 2. 使用  <code>git stash</code>  把資料暫存起來</h2>
+<p>Git 因應這種情況，其實有提供一個指令讓我們使用。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> stash</pre></td></tr></table></figure><p>當專案有尚未 commit 的內容，執行這個指令之後 Git 會直接把這些資料直接暫存一個版本。</p>
+<p>雖然說是版本，但他跟 commit 又不太一樣，而是標記一個叫 stash 的特殊版本，像是紅色箭頭指著的樣子：<br>
+<img data-src="https://i.imgur.com/e8hK35R.png" alt=""></p>
+<p><code>stash</code>  會把所有尚未 commit 的資料 <strong>「暫存」</strong> 起來，所以即便隨意切換分支，也不用擔心有資料遺失或是資料混亂的情形！</p>
+<p>如果想查看 Git 目前有哪些  <code>stash</code>  ，可以執行這個指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> stash list</pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> stash list</pre></td></tr><tr><td data-num="2"></td><td><pre>stash@<span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span>: WIP on 分支名稱: f3c45c2 新增童話歌詞</pre></td></tr></table></figure><p><code>stash@&#123;0&#125;</code>  中的  <code>0</code>  是  <code>stash</code>  的序號，如果有多個  <code>stash</code>  ，則會出現多個編號。</p>
+<p>要還原  <code>stash</code>  的內容，也是要先 <strong>切回原本的分支</strong> ，並且依據你想還原的  <code>stash</code>  執行指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> stash pop stash@<span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>理論上這樣就可以還原資料了！</p>
 <p>但是！！！！！！！！！！</p>
-<p>如果你跟筆者一樣是習慣使用 windows 系統的「命令提示字元」或是「PowerShell」下指令的話，執行上面的指令可能會噴出這樣的錯誤訊息：<br><img data-src="https://i.imgur.com/Z54cE9W.png"></p>
-<p>這種情況下，你可以直接使用 「序號」，像這樣：<br><img data-src="https://i.imgur.com/hgzN2rt.png"></p>
-<p>不過如果你在 windows 使用 「Git Bash」 執行指令，就不會有這個問題<br><img data-src="https://i.imgur.com/9gmfuZi.png"></p>
-<p>而且你也可以直接寫數字：<br><img data-src="https://i.imgur.com/7rwxWM1.png"></p>
-<h1 id="如果忘記「建立分支」就開始開發怎麼辦？"><a href="#如果忘記「建立分支」就開始開發怎麼辦？" class="headerlink" title="如果忘記「建立分支」就開始開發怎麼辦？"></a>如果忘記「建立分支」就開始開發怎麼辦？</h1><p>你在專案的起初，明明知道要建立分支才開始開發，卻直接在初始分支 <code>master</code> 開發，等到開發一段時間才想起應該要建立分支。</p>
-<p>這時候線圖會長這樣：<br><img data-src="https://i.imgur.com/wZ4a5Lx.png"><br>分割畫面左邊是線圖，右邊是要在建立分支後才要開發的檔案示範。</p>
+<p>如果你跟筆者一樣是習慣使用 windows 系統的「命令提示字元」或是「PowerShell」下指令的話，執行上面的指令可能會噴出這樣的錯誤訊息：<br>
+<img data-src="https://i.imgur.com/Z54cE9W.png" alt=""></p>
+<p>這種情況下，你可以直接使用 「序號」，像這樣：<br>
+<img data-src="https://i.imgur.com/hgzN2rt.png" alt=""></p>
+<p>不過如果你在 windows 使用 「Git Bash」 執行指令，就不會有這個問題<br>
+<img data-src="https://i.imgur.com/9gmfuZi.png" alt=""></p>
+<p>而且你也可以直接寫數字：<br>
+<img data-src="https://i.imgur.com/7rwxWM1.png" alt=""></p>
+<h1 id="如果忘記建立分支就開始開發怎麼辦"><a class="markdownIt-Anchor" href="#如果忘記建立分支就開始開發怎麼辦">#</a> 如果忘記「建立分支」就開始開發怎麼辦？</h1>
+<p>你在專案的起初，明明知道要建立分支才開始開發，卻直接在初始分支  <code>master</code>  開發，等到開發一段時間才想起應該要建立分支。</p>
+<p>這時候線圖會長這樣：<br>
+<img data-src="https://i.imgur.com/wZ4a5Lx.png" alt=""><br>
+分割畫面左邊是線圖，右邊是要在建立分支後才要開發的檔案示範。</p>
 <p>此時的解決方式很簡單：</p>
 <ol>
 <li>建立分支</li>
 <li>切過去</li>
 <li>結束</li>
 </ol>
-<p><img data-src="https://i.imgur.com/JZXZlNH.gif"></p>
+<p><img data-src="https://i.imgur.com/JZXZlNH.gif" alt=""></p>
 <p>事實上，切換分支的行為，Git 會執行兩件事：</p>
 <ol>
 <li>把切換分支的 commit 內容更新到索引</li>
 <li>把切換分支的 commit 內容更新回工作目錄</li>
 </ol>
 <p>這個行為並不會去管工作目錄「異動」的資料，所以直接「建立分支」然後「切換分支」，就能解決這個問題了。</p>
-<h1 id="我用上面那招，Git-不給我「切換分支」欸…"><a href="#我用上面那招，Git-不給我「切換分支」欸…" class="headerlink" title="我用上面那招，Git 不給我「切換分支」欸…."></a>我用上面那招，Git 不給我「切換分支」欸….</h1><p>雖然切換分支的行為不會影響到工作目錄異動的資料，但是如果你編輯的那個檔案，沒辦法讓 Git 計算 commit 差異。  </p>
-<p>例如你現在位於 <code>dev</code>，編輯了某個檔案之後發現應該要在 <code>master</code> 分支建立分支才能開發。<br>但如果切換到 <code>master</code> 分支，因為編輯的檔案已經跟 <code>master</code> 的內容有衝突了，Git 就會拒絕這個切換分支的行為。</p>
-<p>這種狀況下的 <code>git checkout</code> 指令，應該會看到類似這樣的訊息：</p>
-<pre><code class="sh">$ git checkout master
-error: Your local changes to the following files would be overwritten by checkout:
-        新檔案.txt
-Please commit your changes or stash them before you switch branches.
-Aborting
-</code></pre>
-<p>這段描述內容的畫面大概會長這樣：<br><img data-src="https://i.imgur.com/jE1v8WX.png"></p>
-<p>針對這圖片描述一下，你在 <code>dev</code> 分支編輯了檔案，但原本你是想要在 <code>master</code> 「開分支之後」再開發，結果 Git 不讓我們切換分支…</p>
+<h1 id="我用上面那招git-不給我切換分支欸"><a class="markdownIt-Anchor" href="#我用上面那招git-不給我切換分支欸">#</a> 我用上面那招，Git 不給我「切換分支」欸…</h1>
+<p>雖然切換分支的行為不會影響到工作目錄異動的資料，但是如果你編輯的那個檔案，沒辦法讓 Git 計算 commit 差異。</p>
+<p>例如你現在位於  <code>dev</code> ，編輯了某個檔案之後發現應該要在  <code>master</code>  分支建立分支才能開發。<br>
+但如果切換到  <code>master</code>  分支，因為編輯的檔案已經跟  <code>master</code>  的內容有衝突了，Git 就會拒絕這個切換分支的行為。</p>
+<p>這種狀況下的  <code>git checkout</code>  指令，應該會看到類似這樣的訊息：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> checkout master</pre></td></tr><tr><td data-num="2"></td><td><pre>error: Your <span class="token builtin class-name">local</span> changes to the following files would be overwritten by checkout:</pre></td></tr><tr><td data-num="3"></td><td><pre>        新檔案.txt</pre></td></tr><tr><td data-num="4"></td><td><pre>Please commit your changes or stash them before you switch branches.</pre></td></tr><tr><td data-num="5"></td><td><pre>Aborting</pre></td></tr></table></figure><p>這段描述內容的畫面大概會長這樣：<br>
+<img data-src="https://i.imgur.com/jE1v8WX.png" alt=""></p>
+<p>針對這圖片描述一下，你在  <code>dev</code>  分支編輯了檔案，但原本你是想要在  <code>master</code>  「開分支之後」再開發，結果 Git 不讓我們切換分支…</p>
 <p>這種狀況下你可以這麼做：</p>
 <ol>
-<li>執行 <code>git stash</code> 執行暫存<br><img data-src="https://i.imgur.com/OdkVCQu.png"></li>
-<li>切換到 <code>git master</code> 分支<br><img data-src="https://i.imgur.com/6fjSDrS.png"></li>
-<li>建立並切換到開發分支 <code>git checkout -b 開發分支</code><br><img data-src="https://i.imgur.com/GaqhIg5.png"></li>
-<li>執行 <code>git stash apply stash@&#123;0&#125;</code> 把暫存抓回來<br><img data-src="https://i.imgur.com/AfxsBaK.png"></li>
-<li>由於當初就是因為衝突而不給切換分支，此時應該會有檔案出現衝突樣貌，不過沒關係，資料確實是被抓回來了<br><img data-src="https://i.imgur.com/e0j8V1K.png"></li>
-<li>此時 stash 還會存在，執行 <code>git stash drop stash@&#123;0&#125;</code> 刪除 stash<br><img data-src="https://i.imgur.com/ZlvuHCR.png"></li>
-<li>完成！繼續開發吧！<br><img data-src="https://i.imgur.com/K1O6vZH.png"></li>
+<li>執行  <code>git stash</code>  執行暫存<br>
+<img data-src="https://i.imgur.com/OdkVCQu.png" alt=""></li>
+<li>切換到  <code>git master</code>  分支<br>
+<img data-src="https://i.imgur.com/6fjSDrS.png" alt=""></li>
+<li>建立並切換到開發分支  <code>git checkout -b 開發分支</code> <br>
+<img data-src="https://i.imgur.com/GaqhIg5.png" alt=""></li>
+<li>執行  <code>git stash apply stash@&#123;0&#125;</code>  把暫存抓回來<br>
+<img data-src="https://i.imgur.com/AfxsBaK.png" alt=""></li>
+<li>由於當初就是因為衝突而不給切換分支，此時應該會有檔案出現衝突樣貌，不過沒關係，資料確實是被抓回來了<br>
+<img data-src="https://i.imgur.com/e0j8V1K.png" alt=""></li>
+<li>此時 stash 還會存在，執行  <code>git stash drop stash@&#123;0&#125;</code>  刪除 stash<br>
+<img data-src="https://i.imgur.com/ZlvuHCR.png" alt=""></li>
+<li>完成！繼續開發吧！<br>
+<img data-src="https://i.imgur.com/K1O6vZH.png" alt=""></li>
 </ol>
-<h1 id="分支觀念提到的，HEAD-指著-commit-到底會怎樣啊？"><a href="#分支觀念提到的，HEAD-指著-commit-到底會怎樣啊？" class="headerlink" title="分支觀念提到的，HEAD 指著 commit 到底會怎樣啊？"></a>分支觀念提到的，HEAD 指著 commit 到底會怎樣啊？</h1><p>老實說，只是把 <code>HEAD</code> 指著 commit 並不會怎樣，版本不會亂掉，資料也不會遺失。</p>
-<p>當時有提到，<code>HEAD</code> 指著 commit，意思是 <code>HEAD</code> 是分離狀態(Detached HEAD State)<br>上面分支的操作，就刻意讓他變成這種狀態再繼續操作。</p>
-<p>在實務上，也看過有人在需要查看版本時，會直接執行 <code>git checkout CommitID</code> 去查看版本資料，這個當下也確實是 Detached HEAD State。</p>
+<h1 id="分支觀念提到的head-指著-commit-到底會怎樣啊"><a class="markdownIt-Anchor" href="#分支觀念提到的head-指著-commit-到底會怎樣啊">#</a> 分支觀念提到的，HEAD 指著 commit 到底會怎樣啊？</h1>
+<p>老實說，只是把  <code>HEAD</code>  指著 commit 並不會怎樣，版本不會亂掉，資料也不會遺失。</p>
+<p>當時有提到， <code>HEAD</code>  指著 commit，意思是  <code>HEAD</code>  是分離狀態 (Detached HEAD State)<br>
+ 上面分支的操作，就刻意讓他變成這種狀態再繼續操作。</p>
+<p>在實務上，也看過有人在需要查看版本時，會直接執行  <code>git checkout CommitID</code>  去查看版本資料，這個當下也確實是 Detached HEAD State。</p>
 <p>所以暫時性的這個狀態其實不會怎樣，還算是很正常的事情。</p>
 <p>Detached HEAD State 對我們開發上最大的影響，在於這種狀態下提交了版本，在切換分支後，版本是會在線圖中消失的！</p>
 <p>示範一次：</p>
 <ol>
-<li>我讓 HEAD 指著某個 commit<br><img data-src="https://i.imgur.com/k3SJuEv.png"></li>
-<li>準備提交版本前，執行一下 <code>git status</code>，他還很好心跟我說我現在狀態不正常 XD<br><del>你才不正常，你全家都不正常</del><br><img data-src="https://i.imgur.com/YOBMcqI.png"></li>
-<li>提交了一個版本，結果發現看起來沒什麼問題<br><img data-src="https://i.imgur.com/jfsev4L.png"></li>
-<li>算了，切去別的分支看看…<br>挖哩… 剛剛的版本不見了…<br><img data-src="https://i.imgur.com/h479vTq.png"></li>
+<li>我讓 HEAD 指著某個 commit<br>
+<img data-src="https://i.imgur.com/k3SJuEv.png" alt=""></li>
+<li>準備提交版本前，執行一下  <code>git status</code> ，他還很好心跟我說我現在狀態不正常 XD<br>
+<s> 你才不正常，你全家都不正常</s><br>
+<img data-src="https://i.imgur.com/YOBMcqI.png" alt=""></li>
+<li>提交了一個版本，結果發現看起來沒什麼問題<br>
+<img data-src="https://i.imgur.com/jfsev4L.png" alt=""></li>
+<li>算了，切去別的分支看看…<br>
+ 挖哩… 剛剛的版本不見了…<br>
+<img data-src="https://i.imgur.com/h479vTq.png" alt=""></li>
 </ol>
-<p>從畫面中，也發現 Git 很好心的提示我們，有一個在 Detached HEAD 狀態的 commit 遺失了。<br>如果我想把他找回來，可以用那個 commitID 建立一個分支。  </p>
+<p>從畫面中，也發現 Git 很好心的提示我們，有一個在 Detached HEAD 狀態的 commit 遺失了。<br>
+如果我想把他找回來，可以用那個 commitID 建立一個分支。</p>
 <p>好險…</p>
-<p>這上面的訊息，之前大概都說明過了<br>一個觀念是，Git 中 commit 過的內容不會不見，除非你忘記 commiID 值。<br>另一個觀念是上面提到的，我們可以拿特定的 ID 來建立分支。</p>
-<p>記得<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">分支觀念</span>中，我有說過 「HEAD」 跟 「分支本質」有點像圖釘嗎？<br>在 Detached HEAD 狀態提交一個版本，代表這個版本會拿 HEAD 圖釘把他 <strong>釘</strong> 在線圖上的，但 <code>HEAD</code> 是一個會依據需求而移動的「圖釘」，如果沒有再拿一個「分支圖釘」把 commit 釘在線圖上，等 <code>HEAD</code> 換位置，這個 commit 就會消失！</p>
-<p>這就是為什麼要強調，沒事不要讓 <code>HEAD</code> 指著 commit 的原因。<br>把這觀念拆得更細一點說，就只是避免我們不小心在這種狀態提交版本，導致 Git 無法記錄內容罷了。</p>
-<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>分支篇的內容到這已經算是告一個段落。</p>
-<p>以學習的角度建議要做的事情，就是盡量去使用分支，體會分支是「便籤」這件事。  </p>
-<p>並且去模擬實務上使用分支時會遇到的狀況，並且試著解決他，處理到自己希望完成的情境。  </p>
+<p>這上面的訊息，之前大概都說明過了<br>
+一個觀念是，Git 中 commit 過的內容不會不見，除非你忘記 commiID 值。<br>
+另一個觀念是上面提到的，我們可以拿特定的 ID 來建立分支。</p>
+<p>記得<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMzMyNg==">分支觀念</span>中，我有說過 「HEAD」 跟 「分支本質」有點像圖釘嗎？<br>
+在 Detached HEAD 狀態提交一個版本，代表這個版本會拿 HEAD 圖釘把他 <strong>釘</strong> 在線圖上的，但  <code>HEAD</code>  是一個會依據需求而移動的「圖釘」，如果沒有再拿一個「分支圖釘」把 commit 釘在線圖上，等  <code>HEAD</code>  換位置，這個 commit 就會消失！</p>
+<p>這就是為什麼要強調，沒事不要讓  <code>HEAD</code>  指著 commit 的原因。<br>
+把這觀念拆得更細一點說，就只是避免我們不小心在這種狀態提交版本，導致 Git 無法記錄內容罷了。</p>
+<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
+<p>分支篇的內容到這已經算是告一個段落。</p>
+<p>以學習的角度建議要做的事情，就是盡量去使用分支，體會分支是「便籤」這件事。</p>
+<p>並且去模擬實務上使用分支時會遇到的狀況，並且試著解決他，處理到自己希望完成的情境。</p>
 <p>如同觀念篇所說的事，有了分支之後，Git 的世界將會變得很不一樣，即便你只有一個人在使用 Git ，也很建議常常去使用分支，體會分支帶給我們的便利性！</p>
 
       <div class="tags">
@@ -372,7 +387,7 @@ Aborting
     <div class="item left">
       
 
-  <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;XEoNWeG.jpg" title="Git 分支：分支合併篇">
+  <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;tXRAhpc.jpg" title="Git 分支：分支合併篇">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>Git 分支：分支合併篇</h3>
@@ -382,7 +397,7 @@ Aborting
     <div class="item right">
       
 
-  <a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;dOvnXNe.jpg" title="用 rebase 重新定義基底">
+  <a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;HsDjgUN.jpg" title="用 rebase 重新定義基底">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>用 rebase 重新定義基底</h3>
@@ -403,7 +418,7 @@ Aborting
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF%E6%8F%90%E4%BA%A4%E7%9A%84-commit%EF%BC%8C%E4%B8%8D%E6%98%AF%E6%87%89%E8%A9%B2%E8%A6%81%E6%9C%89%E3%80%8C%E5%B2%94%E8%B7%AF%E3%80%8D%E5%97%8E%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">建立分支提交的 commit，不是應該要有「岔路」嗎？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%BD%E4%B8%8D%E8%83%BD%E5%BE%9E%E9%81%8E%E5%8E%BB%E7%9A%84-Commit-%E6%99%82%E9%96%93%E9%BB%9E%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">能不能從過去的 Commit 時間點建立分支？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF%E5%AE%8C%E6%95%B4%E6%8C%87%E4%BB%A4"><span class="toc-number">3.1.</span> <span class="toc-text">建立分支完整指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5-commitID-%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">3.2.</span> <span class="toc-text">以 commitID 建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%88%87%E5%88%B0%E6%9F%90%E5%80%8B-commitID%EF%BC%8C%E5%86%8D%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">3.3.</span> <span class="toc-text">先切到某個 commitID，再建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-Fork-%E5%9C%A8%E7%89%B9%E5%AE%9A-commit-%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">3.4.</span> <span class="toc-text">用 Fork 在特定 commit 建立分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8Git-%E5%88%86%E6%94%AF%EF%BC%9A%E8%A7%80%E5%BF%B5%E7%AF%87%E7%A4%BA%E7%AF%84%E7%9A%84%E3%80%8C%E6%92%95%E4%BE%BF%E7%B1%A4%E3%80%8D%E6%98%AF%E4%BB%80%E9%BA%BC%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">在Git 分支：觀念篇示範的「撕便籤」是什麼原理？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%96%8B%E7%99%BC%E5%88%B0%E4%B8%80%E5%8D%8A%EF%BC%8C%E9%9C%80%E8%A6%81%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF%E6%80%8E%E9%BA%BC%E8%BE%A6"><span class="toc-number">5.</span> <span class="toc-text">開發到一半，需要切換分支怎麼辦</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-git-reset-%E6%8A%8A%E5%B0%9A%E6%9C%AA%E9%96%8B%E7%99%BC%E7%9A%84%E8%B3%87%E6%96%99%E6%9A%AB%E5%AD%98%E8%B5%B7%E4%BE%86"><span class="toc-number">5.1.</span> <span class="toc-text">1. 使用 git reset 把尚未開發的資料暫存起來</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-git-stash-%E6%8A%8A%E8%B3%87%E6%96%99%E6%9A%AB%E5%AD%98%E8%B5%B7%E4%BE%86"><span class="toc-number">5.2.</span> <span class="toc-text">2. 使用 git stash 把資料暫存起來</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%BF%98%E8%A8%98%E3%80%8C%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF%E3%80%8D%E5%B0%B1%E9%96%8B%E5%A7%8B%E9%96%8B%E7%99%BC%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">如果忘記「建立分支」就開始開發怎麼辦？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%94%A8%E4%B8%8A%E9%9D%A2%E9%82%A3%E6%8B%9B%EF%BC%8CGit-%E4%B8%8D%E7%B5%A6%E6%88%91%E3%80%8C%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF%E3%80%8D%E6%AC%B8%E2%80%A6"><span class="toc-number">7.</span> <span class="toc-text">我用上面那招，Git 不給我「切換分支」欸….</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E8%A7%80%E5%BF%B5%E6%8F%90%E5%88%B0%E7%9A%84%EF%BC%8CHEAD-%E6%8C%87%E8%91%97-commit-%E5%88%B0%E5%BA%95%E6%9C%83%E6%80%8E%E6%A8%A3%E5%95%8A%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">分支觀念提到的，HEAD 指著 commit 到底會怎樣啊？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">9.</span> <span class="toc-text">總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF%E6%8F%90%E4%BA%A4%E7%9A%84-commit%E4%B8%8D%E6%98%AF%E6%87%89%E8%A9%B2%E8%A6%81%E6%9C%89%E5%B2%94%E8%B7%AF%E5%97%8E"><span class="toc-number">2.</span> <span class="toc-text"> 建立分支提交的 commit，不是應該要有「岔路」嗎？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%BD%E4%B8%8D%E8%83%BD%E5%BE%9E%E9%81%8E%E5%8E%BB%E7%9A%84-commit-%E6%99%82%E9%96%93%E9%BB%9E%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">3.</span> <span class="toc-text"> 能不能從過去的 Commit 時間點建立分支？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF%E5%AE%8C%E6%95%B4%E6%8C%87%E4%BB%A4"><span class="toc-number">3.1.</span> <span class="toc-text"> 建立分支完整指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5-commitid-%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">3.2.</span> <span class="toc-text"> 以 commitID 建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%88%87%E5%88%B0%E6%9F%90%E5%80%8B-commitid%E5%86%8D%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">3.3.</span> <span class="toc-text"> 先切到某個 commitID，再建立分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-%E5%9C%A8%E7%89%B9%E5%AE%9A-commit-%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF"><span class="toc-number">3.4.</span> <span class="toc-text"> 用 Fork 在特定 commit 建立分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8git-%E5%88%86%E6%94%AF%E8%A7%80%E5%BF%B5%E7%AF%87%E7%A4%BA%E7%AF%84%E7%9A%84%E6%92%95%E4%BE%BF%E7%B1%A4%E6%98%AF%E4%BB%80%E9%BA%BC%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text"> 在 Git 分支：觀念篇示範的「撕便籤」是什麼原理？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%96%8B%E7%99%BC%E5%88%B0%E4%B8%80%E5%8D%8A%E9%9C%80%E8%A6%81%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF%E6%80%8E%E9%BA%BC%E8%BE%A6"><span class="toc-number">5.</span> <span class="toc-text"> 開發到一半，需要切換分支怎麼辦</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-git-reset-%E6%8A%8A%E5%B0%9A%E6%9C%AA%E9%96%8B%E7%99%BC%E7%9A%84%E8%B3%87%E6%96%99%E6%9A%AB%E5%AD%98%E8%B5%B7%E4%BE%86"><span class="toc-number">5.1.</span> <span class="toc-text"> 1. 使用  git reset  把尚未開發的資料暫存起來</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-git-stash-%E6%8A%8A%E8%B3%87%E6%96%99%E6%9A%AB%E5%AD%98%E8%B5%B7%E4%BE%86"><span class="toc-number">5.2.</span> <span class="toc-text"> 2. 使用  git stash  把資料暫存起來</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%BF%98%E8%A8%98%E5%BB%BA%E7%AB%8B%E5%88%86%E6%94%AF%E5%B0%B1%E9%96%8B%E5%A7%8B%E9%96%8B%E7%99%BC%E6%80%8E%E9%BA%BC%E8%BE%A6"><span class="toc-number">6.</span> <span class="toc-text"> 如果忘記「建立分支」就開始開發怎麼辦？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%94%A8%E4%B8%8A%E9%9D%A2%E9%82%A3%E6%8B%9Bgit-%E4%B8%8D%E7%B5%A6%E6%88%91%E5%88%87%E6%8F%9B%E5%88%86%E6%94%AF%E6%AC%B8"><span class="toc-number">7.</span> <span class="toc-text"> 我用上面那招，Git 不給我「切換分支」欸…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E8%A7%80%E5%BF%B5%E6%8F%90%E5%88%B0%E7%9A%84head-%E6%8C%87%E8%91%97-commit-%E5%88%B0%E5%BA%95%E6%9C%83%E6%80%8E%E6%A8%A3%E5%95%8A"><span class="toc-number">8.</span> <span class="toc-text"> 分支觀念提到的，HEAD 指著 commit 到底會怎樣啊？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">9.</span> <span class="toc-text"> 總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -500,7 +515,7 @@ Aborting
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
+    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
   </li>
 
       
@@ -520,7 +535,17 @@ Aborting
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
       
@@ -540,6 +565,16 @@ Aborting
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
     <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
   </li>
 
@@ -550,47 +585,27 @@ Aborting
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
     <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
   </li>
 
   </ul>
@@ -611,13 +626,13 @@ Aborting
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">137k 字</span>
+    <span title="總字數">134k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:05</span>
+    <span title="所需總閱讀時間">2:01</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

@@ -1,0 +1,602 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/">
+
+
+
+  <title>
+用 revert 復原 commit - 一起來學 Git 吧！ |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">用 revert 復原 commit
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-10-08 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-08T10:50:20+08:00">2023-10-08</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-learn/" itemprop="item" rel="index" title="分類於 一起來學 Git 吧！"><span itemprop="name">一起來學 Git 吧！</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>話說在前頭，如果進到這篇文章的你還跟 Git 不太熟，目前的你執行了  <code>git commit</code>  之後反悔了，想要把它刪掉卻不知道怎麼刪的話，請左轉參考 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMjYzMQ==">git reset 文章</span>，可能比較符合你現階段想完成的事情。</p>
+<p>因為  <code>git revert</code>  指令執行下去可能會跟你想的結果完全不一樣。</p>
+<p>會以這樣的言論當作開場，就是因為筆者小弟不才本人我，在不熟 Git 的時期想要「刪除」最新的 commit，看到有個  <code>git revert</code>  可以取消 commit，糊里糊塗就給他用下去。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> revert HEAD</pre></td></tr></table></figure><p>當時執行完之後，也不知道為什麼會跳出一個編輯視窗，甚至也不知道他的用意是啥，乾脆就直接關掉它，結果原本想刪除的 commit 沒被刪掉，反而又多出了一個 commit…</p>
+<h1 id="git-revert-介紹"><a class="markdownIt-Anchor" href="#git-revert-介紹">#</a> git revert 介紹</h1>
+<p><strong>revert</strong> ，中文翻譯叫做 <strong>恢復</strong>，也確實  <code>git revert</code>  是一個用來 「恢復 commit」 的指令，他的本意會把某個 commit 「反著做」。</p>
+<p>如果一個 commit 原本新增了一個檔案，revert 這個 commit ，就會提交一個刪除這個檔案的 commit。</p>
+<p>如果一個 commit 是編輯某個檔案的內容，revert 這個 commit ，就會提交一個復原編輯內容的 commit。</p>
+<p>不過無論如何， <code>git revert</code>  都會「另外提交」一個版本來完成這件事，指令 <strong>不會</strong> 把原本 commit 給刪掉！！</p>
+<h1 id="git-revert-操作"><a class="markdownIt-Anchor" href="#git-revert-操作">#</a> git revert 操作</h1>
+<p>目前的線圖長這樣，最新的 commit 只新增一個檔案：<br>
+<img data-src="https://i.imgur.com/sqbfpqk.png" alt=""></p>
+<p>接著執行這個指令，告訴 Git 要復原最近一次的 commit：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> revert HEAD</pre></td></tr></table></figure><p>此時終端機介面會跳出一個叫我們編輯文字的訊息提示：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> revert HEAD</pre></td></tr><tr><td data-num="2"></td><td><pre>hint: Waiting <span class="token keyword">for</span> your editor to close the file<span class="token punctuation">..</span>.</pre></td></tr></table></figure><p>同時 Git 會自動跳出預設的文字編輯器，你可以選擇要不要編輯這個文字編輯器的內容，無論有沒有編輯，在確認之後請 <strong>關閉</strong> 這個視窗：</p>
+<p><img data-src="https://i.imgur.com/4c4lbjR.png" alt=""></p>
+<p>回到線圖，就會看到多出一個 commit ，commit 的內容是把剛剛新增的檔案刪除了：<br>
+<img data-src="https://i.imgur.com/alXzaFZ.png" alt=""></p>
+<p>通常如果真的需要用到 revert 指令，可能也不太會在乎 commit 訊息了，畢竟它唯一的用途就是拿來復原 commit 而已，我們可以下一個  <code>--no-edit</code>   參數要求直接執行 revert ，不要跳編輯器出來：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> revert HEAD --no-edit</pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/cAKGAyN.png" alt=""></p>
+<p>剛好這是 revert 一個 revert 的結果，也代表說我把資料刪了又還原回來。</p>
+<h1 id="git-revert-本質是合併"><a class="markdownIt-Anchor" href="#git-revert-本質是合併">#</a> git revert 本質是「合併」</h1>
+<p>既然我們都可以用  <code>revert</code>  指令提交一個 「還原<strong>目前</strong>版本」 的 commit，就代表我們也可以拿  <code>revert</code>  指令提交一個「還原<strong>過去</strong>某個版本」的 commit。</p>
+<p>用文字敘述很繞口，直接舉例子好了，一樣用最簡單的  <code>A</code>  =&gt;  <code>B</code>  =&gt;  <code>C</code>   三個版本來說。</p>
+<p>我們剛剛做的事情都只有 「復原」最新版的 commit，就是把  <code>C</code>  做的事情還原回去，提交一個跟  <code>B</code>  的內容一樣的版本  <code>D</code> 。</p>
+<p>而開頭的解釋則是講說，我都能還原  <code>C</code>  了，那我能不能提交一個還原  <code>B</code>  的版本看看？</p>
+<p>再更細一點的來說明</p>
+<ul>
+<li>A 版本新增  <code>1.txt</code>  、 <code>2.txt</code>  兩個檔案</li>
+<li>B 版本<strong>編輯</strong>  <code>1.txt</code>  、 <code>2.txt</code>  兩個檔案</li>
+<li>C 版本<strong>編輯</strong>  <code>1.txt</code>  、 <code>2.txt</code>  兩個檔案</li>
+</ul>
+<p>我們試著用  <code>git revert</code>  執行 B 版本看看會發生什麼事情：</p>
+<ol>
+<li>
+<p>先給大家看剛剛情境的版本線圖：<br>
+<img data-src="https://i.imgur.com/uDimUQw.png" alt=""></p>
+</li>
+<li>
+<p>執行這個指令，讓還原的資料指到版本 B</p>
+</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> revert HEAD^ --no-edit</pre></td></tr></table></figure><ol start="3">
+<li>結果「復原  <code>版本 B</code>  的內容」 跟  <code>版本 C</code>  衝突了！！</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> revert HEAD^ --no-edit</pre></td></tr><tr><td data-num="2"></td><td><pre>Auto-merging <span class="token number">1</span>.txt</pre></td></tr><tr><td data-num="3"></td><td><pre>CONFLICT <span class="token punctuation">(</span>content<span class="token punctuation">)</span>: Merge conflict <span class="token keyword">in</span> <span class="token number">1</span>.txt</pre></td></tr><tr><td data-num="4"></td><td><pre>Auto-merging <span class="token number">2</span>.txt</pre></td></tr><tr><td data-num="5"></td><td><pre>CONFLICT <span class="token punctuation">(</span>content<span class="token punctuation">)</span>: Merge conflict <span class="token keyword">in</span> <span class="token number">2</span>.txt</pre></td></tr><tr><td data-num="6"></td><td><pre>error: could not revert b2b06c8<span class="token punctuation">..</span>. 版本B</pre></td></tr><tr><td data-num="7"></td><td><pre>hint: After resolving the conflicts, mark them with</pre></td></tr><tr><td data-num="8"></td><td><pre>hint: <span class="token string">"git add/rm &lt;pathspec>"</span>, <span class="token keyword">then</span> run</pre></td></tr><tr><td data-num="9"></td><td><pre>hint: <span class="token string">"git revert --continue"</span><span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="10"></td><td><pre>hint: You can instead skip this commit with <span class="token string">"git revert --skip"</span><span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="11"></td><td><pre>hint: To abort and get back to the state before <span class="token string">"git revert"</span>,   </pre></td></tr><tr><td data-num="12"></td><td><pre>hint: run <span class="token string">"git revert --abort"</span><span class="token builtin class-name">.</span></pre></td></tr></table></figure><p>能理解原因嗎？</p>
+<p>來敘述一下衝突的原因吧！<br>
+上面  <code>revert</code>  指令應該是要提交「把  <code>版本B</code>  還原的內容」，提交的過程還要跟當下最新版的  <code>版本 C</code>  比對並且進行 <strong>合併</strong>，結果卻發現這兩個版本內容有衝突，就會造成上面出現的狀況了。</p>
+<p>拿其中一個檔案舉例就好：<br>
+ <code>版本B</code>  編輯  <code>1.txt</code>  的第一行文字，代表這個檔案在  <code>版本B</code>  紀錄了一行字了。</p>
+<p>接著我繼續在  <code>版本C</code>  編輯  <code>1.txt</code>  的第一行文字。</p>
+<p>因為當初  <code>版本B</code>  讓檔案從「沒內容」 變成「多了一行字」， <code>git revert 版本B</code>  就是要 commit 一個  <code>1.txt</code>  是「沒內容」的版本。</p>
+<p>但是  <code>版本C</code>  已經把  <code>版本B</code>  的資料改掉了阿！<br>
+Git 想要保留版本 C 的資料，但又需要 commit 一個沒內容的資料，只好丟衝突問我們到底是要保留版本 C 的內容，還是保留「復原  <code>版本 B</code>  的內容」了。</p>
+<p>此時的  <code>1.txt</code>  檔案長這樣： ( <code>2.txt</code>  長得一樣，就不貼了)<br>
+<img data-src="https://i.imgur.com/0lnBfet.png" alt=""></p>
+<p>解決衝突的方式就跟之前提到  <code>git rebase</code>  衝突很像，同時剛剛的訊息提示也告訴我們了</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>hint: After resolving the conflicts, mark them with</pre></td></tr><tr><td data-num="2"></td><td><pre>hint: <span class="token string">"git add/rm &lt;pathspec>"</span>, <span class="token keyword">then</span> run</pre></td></tr><tr><td data-num="3"></td><td><pre>hint: <span class="token string">"git revert --continue"</span><span class="token builtin class-name">.</span></pre></td></tr></table></figure><ol>
+<li>解決衝突</li>
+<li>用  <code>git add</code>  指令 mark 這些檔案</li>
+<li>執行  <code>git revert --continue</code></li>
+<li>此時會跳出文字編輯器，要求編輯這個  <code>revert</code>  的訊息。<br>
+<img data-src="https://i.imgur.com/9NRwFrY.png" alt=""></li>
+<li>編輯完，關掉就完成衝突處理了！<br>
+<img data-src="https://i.imgur.com/tuM67oD.png" alt=""></li>
+</ol>
+<h1 id="用-fork-gui-操作-revert"><a class="markdownIt-Anchor" href="#用-fork-gui-操作-revert">#</a> 用 Fork GUI 操作 Revert</h1>
+<p>觀念在上面都說明了，就不多說了。<br>
+要使用 Fork GUI 操作 Revert ，對著想 revert 的 commit 點右鍵，找到這個選項：<br>
+<img data-src="https://i.imgur.com/N51d9V1.png" alt=""></p>
+<p>系統會跳出這個視窗，點  <code>revert</code>  按鈕，就完成了：<br>
+<img data-src="https://i.imgur.com/0OxmYol.png" alt=""></p>
+<h1 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h1>
+<h2 id="1-什麼時候會用到-git-revert-指令"><a class="markdownIt-Anchor" href="#1-什麼時候會用到-git-revert-指令">#</a> 1. 什麼時候會用到 git revert 指令？</h2>
+<ul>
+<li>不方便 reset 的時候。</li>
+</ul>
+<p>有一個觀念不斷在強調，如果已經推到遠端的內容，除非你很確定不會影響到別人，不然不建議隨意修改。</p>
+<p>如果你需要反悔目前的版本，但這個版本又已經推到遠端，就很建議使用  <code>revert</code>  提交一個復原的 commit 再推到遠端。</p>
+<ul>
+<li>想復原的資料有點多的時候。</li>
+</ul>
+<p>其實如果不方便  <code>reset</code>  ，想要反悔的資料也可以手動還原後，再  <code>git commit</code>  一個版本，一樣也能達成「復原」資料的效果。</p>
+<p>不過如果需要復原的資料太多，又散落在好幾的檔案，手動復原有可能那邊沒改到，這邊又沒調到，這種狀況直接使用  <code>revert</code>  指令可能會更方便一些。</p>
+<h2 id="2-git-revert-很常會用到嗎"><a class="markdownIt-Anchor" href="#2-git-revert-很常會用到嗎">#</a> 2. git revert 很常會用到嗎？</h2>
+<p>這個問題，要看個人習慣。</p>
+<p>我們已經知道 git revert 會提交一個新的版本來復原 commit，那麼無論我是想復原目前的 commit 也好，或是更早之前的 commit 也好，其實我可以手動編輯想復原的內容，然後直接用  <code>git commit</code>  指令來處理也是一個辦法，不一定要使用  <code>git revert</code>  指令。</p>
+<p>在我們認識的 Git 功能越來越多之後，我常常提及的那個觀念就變得越發重要了：</p>
+<div class="note info no-icon">
+<p>Git 只是一個工具，什麼時候該用什麼功能，是我們要自己決定的！</p>
+</div>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-10-17 16:44:43" itemprop="dateModified" datetime="2023-10-17T16:44:43+08:00">2023-10-17</time>
+  </span>
+  <span id="git-learn/24 - 用 Revert 取消 commit/" class="item leancloud_visitors" data-flag-title="用 revert 復原 commit" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">https://imall.github.io/git-learn/24 - 用 Revert 取消 commit/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="用 rebase 互動模式來調整歷史">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>用 rebase 互動模式來調整歷史</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;XEoNWeG.jpg" title="使用 GitHub：遠端儲存庫基本操作">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>使用 GitHub：遠端儲存庫基本操作</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-revert-%E4%BB%8B%E7%B4%B9"><span class="toc-number">2.</span> <span class="toc-text"> git revert 介紹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-revert-%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text"> git revert 操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-revert-%E6%9C%AC%E8%B3%AA%E6%98%AF%E5%90%88%E4%BD%B5"><span class="toc-number">4.</span> <span class="toc-text"> git revert 本質是「合併」</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8-fork-gui-%E6%93%8D%E4%BD%9C-revert"><span class="toc-number">5.</span> <span class="toc-text"> 用 Fork GUI 操作 Revert</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">6.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E6%9C%83%E7%94%A8%E5%88%B0-git-revert-%E6%8C%87%E4%BB%A4"><span class="toc-number">6.1.</span> <span class="toc-text"> 1. 什麼時候會用到 git revert 指令？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-git-revert-%E5%BE%88%E5%B8%B8%E6%9C%83%E7%94%A8%E5%88%B0%E5%97%8E"><span class="toc-number">6.2.</span> <span class="toc-text"> 2. git revert 很常會用到嗎？</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" rel="bookmark" title="版控的類別">版控的類別</a></li><li><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="bookmark" title="基本觀念與常見問題">基本觀念與常見問題</a></li><li><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="bookmark" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></li><li><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="Git 初始化設定">Git 初始化設定</a></li><li><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="bookmark" title="建立 Git 儲存庫">建立 Git 儲存庫</a></li><li><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="bookmark" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></li><li><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" rel="bookmark" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></li><li><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" rel="bookmark" title="查看 Git 資料狀態">查看 Git 資料狀態</a></li><li><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="bookmark" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></li><li><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="查看 log 紀錄">查看 log 紀錄</a></li><li><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="bookmark" title="設定 .gitignore">設定 .gitignore</a></li><li><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" rel="bookmark" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></li><li><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></li><li><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="bookmark" title="用 reset 回到過去">用 reset 回到過去</a></li><li><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" rel="bookmark" title="Git 分支：觀念篇">Git 分支：觀念篇</a></li><li><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="bookmark" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></li><li><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" rel="bookmark" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></li><li><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="bookmark" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></li><li><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" rel="bookmark" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></li><li><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="bookmark" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></li><li class="active"><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="bookmark" title="用 revert 復原 commit">用 revert 復原 commit</a></li><li><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="bookmark" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></li><li><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></li><li><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></li><li><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" rel="bookmark" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></li><li><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" rel="bookmark" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></li><li><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" rel="bookmark" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">38</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">134k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">2:01</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-learn/24 - 用 Revert 取消 commit/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

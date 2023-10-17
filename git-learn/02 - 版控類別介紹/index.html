@@ -1,0 +1,644 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/">
+
+
+
+  <title>
+版控的類別 - 一起來學 Git 吧！ |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">版控的類別
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-16 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-16T10:50:20+08:00">2023-09-16</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>3.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-learn/" itemprop="item" rel="index" title="分類於 一起來學 Git 吧！"><span itemprop="name">一起來學 Git 吧！</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>這個篇章來帶大家認識版控的概念，以及常見的版控類別。</p>
+<p>在開始之前，避免新手後續的閱讀困惑，先來介紹幾個之後會看到的名詞：</p>
+<ol>
+<li>
+<p><strong>地端 / 本機 / 本地 (local)</strong>：位於當前位置或靠近使用者的 <strong>設備</strong> 或 <strong>系統</strong>。<br>
+白話來說，就是你看得到的裝置，包含眼前的主機、筆電、手機，都可以稱為地端。</p>
+</li>
+<li>
+<p><strong>遠端 / 雲端 (remote)</strong>：不在使用者眼前的 <strong>設備</strong> 或 <strong>系統</strong>，也就是你看不到的裝置，包含隔壁辦公室的主機，或是遠在 Google 機房的「雲端硬碟」之類。<br>
+而通常遠端 / 雲端的資料，會需要透過「網路」才能從地端 (你眼前這台裝置) 存取。</p>
+</li>
+<li>
+<p><strong>儲存庫 (repository)</strong>：一個用來存放 <strong>資料</strong>、<strong>文件</strong>、<strong>程式碼</strong>或是 <strong>其他資源</strong> 的地方，以版控系統來說，主要分成 <strong>地端儲存庫</strong>，跟 <strong>遠端儲存庫</strong>。</p>
+</li>
+</ol>
+<p>以上三個專有名詞，是使用 Git 會頻繁出現的詞彙，同時也會是學習 Git 的關鍵詞，一時之間搞不懂的讀者，可以隨著後續的介紹內容，慢慢體會這箇中含意。</p>
+<h1 id="什麼是版本控制版控以及為什麼要版控"><a class="markdownIt-Anchor" href="#什麼是版本控制版控以及為什麼要版控">#</a> 什麼是版本控制 (版控)，以及為什麼要版控？</h1>
+<p>就定義來說：只要是能記錄專案改動的過程，並且對每次改動進行標記的行為，就叫做「版控」。</p>
+<p>「版控」除了能讓我們追蹤歷史版本之外，還有一個目的是「保存關鍵時刻」。<br>
+這就像遊戲玩到某個里程碑要進行「存檔」一樣，如果後續關卡輸了，還可以直接從「存檔點」重來。</p>
+<p>實務上像是不小心刪了某個檔案，或是把程式改到一個自己沒辦法復原的狀況，因為有了版控的機制，不至於完全失去重要的資料。</p>
+<p>常見的版控方式，有以下三種</p>
+<ol>
+<li>以資料夾註記版控</li>
+<li>使用集中式版控系統</li>
+<li>使用分散式版控系統</li>
+</ol>
+<h1 id="以資料夾註記版控"><a class="markdownIt-Anchor" href="#以資料夾註記版控">#</a> 以資料夾註記版控</h1>
+<p>在初學程式階段，還不會使用 Git 時，如果練習到一個階段，想避免之後的練習改壞這包程式，十之八九會這麼操作：</p>
+<ol>
+<li>先把放專案程式的資料夾，整包複製一份。</li>
+<li>更改複製出來的資料夾名稱。</li>
+<li>安心的修改原本的程式。</li>
+</ol>
+<p>當後續又有完成功能時，準備開始往下個階段前進之前，就再重複一次上述動作。</p>
+<p>如果要區分每一次複製的資料夾，還可以在資料夾名稱加上日期區隔：<br>
+<img data-src="https://i.imgur.com/OW6pn70.jpg" alt="以資料夾區隔版本"></p>
+<p>這種方式很直覺，而且很簡單，只要知道怎麼建立資料夾，就連小學生都會操作，可以說是一個不用技術門檻的版控方式。</p>
+<p>不過這個做法有很多缺點，導致實際運用專案上並不方便：</p>
+<ol>
+<li>
+<p>占用硬碟空間：<br>
+由於每寫一個版本，就要把程式整包複製起來，隨著時間推移會越來越占用硬碟空間，如果公司程式量一多，那消耗的空間會很可觀。</p>
+</li>
+<li>
+<p>不易追溯歷史：<br>
+這種版控備份方式，幾乎可以把每個資料夾視為「獨立」的專案，要在版本與版本之間切換，必須在資料夾之間穿梭，無非是浪費很多不必要的時間。</p>
+</li>
+<li>
+<p>容易誤刪版本：<br>
+這就不用多說了，人有失足馬有亂蹄，如果不小心誤刪某個資料夾，又很不小心把資源回收桶清空了 (<s>也太不小心！！</s>)，表情大概會像這隻貓一樣慘烈…<br>
+<img data-src="https://i.imgur.com/7YQTKsn.jpg" alt="打完報告不小心按到刪除檔案，臉開始漸漸露出母湯的表情"></p>
+</li>
+<li>
+<p>不易協作：<br>
+資料夾的版控模式如果要協作維護，唯一的做法大概是把資料夾丟雲端硬碟，團隊成員再把自己開發的版本持續丟上去。<br>
+即使每個人都乖乖的把自己的打包好才上傳，避免蓋到別人的程式，但又會回到第二點，不容易追溯歷史的問題。</p>
+</li>
+</ol>
+<p>由於傳統版控方式的各種痛點，人們開始使用 <strong>儲存庫</strong> 進行版控。<br>
+依據這個概念誕生的版控系統，又可以分成兩大類：</p>
+<h1 id="集中式版控系統"><a class="markdownIt-Anchor" href="#集中式版控系統">#</a> 集中式版控系統</h1>
+<h2 id="介紹"><a class="markdownIt-Anchor" href="#介紹">#</a> 介紹</h2>
+<p>集中式版控系統，概念是直接在遠端建立一個儲存庫，團隊專案的每一個版本資料，全部在遠端儲存庫內建立。</p>
+<p>實際的架構看起來會是這個模式，所有開發者的資料統一彙整在儲存庫之中，自己的電腦只用來開發程式，不記錄版本。<br>
+<img data-src="https://i.imgur.com/wE8N8Yw.png" alt="集中式版控系統"></p>
+<p>在第一天的文章提到的 SVN (Subversion) 版控工具就是一種集中式版控系統。 (然後這段還沒開始要講 Git，讀到這邊先不要跟 Git 作聯想)</p>
+<h2 id="優點"><a class="markdownIt-Anchor" href="#優點">#</a> 優點</h2>
+<p>雖然這概念聽起來跟把程式丟雲端沒兩樣，不過不同的是，「儲存庫」的設計是專門拿來版控的，每次存入的資料都要寫入 <strong>版本資訊</strong> 、<strong>開發者資訊</strong>，它同時也提供好的 <strong>歷程查詢</strong> 功能，方便開發者調閱版本的演進。不像雲端硬碟用途只是拿來「存放資料」，並不擅長歸納「每個資料的版本」。</p>
+<p>除此之外，因為版控集中在遠端儲存庫，所有人員都須透過網路連線才能存取到資料，所以管理人員可以在系統中設定「各別檔案的存取權限」，就能避免上傳程式發生「我蓋你」、「你蓋我」的尷尬局面。</p>
+<p>也因為地端的程式已經跟「版控」、「備份」脫鉤，即便失誤刪除地端程式，也可以重新從遠端重新把程式拉回來用。</p>
+<blockquote>
+<p>看似完美的世界，還是存在著缺點。</p>
+</blockquote>
+<h2 id="缺點"><a class="markdownIt-Anchor" href="#缺點">#</a> 缺點</h2>
+<p>雖然統一把版控歷程建立在遠端儲存庫十分方便，但問題是遠端儲存庫永遠需要有網路才能操作。</p>
+<p>換言之，舉凡一切有關版控的行為，包含發佈版本、調閱紀錄，只要沒有網路，就無法執行。</p>
+<p>可能有讀者會有疑惑：不對阿，就算沒有網路，我還是可以在自己的電腦裡面寫 code 不是嗎？</p>
+<p>這個說法沒錯，不過這邊想強調的是，做不到的事情是「版控」，而不是「開發」。就算已經開發好程式，因為沒有網路，所以沒辦法把寫好的程式「紀錄」進版控之中，也就是沒辦法「對遊戲下存檔點」的概念。</p>
+<blockquote>
+<p>上面這段其實是筆者曾經的疑惑，特別記錄下來希望有相同疑惑的讀者能解惑。</p>
+</blockquote>
+<p>還有一個問題是，集中式版控系統在專案越來越大的時候，由於網路傳輸頻寬有限，資料越多讀取速度越慢，這造成版控的效率會大幅的降低，到了後期上傳資料的時間或是取得紀錄（log）的過程差不多可以去泡一杯咖啡了。</p>
+<p>集中式版控系統或許還有未提及的優缺點，不過一來這不是文章主要內容，再來筆者涉略不深怕寫多了會誤人子弟，就點到為止。</p>
+<p>話不多說，來講 Git 吧。</p>
+<h1 id="分散式版控系統"><a class="markdownIt-Anchor" href="#分散式版控系統">#</a> 分散式版控系統</h1>
+<h2 id="介紹-2"><a class="markdownIt-Anchor" href="#介紹-2">#</a> 介紹</h2>
+<p><img data-src="https://i.imgur.com/otXGtW3.png" alt="分散式版控系統"></p>
+<p>所謂的分散式版控系統，意思是儲存庫可以直接建立在每個開發者的電腦中，每個人的電腦都會有完整的版控資訊，開發者不會直接連到遠端版控，而是先在地端做好版控後，再將資料上傳到遠端。</p>
+<p>而且如同集中式版控系統一樣，協作開發會透過「遠端儲存庫」共用資料，將「版控資料」同步回自己的「地端儲存庫」後，再繼續開發。</p>
+<div class="note info no-icon">
+<p>Git 就是屬於分散式版控系統</p>
+</div>
+<h2 id="優點-2"><a class="markdownIt-Anchor" href="#優點-2">#</a> 優點</h2>
+<p>因為每個人的電腦都有儲存庫，代表版控不需要「遠端儲存庫」就可以進行。<br>
+也就是說，使用 Git 版控，不用設定遠端儲存庫，也能在離線狀態對專案作版控。</p>
+<p>由於把遠端儲存庫與地端儲存庫拆分開來控制，在地端儲存庫的版控行為，並不會影響到大家共用的遠端儲存庫，不用擔心一時操作失誤，搞壞整個團隊的資料。</p>
+<p>再來是「分散式管理系統」通常都有很好操作的「分支操作功能」以及「還原資料功能」，再加上這些功能在地端就能完成，少了網路傳輸時間，即使資料量再大，速度也慢不到哪裡去。 <s>如果還是覺得太慢，可能是在提醒你，該換電腦了</s></p>
+<h2 id="缺點-2"><a class="markdownIt-Anchor" href="#缺點-2">#</a> 缺點</h2>
+<p>講了一堆吹捧「分散式管理系統」的內容，其實他還是有缺點存在。</p>
+<p>「分散式管理系統」最大的缺點，就是團隊版控過程沒辦法鎖定不同人存取個別檔案的權限，畢竟每個人在電腦中都有一個完整的儲存庫，沒辦法特別去設定每個開發者在自己電腦存取的資料。</p>
+<p>「分散式管理系統」通常比「集中式管理系統」來得複雜，要在一個沒完全沒碰過「分散式管理系統」的團隊中導入這個技術，學習成本相較來得高。</p>
+<p>此外，也因為複雜度高，如果團隊對於「分散式管理系統」的觀念不清楚，很可能因為觀念混淆而造成操作錯誤。</p>
+<h2 id="補充"><a class="markdownIt-Anchor" href="#補充">#</a> 補充</h2>
+<h3 id="在分散式版控系統需要用到遠端儲存庫的狀況"><a class="markdownIt-Anchor" href="#在分散式版控系統需要用到遠端儲存庫的狀況">#</a> 在分散式版控系統需要用到「遠端儲存庫」的狀況</h3>
+<p>上述有特別強調，分散式管理系統可以在本機端直接完成版控，這樣的狀況下還會「遠端儲存庫」的原因，大致上有三點：</p>
+<ol>
+<li>
+<p>想在遠端備份程式：<br>
+遠端儲存庫其實也是一種雲端備份空間，要避免地端資料遺失，備份到遠端儲存庫是一個不錯方式。</p>
+</li>
+<li>
+<p>想分享自己的程式給他人看：<br>
+如果讀者有聽過「open source」，開源程式的概念，它通常就是透過 GitHub 這個「遠端儲存庫」來跟社群分享程式。</p>
+</li>
+<li>
+<p>團隊共同開發專案：<br>
+這應該不用解釋了，就是因為 Git 很適合拿來團隊開發，才會讓大家趨之若鶩學習 Git。而使用 Git 團隊開發的方式，就是需要一個團隊共用的「遠端儲存庫」。</p>
+</li>
+</ol>
+<p>雖然列出了三項，不過概念都是要讓其他人 (或是其他裝置) 存取地端的資料，才需要用到遠端儲存庫。否則只需要地端儲存庫，就可已使用 Git。</p>
+<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
+<p>到這邊讀者們應該可以看得出來，雖然兩種主要的版控系統都有它的優缺點，但分散式管理系統的優點明顯多於缺點，而這些缺點其實也都有辦法克服。<br>
+這也是 Git 能成為版本控制的全球標準的原因之一。<br>
+(這浮誇的言論不是我說的，是 <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L2Rldm9wcy9kZXZlbG9wL2dpdC93aGF0LWlzLWdpdA==">微軟官網</span> 說的)</p>
+<p>總結這篇文章的重點：</p>
+<ol>
+<li>使用「複製貼上大法」來備份程式效率太差，所以需要版控系統協助。</li>
+<li>版控系統分為「集中式版控系統」與「分散式版控系統」兩種。</li>
+<li>Git 屬於分散式版控系統，並且已經是世界主流。</li>
+<li>分散式版控系統特性是能在地端版控。除非必要，否則不須建立遠端儲存庫。</li>
+<li>只有需要讓他人 (或其他裝置) 存取本機的程式時，才需要建立「遠端儲存庫」。</li>
+</ol>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-10-17 16:43:21" itemprop="dateModified" datetime="2023-10-17T16:43:21+08:00">2023-10-17</time>
+  </span>
+  <span id="git-learn/02 - 版控類別介紹/" class="item leancloud_visitors" data-flag-title="版控的類別" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">https://imall.github.io/git-learn/02 - 版控類別介紹/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;77JuPV6.png" title="前言">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>前言</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;slJN1yE.jpg" title="基本觀念與常見問題">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>基本觀念與常見問題</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%89%88%E6%8E%A7%E4%BB%A5%E5%8F%8A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E7%89%88%E6%8E%A7"><span class="toc-number">2.</span> <span class="toc-text"> 什麼是版本控制 (版控)，以及為什麼要版控？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E8%B3%87%E6%96%99%E5%A4%BE%E8%A8%BB%E8%A8%98%E7%89%88%E6%8E%A7"><span class="toc-number">3.</span> <span class="toc-text"> 以資料夾註記版控</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%89%88%E6%8E%A7%E7%B3%BB%E7%B5%B1"><span class="toc-number">4.</span> <span class="toc-text"> 集中式版控系統</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%B4%B9"><span class="toc-number">4.1.</span> <span class="toc-text"> 介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%84%AA%E9%BB%9E"><span class="toc-number">4.2.</span> <span class="toc-text"> 優點</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E9%BB%9E"><span class="toc-number">4.3.</span> <span class="toc-text"> 缺點</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%95%A3%E5%BC%8F%E7%89%88%E6%8E%A7%E7%B3%BB%E7%B5%B1"><span class="toc-number">5.</span> <span class="toc-text"> 分散式版控系統</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%B4%B9-2"><span class="toc-number">5.1.</span> <span class="toc-text"> 介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%84%AA%E9%BB%9E-2"><span class="toc-number">5.2.</span> <span class="toc-text"> 優點</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E9%BB%9E-2"><span class="toc-number">5.3.</span> <span class="toc-text"> 缺點</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">5.4.</span> <span class="toc-text"> 補充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%88%86%E6%95%A3%E5%BC%8F%E7%89%88%E6%8E%A7%E7%B3%BB%E7%B5%B1%E9%9C%80%E8%A6%81%E7%94%A8%E5%88%B0%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E7%8B%80%E6%B3%81"><span class="toc-number">5.4.1.</span> <span class="toc-text"> 在分散式版控系統需要用到「遠端儲存庫」的狀況</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">6.</span> <span class="toc-text"> 總結</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li class="active"><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" rel="bookmark" title="版控的類別">版控的類別</a></li><li><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="bookmark" title="基本觀念與常見問題">基本觀念與常見問題</a></li><li><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="bookmark" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></li><li><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="Git 初始化設定">Git 初始化設定</a></li><li><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="bookmark" title="建立 Git 儲存庫">建立 Git 儲存庫</a></li><li><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="bookmark" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></li><li><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" rel="bookmark" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></li><li><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" rel="bookmark" title="查看 Git 資料狀態">查看 Git 資料狀態</a></li><li><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="bookmark" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></li><li><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="查看 log 紀錄">查看 log 紀錄</a></li><li><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="bookmark" title="設定 .gitignore">設定 .gitignore</a></li><li><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" rel="bookmark" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></li><li><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></li><li><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="bookmark" title="用 reset 回到過去">用 reset 回到過去</a></li><li><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" rel="bookmark" title="Git 分支：觀念篇">Git 分支：觀念篇</a></li><li><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="bookmark" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></li><li><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" rel="bookmark" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></li><li><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="bookmark" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></li><li><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" rel="bookmark" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></li><li><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="bookmark" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></li><li><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="bookmark" title="用 revert 復原 commit">用 revert 復原 commit</a></li><li><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="bookmark" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></li><li><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></li><li><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></li><li><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" rel="bookmark" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></li><li><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" rel="bookmark" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></li><li><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" rel="bookmark" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">38</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">134k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">2:01</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-learn/02 - 版控類別介紹/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

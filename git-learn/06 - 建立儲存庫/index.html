@@ -1,0 +1,712 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/">
+
+
+
+  <title>
+建立 Git 儲存庫 - 一起來學 Git 吧！ |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">建立 Git 儲存庫
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-20 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-20T10:50:20+08:00">2023-09-20</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>3.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>4 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-learn/" itemprop="item" rel="index" title="分類於 一起來學 Git 吧！"><span itemprop="name">一起來學 Git 吧！</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>這篇文章要來說明「建立儲存庫」的操作，讓大家對 <strong>地端儲存庫</strong> 與 <strong>遠端儲存庫</strong> 有更進一步的認識。</p>
+<p>以「基特平台」例子來說，建立儲存庫的概念，就是要在商家的銷售網站上面「建立帳號」，帳號存有專屬於這個商家的「購物車」跟「已購買清單」。</p>
+<p>換言之，我們準備來對「工作目錄」動手腳，讓 Git 在這個資料夾內建立「暫存區」跟「儲存庫」。</p>
+<p>本文的目的只有一個，學會  <code>git init</code>  這個指令的用意。<s>然後就沒有然後了</s></p>
+<h1 id="建立本地的儲存庫"><a class="markdownIt-Anchor" href="#建立本地的儲存庫">#</a> 建立本地的儲存庫</h1>
+<p>建立本地儲存庫，具體來說是要在「工作目錄」建立  <code>.git</code>  隱藏資料夾。</p>
+<p>接下來會分別說明 <strong>指令</strong> 與 <strong>Fork GUI</strong> 的操作方式。<br>
+GUI 派的讀者可以直接跳到 <strong>「用 Fork 建立地端儲存庫」</strong> 的內容。</p>
+<h2 id="用指令建立地端儲存庫"><a class="markdownIt-Anchor" href="#用指令建立地端儲存庫">#</a> 用指令建立地端儲存庫</h2>
+<ol>
+<li>
+<p>打開終端機，並且開到工作目錄位置。</p>
+</li>
+<li>
+<p>直接在終端機執行這個指令：</p>
+</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> init</pre></td></tr></table></figure><ol start="3">
+<li>打開工作目錄，裡面如果多一個  <code>.git</code>  隱藏夾 (註 1)，代表我們成功建立 Git 的 <strong>地端儲存庫 (local repository)</strong> 了。</li>
+</ol>
+<blockquote>
+<p>註 1： <code>.git</code>  是一個「隱藏資料夾」，如果沒有看到他，可能是沒有開啟「顯示隱藏資料夾」的設定，可以再注意一下。</p>
+</blockquote>
+<h2 id="用-fork-建立地端儲存庫"><a class="markdownIt-Anchor" href="#用-fork-建立地端儲存庫">#</a> 用 Fork 建立地端儲存庫</h2>
+<p>如果要使用 Fork 來初始化 (建立) 地端儲存庫，可以依照下列步驟建立：</p>
+<ol>
+<li>選擇 <strong>file</strong> &gt; <strong>Init New Repository</strong><br>
+<img data-src="https://i.imgur.com/APrK5bU.png" alt="Fork 初始化地端儲存庫"></li>
+<li>系統應該會跳出資料夾「選擇視窗」，選到「工作目錄」的路徑。<br>
+<img data-src="https://i.imgur.com/Wyn6aM4.png" alt="選擇資料夾"></li>
+<li>點選「選擇資料夾」之後，資料夾內應該就會出現  <code>.git</code>  的隱藏夾了。<br>
+<img data-src="https://i.imgur.com/KvyADMS.png" alt=".git隱藏資料夾示意圖"></li>
+</ol>
+<h1 id="建立遠端的儲存庫再-clone-回地端"><a class="markdownIt-Anchor" href="#建立遠端的儲存庫再-clone-回地端">#</a> 建立遠端的儲存庫，再 clone 回地端</h1>
+<p>除了在地端建立儲存庫來使用外，我們也可以把遠端的儲存庫 <strong>「克隆 (clone)」</strong> 回地端使用。<br>
+實務上如果是要維護既有的程式，大多也是用這個方式。</p>
+<p>這裡從「建立遠端儲存庫」開始示範，再來說明「如何把遠端儲存庫 clone 回地端」，前者都會在 GitHub 操作，後者會分別介紹 <strong>指令</strong> 與 <strong>Fork GUI</strong> 的操作。</p>
+<h2 id="建立遠端儲存庫"><a class="markdownIt-Anchor" href="#建立遠端儲存庫">#</a> 建立遠端儲存庫</h2>
+<ol>
+<li>
+<p>首先進入你的 GitHub ，找到這顆  <code>New</code>  的符號。<br>
+<img data-src="https://i.imgur.com/EJxc8Vz.png" alt="建立遠端儲存庫"></p>
+</li>
+<li>
+<p>接著輸入儲存庫資訊，我們先設定名稱就好，其他先維持預設值。<br>
+<img data-src="https://i.imgur.com/LQb8FEy.png" alt="建立儲存庫"></p>
+</li>
+<li>
+<p>完成後應該會看到這個畫面，代表已經成功建立一個空的遠端儲存庫了。<br>
+<img data-src="https://i.imgur.com/dpkyFS6.png" alt="建立完儲存庫示意圖"></p>
+</li>
+</ol>
+<blockquote>
+<p>上圖框起來的網址可以先複製起來，等等拉回地端要用。</p>
+</blockquote>
+<h2 id="用指令把遠端儲存庫拉回地端"><a class="markdownIt-Anchor" href="#用指令把遠端儲存庫拉回地端">#</a> 用指令把遠端儲存庫拉回地端</h2>
+<ol>
+<li>找一個你想要放儲存庫 (資料夾) 的位置，可以是桌面，也可以是任一資料夾。</li>
+<li>在這個位置開啟終端機，或是直接使用終端機開到這個路徑。</li>
+<li>在終端機中執行這個指令，網址的資訊不用加雙引號 ( <code>&quot;&quot;</code> )。</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> clone 網址</pre></td></tr></table></figure><ol start="4">
+<li>
+<p>輸入完指令會看到一串警告，提示我們這裡面沒東西。<br>
+<img data-src="https://i.imgur.com/IB8n7AQ.png" alt="clone 節圖"></p>
+</li>
+<li>
+<p>此時 執行 clone 指令的目錄位置，會多出一個資料夾，名稱會是遠端儲存庫的名稱。</p>
+</li>
+<li>
+<p>打開資料夾，會看到裡面只有一個  <code>.git</code>  隱藏夾，代表成功將遠端儲存庫複製回地端了。<br>
+<img data-src="https://i.imgur.com/m7Ck3cM.png" alt=".git 資料夾示意"></p>
+</li>
+</ol>
+<h2 id="用-fork-軟體把遠端儲存庫拉回地端"><a class="markdownIt-Anchor" href="#用-fork-軟體把遠端儲存庫拉回地端">#</a> 用 Fork 軟體把遠端儲存庫拉回地端</h2>
+<blockquote>
+<p>先強調，這裡的 Fork 是軟體，是一套 GUI 工具， GitHub 也有一個 Fork 的功能，並不是目前要介紹的東西，切記不要搞混。</p>
+</blockquote>
+<ol>
+<li>
+<p>選到 <strong>File</strong> &gt; <strong>Clone…</strong><br>
+<img data-src="https://i.imgur.com/8XcxDWU.png" alt="選擇clone"></p>
+</li>
+<li>
+<p>填上遠端儲存庫的網址，並且選擇儲存庫想放置的資料夾。<br>
+<img data-src="https://i.imgur.com/saYRTsz.png" alt="貼上網址"></p>
+</li>
+<li>
+<p>填上網址後，<strong>Repository name</strong> 會自動填入遠端儲存庫設定的名稱作為資料夾名稱，可以維持預設，也能手動更改。<br>
+<img data-src="https://i.imgur.com/4Y6mDSf.png" alt="看是否要手動更改名稱"></p>
+</li>
+<li>
+<p>確定資訊沒問題之後，點選 clone 就完成了。</p>
+</li>
+</ol>
+<h1 id="在-fork-中開啟一個儲存庫"><a class="markdownIt-Anchor" href="#在-fork-中開啟一個儲存庫">#</a> 在 Fork 中開啟一個儲存庫</h1>
+<p>一開始如果是透過指令  <code>git init</code>  建立儲存庫，或是把遠端儲存庫 clone 回地端，為了能在 Fork 對儲存庫版控，我們必須透過 Fork 開啟它。</p>
+<p>如果是使用 Fork 建立儲存庫的讀者，可以略過這 part，因為用 Fork 建立儲存庫的過程，Fork 已順便紀錄儲存庫路徑了。</p>
+<p>開啟方式：</p>
+<ol>
+<li>
+<p>選擇 <strong>File</strong> &gt; <strong>Open Repository…</strong><br>
+<img data-src="https://i.imgur.com/WDnAwvY.png" alt="選擇 File &gt; Open Repository..."></p>
+</li>
+<li>
+<p>選擇想加到 Fork 的儲存庫。<br>
+<img data-src="https://i.imgur.com/HvgrmE1.png" alt="選擇儲存庫"></p>
+</li>
+<li>
+<p>看到 Fork 頁籤中已經開有資料夾名稱，代表新增成功<br>
+<img data-src="https://i.imgur.com/ihlZbv7.png" alt="確認 Fork 是否有加好儲存庫"></p>
+</li>
+</ol>
+<h1 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h1>
+<h2 id="1-你說-git-是地端儲存庫但為什麼-gui-工具不是叫我們打開隱藏資料夾"><a class="markdownIt-Anchor" href="#1-你說-git-是地端儲存庫但為什麼-gui-工具不是叫我們打開隱藏資料夾">#</a> 1. 你說  <code>.git</code>  是地端儲存庫，但為什麼 GUI 工具不是叫我們打開隱藏資料夾？</h2>
+<p><s>因為地端儲存庫只是「購物車」跟「已購買清單」</s>，<s>你「血拼」是要買東西，不是逛購物車</s></p>
+<p>原因是 GUI 會自動識別選到的資料夾底下有沒有  <code>.git</code> ，並且去操作這個路徑的檔案。</p>
+<p>甚至如果你真的選到  <code>.git</code>  要 Fork GUI 打開，他還會跳出警示告訴我們這不是個儲存庫，而且好心的提示你要不要在這裡建立儲存庫 XD。<br>
+<img data-src="https://i.imgur.com/EqETwC1.png" alt="不是儲存庫示意圖"></p>
+<p>畢竟小數點 ( <code>.</code> ) 開頭的資料夾屬於「隱藏夾」，不是拿來給人為操作的，如果 Fork 叫我們打開它也很奇怪。</p>
+<p>雖然 <code>.git</code>  是地端儲存庫，不過我們所有操作還是會以「工作目錄」為主，一般沒事不會點進去操作。</p>
+<p>之後會說明在 Git 查看「暫存區」、「儲存庫」的方式，也 <strong>絕對不會</strong> 去開  <code>.git</code>  找資料。</p>
+<h2 id="2-你給我兩種方式初始化儲存庫那我該用哪種方法初始化啊"><a class="markdownIt-Anchor" href="#2-你給我兩種方式初始化儲存庫那我該用哪種方法初始化啊">#</a> 2. 你給我兩種方式初始化儲存庫，那我該用哪種方法初始化啊？</h2>
+<p>標準答案：「看需求」。</p>
+<p>有幾點要考量：</p>
+<ol>
+<li>這份專案有沒有備份到遠端儲存庫的需求？</li>
+<li>有沒有要在其他裝置讀取這份專案的需求？</li>
+<li>這個專案需不需要跟他人合作開發？</li>
+<li>專案內容是否想要公開分享？</li>
+</ol>
+<p>如果只是想在自己的電腦版控，那在地端執行  <code>git init</code>  就搞定了。</p>
+<p>唯有需要跟他人 (或在其他裝置) 共享程式，才須要建立遠端儲存庫。</p>
+<h2 id="3-之後的每次版控都要執行-git-init-嗎"><a class="markdownIt-Anchor" href="#3-之後的每次版控都要執行-git-init-嗎">#</a> 3. 之後的每次版控都要執行  <code>git init</code>  嗎？</h2>
+<p>不用。</p>
+<p>就像是你不會在一個購物網辦好幾個帳號一樣，只要有一個帳號，就能一直購買商品。<br>
+換言之，你在一個工作目錄中，只需要執行一次  <code>git init</code> ，就能得到專屬於這個工作目錄的  <code>.git</code>  隱藏夾。</p>
+<p>當工作目錄已經有  <code>.git</code>  隱藏夾，就如同購物平台已經有帳號一樣，不用再執行一次  <code>git init</code>  了。</p>
+<p>補充：<br>
+我們把 GitHub 的儲存庫複製回地端時，並沒有特別執行  <code>git init</code> ，原因是 GitHub 建立 <strong>repository</strong> 的過程就是在遠端幫我們執行  <code>git init</code> ，所以 clone 回地端之後，就不用再執行一次  <code>git init</code>  了。</p>
+<h2 id="4-工作目錄中多了一個-git-他會對資料夾的檔案造成什麼影響嗎"><a class="markdownIt-Anchor" href="#4-工作目錄中多了一個-git-他會對資料夾的檔案造成什麼影響嗎">#</a> 4. 工作目錄中多了一個  <code>.git</code>  ，他會對資料夾的檔案造成什麼影響嗎？</h2>
+<p>不會。</p>
+<p>只要我們不執行 Git 指令或操作 GUI， <code>.git</code>  就完全不會去異動我們資料夾內的檔案。</p>
+<blockquote>
+<p>你只是在「購物網站」辦個帳號而已，只要不 <s>拿出魔法小卡</s> 下單，商家沒有權力逼迫你買東西。</p>
+</blockquote>
+<h2 id="5-執行-git-init-會對我的-c槽-或是極度重要的-d槽-動什麼手腳嗎"><a class="markdownIt-Anchor" href="#5-執行-git-init-會對我的-c槽-或是極度重要的-d槽-動什麼手腳嗎">#</a> 5. 執行  <code>git init</code>  會對我的 C 槽 <s>(或是極度重要的 D 槽)</s> 動什麼手腳嗎？</h2>
+<p>這個指令跟 C 槽 <s>(或神聖的 D 槽)</s> 完全沒關聯。</p>
+<p>要知道 <strong>「基特平台」</strong> 是在協助 <strong>「在地商家」</strong> 導入線上通路。</p>
+<p>現在 <strong>「基特平台」</strong> 是存在你電腦的 <strong>「Git」</strong> ，<strong>「在地商家」</strong> 是 <strong>「工作目錄」(a.k.a. 資料夾)</strong>。</p>
+<p>執行  <code>git init</code>  唯一做的事情，就是在工作目錄建立  <code>.git</code>  隱藏夾 (a.k.a. 辦帳號)，然後就沒有然後了。</p>
+<p>無論 C 槽 或 D 槽，都不會因此多出意想不到的檔案。</p>
+<h2 id="6-我用-vscode-開發怎麼執行完-git-init-檔案怎麼全部變成綠色了好不習慣"><a class="markdownIt-Anchor" href="#6-我用-vscode-開發怎麼執行完-git-init-檔案怎麼全部變成綠色了好不習慣">#</a> 6. 我用 VSCode 開發，怎麼執行完  <code>git init</code>  ，檔案怎麼全部變成綠色了… 好不習慣…</h2>
+<p><s>不習慣就去習慣</s></p>
+<p>原因是 VSCode 跟 Git 有一定程度的整合，如果 VSCode 偵測到工作目錄有  <code>.git</code>  資料夾 (註 1)，那它就會透過顏色讓我們知道 Git 的狀態，讓我們知道檔案是否有被加入儲存區 (購物車)，或是檔案是否已經被放到儲存庫 (被下單購買)。</p>
+<p>劇透一下 (註 2) 之後會遇到的事情，我們在工作目錄的操作會有幾種常見狀態：</p>
+<ol>
+<li><strong>新增的檔案</strong> (尚未被加入購物車的商品)</li>
+<li><strong>加到「暫存區」的檔案</strong> (在購物車內的商品)</li>
+<li><strong>已在「儲存庫」的檔案</strong> (已購買，並記錄於訂單資料中的商品)</li>
+<li><strong>已加入「儲存庫」又被修改的檔案</strong> (買了某樣商品，把同商品的其他款式放到購物車)</li>
+<li><strong>因為 .gitignore 而被忽略的檔案 (註 3)</strong> (那些商家說「我不賣！」的商品)<br>
+<img data-src="https://i.imgur.com/2gaAzPD.png" alt="VScode 圖片"></li>
+</ol>
+<p>其中分別對應的顏色是：</p>
+<ol>
+<li><strong>新的檔案</strong>：亮綠色 (並且註記  <code>U</code> ，表示 <strong>Untracked</strong>)</li>
+<li><strong>在暫存區的檔案</strong>：深綠色 (並且註記  <code>A</code> ，表示 <strong>Add</strong>)</li>
+<li><strong>已在儲存庫的檔案</strong>：白色</li>
+<li><strong>已在儲存庫又被修改的檔案</strong>：橘黃色 (並且註記  <code>M</code> ，表示 <strong>Modified</strong>)</li>
+<li><strong>被 Git 忽略的檔案</strong>：暗灰色</li>
+</ol>
+<p>除此之外，左邊的 Git 符號若有跳出數字，是在提示我們工作目錄有哪些檔案的狀態還沒被存入儲存庫中。<br>
+用截圖的例子來說，就會是  <code>app.js</code> 、 <code>index.html</code> 、 <code>style.css</code>  這三個檔案<br>
+<img data-src="https://i.imgur.com/X5ZFRY6.png" alt="待處理檔案示意"></p>
+<p>這些設置都是為了方便我們在操控 Git 時，能更方便的掌控工作目錄的狀態。<br>
+不過相信對 Git 觀念還不熟的新手們，一時間接觸這麼多狀態大概會一頭霧水 (筆者當初就是這樣)。</p>
+<p>建議可以暫時忽視上面這些東西，等後續觀念清楚之後再回頭來看，應該能體會到這些顏色帶給我們在版控上的好處！</p>
+<blockquote>
+<p>註 1. 筆者的 VSCode 為了 Demo 方便，特別設定顯示  <code>.git</code>  資料夾，預設狀況下不會出現。有興趣的讀者可以參考 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20vZG9jcy9nZXRzdGFydGVkL3NldHRpbmdz">這個連結</span> 操作 (關鍵字： <code>files.exclude</code> )</p>
+<p>註 2. 關於「資料狀態」的議題，一時間搞不懂也沒關係，之後的文章會「持續」探討。</p>
+<p>註 3. 關於  <code>.gitignore</code>  的設定，之後會專門寫一篇文章為各位講解。</p>
+</blockquote>
+<h2 id="7-我只是玩玩-git而且好不習慣-vscode-檔案變色能不能不要玩了"><a class="markdownIt-Anchor" href="#7-我只是玩玩-git而且好不習慣-vscode-檔案變色能不能不要玩了">#</a> 7. 我只是玩玩 Git，而且好不習慣 VScode 檔案變色，能不能不要玩了…</h2>
+<p>可以。</p>
+<p>你在某個購物平台辦了帳號，就算不下單，還是可以去看看平台的商品。<br>
+如果你覺得用不到這個帳號，那也可以不要理他，或是直接刪除這個帳號就好。</p>
+<p><code>git init</code>  唯一作用是建立  <code>.git</code>  隱藏夾。<br>
+如果你不想使用，也是一樣可以不要管他，但如果看著礙眼，只要手動刪除  <code>.git</code>  ，就可以還原工作目錄原本的狀態了。</p>
+<p>但是！<br>
+但是！<br>
+但是！</p>
+<p>因為  <code>.git</code>  內會記錄所有的版控資料，刪了它就像刪除你的帳號一般，所有的訂單資訊 (a.k.a. 版控資料) 會全部消失，不可不慎！<br>
+<s>阿反正會問這個問題的人應該也還沒寫入版控資料，想刪就刪吧</s></p>
+<h2 id="8-我-clone-別人github-的程式回電腦如果進行檔案修改然後-commit-了會不會改壞別人的資料"><a class="markdownIt-Anchor" href="#8-我-clone-別人github-的程式回電腦如果進行檔案修改然後-commit-了會不會改壞別人的資料">#</a> 8. 我 clone 別人 GitHub 的程式回電腦，如果進行檔案修改，然後 commit 了，會不會改壞別人的資料？</h2>
+<p>不會。</p>
+<p>在分散式版控系統中，「遠端儲存庫」跟「地端儲存庫」是獨立存在的兩個個體。</p>
+<p><code>git clone</code>  的動作是把遠端儲存庫「複製」一份回地端，並且可以拿來「自己用」。</p>
+<p>自己電腦的資料就算改爛了，只要不上傳回遠端，就不會影響原本的資料！<br>
+甚至把你把檔案中的  <code>.git</code>  刪除，也都是地端的事情，跟遠端沒關係。</p>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-10-17 16:43:42" itemprop="dateModified" datetime="2023-10-17T16:43:42+08:00">2023-10-17</time>
+  </span>
+  <span id="git-learn/06 - 建立儲存庫/" class="item leancloud_visitors" data-flag-title="建立 Git 儲存庫" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">https://imall.github.io/git-learn/06 - 建立儲存庫/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mp3vta6.jpg" title="Git 初始化設定">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>Git 初始化設定</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;eWxuYmg.jpg" title="開始使用 Git 進行版控">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>開始使用 Git 進行版控</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E6%9C%AC%E5%9C%B0%E7%9A%84%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">2.</span> <span class="toc-text"> 建立本地的儲存庫</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">2.1.</span> <span class="toc-text"> 用指令建立地端儲存庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-%E5%BB%BA%E7%AB%8B%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">2.2.</span> <span class="toc-text"> 用 Fork 建立地端儲存庫</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E9%81%A0%E7%AB%AF%E7%9A%84%E5%84%B2%E5%AD%98%E5%BA%AB%E5%86%8D-clone-%E5%9B%9E%E5%9C%B0%E7%AB%AF"><span class="toc-number">3.</span> <span class="toc-text"> 建立遠端的儲存庫，再 clone 回地端</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">3.1.</span> <span class="toc-text"> 建立遠端儲存庫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%8A%8A%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%8B%89%E5%9B%9E%E5%9C%B0%E7%AB%AF"><span class="toc-number">3.2.</span> <span class="toc-text"> 用指令把遠端儲存庫拉回地端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-%E8%BB%9F%E9%AB%94%E6%8A%8A%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%8B%89%E5%9B%9E%E5%9C%B0%E7%AB%AF"><span class="toc-number">3.3.</span> <span class="toc-text"> 用 Fork 軟體把遠端儲存庫拉回地端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8-fork-%E4%B8%AD%E9%96%8B%E5%95%9F%E4%B8%80%E5%80%8B%E5%84%B2%E5%AD%98%E5%BA%AB"><span class="toc-number">4.</span> <span class="toc-text"> 在 Fork 中開啟一個儲存庫</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">5.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%A0%E8%AA%AA-git-%E6%98%AF%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E4%BD%86%E7%82%BA%E4%BB%80%E9%BA%BC-gui-%E5%B7%A5%E5%85%B7%E4%B8%8D%E6%98%AF%E5%8F%AB%E6%88%91%E5%80%91%E6%89%93%E9%96%8B%E9%9A%B1%E8%97%8F%E8%B3%87%E6%96%99%E5%A4%BE"><span class="toc-number">5.1.</span> <span class="toc-text"> 1. 你說  .git  是地端儲存庫，但為什麼 GUI 工具不是叫我們打開隱藏資料夾？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%A0%E7%B5%A6%E6%88%91%E5%85%A9%E7%A8%AE%E6%96%B9%E5%BC%8F%E5%88%9D%E5%A7%8B%E5%8C%96%E5%84%B2%E5%AD%98%E5%BA%AB%E9%82%A3%E6%88%91%E8%A9%B2%E7%94%A8%E5%93%AA%E7%A8%AE%E6%96%B9%E6%B3%95%E5%88%9D%E5%A7%8B%E5%8C%96%E5%95%8A"><span class="toc-number">5.2.</span> <span class="toc-text"> 2. 你給我兩種方式初始化儲存庫，那我該用哪種方法初始化啊？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B9%8B%E5%BE%8C%E7%9A%84%E6%AF%8F%E6%AC%A1%E7%89%88%E6%8E%A7%E9%83%BD%E8%A6%81%E5%9F%B7%E8%A1%8C-git-init-%E5%97%8E"><span class="toc-number">5.3.</span> <span class="toc-text"> 3. 之後的每次版控都要執行  git init  嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B7%A5%E4%BD%9C%E7%9B%AE%E9%8C%84%E4%B8%AD%E5%A4%9A%E4%BA%86%E4%B8%80%E5%80%8B-git-%E4%BB%96%E6%9C%83%E5%B0%8D%E8%B3%87%E6%96%99%E5%A4%BE%E7%9A%84%E6%AA%94%E6%A1%88%E9%80%A0%E6%88%90%E4%BB%80%E9%BA%BC%E5%BD%B1%E9%9F%BF%E5%97%8E"><span class="toc-number">5.4.</span> <span class="toc-text"> 4. 工作目錄中多了一個  .git  ，他會對資料夾的檔案造成什麼影響嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%9F%B7%E8%A1%8C-git-init-%E6%9C%83%E5%B0%8D%E6%88%91%E7%9A%84-c%E6%A7%BD-%E6%88%96%E6%98%AF%E6%A5%B5%E5%BA%A6%E9%87%8D%E8%A6%81%E7%9A%84-d%E6%A7%BD-%E5%8B%95%E4%BB%80%E9%BA%BC%E6%89%8B%E8%85%B3%E5%97%8E"><span class="toc-number">5.5.</span> <span class="toc-text"> 5. 執行  git init  會對我的 C 槽 (或是極度重要的 D 槽) 動什麼手腳嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%88%91%E7%94%A8-vscode-%E9%96%8B%E7%99%BC%E6%80%8E%E9%BA%BC%E5%9F%B7%E8%A1%8C%E5%AE%8C-git-init-%E6%AA%94%E6%A1%88%E6%80%8E%E9%BA%BC%E5%85%A8%E9%83%A8%E8%AE%8A%E6%88%90%E7%B6%A0%E8%89%B2%E4%BA%86%E5%A5%BD%E4%B8%8D%E7%BF%92%E6%85%A3"><span class="toc-number">5.6.</span> <span class="toc-text"> 6. 我用 VSCode 開發，怎麼執行完  git init  ，檔案怎麼全部變成綠色了… 好不習慣…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%88%91%E5%8F%AA%E6%98%AF%E7%8E%A9%E7%8E%A9-git%E8%80%8C%E4%B8%94%E5%A5%BD%E4%B8%8D%E7%BF%92%E6%85%A3-vscode-%E6%AA%94%E6%A1%88%E8%AE%8A%E8%89%B2%E8%83%BD%E4%B8%8D%E8%83%BD%E4%B8%8D%E8%A6%81%E7%8E%A9%E4%BA%86"><span class="toc-number">5.7.</span> <span class="toc-text"> 7. 我只是玩玩 Git，而且好不習慣 VScode 檔案變色，能不能不要玩了…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%88%91-clone-%E5%88%A5%E4%BA%BAgithub-%E7%9A%84%E7%A8%8B%E5%BC%8F%E5%9B%9E%E9%9B%BB%E8%85%A6%E5%A6%82%E6%9E%9C%E9%80%B2%E8%A1%8C%E6%AA%94%E6%A1%88%E4%BF%AE%E6%94%B9%E7%84%B6%E5%BE%8C-commit-%E4%BA%86%E6%9C%83%E4%B8%8D%E6%9C%83%E6%94%B9%E5%A3%9E%E5%88%A5%E4%BA%BA%E7%9A%84%E8%B3%87%E6%96%99"><span class="toc-number">5.8.</span> <span class="toc-text"> 8. 我 clone 別人 GitHub 的程式回電腦，如果進行檔案修改，然後 commit 了，會不會改壞別人的資料？</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" rel="bookmark" title="版控的類別">版控的類別</a></li><li><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="bookmark" title="基本觀念與常見問題">基本觀念與常見問題</a></li><li><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="bookmark" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></li><li><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="Git 初始化設定">Git 初始化設定</a></li><li class="active"><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="bookmark" title="建立 Git 儲存庫">建立 Git 儲存庫</a></li><li><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="bookmark" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></li><li><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" rel="bookmark" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></li><li><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" rel="bookmark" title="查看 Git 資料狀態">查看 Git 資料狀態</a></li><li><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="bookmark" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></li><li><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="查看 log 紀錄">查看 log 紀錄</a></li><li><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="bookmark" title="設定 .gitignore">設定 .gitignore</a></li><li><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" rel="bookmark" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></li><li><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></li><li><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="bookmark" title="用 reset 回到過去">用 reset 回到過去</a></li><li><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" rel="bookmark" title="Git 分支：觀念篇">Git 分支：觀念篇</a></li><li><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="bookmark" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></li><li><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" rel="bookmark" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></li><li><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="bookmark" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></li><li><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" rel="bookmark" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></li><li><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="bookmark" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></li><li><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="bookmark" title="用 revert 復原 commit">用 revert 復原 commit</a></li><li><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="bookmark" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></li><li><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></li><li><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></li><li><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" rel="bookmark" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></li><li><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" rel="bookmark" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></li><li><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" rel="bookmark" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">38</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">134k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">2:01</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-learn/06 - 建立儲存庫/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

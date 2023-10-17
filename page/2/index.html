@@ -85,12 +85,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
         </ul>
       </div>
     </header>
@@ -116,70 +116,16 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-situation/" itemprop="url" title="【Git筆記】commit 前的狀況處理"><img data-src="https://i.imgur.com/slJN1yE.jpg"></a>
+    <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" title="Git 分支：分支合併篇"><img data-src="https://i.imgur.com/dOvnXNe.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2023-07-06 10:50:20">
+  <span class="item" title="創建時間：2023-10-04 10:50:20">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-06T10:50:20+08:00">2023-07-06</time>
-  </span>
-  <span class="item" title="文章字數">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>2.6k</span>
-    <span class="text">字</span>
-  </span>
-  <span class="item" title="所需閱讀時間">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>2 分鐘</span>
-  </span>
-</div>
-
-    <h3><a href="/git-note/gn-situation/" itemprop="url" title="【Git筆記】commit 前的狀況處理">【Git筆記】commit 前的狀況處理</a></h3>
-    <div class="excerpt">
-        在使用 Git 的過程，或許會遇到一些指令執行完卻希望能還原的狀況，這篇文章來記錄一下可能會用到的狀況。
-
-# 檔案 add 之後，希望能還原狀態
-有時候我們放在暫存區的檔案，可能因為某些原因想取消暫存，有兩個指令可以完成這個任務。
-
-使用 git restore --staged 檔名
-
-git restore --staged 檔名
-使用 git reset 檔名
-
-git reset 檔案名稱git reset 除了把暫存區檔案還原狀態的功能之外，他在 Git 最主要的功能，則是 reset 不同的 commit
-因為內容比較複雜，預計之後會獨立一個篇章來說明這個議題。
-#...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/git-note/" itemprop="url" title="Git 筆記"><i class="ic i-flag"></i>Git 筆記</a>
-      </span>
-    </div>
-    <a href="/git-note/gn-situation/" itemprop="url" title="【Git筆記】commit 前的狀況處理" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git"><img data-src="https://i.imgur.com/fG7Vwmv.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2023-07-05 10:50:20">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-05T10:50:20+08:00">2023-07-05</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-04T10:50:20+08:00">2023-10-04</time>
   </span>
   <span class="item" title="文章字數">
     <span class="icon">
@@ -196,41 +142,290 @@ git reset 檔案名稱git reset 除了把暫存區檔案還原狀態的功能之
   </span>
 </div>
 
-    <h3><a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></h3>
+    <h3><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></h3>
     <div class="excerpt">
-        # 初始化專案
-要進行版控，首先要先定義哪包資料夾的內容要被 Git 控管？
-確定好要控管的專案後，進到要版控的資料夾，開啟終端機執行下列指令進行 Git 的初始化
-git init執行完後，資料夾的內容會多一個 .git 的隱藏檔案夾
-這就是未來 Git 在進行所有版控功能的時候會使用到的東西
-資料夾內有了 .git 之後，我們就可以說這個資料夾是一個儲存庫 (repository)
-如果有什麼第三方的工具提示說要開啟 locol 端的 repository ，就是在說可以開啟這包資料夾
-# 將檔案加到暫存區
-我們在版控的過程，不一定是要把整包資料夾的所有檔案進行版控
-在初始化之後，Git...
+        # 前言
+開始使用分支之後，總是會需要把開發的內容合併回來的一天。
+在使用分支之前，操作的指令不太需要在乎目前所在的分支在哪，儘管執行指令操作資料就是了，不過要執行分支合併的動作，代表我們會去處理「兩個分支」的資料，要在哪個分支執行指令就是一件很重要的事情了！
+剛接觸分支合併會遇到的幾個疑問不外乎是這些：
+指令該在哪個分支執行？
+分支合併之後會發生什麼事情？
+進行合併分支是不是一定會發生衝突？
+種種的疑問將會在這篇文章解答！
+直接進入今天的主題：
+
+分支合併與衝突解決！
+
+#...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/git-note/" itemprop="url" title="Git 筆記"><i class="ic i-flag"></i>Git 筆記</a>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
       </span>
     </div>
-    <a href="/git-note/gn-start/" itemprop="url" title="【Git筆記】開始使用 Git" class="btn">more...</a>
+    <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" title="Git 分支：分支合併篇" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念"><img data-src="https://i.imgur.com/IXkGvGY.jpg"></a>
+    <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" title="Git 分支：基本操作篇"><img data-src="https://i.imgur.com/P69ZGGo.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2023-07-04 15:42:10">
+  <span class="item" title="創建時間：2023-10-03 10:50:20">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T15:42:10+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-03T10:50:20+08:00">2023-10-03</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+    <h3><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></h3>
+    <div class="excerpt">
+        # 前言
+這篇文章，開始來介紹該如何開始使用分支吧！
+一樣介紹完指令之後，來介紹 GUI 的操作方式。
+老樣子，我可能會直接在指令操作的內容敘述一些觀念，也請 GUI 派的讀者也稍微看一下指令的內容。
+# 使用指令操作分支
+跟分支有關的指令需要認識兩個英文單字：
+
+branch ，也就是分支本身
+checkout ， 中文是取出
+
+不過我看著「取出」兩個字，實在想不到他的意義是什麼。
+所以 checkout 我會直接把他想成「切換」。
+# 查詢分支
+若要查詢目前專案中的分支，直接使用這個指令就可以了：
+git branch$ git branch*...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
+      </span>
+    </div>
+    <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" title="Git 分支：基本操作篇" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" itemprop="url" title="Git 分支：觀念篇"><img data-src="https://i.imgur.com/tXRAhpc.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="創建時間：2023-10-02 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-02T10:50:20+08:00">2023-10-02</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>3.8k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+    <h3><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" itemprop="url" title="Git 分支：觀念篇">Git 分支：觀念篇</a></h3>
+    <div class="excerpt">
+        # 前言
+終於可以進入 Git 的重頭戲，分支篇！
+分支是 Git 極度重要的功能之一，因為有了分支的各種運作，Git 的世界才會變得如此精彩。 同時也會讓我的文章變得很難解釋
+在 Git 中要操作分支是一件非常簡單的事情，無論是建立分支、切換分支、分支更名稱，基本上只要簡單一個指令，或是點幾下 GUI，就能完成。
+不過在實際學習操作之前，想先用一篇文章的內容，幫大家先建構好看待 Git 分支應該有的觀念，避免在直接學習操作的過程，不知不覺對分支建立錯誤的印象。
+接著就來聊聊「為什麼要使用分支」，以及「分支到底是什麼」吧！
+#...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
+      </span>
+    </div>
+    <a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" itemprop="url" title="Git 分支：觀念篇" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" title="用 reset 回到過去"><img data-src="https://i.imgur.com/HsDjgUN.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="創建時間：2023-10-01 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-01T10:50:20+08:00">2023-10-01</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>6k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>5 分鐘</span>
+  </span>
+</div>
+
+    <h3><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" title="用 reset 回到過去">用 reset 回到過去</a></h3>
+    <div class="excerpt">
+        # 前言
+git reset ，一個之前文章時不時會出現的字詞，但當時文章又一直不認真說明。
+看看這篇文章右手邊的滾軸有多小，你大概就能體諒我為什麼當初對 reset 一直要說不說的了 Orz…
+在開始介紹 reset 用途之前，有幾個先備知識複習一下，對後面的內容理解可能會有幫助。因為觀念很重要，後續還是會繼續提及。
+之前把 「暫存區 (索引)」比喻成「購物車」，接著我們把 「提交版本」 比喻成 「商品下單」，這可能讓讀者以為「提交版本」之後，「索引」就會被清空。
+不過在 Git 中，提交版本的行為「不會」清空索引裡面記錄的資料！
+提交版本 更貼切的想像，應該是把 commit...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
+      </span>
+    </div>
+    <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" title="用 reset 回到過去" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" itemprop="url" title="修改最近一次的 Commit 紀錄"><img data-src="https://i.imgur.com/fG7Vwmv.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-30 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-30T10:50:20+08:00">2023-09-30</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>3.7k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+    <h3><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" itemprop="url" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></h3>
+    <div class="excerpt">
+        # 前言
+有時候我們在執行完 commit 之後，發現有一些「小地方」應該也要記錄在同一個版本，或是發現版本訊息有錯字想要改一下，這些都算是很常見的狀況，畢竟只要是人都一定會有小疏失。
+「雖然」 之前把 Commit 訊息比喻成訂單紀錄，在網購世界想操作歷史訂單，只要找到特定訂單就能修改。
+不過在 Git 的世界，除了最新一筆的 Commit 之外， 沒辦法 「單獨修改」 其中一個 Commit 。
+原因其實也很簡單：每個 Commit 都是緊緊相依的！
+Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟「上一版」相比，更動歷史的 Commit...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
+      </span>
+    </div>
+    <a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" itemprop="url" title="修改最近一次的 Commit 紀錄" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" title="關於 commit 的兩個小問題"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-29 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-29T10:50:20+08:00">2023-09-29</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>3.6k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+    <h3><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></h3>
+    <div class="excerpt">
+        # 前言
+我們在開發專案時，不太可能一帆風順，永遠依循著 開發完 =&amp;gt; 暫存 =&amp;gt; 提交 的順序持續上版。
+有時候手速一個太快，只是想暫存部分檔案，結果執行到 git add . ，但實際上並不是想暫存所有更動的檔案，有沒有辦法將部份內容移出暫存區？
+像是一股腦把所有東西加到購物車，結帳前看到總金額嚇了一跳，想把部分商品移除購物車的行為。
+又或者開發到一半發現改爛了，能不能一次捨棄編輯的資料，讓檔案回到原本的 commit 狀態？
+就像是之前提玩遊戲下完存檔點後，繼續打 Boss...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
+      </span>
+    </div>
+    <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" title="關於 commit 的兩個小問題" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題"><img data-src="https://i.imgur.com/HsDjgUN.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-28 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-28T10:50:20+08:00">2023-09-28</time>
   </span>
   <span class="item" title="文章字數">
     <span class="icon">
@@ -247,144 +442,47 @@ git init執行完後，資料夾的內容會多一個 .git 的隱藏檔案夾
   </span>
 </div>
 
-    <h3><a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念">【Git筆記】Git 基本觀念</a></h3>
+    <h3><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></h3>
     <div class="excerpt">
-        # 為什麼要用 Git？
-在沒有接觸到版控工具時，最傳統的版控方式，檔案不外乎是將檔案 Ctrl + A 然後複製一份，分好幾個資料夾進行版控。
-只要把每個資料夾用日期當檔名，就可以追蹤到版控的時間。
-這個方法很傳統也很簡單，可能隨便叫一個剛學會電腦的小學生，都知道可以這麼操作。
-不過如果我希望在一堆打包的資料夾中裡面，分辨每一包程式到底差異在哪，就不是那麼容易能做到。
-又如果在整理檔案時，誤刪了某一包的備份需要復原，可能也有還原不了的風險存在。
-上述這個方法充其量被我稱為「備份」
-透過 Git ，或許很多需要辨別檔案內容、操作檔案內容、更變檔案內容、了解內容版本的問題，可以很方便的解決！
-#...
+        # 前言
+這篇文章的內容，原本是想放在 commit 的常見問題。
+結果當時寫完發現內容太多，如果全部塞到同一篇文章，應該會讓人看不下去。
+不過這篇文章記錄的兩個問題，可能會是已經學會版控一段時間之後，或是實務上真的遇到時，才會去思考的問題。
+很適合拿來當【一起學 Git 吧！】系列文章，中場休息的小品文閱讀。
+我們就一起來看看吧！
+# 每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？
+這問題可能一時之間不好理解，容許我重新描述一下問題的意思。
+開始在執行版控之後，commit 的內容可能會是這樣：
+第一版：新增專案說明檔案，記錄一個檔案：...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/git-note/" itemprop="url" title="Git 筆記"><i class="ic i-flag"></i>Git 筆記</a>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
       </span>
     </div>
-    <a href="/git-note/gn-concept/" itemprop="url" title="【Git筆記】Git 基本觀念" class="btn">more...</a>
+    <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/git-note/gn-intro/" itemprop="url" title="【Git筆記】序章"><img data-src="https://i.imgur.com/slJN1yE.jpg"></a>
+    <a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" title="聊聊 commitID 與 HEAD"><img data-src="https://i.imgur.com/gYzRwq6.png"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2023-07-04 15:42:00">
+  <span class="item" title="創建時間：2023-09-27 10:50:20">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T15:42:00+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-27T10:50:20+08:00">2023-09-27</time>
   </span>
   <span class="item" title="文章字數">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>611</span>
-    <span class="text">字</span>
-  </span>
-  <span class="item" title="所需閱讀時間">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>1 分鐘</span>
-  </span>
-</div>
-
-    <h3><a href="/git-note/gn-intro/" itemprop="url" title="【Git筆記】序章">【Git筆記】序章</a></h3>
-    <div class="excerpt">
-        以前在操作 git，由於只有一個人在做版控 ，所以只會無腦的 git add . + git commit -m &amp;quot;&amp;quot; ，從沒去追蹤過去的版本。
-愚蠢的我只把 git 當作存放程式碼的工具 雖然某個層面上這樣說也沒錯，寫好 code 之後 push 到 GitHub，本機程式就算不見了也不怕！
-或許一個人的版控，這麼做好像也沒什麼關係
-不過最近因為工作，開始需要進行團隊合作，版控的過程有機會遇到各種突發狀況需要進行各種操作
-例如：
-
-add 過的內容想進行調整怎麼辦？
-commit 完的內容想調整怎麼辦？
-git 的分支怎麼用？...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/git-note/" itemprop="url" title="Git 筆記"><i class="ic i-flag"></i>Git 筆記</a>
-      </span>
-    </div>
-    <a href="/git-note/gn-intro/" itemprop="url" title="【Git筆記】序章" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/miscellanea/Suzume-no-Tojimari/" itemprop="url" title="鈴芽之旅有雷心得"><img data-src="https://i.imgur.com/ph4Rgbx.jpeg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2023-03-27 00:45:56">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-03-27T00:45:56+08:00">2023-03-27</time>
-  </span>
-  <span class="item" title="文章字數">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>4k</span>
-    <span class="text">字</span>
-  </span>
-  <span class="item" title="所需閱讀時間">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>4 分鐘</span>
-  </span>
-</div>
-
-    <h3><a href="/miscellanea/Suzume-no-Tojimari/" itemprop="url" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></h3>
-    <div class="excerpt">
-        三刷了鈴芽之旅，甚至還安排好了第四刷，總該寫寫心得吧！！
-
-# 契子
-初次接觸新海誠的電影，大概就是你的名字，再來就是天氣之子
-對於電影風格最有感的，大概就是每一個畫面，都值得拿來當手機、電腦桌布吧
-事實上，早在鈴芽之旅台灣上映之前，就在 YouTube 看到了主題曲的歌
-不得不說，主題曲的旋律實在令人著迷，即便單曲循環撥放也不會膩的那種
-這時的我還不知道鈴芽之旅是怎樣的故事，會是那種為了某件事情而踏上旅程的情節嗎？
-不久之後，Line 傳來訊息，「鈴芽之旅 有人要一起去看的嗎？」
-就這樣，我也一起踏入鈴芽的旅程。
-# 首刷
-記得首刷那天，電影 7:20 開演，跟阿魁約 6:30...
-    </div>
-    <a href="/miscellanea/Suzume-no-Tojimari/" itemprop="url" title="鈴芽之旅有雷心得" class="btn">more...</a>
-  </div>
-</article>
-
-        
-<article class="item">
-  <div class="cover">
-    <a href="/js-note/day-js/" itemprop="url" title="一個好用的時間處理套件 - Dayjs"><img data-src="https://i.imgur.com/mubtL63.png"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2023-03-25 21:11:06">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-03-25T21:11:06+08:00">2023-03-25</time>
-  </span>
-  <span class="item" title="文章字數">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>3.4k</span>
+    <span>3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -395,53 +493,47 @@ git 的分支怎麼用？...
   </span>
 </div>
 
-    <h3><a href="/js-note/day-js/" itemprop="url" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></h3>
+    <h3><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></h3>
     <div class="excerpt">
-        接了前人的 code，整包程式幾乎所有功能只要能用套件就用套件，其中發現一個套件叫 dayjs，用起來還不錯，來記錄一下常用功能
-
-# Dayjs 介紹
-Dayjs 是一個輕量的 JavaScript 時間日期處理的函數庫，具有以下特點
-
-輕量
-
-程式碼只有 2kb 大小，並且沒有任何依賴，可以直接在瀏覽器中使用，也可以在 Node.js 中使用
-
-易上手
-
-實際使用的感覺比原生的 Date 物件更簡單，並且提供了一些常用的功能，例如：格式化時間、計算時間差、時間比較等等
-
-相依性低
-
-Dayjs 只依賴於 ES5 的函數庫，因此可以在任何環境中使用，包括...
+        # 前言
+基本指令外加一些輔助操作，到目前為止應該算是介紹完畢。
+在開始進入下一個主題之前的 幾篇 文章，我打算來聊聊一些能承上啟下的觀念。
+對… 大概會有一兩篇都是閒聊性質
+這些觀念跟指令沒什麼關係，但是如果沒把他搞懂的話，卻會 直接影響 部分指令的操作。
+由於筆者不太喜歡在主要內容中穿插各種補充讓文章失焦 雖然已經…，於是乾脆把一些觀念與問題獨立出來聊。
+希望大家能因為這幾篇文章更認識 Git ，同時可以在開始介紹其他操作之前，奠定一些概念。
+# 聊聊 CommitID
+我們再次把這個線圖請出來，並且把關注點放在最右邊的 CommitID 。
+這些字母「看起來」很沒意義，不過它卻是我們在用...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/js-note/" itemprop="url" title="JavaScript 筆記"><i class="ic i-flag"></i>JavaScript 筆記</a>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
       </span>
     </div>
-    <a href="/js-note/day-js/" itemprop="url" title="一個好用的時間處理套件 - Dayjs" class="btn">more...</a>
+    <a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" title="聊聊 commitID 與 HEAD" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/vue-note/vue-axios-proxy/" itemprop="url" title="在Vue3使用Vite設定proxy整合axios攔截器"><img data-src="https://i.imgur.com/uD1DYit.jpg"></a>
+    <a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" itemprop="url" title="設定 .gitignore"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2023-03-18 10:11:27">
+  <span class="item" title="創建時間：2023-09-26 10:50:20">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-03-18T10:11:27+08:00">2023-03-18</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-26T10:50:20+08:00">2023-09-26</time>
   </span>
   <span class="item" title="文章字數">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>4.9k</span>
+    <span>4.4k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -452,83 +544,71 @@ Dayjs 只依賴於 ES5 的函數庫，因此可以在任何環境中使用，包
   </span>
 </div>
 
-    <h3><a href="/vue-note/vue-axios-proxy/" itemprop="url" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></h3>
+    <h3><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" itemprop="url" title="設定 .gitignore">設定 .gitignore</a></h3>
     <div class="excerpt">
-        Vite proxy 、 axios 攔截器 等議題，很容易在網路上查到資料
-但自己實際在使用的時候，總會有一些細節沒注意到
-這篇記錄實際使用了 vite proxy 、 整合 axios 攔截器 以及設定攔截器功能的內容
-
-# 大綱
-
-Vite 設定 proxy 方法
-axios 攔截器如何設定 URL
-實際使用 axios 的 API
-
-# Vite 設定 proxy 方法
-在 Vite 中，我們可以通過在 vite.config.js 文件中設定一下，就可以做好應用程式的 proxy，讓 Vite 透過 proxy 呼叫 API
-Vite 預設已經有個 defineConfig...
+        # 前言
+今天的主題其實在之前開始介紹如何使用 Git 時就可以先說明，不過還是希望能先把基本觀念一次說明到位，讓讀者先對 Git 有一定的認識再說，畢竟設定類的說明，隨時補都來得及。
+回到主題，實務上的專案中，總是會有一些「設定檔」、「編譯檔」、「日誌 (log)」，之類不影響專案本體的內容，他們並不需要 (有些甚至不可以) 被記錄到儲存庫中，該如何定義那些「不想被版控」的資料，會是個重要的問題。
+為此 Git 提供了一個方式讓我們去定義這些內容：設定 .gitignore 檔案。
+# 設定 .gitignore 檔案
+首先來說文解字一下， ignore 中文是「忽略」的意思，所以...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/vue-note/" itemprop="url" title="Vue 筆記"><i class="ic i-flag"></i>Vue 筆記</a>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
       </span>
     </div>
-    <a href="/vue-note/vue-axios-proxy/" itemprop="url" title="在Vue3使用Vite設定proxy整合axios攔截器" class="btn">more...</a>
+    <a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" itemprop="url" title="設定 .gitignore" class="btn">more...</a>
   </div>
 </article>
 
         
 <article class="item">
   <div class="cover">
-    <a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
+    <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" title="查看 log 紀錄"><img data-src="https://i.imgur.com/slJN1yE.jpg"></a>
   </div>
   <div class="info">
     
 <div class="meta">
-  <span class="item" title="創建時間：2023-02-24 20:42:51">
+  <span class="item" title="創建時間：2023-09-25 10:50:20">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-02-24T20:42:51+08:00">2023-02-24</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-25T10:50:20+08:00">2023-09-25</time>
   </span>
   <span class="item" title="文章字數">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>1.2k</span>
+    <span>4.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
     <span class="icon">
       <i class="ic i-clock"></i>
     </span>
-    <span>1 分鐘</span>
+    <span>4 分鐘</span>
   </span>
 </div>
 
-    <h3><a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></h3>
+    <h3><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" title="查看 log 紀錄">查看 log 紀錄</a></h3>
     <div class="excerpt">
-        flex 物件的子物件寬度為多少？從這個問題衍伸出 flex-shrink 的計算公式
-這篇就來簡單聊聊吧
-
-# flex 物件的子物件的寬度，在沒設定寬的時候是多少？
-事實上，flex 物件的子物件寬度，是由該物件內容寬度決定
-例如下面的例子，將子項目 font-size 設定 20px
-項目 a、b、c 分別是五個字、三個字、七個字
-此時呈現結果將會是
-
-a 的寬度為 5 x 20 = 100px
-b 的寬度為 3 x 20 = 60px
-c 的寬度為 7 x 20 = 140px
-
-.flex &amp;#123; width: 1000px; height: 300px;...
+        # 前言
+到目前為止，大家應該已經學會「提交一個版本」所需要的指令以及操作方式了。
+不過在提交完版本之後，總是會有需要回頭查看之前 commit 的資訊的情況。
+除非你執行 commit 就像「拿出手機拍下黑板上的筆記」一樣，只是拍個心安感，回家根本不會拿出來看，那我們另當別論…
+在 沒有 GUI 的世界，commit 完的東西沒有漂漂亮亮的畫面可以讓我們看到。
+需要看歷史的話，只有那個冷冰冰的終端機可以使用。
+git log 就是用來做這件事情的指令，這篇文章將來介紹如何使用 git log 來查看歷史的提交資訊。
+老樣子，會先介紹指令，再來說明 Fork 介面。
+#...
     </div>
     <div class="meta footer">
       <span>
-        <a href="/categories/css-note/" itemprop="url" title="CSS 筆記"><i class="ic i-flag"></i>CSS 筆記</a>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
       </span>
     </div>
-    <a href="/css-note/flex-shink-calculate/" itemprop="url" title="【CSS筆記】flex-shrink的計算公式" class="btn">more...</a>
+    <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" title="查看 log 紀錄" class="btn">more...</a>
   </div>
 </article>
 
@@ -539,7 +619,7 @@ c 的寬度為 7 x 20 = 140px
   
   <nav class="pagination">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/"><i class="ic i-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="ic i-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="ic i-angle-right" aria-label="下一頁"></i></a>
     </div>
   </nav>
 
@@ -567,7 +647,7 @@ c 的寬度為 7 x 20 = 140px
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">19</span>
+        <span class="count">38</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -620,6 +700,7 @@ c 的寬度為 7 x 20 = 140px
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
+        <a href="/page/3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -640,26 +721,6 @@ c 的寬度為 7 x 20 = 140px
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-branch/" title="【Git筆記】使用 Git 分支">【Git筆記】使用 Git 分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
-</div>
-
-    <span><a href="/git-note/gn-github/" title="【Git筆記】使用 GitHub">【Git筆記】使用 GitHub</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
@@ -670,20 +731,10 @@ c 的寬度為 7 x 20 = 140px
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-note/gn-start/" title="【Git筆記】開始使用 Git">【Git筆記】開始使用 Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+    <span><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">版控的類別</a></span>
   </li>
 
       
@@ -700,39 +751,70 @@ c 的寬度為 7 x 20 = 140px
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-note/gn-alias/" title="【Git筆記】設定指令簡寫">【Git筆記】設定指令簡寫</a></span>
+    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-note/gn-rebase-merge/" title="【Git筆記】用 rebase 來合併分支">【Git筆記】用 rebase 來合併分支</a></span>
+    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-note/" title="分類於 Git 筆記">Git 筆記</a>
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-note/gn-reset/" title="【Git筆記】用 Reset 還原資料">【Git筆記】用 Reset 還原資料</a></span>
+    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
   </li>
 
   </ul>
@@ -753,13 +835,13 @@ c 的寬度為 7 x 20 = 140px
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">66k 字</span>
+    <span title="總字數">134k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">1:01</span>
+    <span title="所需總閱讀時間">2:01</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

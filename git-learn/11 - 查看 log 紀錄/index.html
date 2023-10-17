@@ -1,0 +1,679 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/">
+
+
+
+  <title>
+查看 log 紀錄 - 一起來學 Git 吧！ |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">查看 log 紀錄
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-25 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-25T10:50:20+08:00">2023-09-25</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>4.6k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>4 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-learn/" itemprop="item" rel="index" title="分類於 一起來學 Git 吧！"><span itemprop="name">一起來學 Git 吧！</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>到目前為止，大家應該已經學會「提交一個版本」所需要的指令以及操作方式了。</p>
+<p>不過在提交完版本之後，總是會有需要回頭查看之前 commit 的資訊的情況。<br>
+除非你執行 commit 就像「拿出手機拍下黑板上的筆記」一樣，只是拍個心安感，回家根本不會拿出來看，那我們另當別論…</p>
+<p>在 <strong>沒有 GUI 的世界</strong>，commit 完的東西沒有漂漂亮亮的畫面可以讓我們看到。<br>
+需要看歷史的話，只有那個冷冰冰的終端機可以使用。</p>
+<p><code>git log</code>  就是用來做這件事情的指令，這篇文章將來介紹如何使用  <code>git log</code>  來查看歷史的提交資訊。</p>
+<p>老樣子，會先介紹指令，再來說明 Fork 介面。</p>
+<h1 id="查看版控歷程"><a class="markdownIt-Anchor" href="#查看版控歷程">#</a> 查看版控歷程</h1>
+<p><strong>log</strong>，除了是那個「永遠不會背叛你，因為他不會就是不會」的 <strong>數學對數</strong> 之外。<br>
+在電腦科學的領域，<strong>log</strong> 也可以代表 <strong>日誌</strong> 或是 <strong>紀錄</strong> 的意思。</p>
+<p>所以我們說要查看 Git 的 log，也代表著要來查詢 <strong>版本歷程</strong>、<strong>版本資訊</strong>的概念。<br>
+通常會使用到  <code>git log</code>  的情境，會是想看一下之前提交的版本資訊，像是 commit 的 ID 、訊息，或是發佈人員是誰之類。</p>
+<h2 id="透過指令"><a class="markdownIt-Anchor" href="#透過指令">#</a> 透過指令</h2>
+<h3 id="log-的基本指令"><a class="markdownIt-Anchor" href="#log-的基本指令">#</a> log 的基本指令</h3>
+<p>直接在終端機中執行  <code>git log</code>  ，就可以看到所有版本的訊息</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log</pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log</pre></td></tr><tr><td data-num="2"></td><td><pre>commit c1591821ce397d8a63836a48727583aa860ef0a8</pre></td></tr><tr><td data-num="3"></td><td><pre>Merge: 8ec01e1 4c723e9</pre></td></tr><tr><td data-num="4"></td><td><pre>Author: 羅茲瓦爾·L·梅札斯 <span class="token operator">&lt;</span>Roswaal_L_Mathers@gmail.com<span class="token operator">></span></pre></td></tr><tr><td data-num="5"></td><td><pre>Date:   Thu Sep <span class="token number">14</span> <span class="token number">11</span>:03:18 <span class="token number">2023</span> +0800</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>    Merge branch <span class="token string">'拉姆'</span> into dev</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>commit 0dc6f2079daacd690bc44adf5ac1af63053d61be <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> Rem<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>Author: 雷姆 <span class="token operator">&lt;</span>Rem@gmail.com<span class="token operator">></span></pre></td></tr><tr><td data-num="11"></td><td><pre>Date:   Thu Sep <span class="token number">14</span> <span class="token number">10</span>:49:42 <span class="token number">2023</span> +0800</pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>    完成雷姆介紹頁</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>commit 897789322aa57019c51dbcf8d1a800bc0fd99551 <span class="token punctuation">(</span>Ram<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>Author: 拉姆 <span class="token operator">&lt;</span>Ram@gmail.com<span class="token operator">></span></pre></td></tr><tr><td data-num="17"></td><td><pre>Date:   Thu Sep <span class="token number">14</span> <span class="token number">10</span>:49:05 <span class="token number">2023</span> +0800</pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre>    完成拉姆介紹頁</pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>commit b71aeec201ac2a3cc56ffb0d26a929f009cb6907 <span class="token punctuation">(</span>Emilia<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>Author: 愛蜜莉雅 <span class="token operator">&lt;</span>Emilia@gmail.com<span class="token operator">></span></pre></td></tr><tr><td data-num="23"></td><td><pre>Date:   Thu Sep <span class="token number">14</span> <span class="token number">10</span>:48:06 <span class="token number">2023</span> +0800</pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>    完成愛蜜莉雅介紹頁</pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>    愛蜜莉雅醬真是天使！</pre></td></tr></table></figure><p><code>git log</code>  預設會列出五個資訊：</p>
+<ol>
+<li>
+<p>版本的 commit ID，表示版本的獨立編號。</p>
+</li>
+<li>
+<p>版本發布作者，這就是在 Git 初始化設定的內容。</p>
+</li>
+<li>
+<p>發布時間。</p>
+</li>
+<li>
+<p>執行  <code>git commit -m</code>  時所輸入的 <strong>commit title</strong> 以及 <strong>commit description</strong>，如果發布版本時沒輸入 <strong>description</strong>，則不會有資訊。</p>
+</li>
+<li>
+<p>如果版本當下有 <strong>分支</strong>，則會在 commitID 後頭顯示，反之則留空。<br>
+例如  <code>羅茲瓦爾</code>  那筆 commit 就沒有括號顯示分支資訊，而其他筆都有 (註 1)。</p>
+</li>
+</ol>
+<blockquote>
+<p>註 1. 關於為什麼分支會出現神奇的字眼： <strong>(HEAD -&gt; Rem)</strong> ，之後會有<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMyOTY0OQ==">文章</span>來說明這件事。</p>
+</blockquote>
+<p><strong>補充：</strong><br>
+資訊量太大時，終端機的最後會出現冒號 ( <code>:</code> )。<br>
+如果想繼續列出訊息，可以按  <code>enter</code>  (Mac 好像叫  <code>return</code> )。<br>
+如果想結束，則按  <code>Q</code>  即可跳出。(記得輸入法要切換到英文輸入法。)</p>
+<h3 id="讓每一筆-commit-只呈現一行"><a class="markdownIt-Anchor" href="#讓每一筆-commit-只呈現一行">#</a> 讓每一筆 commit 只呈現一行</h3>
+<p>因為介面大小有限，如果希望可以「一覽」較多的版本訊息，可以透過  <code>--oneline</code>  參數來設定：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log <span class="token parameter variable">--oneline</span></pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span></pre></td></tr><tr><td data-num="2"></td><td><pre>c159182 Merge branch <span class="token string">'拉姆'</span> into dev</pre></td></tr><tr><td data-num="3"></td><td><pre>0dc6f20 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> Rem<span class="token punctuation">)</span> 完成雷姆介紹頁</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">8977893</span> <span class="token punctuation">(</span>Ram<span class="token punctuation">)</span> 完成拉姆介紹頁</pre></td></tr><tr><td data-num="5"></td><td><pre>b71aeec <span class="token punctuation">(</span>Emilia<span class="token punctuation">)</span> 完成愛蜜莉雅介紹頁</pre></td></tr></table></figure><p>當  <code>git log</code>  多了  <code>--oneline</code>  參數之後，log 會把訊息精簡到只剩下一行，保留以下資訊：</p>
+<ol>
+<li>縮減過後的 commitID</li>
+<li>分支資訊</li>
+<li>commit 的標題訊息，不含描述</li>
+</ol>
+<p>指令到這邊為止，已經能查閱到主要資訊了，不過好像就是少了點什麼？</p>
+<p>對，就是 <strong>ㄋㄟˋ個</strong> 線圖，Git 版控資料最重要的 <strong>ㄋㄟˋ個</strong> 線圖勒！？<br>
+<img data-src="https://i.imgur.com/ajG7UdO.png" alt=""></p>
+<p><s>Git Log：再給我一個參數… 只要再一個參數，我就能完成線圖…</s><br>
+<s>Git 指令使用者：沒有線圖的 Log ，沒有查看的必要！！</s></p>
+<h3 id="讓-log-顯示-git-的線圖"><a class="markdownIt-Anchor" href="#讓-log-顯示-git-的線圖">#</a> 讓 log 顯示 Git 的線圖</h3>
+<p><code>git log</code>  有一個參數可以讓終端機呈現「簡易」的線圖。</p>
+<p>在已經學到的指令中，疊加上 <code>--graph</code>  參數：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span></pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span></pre></td></tr><tr><td data-num="2"></td><td><pre>*   c159182 Merge branch <span class="token string">'拉姆'</span> into dev</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token operator">|</span> * 4c723e9 <span class="token punctuation">(</span>Ram<span class="token punctuation">)</span> 完成拉姆介紹頁</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token operator">|</span> * <span class="token number">8977893</span> 新增跑馬燈卡片</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token operator">|</span> * 7093b32 新增拉姆html</pre></td></tr><tr><td data-num="7"></td><td><pre>* <span class="token operator">|</span>   8ec01e1 Merge branch <span class="token string">'雷姆'</span> into dev</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span> <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token operator">|</span> * <span class="token operator">|</span> 4e16000 <span class="token punctuation">(</span>Rem<span class="token punctuation">)</span> 完成雷姆介紹頁</pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token operator">|</span> * <span class="token operator">|</span> 56db141 處理內容頁</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token operator">|</span> * <span class="token operator">|</span> 0dc6f20 新增基本架構</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token operator">|</span> <span class="token operator">|</span>/</pre></td></tr><tr><td data-num="13"></td><td><pre>* <span class="token operator">|</span>   631d193 Merge branch <span class="token string">'愛蜜莉雅'</span> into dev</pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span> <span class="token punctuation">\</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token operator">|</span> <span class="token operator">|</span>/</pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token operator">|</span>/<span class="token operator">|</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token operator">|</span> * b41c499 <span class="token punctuation">(</span>Emilia<span class="token punctuation">)</span> 完成愛蜜莉雅介紹頁</pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token operator">|</span> * b71aeec 處理新功能</pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token operator">|</span> * c22c3db 新增五項資訊</pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token operator">|</span> * 7cee9b1 新增主視覺 banner</pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token operator">|</span> * 2862c3a 新增主視覺html</pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token operator">|</span>/</pre></td></tr><tr><td data-num="23"></td><td><pre>* 94262a6 處理XXfeature</pre></td></tr></table></figure><p>在 Git 線圖中，<strong>每個 Commit 一定能對應到一個「點點」</strong>，log 會用 ( <code>*</code> ) 來代表。</p>
+<p>而 log 的線圖，只是在原有的資訊中的左側添加而已，其他能呈現的資訊都與上述介紹的相同。</p>
+<h3 id="只列出前幾筆-log"><a class="markdownIt-Anchor" href="#只列出前幾筆-log">#</a> 只列出前幾筆 log</h3>
+<p>如果 commit 版本太多，只希望列出前幾筆的話，可以加上  <code>-數字</code>  ：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> -數字</pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log <span class="token parameter variable">--oneline</span> <span class="token parameter variable">--graph</span> <span class="token parameter variable">-5</span></pre></td></tr><tr><td data-num="2"></td><td><pre>*   c159182 Merge branch <span class="token string">'拉姆'</span> into dev</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token operator">|</span> * 4c723e9 <span class="token punctuation">(</span>Ram<span class="token punctuation">)</span> 完成拉姆頁面</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token operator">|</span> * <span class="token number">8977893</span> 新增跑馬燈卡片</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token operator">|</span> * 7093b32 新增拉姆html</pre></td></tr><tr><td data-num="7"></td><td><pre>* <span class="token operator">|</span>   8ec01e1 Merge branch <span class="token string">'雷姆'</span> into dev</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token operator">|</span><span class="token punctuation">\</span> <span class="token punctuation">\</span></pre></td></tr></table></figure><h3 id="客製化呈現想要的資訊"><a class="markdownIt-Anchor" href="#客製化呈現想要的資訊">#</a> 客製化呈現想要的資訊</h3>
+<p>除了上述 log 預設能資訊之外， <code>git log</code>  其實有提供一個「客製化」資料功能： <code>--pretty</code>  參數。</p>
+<p>不過由於細節太多，請讀者參考 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb2NzL3ByZXR0eS1mb3JtYXRz">Git 官網</span>。</p>
+<p>如果只寫到這邊就太不負責任了！<br>
+這裡提供一個含有 <strong>「線圖」</strong>、<strong>「分支」</strong>、<strong>「訊息」</strong>、<strong>「時間」</strong>、<strong>「作者」</strong> 的 format 指令給大家參考：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> log <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>format:<span class="token string">'%C(yellow)%h%Creset -%C(green)%d%Creset %s %C(magenta)%cD %C(bold cyan)&lt;%an>%Creset'</span></pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/WsoDUdT.png" alt="圖表示意"></p>
+<p>有兩個地方大家可以玩玩看：</p>
+<ol>
+<li>
+<p>顏色：根據 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb2NzL2dpdC1jb25maWcjRG9jdW1lbnRhdGlvbi9naXQtY29uZmlnLnR4dC1jb2xvcg==">官網</span> 的說法，要針對不同資訊設定顏色，有支援的顏色如下：  <code>black</code> ,  <code>red</code> ,  <code>green</code> ,  <code>yellow</code> , <code> blue</code> ,  <code>magenta</code> ,  <code>cyan</code> ,  <code>white</code>  and  <code>default</code> 。</p>
+</li>
+<li>
+<p>日期格式：也是根據 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb2NzL3ByZXR0eS1mb3JtYXRz">官網</span> 的資訊，上面的 「 <code>%cD</code> 」可以改成：</p>
+</li>
+</ol>
+<ul>
+<li>「 <code>%cr</code> 」(相對時間)：<br>
+<img data-src="https://i.imgur.com/ozljye3.png" alt="%cr"></li>
+<li>「 <code>%cs</code> 」(“YYYY-MM-DD” 的格式)：<br>
+<img data-src="https://i.imgur.com/fBL3Tlk.png" alt="%cs"></li>
+</ul>
+<h2 id="透過-gui-工具查看版本歷程"><a class="markdownIt-Anchor" href="#透過-gui-工具查看版本歷程">#</a> 透過 GUI 工具查看版本歷程</h2>
+<p>雖然洋洋灑灑寫了那麼多  <code>git log</code>  查看歷程的方式，我必須承認自己從開始使用 Git 版控到現在，除了練習指令之外，<strong>從來沒有用過</strong>  <code>git log</code>  看過版本歷程。</p>
+<p>原因大家應該都猜得到：在終端機查看 log 資訊並不方便！</p>
+<p>一來，每次查看訊息都要輸入指令，且指令參數並不好記，也懶得打  <code>--online</code> 、  <code>--graph</code>  這麼多字。<br>
+二來，完全沒辦法再對這些資訊進行任何操作。</p>
+<p>說白了，使用指令看歷程，只能讓我們「讀」資料，沒辦法「操作」資料。</p>
+<p>一個好的 GUI 工具，預設就能看到  <code>git log</code>  那堆資訊，完全不用打指令。</p>
+<p>此外，直接「操作」GUI 的畫面，還可以執行常用到的 Git 功能，其中最方便的不外乎是「分支」的操作。</p>
+<p>Git 的「分支」與「圖表」兩者關係是密不可分，能直接在「圖表」操作「分支」，絕對是 GUI 的重要功能之一。<br>
+操作的細節會在分支章節介紹，這裡先讓大家有個概念。</p>
+<p>話不多說，來看怎麼用吧！</p>
+<h3 id="使用-fork"><a class="markdownIt-Anchor" href="#使用-fork">#</a> 使用 Fork</h3>
+<p>GUI 畫面單純到，一時之間不知道該細講些什麼 XD ，不過還是針對每個區塊說明作用：<br>
+<img data-src="https://i.imgur.com/US10vgt.png" alt="fork GUI 示意"></p>
+<ol>
+<li>
+<p>功能區，用來切換專案「工作目錄」的狀態，跟「歷程記錄」的資訊，如果要查看 Commit 歷程記錄，切換到「All Commits」頁籤。</p>
+</li>
+<li>
+<p>地端的所有分支 (註 1)。</p>
+</li>
+<li>
+<p>專案的遠端追蹤分支 (註 2)。</p>
+</li>
+<li>
+<p>專案歷程資料，也就是 git log 能查閱到的資訊。</p>
+</li>
+<li>
+<p>查看版本資訊頁籤：</p>
+</li>
+</ol>
+<ul>
+<li>Commit：該版本的基本資訊。</li>
+<li>Change：該版本異動的檔案。</li>
+<li>File Tree：該版本呈現的工作目錄內容。</li>
+</ul>
+<ol start="6">
+<li>點擊某個版本後，會呈現該版本的基本資訊：</li>
+</ol>
+<ul>
+<li>REFS：如果版本停留著分支，會在這裡呈現，反之則整欄不出現。</li>
+<li>SHA：版本的 CommitID。</li>
+<li>PARENTS：選到的版本的「上一個」版本，以圖中例子來說，因為選在「兩個分支合併後的 Commit」，所以「上一個」版本會有兩個 (註 3)。</li>
+</ul>
+<ol start="7">
+<li>該版本的 commit 訊息，如果有寫「Description」，會一併呈現於此。</li>
+<li>版本異動檔案，資料同第五點「Change」頁籤的內容。</li>
+</ol>
+<blockquote>
+<p>註 1：關於分支為什麼會有「資料夾」圖示，在分支章節會再說明。<br>
+註 2：關於地端分支、遠端分支的差異，之後會專門寫<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzODAxNw==">一篇文章</span>來跟大家講解。<br>
+註 3：關於「分支合併」的觀念與操作，之後會專門寫<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzNDYwMQ==">一篇文章</span>來跟大家講解。</p>
+</blockquote>
+<h3 id="用-fork-gui-篩選特定資料"><a class="markdownIt-Anchor" href="#用-fork-gui-篩選特定資料">#</a> 用 Fork GUI 篩選特定資料</h3>
+<p>隨著時間推進，commit 版本太多可能導致資料不好找，這時候篩選功能就很重要了。</p>
+<p>Fork GUI 可以做到簡單的篩選，除了篩選 commit 訊息之外，也可以篩選發佈版本的人員。<br>
+<s>其實指令也做得到，但我真心不想用他操作…</s></p>
+<p>上面介面說明有一個地方沒說到，就是篩選功能，他落在下圖紅框中的 <strong>放大鏡</strong> 按鈕：<br>
+<img data-src="https://i.imgur.com/rnhGVTR.png" alt=""></p>
+<h4 id="篩選-commit"><a class="markdownIt-Anchor" href="#篩選-commit">#</a> 篩選 commit</h4>
+<p>直接拿個情境來示範，如果想挑出訊息中有 「完成」 的 commit，可以這樣做:</p>
+<ol>
+<li>點到放大鏡</li>
+<li>確認篩選值是 <strong>commit message</strong></li>
+<li>把資料打進去</li>
+</ol>
+<p>請看示範：<br>
+<img data-src="https://i.imgur.com/augJXp2.gif" alt=""></p>
+<h4 id="篩選發佈人員"><a class="markdownIt-Anchor" href="#篩選發佈人員">#</a> 篩選發佈人員</h4>
+<p>跟上面依樣畫葫蘆，只是篩選值要改成 <strong>Author</strong><br>
+<img data-src="https://i.imgur.com/oXZFGsD.gif" alt=""></p>
+<p>從輸入框的提示應該可以發現，如果想找作者的話，也可以透過 email 來搜尋。</p>
+<h3 id="在-vscode-透過-git-graph-套件看-log"><a class="markdownIt-Anchor" href="#在-vscode-透過-git-graph-套件看-log">#</a> 在 VSCode 透過 Git Graph 套件看 log</h3>
+<p>如果你也是 VSCode 的使用者，那麼使用 Git Graph 套件來查看歷程會是一件很方便的事情。<br>
+安裝好套件後，點擊 VSCode 下方選單的「Git Graph」按鈕即可打開介面。</p>
+<p>映入眼簾的會是基本的 Git 圖表，一樣也會提供基本的 Git 。<br>
+<img data-src="https://i.imgur.com/sIQ2pkV.png" alt="git graph"></p>
+<p>在這個介面中，點擊每一個 commit 能看到更詳細的 commit 資訊：<br>
+<img data-src="https://i.imgur.com/tFIEcWS.png" alt="單一commit資訊"></p>
+<p>由於筆者使用這個 GUI ，最常使用的是分支操作的功能，屆時文章再來細加說明。</p>
+<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
+<p>首先宣布今日 MVP ： Git GUI！  (掌聲加尖叫！！)</p>
+<p>了解  <code>git log</code>  與「GUI 工具」兩者查看版本資訊的方式後，讀者們應該已經能體會到 GUI 工具強大之處，以及為何筆者當初所說「指令、GUI 全都要」的原因。</p>
+<p>無論指令還是 GUI ，對我們來說都只是「工具」，不用堅持只能用什麼方式操作 Git，只要是能方便我們完成版控的工具，都是好工具。</p>
+<p>以「查看歷程」來說，比起去死記指令的參數，我更推薦大家直接使用習慣的 GUI 工具來達成這個目的。</p>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-10-17 16:43:58" itemprop="dateModified" datetime="2023-10-17T16:43:58+08:00">2023-10-17</time>
+  </span>
+  <span id="git-learn/11 - 查看 log 紀錄/" class="item leancloud_visitors" data-flag-title="查看 log 紀錄" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">https://imall.github.io/git-learn/11 - 查看 log 紀錄/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;eWxuYmg.jpg" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;QdkMVTt.jpg" title="設定 .gitignore">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>設定 .gitignore</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%8E%A7%E6%AD%B7%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text"> 查看版控歷程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%8F%E9%81%8E%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text"> 透過指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#log-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.1.</span> <span class="toc-text"> log 的基本指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%93%E6%AF%8F%E4%B8%80%E7%AD%86-commit-%E5%8F%AA%E5%91%88%E7%8F%BE%E4%B8%80%E8%A1%8C"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 讓每一筆 commit 只呈現一行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%93-log-%E9%A1%AF%E7%A4%BA-git-%E7%9A%84%E7%B7%9A%E5%9C%96"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 讓 log 顯示 Git 的線圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AA%E5%88%97%E5%87%BA%E5%89%8D%E5%B9%BE%E7%AD%86-log"><span class="toc-number">2.1.4.</span> <span class="toc-text"> 只列出前幾筆 log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E8%A3%BD%E5%8C%96%E5%91%88%E7%8F%BE%E6%83%B3%E8%A6%81%E7%9A%84%E8%B3%87%E8%A8%8A"><span class="toc-number">2.1.5.</span> <span class="toc-text"> 客製化呈現想要的資訊</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%8F%E9%81%8E-gui-%E5%B7%A5%E5%85%B7%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E6%AD%B7%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text"> 透過 GUI 工具查看版本歷程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 使用 Fork</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-fork-gui-%E7%AF%A9%E9%81%B8%E7%89%B9%E5%AE%9A%E8%B3%87%E6%96%99"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 用 Fork GUI 篩選特定資料</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AF%A9%E9%81%B8-commit"><span class="toc-number">2.2.2.1.</span> <span class="toc-text"> 篩選 commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AF%A9%E9%81%B8%E7%99%BC%E4%BD%88%E4%BA%BA%E5%93%A1"><span class="toc-number">2.2.2.2.</span> <span class="toc-text"> 篩選發佈人員</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-vscode-%E9%80%8F%E9%81%8E-git-graph-%E5%A5%97%E4%BB%B6%E7%9C%8B-log"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 在 VSCode 透過 Git Graph 套件看 log</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">3.</span> <span class="toc-text"> 總結</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" rel="bookmark" title="版控的類別">版控的類別</a></li><li><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="bookmark" title="基本觀念與常見問題">基本觀念與常見問題</a></li><li><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="bookmark" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></li><li><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="Git 初始化設定">Git 初始化設定</a></li><li><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="bookmark" title="建立 Git 儲存庫">建立 Git 儲存庫</a></li><li><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="bookmark" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></li><li><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" rel="bookmark" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></li><li><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" rel="bookmark" title="查看 Git 資料狀態">查看 Git 資料狀態</a></li><li><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="bookmark" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></li><li class="active"><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="查看 log 紀錄">查看 log 紀錄</a></li><li><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="bookmark" title="設定 .gitignore">設定 .gitignore</a></li><li><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" rel="bookmark" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></li><li><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></li><li><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="bookmark" title="用 reset 回到過去">用 reset 回到過去</a></li><li><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" rel="bookmark" title="Git 分支：觀念篇">Git 分支：觀念篇</a></li><li><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="bookmark" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></li><li><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" rel="bookmark" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></li><li><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="bookmark" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></li><li><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" rel="bookmark" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></li><li><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="bookmark" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></li><li><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="bookmark" title="用 revert 復原 commit">用 revert 復原 commit</a></li><li><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="bookmark" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></li><li><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></li><li><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></li><li><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" rel="bookmark" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></li><li><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" rel="bookmark" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></li><li><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" rel="bookmark" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">38</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">版控的類別</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">134k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">2:01</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-learn/11 - 查看 log 紀錄/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

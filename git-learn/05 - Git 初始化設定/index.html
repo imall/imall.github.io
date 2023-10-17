@@ -1,0 +1,622 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/">
+
+
+
+  <title>
+Git 初始化設定 - 一起來學 Git 吧！ |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Git 初始化設定
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-19 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-19T10:50:20+08:00">2023-09-19</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-learn/" itemprop="item" rel="index" title="分類於 一起來學 Git 吧！"><span itemprop="name">一起來學 Git 吧！</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>這篇來說明要使用 Git 前「一定」要做的事情：設定使用者名稱、信箱。</p>
+<p>以及可以選擇性操作的：設定 Git 預設文字編輯器。</p>
+<h1 id="設定-git-的使用者名稱與信箱"><a class="markdownIt-Anchor" href="#設定-git-的使用者名稱與信箱">#</a> 設定 Git 的使用者名稱與信箱</h1>
+<h2 id="用指令更改"><a class="markdownIt-Anchor" href="#用指令更改">#</a> 用指令更改：</h2>
+<p>我們開啟終端機，並且透過下面兩個指令來設定 Git 使用者資訊。<br>
+(建議兩個指令「分開複製」到終端機執行)</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"這裡改你的名字"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"這裡改你的信箱"</span></pre></td></tr></table></figure><p>實際輸入的內容看起來會像這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"imall"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"imall841110@gmail.com"</span></pre></td></tr></table></figure><p>如果想輸入的資訊 <strong>「沒有空格 (空白鍵)」</strong>，也可以不寫雙引號 ( <code>&quot;&quot;</code> )：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name imall</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email imall841110@gmail.com</pre></td></tr></table></figure><p>要確認有沒有設定成功，可以直接輸入下列指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email</pre></td></tr></table></figure><p>如果有成功，終端機就會顯示設定好的資料：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name</pre></td></tr><tr><td data-num="2"></td><td><pre>imall</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>$ <span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email</pre></td></tr><tr><td data-num="5"></td><td><pre>imall841110@gmail.com</pre></td></tr></table></figure><h2 id="用-fork-更改"><a class="markdownIt-Anchor" href="#用-fork-更改">#</a> 用 Fork 更改</h2>
+<ol>
+<li>請先選到 <strong>file</strong> &gt; <strong>perference</strong><br>
+<img data-src="https://i.imgur.com/C6qpJBR.png" alt="Fork 更改全域使用者步驟1"></li>
+<li>找到 <strong>Git</strong> 的分頁，並且輸入您的想設定的名稱與信箱<br>
+<img data-src="https://i.imgur.com/t6xaOPu.png" alt="輸入使用者資訊"></li>
+<li>關閉視窗就設定完成了。</li>
+</ol>
+<h1 id="更改-git-預設的文字編輯器"><a class="markdownIt-Anchor" href="#更改-git-預設的文字編輯器">#</a> 更改 Git 預設的文字編輯器</h1>
+<p>要更改 Git 預設文字編輯器，可以使用下列的指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.editor <span class="token string">"編輯器執行檔位置"</span></pre></td></tr></table></figure><p>以設定為  <code>VSCode</code>  為例，輸入的指令會是這樣：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.editor <span class="token string">"code --wait"</span></pre></td></tr></table></figure><p>由於編輯器的設定可能會因為作業系統的不同，而須輸入不同的資訊。</p>
+<p>讀者們可以到 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vZ2V0LXN0YXJ0ZWQvZ2V0dGluZy1zdGFydGVkLXdpdGgtZ2l0L2Fzc29jaWF0aW5nLXRleHQtZWRpdG9ycy13aXRoLWdpdA==">這個連結</span> 尋找適合自己的資訊操作。</p>
+<blockquote>
+<p>補充：曾經有使用 Mac 的朋友將預設編輯器設定成 VSCode 後，在執行會用到文字編輯器的 Git 指令時，出現  <code>zsh:command not found: code</code>  的錯誤訊息，這是因為 mac 的終端機  <code>zsh</code>  還沒將  <code>VSCode</code>  加入環境變數的關係。</p>
+<p>若有遇到一樣情況的讀者，可以參考 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20vZG9jcy9zZXR1cC9tYWMjX2xhdW5jaGluZy1mcm9tLXRoZS1jb21tYW5kLWxpbmU=">這個連結</span> 來處理。</p>
+</blockquote>
+<h1 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h1>
+<h2 id="1-為什麼使用-git-還要設定使用者資訊與信箱"><a class="markdownIt-Anchor" href="#1-為什麼使用-git-還要設定使用者資訊與信箱">#</a> 1. 為什麼使用 Git 還要設定使用者資訊與信箱？</h2>
+<p>為了讓 Git 能紀錄「發佈版本的人」。</p>
+<p>一個人版控可能比較無感，不過如果是團隊協作版控，這個機制可以在「發現某個版本有問題」時，比較容易去追蹤是誰發佈的版本。</p>
+<p>舉例來說，今天  <code>菜月昴</code> 、 <code>愛蜜莉雅</code> 、 <code>雷姆</code> 、 <code>拉姆</code> ，在合作開發同一個專案，每個人被分配到不同的內容。</p>
+<p><code>雷姆</code> 、 <code>拉姆</code> 、 <code>愛蜜莉雅</code> 完成自己的資料後， <code>羅茲瓦爾</code>  (主管) 看了覺得做得太完美了，就把她們開發的內容合併到 dev 裡面準備讓測試團隊測試。</p>
+<p><code>羅茲瓦爾</code>  繼續 code review 的過程，看到 「 <code>80153555</code> 」編號的 commit，內容一蹋糊塗！</p>
+<p>因為每個人使用 Git 都必須設定使用者資訊， <code>羅茲瓦爾</code>  從 Git 線圖的內容就能找到是  <code>菜月昴</code>  在雷，於是把他抓出來教訓一頓，要他重改！<br>
+<img data-src="https://i.imgur.com/f061mqr.png" alt="線圖示意"></p>
+<h2 id="2-在-git-設定的信箱需要跟-github-帳號一樣嗎"><a class="markdownIt-Anchor" href="#2-在-git-設定的信箱需要跟-github-帳號一樣嗎">#</a> 2. 在 Git 設定的信箱需要跟 GitHub 帳號一樣嗎？</h2>
+<p>可以不用。</p>
+<p>初始設定的使用者、信箱的設定只是為了把發佈者資訊紀錄在版本內，與 GitHub 、GitLab 平台帳密之間沒有任何關係。</p>
+<h2 id="3-使用者名稱跟信箱設定完在-git-會被綁定嗎"><a class="markdownIt-Anchor" href="#3-使用者名稱跟信箱設定完在-git-會被綁定嗎">#</a> 3. 使用者名稱跟信箱設定完，在 Git 會被綁定嗎？</h2>
+<p>不會。</p>
+<p>這兩個資訊在設定完成後，依然可以修改，而且沒有任何修改限制。</p>
+<p><s>如果會綁定還不能改，我上面那張圖的假資料根本做不出來 XD</s></p>
+<h2 id="4-我打完指令後什麼訊息都沒跑出來所以是發生什麼事情了"><a class="markdownIt-Anchor" href="#4-我打完指令後什麼訊息都沒跑出來所以是發生什麼事情了">#</a> 4. 我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？</h2>
+<p><code>.gitconfig</code>  被更動了。</p>
+<p>上文提到的兩個指令是在設定 Git 的  <code>.gitconfig</code>  檔案<br>
+ Mac 可以在這個路徑找到：  <code> ~/.gitconfig</code> <br>
+Windows 則是在這個路徑：  <code>C:\Users\你的使用者名字\.gitconfig</code></p>
+<p>如果讀者已經有成功設定使用者資料，用文字編輯器打開這個檔案 (記事本、notepad++、VSCode 都可以) ，應該可以在檔案內容看到框起來的文字。<br>
+<img data-src="https://i.imgur.com/pP6y34a.png" alt="Alt text"></p>
+<p>我們在下指令的時候看到的  <code>user.XXXX</code>  以及  <code>core.XXX</code> ，其實就是對應  <code>.gitconfig</code>  裡面的  <code>[user]</code>  與  <code>[core]</code>  區域內的資訊 。</p>
+<p>了解其背後的原理之後，讀者應該已經猜到，如果直接設定  <code>.gitconfig</code> ，也可以完成下指令做的事情！</p>
+<h2 id="5-指令有-global-參數難道也有-local-參數嗎"><a class="markdownIt-Anchor" href="#5-指令有-global-參數難道也有-local-參數嗎">#</a> 5. 指令有 global 參數，難道也有 local 參數嗎？</h2>
+<p>答案是「有」。</p>
+<blockquote>
+<p>接下來會提到尚未介紹的  <code>.git</code>  資料夾，觀念會在「建立儲存庫」的章節介紹，這裡先帶讀者理解 Git 的「區域」與「全域」設定觀念。</p>
+</blockquote>
+<p>上面的問題帶大家認識  <code>git config</code>  是操作設定檔的指令。</p>
+<p>如果帶上  <code>--global</code>  參數，會是設定 <strong>「全域」</strong> 設定檔，會去更動  <code>.gitconfig</code>  檔案；<br>
+如果帶上  <code>--local</code>  參數，則是設定 <strong>「區域」</strong> 設定檔，會去更動不同專案中  <code>.git 隱藏夾</code>  裡面的  <code>config</code>  檔案。</p>
+<p><code>.git</code>  裡面的  <code>config</code>  跟  <code>.gitconfig</code>  用途一樣，都是處理 Git 的設定資訊，兩者只有「區域」跟「全域」的差異：  <code>.gitconfig</code>  是整台電腦都會使用的設定，而  <code>config</code>  是個別工作目錄的專屬設定。</p>
+<p>有了這個觀念後，就可以依據需求來決定  <code>git config</code>  要添加什麼參數了。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> <span class="token punctuation">(</span>某個設定<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--local</span> <span class="token punctuation">(</span>某個設定<span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="6-能不能在不同專案使用不同使用者名稱跟信箱"><a class="markdownIt-Anchor" href="#6-能不能在不同專案使用不同使用者名稱跟信箱">#</a> 6. 能不能在不同專案使用不同使用者名稱跟信箱？</h2>
+<p>可以。</p>
+<p>我們已經知道  <code>git config --global</code>  可以拿來設定全域的設定。</p>
+<p>如果希望在不同專案設定不同的使用者，例如 A 專案叫 <strong>「冰結魔女愛蜜莉雅」</strong> 、B 專案叫 <strong>「擅長捉弄人的高木同學」</strong> 之類的，可以透過  <code>--local</code>  參數定義不同專案的資訊。</p>
+<p>以下帶大家了解指令與 Fork 的設定方式：</p>
+<h3 id="用指令設定-local-使用者名稱與信箱"><a class="markdownIt-Anchor" href="#用指令設定-local-使用者名稱與信箱">#</a> 用指令設定 local 使用者名稱與信箱</h3>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--local</span> user.name <span class="token string">"你的名字"</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--local</span> user.email <span class="token string">"你的信箱"</span></pre></td></tr></table></figure><p>跟一開始介紹的指令，只差在  <code>--local</code>  參數，其他設置都一樣。</p>
+<h3 id="用-fork-設定-local-使用者名稱與信箱"><a class="markdownIt-Anchor" href="#用-fork-設定-local-使用者名稱與信箱">#</a> 用 fork 設定 local 使用者名稱與信箱</h3>
+<ol>
+<li>
+<p>點擊左上角 <strong>Repository</strong> &gt;  <strong>Settings for This Repository…</strong><br>
+<img data-src="https://i.imgur.com/6iyF5Gv.png" alt="儲存庫設定"></p>
+</li>
+<li>
+<p>把 <strong>Use global git credentials</strong> 的勾勾拿掉</p>
+</li>
+<li>
+<p>輸入專案的使用者資訊<br>
+<img data-src="https://i.imgur.com/3NF1yMV.png" alt="輸入專案的使用者資訊 "></p>
+</li>
+<li>
+<p>關閉視窗就設定完成囉！</p>
+</li>
+</ol>
+<blockquote>
+<p>從 Fork 預設的畫面可以注意到，如果我們沒有特別設定專案的使用者，則專案就會直接抓全域使用者的資料。</p>
+<p><img data-src="https://i.imgur.com/5PU6sRC.png" alt="Fork 區域使用者預設抓全域資料"></p>
+</blockquote>
+<h2 id="7-我用-local-參數設定了使用者想刪掉怎麼辦"><a class="markdownIt-Anchor" href="#7-我用-local-參數設定了使用者想刪掉怎麼辦">#</a> 7. 我用  <code>--local</code>  參數設定了使用者，想刪掉怎麼辦…</h2>
+<p><s>我知道新手毛很多</s></p>
+<p>開玩笑的，拜託先別走…</p>
+<p>這問題算是我還是新手時期最畏懼的事情，常常擔心跟著步驟走錯一步，電腦就會被我搞壞。</p>
+<p>這題有兩種做法可以操作：</p>
+<h3 id="編輯-config-檔案將-local-使用者資料刪除"><a class="markdownIt-Anchor" href="#編輯-config-檔案將-local-使用者資料刪除">#</a> 編輯  <code>config</code>  檔案將 local 使用者資料刪除：</h3>
+<ol>
+<li>打開專案中的  <code>.git</code>  資料夾，開啟  <code>config</code>  檔案</li>
+<li>檔案應該會有  <code>[user]</code>  相關的文字<br>
+<img data-src="https://i.imgur.com/6rQ51G1.png" alt="專案 config 使用者資訊"></li>
+<li>直接刪除這段然後「存檔」</li>
+<li>完成～</li>
+</ol>
+<h3 id="使用-fork-刪除-local-使用者資料"><a class="markdownIt-Anchor" href="#使用-fork-刪除-local-使用者資料">#</a> 使用 Fork 刪除 local 使用者資料</h3>
+<ol>
+<li>點擊左上角 <strong>Repository</strong> &gt;  <strong>Settings for This Repository…</strong> (參考第 6 題的說明)</li>
+<li>把 <strong>Use global git credentials</strong> 的勾選框打勾<br>
+<img data-src="https://i.imgur.com/odzV4vv.png" alt="勾選專案使用全域使用者資訊"></li>
+<li>完成～</li>
+</ol>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-10-17 16:43:39" itemprop="dateModified" datetime="2023-10-17T16:43:39+08:00">2023-10-17</time>
+  </span>
+  <span id="git-learn/05 - Git 初始化設定/" class="item leancloud_visitors" data-flag-title="Git 初始化設定" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">https://imall.github.io/git-learn/05 - Git 初始化設定/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;wW2x12h.png" title="安裝 Git 、 Git GUI 工具">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>安裝 Git 、 Git GUI 工具</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;aq0kjdS.jpg" title="建立 Git 儲存庫">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>建立 Git 儲存庫</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-git-%E7%9A%84%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">2.</span> <span class="toc-text"> 設定 Git 的使用者名稱與信箱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%9B%B4%E6%94%B9"><span class="toc-number">2.1.</span> <span class="toc-text"> 用指令更改：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-%E6%9B%B4%E6%94%B9"><span class="toc-number">2.2.</span> <span class="toc-text"> 用 Fork 更改</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-git-%E9%A0%90%E8%A8%AD%E7%9A%84%E6%96%87%E5%AD%97%E7%B7%A8%E8%BC%AF%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text"> 更改 Git 預設的文字編輯器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">4.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%BF%E7%94%A8-git-%E9%82%84%E8%A6%81%E8%A8%AD%E5%AE%9A%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E8%A8%8A%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.1.</span> <span class="toc-text"> 1. 為什麼使用 Git 還要設定使用者資訊與信箱？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9C%A8-git-%E8%A8%AD%E5%AE%9A%E7%9A%84%E4%BF%A1%E7%AE%B1%E9%9C%80%E8%A6%81%E8%B7%9F-github-%E5%B8%B3%E8%99%9F%E4%B8%80%E6%A8%A3%E5%97%8E"><span class="toc-number">4.2.</span> <span class="toc-text"> 2. 在 Git 設定的信箱需要跟 GitHub 帳號一樣嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%B7%9F%E4%BF%A1%E7%AE%B1%E8%A8%AD%E5%AE%9A%E5%AE%8C%E5%9C%A8-git-%E6%9C%83%E8%A2%AB%E7%B6%81%E5%AE%9A%E5%97%8E"><span class="toc-number">4.3.</span> <span class="toc-text"> 3. 使用者名稱跟信箱設定完，在 Git 會被綁定嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%88%91%E6%89%93%E5%AE%8C%E6%8C%87%E4%BB%A4%E5%BE%8C%E4%BB%80%E9%BA%BC%E8%A8%8A%E6%81%AF%E9%83%BD%E6%B2%92%E8%B7%91%E5%87%BA%E4%BE%86%E6%89%80%E4%BB%A5%E6%98%AF%E7%99%BC%E7%94%9F%E4%BB%80%E9%BA%BC%E4%BA%8B%E6%83%85%E4%BA%86"><span class="toc-number">4.4.</span> <span class="toc-text"> 4. 我打完指令後，什麼訊息都沒跑出來，所以是發生什麼事情了？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8C%87%E4%BB%A4%E6%9C%89-global-%E5%8F%83%E6%95%B8%E9%9B%A3%E9%81%93%E4%B9%9F%E6%9C%89-local-%E5%8F%83%E6%95%B8%E5%97%8E"><span class="toc-number">4.5.</span> <span class="toc-text"> 5. 指令有 global 參數，難道也有 local 參數嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%83%BD%E4%B8%8D%E8%83%BD%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%B0%88%E6%A1%88%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%B7%9F%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.</span> <span class="toc-text"> 6. 能不能在不同專案使用不同使用者名稱跟信箱？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E8%A8%AD%E5%AE%9A-local-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.1.</span> <span class="toc-text"> 用指令設定 local 使用者名稱與信箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-fork-%E8%A8%AD%E5%AE%9A-local-%E4%BD%BF%E7%94%A8%E8%80%85%E5%90%8D%E7%A8%B1%E8%88%87%E4%BF%A1%E7%AE%B1"><span class="toc-number">4.6.2.</span> <span class="toc-text"> 用 fork 設定 local 使用者名稱與信箱</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%88%91%E7%94%A8-local-%E5%8F%83%E6%95%B8%E8%A8%AD%E5%AE%9A%E4%BA%86%E4%BD%BF%E7%94%A8%E8%80%85%E6%83%B3%E5%88%AA%E6%8E%89%E6%80%8E%E9%BA%BC%E8%BE%A6"><span class="toc-number">4.7.</span> <span class="toc-text"> 7. 我用  --local  參數設定了使用者，想刪掉怎麼辦…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B7%A8%E8%BC%AF-config-%E6%AA%94%E6%A1%88%E5%B0%87-local-%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99%E5%88%AA%E9%99%A4"><span class="toc-number">4.7.1.</span> <span class="toc-text"> 編輯  config  檔案將 local 使用者資料刪除：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork-%E5%88%AA%E9%99%A4-local-%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99"><span class="toc-number">4.7.2.</span> <span class="toc-text"> 使用 Fork 刪除 local 使用者資料</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" rel="bookmark" title="版控的類別">版控的類別</a></li><li><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="bookmark" title="基本觀念與常見問題">基本觀念與常見問題</a></li><li><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="bookmark" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></li><li class="active"><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="Git 初始化設定">Git 初始化設定</a></li><li><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="bookmark" title="建立 Git 儲存庫">建立 Git 儲存庫</a></li><li><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="bookmark" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></li><li><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" rel="bookmark" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></li><li><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" rel="bookmark" title="查看 Git 資料狀態">查看 Git 資料狀態</a></li><li><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="bookmark" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></li><li><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="查看 log 紀錄">查看 log 紀錄</a></li><li><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="bookmark" title="設定 .gitignore">設定 .gitignore</a></li><li><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" rel="bookmark" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></li><li><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></li><li><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="bookmark" title="用 reset 回到過去">用 reset 回到過去</a></li><li><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" rel="bookmark" title="Git 分支：觀念篇">Git 分支：觀念篇</a></li><li><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="bookmark" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></li><li><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" rel="bookmark" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></li><li><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="bookmark" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></li><li><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" rel="bookmark" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></li><li><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="bookmark" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></li><li><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="bookmark" title="用 revert 復原 commit">用 revert 復原 commit</a></li><li><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="bookmark" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></li><li><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></li><li><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></li><li><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" rel="bookmark" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></li><li><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" rel="bookmark" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></li><li><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" rel="bookmark" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">38</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">134k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">2:01</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-learn/05 - Git 初始化設定/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

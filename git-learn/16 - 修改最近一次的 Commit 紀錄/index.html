@@ -1,0 +1,652 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/">
+
+
+
+  <title>
+修改最近一次的 Commit 紀錄 - 一起來學 Git 吧！ |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">修改最近一次的 Commit 紀錄
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-09-30 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-30T10:50:20+08:00">2023-09-30</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>3.7k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-learn/" itemprop="item" rel="index" title="分類於 一起來學 Git 吧！"><span itemprop="name">一起來學 Git 吧！</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>有時候我們在執行完 commit 之後，發現有一些「小地方」應該也要記錄在同一個版本，或是發現版本訊息有錯字想要改一下，這些都算是很常見的狀況，畢竟只要是人都一定會有小疏失。</p>
+<p><strong>「雖然」</strong> 之前把 Commit 訊息比喻成訂單紀錄，在網購世界想操作歷史訂單，只要找到特定訂單就能修改。</p>
+<p>不過在 Git 的世界，除了最新一筆的 Commit 之外， 沒辦法 「單獨修改」 其中一個 Commit 。</p>
+<p>原因其實也很簡單：每個 Commit 都是緊緊相依的！<br>
+Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟「上一版」相比，更動歷史的 Commit 的行為，很有可能牽一髮而動全身，一個不小心就是所有版本全部壞掉，這句話沒有在浮誇，真的就是會這樣。</p>
+<p>值得慶幸的是，最新的 Commit 之後已經沒有任何 Commit <s>(廢話)</s> ，直接操作它，並不會對任何 Commit 帶來影響，畢竟根本沒東西可以給它影響。</p>
+<p>進入今天的主題：</p>
+<div class="note info no-icon">
+<p>修改最近一次的 Commit</p>
+</div>
+<h1 id="使用-amend-來修改最近一次的-commit"><a class="markdownIt-Anchor" href="#使用-amend-來修改最近一次的-commit">#</a> 使用 --amend 來修改最近一次的 Commit</h1>
+<p>老樣子，GUI 派的使用者請跳到 Fork 修改的內容</p>
+<h2 id="用指令修改最近一次的-commit"><a class="markdownIt-Anchor" href="#用指令修改最近一次的-commit">#</a> 用指令修改最近一次的 Commit</h2>
+<p>想修改最近一次的 commit  ， Git 提供我們一個叫  <code>--amend</code>  的參數使用</p>
+<p>說文解字一下：<strong>amend</strong> 中文是 「修正」。</p>
+<p>由於是用來修正「最近一次」的 commit，所以撰寫位置會在我們已經很熟的  <code>git commit</code>  之後：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span></pre></td></tr></table></figure><p>後續的內容都會以這串指令為基底增加東西。</p>
+<h3 id="修改最近一次-commit-的訊息"><a class="markdownIt-Anchor" href="#修改最近一次-commit-的訊息">#</a> 修改最近一次 Commit 的訊息</h3>
+<p>要更新最近一次 commit 的「標題訊息」，只要在  <code>git commit --amend</code>  之後，繼續接著寫  <code>-m</code>  加 <strong>要改的訊息</strong> 即可：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token parameter variable">-m</span> <span class="token string">"新的訊息"</span></pre></td></tr></table></figure><p>假設目前的最新訊息長這樣：<br>
+<img data-src="https://i.imgur.com/s1U5kBo.png" alt=""></p>
+<p>接著執行這個指令：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> <span class="token parameter variable">-m</span> <span class="token string">"這是我改完的新訊息"</span></pre></td></tr></table></figure><p>訊息就會變成這樣，讚吧 (?)：<br>
+<img data-src="https://i.imgur.com/PA8sKLU.png" alt=""></p>
+<h3 id="修改最近一次-commit-的檔案"><a class="markdownIt-Anchor" href="#修改最近一次-commit-的檔案">#</a> 修改最近一次 Commit 的檔案</h3>
+<p>這個操作應該算是開發時會  <strong>「很常用」</strong> 的功能！</p>
+<p>舉例來說：在 commit 一個版本之後，發現某個檔案<br>
+ <code>console.log()</code>  沒刪到，或是某個排版看了不滿意，就可以用下列說明步驟來修改：</p>
+<ol>
+<li>直接編輯要想修改的檔案。(此時檔案會處在 <strong>未暫存</strong> 的狀態)</li>
+<li>使用  <code>git add</code>  把檔案加到暫存區。</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> <span class="token string">"修改好的檔案"</span></pre></td></tr></table></figure><ol start="3">
+<li>執行這個指令：</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr></table></figure><p>這裡的  <code>--no-edit</code>  參數，用意是告訴 Git，這次的修改沒有要輸入訊息，這樣 Git 就不會跳出視窗要求我們修改訊息了。</p>
+<h3 id="移除最近一次-commit-中的檔案"><a class="markdownIt-Anchor" href="#移除最近一次-commit-中的檔案">#</a> 移除最近一次 Commit 中的檔案</h3>
+<p>其實  <code>--amend</code>  的本意是拿來讓我們 <strong>補資料</strong> ，它並沒有辦法讓我們直接移除某一個檔案，如果想用指令處理這個需求，並不建議使用  <code>--amend</code>  ，而是直接用 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMjYzMQ==">reset 指令</span>。</p>
+<p>如果堅決想使用  <code>--amend</code>  來操作，其實也還是需要搭配  <code>reset</code>  指令繞道而行。</p>
+<p>示範一下操作步驟：</p>
+<ol>
+<li>使用  <code>git reset</code>  將上一個版本的檔案狀況重置回索引 ：</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset HEAD^ 想移除的檔案名稱</pre></td></tr></table></figure><ol start="2">
+<li>執行  <code>git commit --amend --no-edit</code>  修正最近一次的 commit。</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr></table></figure><p><s>我知道有人腦袋中已經跑過千萬頭草尼馬，快要停止運轉了，</s> 我來解釋解釋：</p>
+<p>因為沒辦法直接執行  <code>--amend</code>  刪除 commit 的某個檔案 ，我們需要「繞一圈」處理。</p>
+<p>假設目前有   <code>A</code>  =&gt;  <code>B</code>  =&gt;  <code>C</code>  三個 commit， <code>C</code>  裡面的  <code>readme.txt</code>  是我想刪除的。<br>
+那我可以把  <code>B</code>  所記錄的  <code>readme.txt</code>  放到暫存區，再透過  <code>git commit --amend --no-edit</code> ，把這個狀態存到  <code>C</code> 。</p>
+<p>由於 Git 是用「比較差異」的方式來記錄新一版的資料 (俗稱差異備份) ，這時  <code>B</code>  跟  <code>C</code>  兩個版本的  <code>readme.txt</code>  又沒有任何差異，這樣  <code>C</code>  就不會顯示  <code>readme.txt</code>  了。</p>
+<p>整個動作看起來是這樣：</p>
+<ol>
+<li>
+<p>發現 <strong>add style.css</strong> commit 出現一個  <code>readme.txt</code>  想把它刪掉。<br>
+<img data-src="https://i.imgur.com/oxCZcsB.png" alt=""></p>
+</li>
+<li>
+<p>執行 reset 指令把上一個版本的  <code>readme.txt</code>  狀態還原到暫存區：</p>
+</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> reset HEAD^ readme.txt  <span class="token comment">#  HEAD^ 表示目前位置的前一個版本</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Unstaged changes after reset:</pre></td></tr><tr><td data-num="3"></td><td><pre>M       readme.txt</pre></td></tr></table></figure><p>此時查看  <code>git status</code>  ，會在 <strong>Changes to be committed</strong> 區塊看到一個  <code>readme.txt</code>  檔案，它記錄著「上一版」  <code>readme.txt</code>  的內容：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr><td data-num="3"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        modified:   readme.txt</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        modified:   readme.txt</pre></td></tr></table></figure><ol start="3">
+<li>將這個暫存狀態存回最近一次的 commit：</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">--amend</span> --no-edit</pre></td></tr></table></figure><ol start="4">
+<li>此時有兩個地方會發生變化：</li>
+</ol>
+<ul>
+<li>最新的 commit 中的  <code>readme.txt</code>  檔案已經不見了。</li>
+<li>工作目錄的  <code>readme.txt</code>  保留著原本存在 commit 的資料，並且處於「未暫存」的狀態。<br>
+<img data-src="https://i.imgur.com/arQNd7G.png" alt=""></li>
+</ul>
+<p>如果立志要成為指令派玩家 (?) 的你完全搞不懂為什麼可以這樣操作，還是建議參考預計在下一篇提到的 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMjYzMQ==">reset 指令</span> 來處理。</p>
+<p>或者可以繼續閱讀 Fork GUI 的說明，這個行為用 Fork GUI 操作，超～方～便～</p>
+<h2 id="用-fork-gui-修改最近一次的-commit"><a class="markdownIt-Anchor" href="#用-fork-gui-修改最近一次的-commit">#</a> 用 Fork GUI 修改最近一次的 Commit</h2>
+<p>雖然我是指令派使用者，但還是必須說：用 Fork 操作近一次的 Commit 真的很直覺！</p>
+<p>首先提一下，只要是「修改」工作目錄的行為，都要記得到左上角切換到 <strong>Local Changes</strong> 的內容：<br>
+<img data-src="https://i.imgur.com/lpkbyhF.png" alt="Alt text"></p>
+<p>其他詳細操作，我們直接給他看下去！</p>
+<h3 id="修改最近一次-commit-的訊息-2"><a class="markdownIt-Anchor" href="#修改最近一次-commit-的訊息-2">#</a> 修改最近一次 Commit 的訊息</h3>
+<p>先截圖讓大家看看，目前最近一次的訊息叫  <code>add style.css</code> <br>
+<img data-src="https://i.imgur.com/4LJXGFn.png" alt=""></p>
+<p>要更改訊息，請執行這幾個步驟：</p>
+<ol>
+<li>切換到 <strong>Local Changes</strong></li>
+<li>勾選視窗右下角的 <strong>Amend</strong></li>
+<li>修改訊息</li>
+<li>點選 <strong>Amend Last Commit</strong></li>
+</ol>
+<p>詳細操作請參考圖片：<br>
+<img data-src="https://i.imgur.com/MC3MMOx.gif" alt=""></p>
+<h3 id="修改最近一次-commit-的檔案-2"><a class="markdownIt-Anchor" href="#修改最近一次-commit-的檔案-2">#</a> 修改最近一次 Commit 的檔案</h3>
+<p>想要用 Fork 把修改的檔案紀錄回最近一次的 Commit ，動作跟原本 Commit 的行為大同小異，唯一差別就只有 <strong>Amend</strong> 要打勾而已。</p>
+<ol>
+<li>直接修改工作目錄的檔案</li>
+<li>將修改好的檔案加入暫存區</li>
+<li>勾選視窗右下角的 <strong>Amend</strong></li>
+<li>點選 <strong>Amend Last Commit</strong></li>
+</ol>
+<p>詳細操作請參考圖片：<br>
+<img data-src="https://i.imgur.com/sYwWdt6.gif" alt=""></p>
+<h3 id="移除最近一次-commit-的檔案"><a class="markdownIt-Anchor" href="#移除最近一次-commit-的檔案">#</a> 移除最近一次 Commit 的檔案</h3>
+<p>用 Fork 移除某個版本的資料，有幾個步驟要做：</p>
+<ol>
+<li>把 <strong>Amend</strong> 打勾</li>
+<li>把檔案從 <strong>暫存區</strong> 移到 <strong>未暫存區</strong></li>
+<li>點選 <strong>Amend Last Commit</strong> 。</li>
+</ol>
+<p>直接來做示範，把最近一次的版本中的  <code>readme.txt</code>  移掉：<br>
+<img data-src="https://i.imgur.com/Svf8EgZ.gif" alt=""></p>
+<p>注意到一件事情，當移除完  <code>readme.txt</code>  之後，由於資料還是保留在 <strong>未暫存區</strong>，並沒有遺失，如果有需要，還可以直接將他提交一個新版本：<br>
+<img data-src="https://i.imgur.com/yVPJ8LV.gif" alt=""></p>
+<p>如果你是因為我上面寫的那句話而跑來看這段的指令派玩家，歡迎進入 GUI 的世界 XDD！</p>
+<h1 id="補充"><a class="markdownIt-Anchor" href="#補充">#</a> 補充</h1>
+<h2 id="修改歷史訊息的注意事項"><a class="markdownIt-Anchor" href="#修改歷史訊息的注意事項">#</a> 修改歷史訊息的注意事項</h2>
+<p>使用  <code>--amend</code>  參數有一個重點在文章中沒有特別提到：</p>
+<div class="note info no-icon">
+<p>每次執行 git commit --amend ，Git 都會更改 CommitID！</p>
+</div>
+<p>即便我們看起來好像只是「修改」最新一次的 Commit，不過這個 Commit 對 Git 來說已經是全新的 Commit 了。</p>
+<p>你可能會感覺疑惑：這樣有差嗎，反正資料對就好啦？</p>
+<p>如果只是在地端操作版控，那這個 CommitID 被改幾次都無所謂，不過當地端的資料已經上傳到遠端 (註 1) 之後，這個異動可能造成幾種影響：</p>
+<ol>
+<li>
+<p>地端儲存庫的資料無法推回遠端：<br>
+因為遠端儲存庫的 CommitID 跟地端儲存庫 CommitID 不一致，Git 直接報衝突，要求我們必須先同步兩邊的資料才能執行。</p>
+</li>
+<li>
+<p>強制推回遠端，可能會造成團隊成員的困擾：<br>
+因為原本遠端的資料可能已經被團隊成員複製回電腦使用了，把不一樣的 CommitID 強制推回遠端的行為，等同於讓全部團隊成員都面臨 <strong>第一點</strong> 的問題。</p>
+</li>
+</ol>
+<p>那所以應該怎麼避免？</p>
+<p>最簡單的方式，是跟團隊人員溝通好分支的操作行為 (註 2)，未來會介紹到分支的操作，每個人在開發功能的時候，理應在自己的分支進行，而不是直接操作專案的「主要分支」。<br>
+上面說到會造成別人困擾的行為，就是直接更動「主要分支」的 Commit 之後，強制上傳回遠端，因為每個人的電腦一定都存有主要分支，這種行為會直接影響到所有人的版控。<br>
+不過如果只是在「自己的分支」修改內容，把資料強制推回到遠端，由於沒有人會去亂動自己的分支，這個行為就不會影響到其他人開發了。</p>
+<blockquote>
+<p>註 1. 雖然目前尚未說明如何將地端與遠端的儲存庫進行同步，不過既然已經聊到「修改歷史 Commit」 的議題，就不得不把這個 <strong>重要觀念</strong> 一起說明。<br>
+註 2. 進行團隊版控除了要開立自己分支外，可能還會牽扯到「Git Flow」、「GitHub Flow」之類的專案版控模式，這些都是基於「分支操作」的合作模式。</p>
+</blockquote>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-10-17 16:49:50" itemprop="dateModified" datetime="2023-10-17T16:49:50+08:00">2023-10-17</time>
+  </span>
+  <span id="git-learn/16 - 修改最近一次的 Commit 紀錄/" class="item leancloud_visitors" data-flag-title="修改最近一次的 Commit 紀錄" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" title="修改最近一次的 Commit 紀錄">https://imall.github.io/git-learn/16 - 修改最近一次的 Commit 紀錄/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;wW2x12h.png" title="關於 commit 的兩個小問題">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>關於 commit 的兩個小問題</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;77JuPV6.png" title="用 reset 回到過去">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>用 reset 回到過去</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-amend-%E4%BE%86%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84-commit"><span class="toc-number">2.</span> <span class="toc-text"> 使用 --amend 來修改最近一次的 Commit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84-commit"><span class="toc-number">2.1.</span> <span class="toc-text"> 用指令修改最近一次的 Commit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1-commit-%E7%9A%84%E8%A8%8A%E6%81%AF"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 修改最近一次 Commit 的訊息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1-commit-%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 修改最近一次 Commit 的檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1-commit-%E4%B8%AD%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 移除最近一次 Commit 中的檔案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-gui-%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84-commit"><span class="toc-number">2.2.</span> <span class="toc-text"> 用 Fork GUI 修改最近一次的 Commit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1-commit-%E7%9A%84%E8%A8%8A%E6%81%AF-2"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 修改最近一次 Commit 的訊息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1-commit-%E7%9A%84%E6%AA%94%E6%A1%88-2"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 修改最近一次 Commit 的檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1-commit-%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 移除最近一次 Commit 的檔案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">3.</span> <span class="toc-text"> 補充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%AD%B7%E5%8F%B2%E8%A8%8A%E6%81%AF%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85"><span class="toc-number">3.1.</span> <span class="toc-text"> 修改歷史訊息的注意事項</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" rel="bookmark" title="版控的類別">版控的類別</a></li><li><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="bookmark" title="基本觀念與常見問題">基本觀念與常見問題</a></li><li><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="bookmark" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></li><li><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="Git 初始化設定">Git 初始化設定</a></li><li><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="bookmark" title="建立 Git 儲存庫">建立 Git 儲存庫</a></li><li><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="bookmark" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></li><li><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" rel="bookmark" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></li><li><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" rel="bookmark" title="查看 Git 資料狀態">查看 Git 資料狀態</a></li><li><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="bookmark" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></li><li><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="查看 log 紀錄">查看 log 紀錄</a></li><li><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="bookmark" title="設定 .gitignore">設定 .gitignore</a></li><li><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" rel="bookmark" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></li><li><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li class="active"><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></li><li><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="bookmark" title="用 reset 回到過去">用 reset 回到過去</a></li><li><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" rel="bookmark" title="Git 分支：觀念篇">Git 分支：觀念篇</a></li><li><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="bookmark" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></li><li><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" rel="bookmark" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></li><li><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="bookmark" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></li><li><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" rel="bookmark" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></li><li><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="bookmark" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></li><li><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="bookmark" title="用 revert 復原 commit">用 revert 復原 commit</a></li><li><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="bookmark" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></li><li><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></li><li><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></li><li><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" rel="bookmark" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></li><li><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" rel="bookmark" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></li><li><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" rel="bookmark" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">38</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">134k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">2:01</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-learn/16 - 修改最近一次的 Commit 紀錄/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

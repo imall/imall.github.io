@@ -1,0 +1,737 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個前端工程師的筆記天地" href="https://imall.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="一個前端工程師的筆記天地" href="https://imall.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Git" />
+
+
+<link rel="canonical" href="https://imall.github.io/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/">
+
+
+
+  <title>
+Git 分支：分支合併篇 - 一起來學 Git 吧！ |
+Imall Blog ~ 一個前端工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Git 分支：分支合併篇
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-10-04 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-04T10:50:20+08:00">2023-10-04</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>5.7k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>5 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/git-learn/" itemprop="item" rel="index" title="分類於 一起來學 Git 吧！"><span itemprop="name">一起來學 Git 吧！</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.github.io/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個前端工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>開始使用分支之後，總是會需要把開發的內容合併回來的一天。</p>
+<p>在使用分支之前，操作的指令不太需要在乎目前所在的分支在哪，儘管執行指令操作資料就是了，不過要執行分支合併的動作，代表我們會去處理「兩個分支」的資料，要在哪個分支執行指令就是一件很重要的事情了！</p>
+<p>剛接觸分支合併會遇到的幾個疑問不外乎是這些：</p>
+<p>指令該在哪個分支執行？<br>
+分支合併之後會發生什麼事情？<br>
+進行合併分支是不是一定會發生衝突？</p>
+<p>種種的疑問將會在這篇文章解答！</p>
+<p>直接進入今天的主題：</p>
+<div class="note info no-icon">
+<p>分支合併與衝突解決！</p>
+</div>
+<h1 id="執行合併指令前的注意事項"><a class="markdownIt-Anchor" href="#執行合併指令前的注意事項">#</a> 執行合併指令前的注意事項</h1>
+<p>先來說一個觀念：分支合併的指令，目的是要把「別人的東西」收割回來，這個概念會影響到我們決定「誰」要執行指令。</p>
+<p>假如我們有個  <code>master</code>  用來記錄「完成的資料」。<br>
+接著我們建立  <code>dev</code>  用來進行「開發項目」。</p>
+<p>當  <code>dev</code>  完成後，是 <strong> <code>master</code>  要收割  <code>dev</code> </strong> 的內容，所以我們要以  <code>master</code>  的角度，把  <code>dev</code>  的內容拿回來。執行指令時，必須確保自己是位於  <code>master</code>  分支，這樣才能去把  <code>dev</code>  的資料合併回來。</p>
+<p>分支合併的第二個觀念：雖然是說把別人的資料「收割」回來，但分支合併的行為並「不會刪掉」任何已經 commit 的資料，無論是否使用「快轉模式」進行合併，已經 commit 的內容都不會發生改變！</p>
+<p>關於快轉模式，等等會介紹到，這邊先建立觀念即可！</p>
+<h1 id="合併分支指令"><a class="markdownIt-Anchor" href="#合併分支指令">#</a> 合併分支指令</h1>
+<p>指令很單純，就這樣而已：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> merge 要被收割的分支</pre></td></tr></table></figure><p>實際來操作一次吧：</p>
+<ol>
+<li>
+<p>假設已經開了一個分支 ( <code>imall/feature</code> ) ，是用來開發新功能的分支：<br>
+<img data-src="https://i.imgur.com/ELGbrfZ.png" alt=""></p>
+</li>
+<li>
+<p>在分支上開發了兩個版本，於是他往前走兩個點點：<br>
+<img data-src="https://i.imgur.com/JlTnU2l.png" alt=""></p>
+</li>
+<li>
+<p><code>master</code>  要把  <code>imall/feature</code>  的資料合併 (收割) 回來，所以要先切換回 master 分支<br>
+<img data-src="https://i.imgur.com/9FGZTW2.png" alt=""></p>
+</li>
+<li>
+<p>執行指令</p>
+</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> merge imall/feature</pre></td></tr></table></figure><ol start="5">
+<li>完成<br>
+<img data-src="https://i.imgur.com/80SQqXp.png" alt=""></li>
+</ol>
+<h1 id="合併分支的快轉機制-fast-forward"><a class="markdownIt-Anchor" href="#合併分支的快轉機制-fast-forward">#</a> 合併分支的快轉機制 (fast-forward)</h1>
+<p>相信大家多少看過分支「岔出去」又「合回來」的這種線圖，像是下圖這樣。<br>
+ <code>dev</code>  把  <code>Emilia</code>  、 <code>Rem</code> 、 <code>Ram</code>  合併之後，四條線依舊存在著，結果上面的範例可能已經跟一些新手所想的畫面不一樣了：怎麼執行完沒有看到這樣漂亮的分岔線圖，而是只有一條線？？？<br>
+<img data-src="https://i.imgur.com/QN5kUFE.png" alt=""></p>
+<p>事實上分支合併的行為就像「雙人接力」賽，當  <code>dev</code>  往前走兩步，  <code>master</code>  想吃掉他的內容，只要沿著  <code>dev</code>  走過的路再走一遍就好，根本不用浪費時間刻意繞一圈。</p>
+<p>而且因為  <code>master</code>  本來就跟  <code>dev</code>  在同一個位置起步，用這種方式追上  <code>dev</code>  的步伐，根本也不存在 「資料衝突」 的問題。</p>
+<p>我們稱這種行為叫做「快轉機制」(fast-forward)，他是  <code>git merge</code>  的預設機制。</p>
+<p>此時可能也有人疑惑了，上面那張圖為什麼沒有出現這種情況，我是不是在唬爛？</p>
+<p>我沒唬爛，那圖片是為了讓範例看起來很像一回事，刻意<strong>關掉</strong>快轉機制。<br>
+不信的話，我用預設行為用  <code>dev</code>  合併  <code>Emilia</code>  分支給你看看：<br>
+<img data-src="https://i.imgur.com/7k19A6G.gif" alt=""></p>
+<h1 id="合併時關掉快轉機制"><a class="markdownIt-Anchor" href="#合併時關掉快轉機制">#</a> 合併時關掉快轉機制</h1>
+<p>如果你堅持每一個合併一定要看到兩個不同的分支線路，那你也可以關掉快轉機制，只要在合併時使用  <code>--no-ff</code>  參數即可：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> merge 分支 --no-ff</pre></td></tr></table></figure><p><code>--no-ff</code>  就是告訴 Git 不要快轉機制 (no fast forward) 的意思。</p>
+<p>用起來會長這樣：<br>
+<img data-src="https://i.imgur.com/AWcB5Dv.gif" alt=""></p>
+<p>同場加映，把上面  <code>dev</code>  合併  <code>Emilia</code>  分支的行為，用快轉機制跑一次給大家看：<br>
+<img data-src="https://i.imgur.com/Bqn5aq9.gif" alt=""></p>
+<p>然後不要問我為什麼  <code>Emilia</code>  分支從綠色變成桃紅色，那是 GUI 自動處理的。<br>
+<s>愛蜜莉雅 分支應該要是 <strong>紫色</strong> 才對！！！</s></p>
+<h1 id="合併衝突介紹"><a class="markdownIt-Anchor" href="#合併衝突介紹">#</a> 合併衝突介紹</h1>
+<p>我們在 Git 分支觀念不清楚的情況去使用分支、合併分支，無論是一個人的使用或是團隊開發，都有機會遇到 <strong>合併衝突</strong> 的議題。</p>
+<p>事實上我們進行分支合併的過程，並沒有辦法確保衝突一定不會發生，既然這是可能會發生的議題，那我們就要知道發生了應該怎麼處理。</p>
+<p>知己知彼，百戰不殆，在學習解決衝突之前，先來說為什麼分支合併會發生衝突：<br>
+原因只有一個：當兩個分支的 commit 中，存在 <strong>同一個檔案</strong> 的 <strong>同一行</strong> 內容不同，只要進行合併，無論是誰合併誰，都會發生衝突。</p>
+<p>例如這個操作步驟：</p>
+<ol>
+<li>在  <code>master</code>  分支所在位置建立  <code>dev</code>  分支</li>
+<li><code>master</code>  修改  <code>readme.txt</code>  檔案的 <strong>第一行</strong>，並且 commit 一版</li>
+<li><code>dev</code>  也修改  <code>readme.txt</code>  檔案的 <strong>第一行</strong>，然後 commit 一版</li>
+<li><code>master</code>  合併  <code>dev</code>  分支時，就會衝突</li>
+</ol>
+<p>由於兩個分支都修改了 <strong>同一個檔案</strong> 的 <strong>同一行文字</strong> ，Git 在合併的過程並不清楚兩個 commit 都改了同行的內容，應該以哪個為主，只好把決定權交給我們，於是就用「分支衝突」的方式叫我們去處理了。</p>
+<p>這裡就先模擬上面的行為進行 Git 的操作：<br>
+Git 在  <code>merge</code>  指令發生衝突時，會呈現出這樣的資訊，告訴我們 <strong>某個檔案</strong> 發生了衝突：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> merge dev</pre></td></tr><tr><td data-num="2"></td><td><pre>Auto-merging readme.txt</pre></td></tr><tr><td data-num="3"></td><td><pre>CONFLICT <span class="token punctuation">(</span>content<span class="token punctuation">)</span>: Merge conflict <span class="token keyword">in</span> readme.txt</pre></td></tr><tr><td data-num="4"></td><td><pre>Automatic merge failed<span class="token punctuation">;</span> fix conflicts and <span class="token keyword">then</span> commit the result.</pre></td></tr></table></figure><p>最後一句話最重要：「fix conflicts and then commit the result」，這是 Git 在提示我們 <strong>先解決衝突，然後 commit 這個已解決的結果</strong>。</p>
+<p>此時我們用  <code>git status</code>  指令來看一下目前的狀態：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr><td data-num="3"></td><td><pre>You have unmerged paths.</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>fix conflicts and run <span class="token string">"git commit"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git merge --abort"</span> to abort the merge<span class="token punctuation">)</span>      </pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>Unmerged paths:</pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to mark resolution<span class="token punctuation">)</span>      </pre></td></tr><tr><td data-num="9"></td><td><pre>        both modified:   readme.txt</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>no changes added to commit <span class="token punctuation">(</span>use <span class="token string">"git add"</span> and/or <span class="token string">"git commit -a"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>這裡可以看到第三行提示一個以前沒看過的訊息：「You have unmerged paths.」，代表著目前正在 <strong>尚未合併完成</strong> 的狀態</p>
+<h1 id="解決衝突"><a class="markdownIt-Anchor" href="#解決衝突">#</a> 解決衝突</h1>
+<p>一般來說解決合併衝突的方法有兩種</p>
+<h2 id="1-放棄合併"><a class="markdownIt-Anchor" href="#1-放棄合併">#</a> 1. 放棄合併</h2>
+<p>直接在終端機執行這個指令放棄合併的行為：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> merge <span class="token parameter variable">--abort</span></pre></td></tr></table></figure><p>可能會有人覺得，放棄很可恥，既然合併了就是要成功不是嗎？</p>
+<p>事實上，<s>放棄確實可恥，但卻很有用</s>，在操作合併如果發生衝突，選擇放棄也是一個蠻正常的事情。</p>
+<p>舉例來說，你是負責  <code>master</code>  的人，同事負責  <code>dev</code>  分支。</p>
+<p>今天你在  <code>master</code>  把  <code>dev</code>  合併回來結果發生衝突，但衝突的內容因為是同事改的，你也不知道怎麼修比較好。</p>
+<p>這樣的狀況，選擇放棄合併，等同事回來再跟他討論如何修改，就會是很恰當的做法。</p>
+<p>畢竟如果改壞了，<s>壞</s>同事說不定還會甩鍋給你。</p>
+<p>但如果這個同事在場，可以找到人進行討論的話，就可以透過第二種方式進行處理。</p>
+<h2 id="2-手動處理合併衝突"><a class="markdownIt-Anchor" href="#2-手動處理合併衝突">#</a> 2. 手動處理合併衝突</h2>
+<p>回頭看一下剛剛  <code>git status</code>  的內容的第七行的內容， <code>Unmerged paths:</code> ，這裡面會顯示尚未合併成功的路徑檔案：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Unmerged paths:</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to mark resolution<span class="token punctuation">)</span>      </pre></td></tr><tr><td data-num="3"></td><td><pre>        both modified:   readme.txt  <span class="token comment"># &lt;= 告訴我們這個檔案衝突了</span></pre></td></tr></table></figure><p>只要這個區塊列出來的檔案，都要一個一個打開，然後處理這些檔案的合併。</p>
+<p>以這個例子來說，發生衝突的檔案是 <strong>readme.txt</strong>，此時我們把這個檔案打開，會看到原本的內容被 Git 進行修改</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">&lt;&lt;&lt;</span><span class="token operator">&lt;&lt;&lt;</span><span class="token operator">&lt;</span> HEAD</pre></td></tr><tr><td data-num="2"></td><td><pre>這是 master 修改的 readme.txt</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span></pre></td></tr><tr><td data-num="4"></td><td><pre>這是 dev 修改的 readme.txt</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token operator">>></span><span class="token operator">>></span><span class="token operator">>></span><span class="token operator">></span> dev</pre></td></tr></table></figure><p>原本文件內容只有一行，發生合併衝突時，Git 會把 <strong>原本的分支</strong> 跟 <strong>要合併的分支</strong> 發生衝突的部分全部都列出來，並且會呈現很固定的格式：</p>
+<ol>
+<li>開頭會是七個  <code>&lt;</code>  符號，加上  <code>HEAD</code> ，代表著目前的分支。</li>
+<li>結尾會是七個  <code>&gt;</code>  符號，加上預計合併的分支名稱，代表預計合併的分支。</li>
+<li>兩者之間會有七個  <code>=</code>  符號，進行資料的相隔。</li>
+</ol>
+<p>看懂了之後，我們就可以把下面三行內容刪掉，並且撰寫真正要留下來的內容：</p>
+<ol>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code></li>
+<li><code>=======</code></li>
+<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev</code></li>
+</ol>
+<p>此時你有四個選擇：</p>
+<ol>
+<li>保留  <code>master</code>  的版本</li>
+<li>保留  <code>dev</code>  的版本</li>
+<li>保留 <strong>兩者</strong> 的版本</li>
+<li>全部刪掉，自己編輯新的內容</li>
+</ol>
+<p>無論你選擇哪一種，編輯完檔案然後 <strong>存檔</strong> 之後，就可以透過  <code>add</code>  指令把 <strong>修改完的檔案加到暫存區</strong></p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> readme.txt</pre></td></tr></table></figure><p>當執行  <code>git add</code>  成功之後，執行  <code>git status</code>  指令看看：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr><td data-num="3"></td><td><pre>All conflicts fixed but you are still merging.</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git commit"</span> to conclude merge<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="7"></td><td><pre>        modified:   readme.txt</pre></td></tr></table></figure><p><strong>All conflicts fixed but you are still merging.</strong> ，這是告訴我們衝突已經被解決了，但是我們依然處於正在合併的狀態。</p>
+<p>此外，有看到一個很熟悉的 <strong>準備提交</strong> (Changes to be committed) 字樣嗎？</p>
+<p>沒錯，下一步就是要叫我們執行  <code>git commit</code>  來提交版本。</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"將 master 跟 dev 進行合併"</span></pre></td></tr></table></figure><p>這裡的 commit 內容，記得要清楚的寫上  <code>merge</code>  過程發生的事情，好讓後續能追蹤曾經有衝突發生！</p>
+<p>到了這邊，我們手動解決衝突的步驟，就正式完成！</p>
+<h2 id="補充為什麼合併衝突還要自己-commit"><a class="markdownIt-Anchor" href="#補充為什麼合併衝突還要自己-commit">#</a> 補充：為什麼合併衝突還要自己 commit？</h2>
+<p>不知道你有沒有發現一件事情，merge 指令如果關掉快轉機制，他就是一個 commit 行為？</p>
+<p>如果你忘記了，我把上面的 demo 搬來讓你看看  <s>(聽話，讓我看看！！)</s>：<br>
+<img data-src="https://i.imgur.com/AWcB5Dv.gif" alt=""></p>
+<p>原本只有「三個」點點，執行  <code>git merge</code>  之後竟然變成 「四個」，不覺得這就是一個 commit 行為嗎！！</p>
+<p>既然他是一個 commit 行為，就表示你可以定義 commit 的訊息：</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> merge 分支 --no-ff <span class="token parameter variable">-m</span> <span class="token string">"我把 feature 分支的內容吃回來了！！！"</span></pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/s8gNB1R.png" alt=""></p>
+<p>如果合併沒有發生衝突，整個 commit 行為，Git 會幫我們把它處理掉。<br>
+但如果發生了衝突，Git 就必須把資料內容的決定權交給我們，讓我們自己 commit 了。</p>
+<p>這也是為什麼，合併衝突的 SOP 會是這樣：</p>
+<ol>
+<li>打開合併檔案，處理合併內容</li>
+<li>執行  <code>git add</code>  指令將衝突檔案加到暫存區</li>
+<li>執行  <code>git commit</code>  提交合併的內容</li>
+</ol>
+<h1 id="同場加映實際情境的合併衝突"><a class="markdownIt-Anchor" href="#同場加映實際情境的合併衝突">#</a> 同場加映：實際情境的合併衝突</h1>
+<p>看完合併衝突的解決方式，可能沒什麼真實感，這裡示範一下實際情境可能會發生的衝突樣貌。</p>
+<p>不過如果寫程式碼，不一定每個讀者都能看得懂，不如我們來寫歌詞吧！</p>
+<p>來製造一個會發生衝突的情境：<br>
+假設有兩個開發者 <strong>愛蜜莉雅</strong> 跟 <strong>雷姆</strong> ，他們分別要在自己的分支建立一個歌詞的檔案，把歌詞寫進去，commit 一版。<br>
+<strong>愛蜜莉雅</strong> 被分配到 「童話」，<strong>雷姆</strong> 被分配到 「突然好想你」。<br>
+等到兩個開發者編輯完歌詞檔案後， <code>master</code>  分支再分別把兩個開發者建立的分支合併回來。</p>
+<p>如果依照上面的做法，因為兩個分支不會編輯到同一個檔案，理論上不會有衝突。<br>
+但 <strong>雷姆</strong>  應該只負責「突然好像你」，但她卻也新增 「童話」檔案。</p>
+<p>使得衝突一觸即發…</p>
+<p>一步一步來看看兩個開發者的行為：</p>
+<ol>
+<li>在最初的  <code>master</code>  分支先來開兩個分支  <code>Emilia</code>  、 <code>Rem</code> ：<br>
+<img data-src="https://i.imgur.com/Aes2kCS.png" alt=""></li>
+<li><strong>愛蜜莉雅</strong> 在  <code>Emilia</code>  分支提交一個 <strong>童話歌詞.txt</strong> 檔案：<br>
+<img data-src="https://i.imgur.com/fvc7q67.png" alt=""></li>
+<li><strong>雷姆</strong> 在  <code>Rem</code>  分支同時新增「兩首」歌詞的檔案結果童話的歌詞寫錯了兩個字…<br>
+<img data-src="https://i.imgur.com/QUXYgis.png" alt=""></li>
+<li>執行合併的人員，先切換到  <code>master</code>  分支，合併  <code>Emilia</code>  分支：<br>
+<img data-src="https://i.imgur.com/kUePh3i.png" alt=""></li>
+<li>接著再繼續合併  <code>Rem</code>  分支，然後不意外的，有一句話發生衝突了：<br>
+<img data-src="https://i.imgur.com/CiPaesX.png" alt=""></li>
+<li>上面這個底色，是 VSCode 偵測到衝突的文字 ( <code>&lt;</code> 、 <code>=</code> 、 <code>&gt;</code> ) 時，自動會出現的內容，可以讓開發者選擇。</li>
+</ol>
+<ul>
+<li>接受目前變更：因為  <code>master</code>  在第四步先合併  <code>Emilia</code>  分支，所以 <strong>目前變更</strong> 意思是  <code>Emilia</code>  分支的內容。  (如果看不出來，你可以回頭看 <strong>愛蜜莉雅</strong> 開發的截圖)</li>
+<li>接受來源變更：因為  <code>master</code>  <strong>正在</strong> 合併  <code>Rem</code>  分支而發生衝突，所以 <strong>來源變更</strong> 代表  <code>Rem</code>  的內容。</li>
+<li>接受兩者變更：表示要兩筆的內容全都要。</li>
+</ul>
+<ol start="7">
+<li>
+<p>由於正確的歌詞是「張開雙手 變成翅膀守護你」，所以選擇了接受 <strong>目前變更</strong>。<br>
+<img data-src="https://i.imgur.com/dfGuolB.gif" alt=""><br>
+注意此時只做到解決衝突三部曲的第一步：編輯衝突檔案。<br>
+還有兩步要處理。</p>
+</li>
+<li>
+<p>將 <strong>童話歌詞.txt</strong> 加到暫存區。</p>
+</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">add</span> 童話歌詞.txt</pre></td></tr></table></figure><ol start="9">
+<li>提交暫存區資料</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"處理 rem 分支合併衝突"</span></pre></td></tr></table></figure><ol start="10">
+<li>完成<br>
+<img data-src="https://i.imgur.com/weoTUEi.png" alt=""></li>
+</ol>
+<h1 id="用-fork-gui-操作分支合併"><a class="markdownIt-Anchor" href="#用-fork-gui-操作分支合併">#</a> 用 Fork GUI 操作分支合併</h1>
+<p>用 GUI 操作合併時觀念很重要，必須很清楚到底是 <strong>誰要吃掉誰</strong> 的資料？<br>
+我們是站在「要收割」的分支身上，去處理「被收割」的分支。</p>
+<p>所以即便是用 GUI ，要執行  <code>master</code>  把  <code>dev</code>  合併回來的行為，一定要先切到 master 分支上。</p>
+<p>Fork GUI 有兩種合併方式可以操作</p>
+<h2 id="對著要被合併的分支點右鍵選擇-merge"><a class="markdownIt-Anchor" href="#對著要被合併的分支點右鍵選擇-merge">#</a> 對著要「被合併」的分支點右鍵選擇 merge</h2>
+<p>這裡從切換分支的行為開始示範，一直處理到合併完成：<br>
+<img data-src="https://i.imgur.com/qGF5QK2.gif" alt=""></p>
+<p>當然你也可以關掉快轉模式  <code>--no-ff</code>  進行合併：<br>
+<img data-src="https://i.imgur.com/uEOKp96.gif" alt=""></p>
+<h2 id="用拖曳分支的方式合併"><a class="markdownIt-Anchor" href="#用拖曳分支的方式合併">#</a> 用「拖曳分支」的方式合併</h2>
+<p>這種方式就很直覺，相信聰明的大家直接看操作就知道在幹嘛了：<br>
+<img data-src="https://i.imgur.com/5EbB7Jk.gif" alt=""></p>
+<h2 id="合併衝突處理"><a class="markdownIt-Anchor" href="#合併衝突處理">#</a> 合併衝突處理</h2>
+<p>直接讓線圖長成這樣，來看看兩個分支合併會發生什麼事情：<br>
+<img data-src="https://i.imgur.com/fXXbLG1.png" alt=""></p>
+<p>如字面上的意思，兩個分支在原本的位置，都編輯同一個檔案，並且發佈一個版本。<br>
+此時兩個分支進行合併後，已經達成發生衝突的條件：</p>
+<blockquote>
+<p>當兩個分支 <strong>同一個檔案</strong> 的 <strong>同一行</strong> 內容不同，只要進行合併，無論是誰合併誰，都會發生衝突。</p>
+</blockquote>
+<p>當執行合併，GUI 會很好心跳出警示，這個行為會發生衝突哦！<br>
+<img data-src="https://i.imgur.com/QJR0njX.png" alt=""></p>
+<p>很不意外的，按了確定之後，衝突發生了  (<s>\ 打架 / \ 打架 /</s>)<br>
+<img data-src="https://i.imgur.com/ic44wtz.png" alt=""></p>
+<p>GUI 視窗此時會自動跳出這樣的畫面：<br>
+在未暫存區顯示衝突的檔案，並且於主畫面中，讓我們決定想要留下哪個分支的內容。<br>
+<img data-src="https://i.imgur.com/ZArqmBF.png" alt=""></p>
+<p>這裡先示範留下左邊分支的內容給大家看：<br>
+<img data-src="https://i.imgur.com/bbzRit9.gif" alt=""></p>
+<p>如果想留下右邊的分支內容，依樣畫葫蘆，僅勾選右邊即可。</p>
+<p>如果兩邊的內容都要留，GUI 會再跳一個視窗，讓我們操作內容先後順序：<br>
+<img data-src="https://i.imgur.com/O1LHY7y.gif" alt=""></p>
+<p>完成之後，就是單純的執行 commit 操作了：<br>
+<img data-src="https://i.imgur.com/uXGou8e.gif" alt=""></p>
+<h2 id="放棄合併"><a class="markdownIt-Anchor" href="#放棄合併">#</a> 放棄合併</h2>
+<p>放棄合併的操作就沒什麼學問，<strong>Abort</strong> 按鈕點下去就結束了：<br>
+<img data-src="https://i.imgur.com/rfB3onZ.png" alt=""></p>
+<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
+<p>分支合併是 Git 重要功能之一，同時也是基本分支功能的最後一哩路。</p>
+<p>這篇文章記錄了分支合併的指令，認識 Git 分支合併快轉機制 (fast-forward)，也學習了解決衝突的方式。</p>
+<p>希望這些內容有幫助到正在學習 Git 的朋友！</p>
+
+      <div class="tags">
+          <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2023-10-17 16:44:16" itemprop="dateModified" datetime="2023-10-17T16:44:16+08:00">2023-10-17</time>
+  </span>
+  <span id="git-learn/20 - Git 分支 - 分支合併篇/" class="item leancloud_visitors" data-flag-title="Git 分支：分支合併篇" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個前端工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.github.io/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">https://imall.github.io/git-learn/20 - Git 分支 - 分支合併篇/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;aq0kjdS.jpg" title="Git 分支：基本操作篇">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>Git 分支：基本操作篇</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;slJN1yE.jpg" title="Git 分支：常見疑問與需求篇">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>Git 分支：常見疑問與需求篇</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%B7%E8%A1%8C%E5%90%88%E4%BD%B5%E6%8C%87%E4%BB%A4%E5%89%8D%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85"><span class="toc-number">2.</span> <span class="toc-text"> 執行合併指令前的注意事項</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF%E6%8C%87%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text"> 合併分支指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF%E7%9A%84%E5%BF%AB%E8%BD%89%E6%A9%9F%E5%88%B6-fast-forward"><span class="toc-number">4.</span> <span class="toc-text"> 合併分支的快轉機制 (fast-forward)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E6%99%82%E9%97%9C%E6%8E%89%E5%BF%AB%E8%BD%89%E6%A9%9F%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text"> 合併時關掉快轉機制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81%E4%BB%8B%E7%B4%B9"><span class="toc-number">6.</span> <span class="toc-text"> 合併衝突介紹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E8%A1%9D%E7%AA%81"><span class="toc-number">7.</span> <span class="toc-text"> 解決衝突</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%94%BE%E6%A3%84%E5%90%88%E4%BD%B5"><span class="toc-number">7.1.</span> <span class="toc-text"> 1. 放棄合併</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%89%8B%E5%8B%95%E8%99%95%E7%90%86%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81"><span class="toc-number">7.2.</span> <span class="toc-text"> 2. 手動處理合併衝突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%9C%E5%85%85%E7%82%BA%E4%BB%80%E9%BA%BC%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81%E9%82%84%E8%A6%81%E8%87%AA%E5%B7%B1-commit"><span class="toc-number">7.3.</span> <span class="toc-text"> 補充：為什麼合併衝突還要自己 commit？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8C%E5%A0%B4%E5%8A%A0%E6%98%A0%E5%AF%A6%E9%9A%9B%E6%83%85%E5%A2%83%E7%9A%84%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81"><span class="toc-number">8.</span> <span class="toc-text"> 同場加映：實際情境的合併衝突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8-fork-gui-%E6%93%8D%E4%BD%9C%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5"><span class="toc-number">9.</span> <span class="toc-text"> 用 Fork GUI 操作分支合併</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8D%E8%91%97%E8%A6%81%E8%A2%AB%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E9%BB%9E%E5%8F%B3%E9%8D%B5%E9%81%B8%E6%93%87-merge"><span class="toc-number">9.1.</span> <span class="toc-text"> 對著要「被合併」的分支點右鍵選擇 merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8B%96%E6%9B%B3%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B9%E5%BC%8F%E5%90%88%E4%BD%B5"><span class="toc-number">9.2.</span> <span class="toc-text"> 用「拖曳分支」的方式合併</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E4%BD%B5%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86"><span class="toc-number">9.3.</span> <span class="toc-text"> 合併衝突處理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BE%E6%A3%84%E5%90%88%E4%BD%B5"><span class="toc-number">9.4.</span> <span class="toc-text"> 放棄合併</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">10.</span> <span class="toc-text"> 總結</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" rel="bookmark" title="版控的類別">版控的類別</a></li><li><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" rel="bookmark" title="基本觀念與常見問題">基本觀念與常見問題</a></li><li><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" rel="bookmark" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></li><li><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" rel="bookmark" title="Git 初始化設定">Git 初始化設定</a></li><li><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" rel="bookmark" title="建立 Git 儲存庫">建立 Git 儲存庫</a></li><li><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" rel="bookmark" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></li><li><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" rel="bookmark" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></li><li><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" rel="bookmark" title="查看 Git 資料狀態">查看 Git 資料狀態</a></li><li><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" rel="bookmark" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></li><li><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="查看 log 紀錄">查看 log 紀錄</a></li><li><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" rel="bookmark" title="設定 .gitignore">設定 .gitignore</a></li><li><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" rel="bookmark" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></li><li><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" rel="bookmark" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></li><li><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" rel="bookmark" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></li><li><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" rel="bookmark" title="用 reset 回到過去">用 reset 回到過去</a></li><li><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" rel="bookmark" title="Git 分支：觀念篇">Git 分支：觀念篇</a></li><li><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="bookmark" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></li><li class="active"><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" rel="bookmark" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></li><li><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="bookmark" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></li><li><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" rel="bookmark" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></li><li><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="bookmark" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></li><li><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="bookmark" title="用 revert 復原 commit">用 revert 復原 commit</a></li><li><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" rel="bookmark" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></li><li><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></li><li><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" rel="bookmark" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></li><li><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" rel="bookmark" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></li><li><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" rel="bookmark" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></li><li><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" rel="bookmark" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">38</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">版控的類別</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">134k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">2:01</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'git-learn/20 - Git 分支 - 分支合併篇/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

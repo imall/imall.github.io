@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,123 +165,123 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
-<p>我們在開發專案時，不太可能一帆風順，永遠依循著 <strong>開發完</strong> =&gt; <strong>暫存</strong> =&gt; <strong>提交</strong> 的順序持續上版。</p>
-<p>有時候手速一個太快，只是想暫存部分檔案，結果執行到  <code>git add .</code> ，但實際上並不是想暫存所有更動的檔案，有沒有辦法將部份內容移出暫存區？<br>
-像是一股腦把所有東西加到購物車，結帳前看到總金額嚇了一跳，想把部分商品移除購物車的行為。</p>
-<p>又或者開發到一半發現改爛了，能不能一次捨棄編輯的資料，讓檔案回到原本的 commit 狀態？</p>
-<p>就像是之前提玩遊戲下完存檔點後，繼續打 Boss 關卡，結果打輸了，回到存檔點重來的行為。</p>
-<p>這些都是實際開發中可能會遇到的狀態，筆者也是在學會了這些操作後，實際使用在專案上的那一刻，由衷讚嘆有 Git 之後，真的很方便。</p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我們在開發專案時，不太可能一帆風順，永遠依循著 <strong>開發完</strong> &#x3D;&gt; <strong>暫存</strong> &#x3D;&gt; <strong>提交</strong> 的順序持續上版。</p>
+<p>有時候手速一個太快，只是想暫存部分檔案，結果執行到 <code>git add .</code>，但實際上並不是想暫存所有更動的檔案，有沒有辦法將部份內容移出暫存區？<br>像是一股腦把所有東西加到購物車，結帳前看到總金額嚇了一跳，想把部分商品移除購物車的行為。</p>
+<p>又或者開發到一半發現改爛了，能不能一次捨棄編輯的資料，讓檔案回到原本的 commit 狀態？  </p>
+<p>就像是之前提玩遊戲下完存檔點後，繼續打 Boss 關卡，結果打輸了，回到存檔點重來的行為。  </p>
+<p>這些都是實際開發中可能會遇到的狀態，筆者也是在學會了這些操作後，實際使用在專案上的那一刻，由衷讚嘆有 Git 之後，真的很方便。 </p>
 <p>話不多說，開始來說明吧！</p>
-<h1 id="加入暫存區的檔案想將它移出暫存區"><a class="markdownIt-Anchor" href="#加入暫存區的檔案想將它移出暫存區">#</a> 加入暫存區的檔案，想將它移出暫存區</h1>
-<p>說明<a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/">檔案狀態的文章</a>中，就有特別提到：只有尚未加入 commit 的資料，有辦法自由變換暫存與未暫存的狀態。</p>
-<p>把新資料加到暫存區大家應該已經會了，就是  <code>git add</code>  指令。<br>
-而把暫存區的資料移出來，就是接下來要介紹的事情了。</p>
+<h1 id="加入暫存區的檔案，想將它移出暫存區"><a href="#加入暫存區的檔案，想將它移出暫存區" class="headerlink" title="加入暫存區的檔案，想將它移出暫存區"></a>加入暫存區的檔案，想將它移出暫存區</h1><p>說明<a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/">檔案狀態的文章</a>中，就有特別提到：只有尚未加入 commit 的資料，有辦法自由變換暫存與未暫存的狀態。</p>
+<p>把新資料加到暫存區大家應該已經會了，就是 <code>git add</code> 指令。<br>而把暫存區的資料移出來，就是接下來要介紹的事情了。</p>
 <p>老樣子，指令與 Fork GUI 都會說明。</p>
-<h2 id="用指令將檔案移出暫存區"><a class="markdownIt-Anchor" href="#用指令將檔案移出暫存區">#</a> 用指令將檔案移出暫存區</h2>
-<p>這件事情有兩個指令可以達成：</p>
-<h3 id="1-使用-git-restore-staged-將檔案移出暫存區"><a class="markdownIt-Anchor" href="#1-使用-git-restore-staged-將檔案移出暫存區">#</a> 1. 使用  <code>git restore --staged</code>  將檔案移出暫存區</h3>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> restore <span class="token parameter variable">--staged</span> 檔名</pre></td></tr></table></figure><p><code>restore</code>  中文翻譯是 <strong>還原</strong>，它是一個用來還原工作目錄檔案的指令。</p>
-<p>以上面指令來說，就是要把 <strong>暫存</strong> ( <code>--staged</code> ) 的狀態 <strong>還原</strong> (restore) 成 <strong>未暫存</strong> (unstage) 的狀態，也就代表著要把資料移出暫存區了。</p>
-<p>這個指令不用特別記，它其實藏在  <code>git status</code>  中的訊息中：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> st</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr><td data-num="3"></td><td><pre>Changes to be committed:</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span>  <span class="token comment"># 藏在這～～</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        modified:   index.html</pre></td></tr></table></figure><p>實際使用起來長這樣：<br>
-<img data-src="https://i.imgur.com/Zu4mDUI.gif" alt=""></p>
-<h3 id="2-使用-git-reset-將檔案移出暫存區"><a class="markdownIt-Anchor" href="#2-使用-git-reset-將檔案移出暫存區">#</a> 2. 使用  <code>git reset</code>  將檔案移出暫存區</h3>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset 檔案名稱</pre></td></tr></table></figure><p><strong>reset</strong> ，中文叫<strong>重新設置</strong>，是一個可以拿來重置 <strong>索引</strong> (註 1) 或 <strong>工作目錄</strong> 的指令，預設情況它只會幫我們重置索引，不會重置到工作目錄的內容。</p>
+<h2 id="用指令將檔案移出暫存區"><a href="#用指令將檔案移出暫存區" class="headerlink" title="用指令將檔案移出暫存區"></a>用指令將檔案移出暫存區</h2><p>這件事情有兩個指令可以達成：</p>
+<h3 id="1-使用-git-restore-staged-將檔案移出暫存區"><a href="#1-使用-git-restore-staged-將檔案移出暫存區" class="headerlink" title="1. 使用 git restore --staged 將檔案移出暫存區"></a>1. 使用 <code>git restore --staged</code> 將檔案移出暫存區</h3><pre><code class="sh">git restore --staged 檔名
+</code></pre>
+<p><code>restore</code> 中文翻譯是 <strong>還原</strong>，它是一個用來還原工作目錄檔案的指令。</p>
+<p>以上面指令來說，就是要把 <strong>暫存</strong> (<code>--staged</code>) 的狀態 <strong>還原</strong> (restore) 成 <strong>未暫存</strong> (unstage) 的狀態，也就代表著要把資料移出暫存區了。</p>
+<p>這個指令不用特別記，它其實藏在 <code>git status</code> 中的訊息中：</p>
+<pre><code class="sh">git st
+On branch master
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)  # 藏在這~~
+        modified:   index.html
+</code></pre>
+<p>實際使用起來長這樣：<br><img data-src="https://i.imgur.com/Zu4mDUI.gif"></p>
+<h3 id="2-使用-git-reset-將檔案移出暫存區"><a href="#2-使用-git-reset-將檔案移出暫存區" class="headerlink" title="2. 使用 git reset 將檔案移出暫存區"></a>2. 使用 <code>git reset</code> 將檔案移出暫存區</h3><pre><code class="sh">git reset 檔案名稱
+</code></pre>
+<p><strong>reset</strong> ，中文叫<strong>重新設置</strong>，是一個可以拿來重置 <strong>索引</strong>(註1) 或 <strong>工作目錄</strong> 的指令，預設情況它只會幫我們重置索引，不會重置到工作目錄的內容。  </p>
 <p>上面這個指令其實省略了一個關鍵字：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset HEAD 檔案名稱</pre></td></tr></table></figure><p>沒錯，又是這個  <code>HEAD</code> 。<br>
- <code>git reset</code>  指令預設行為 (註 2) 會重置「目前位置」的索引。<br>
- <code>git reset 檔案</code>  的意思，就好像是把目前購物車中的某個商品 reset 掉 (拿掉) 的感覺。</p>
-<p>實際使用起來長這樣：<br>
-<img data-src="https://i.imgur.com/1YtGg6f.gif" alt=""></p>
+<pre><code class="sh">git reset HEAD 檔案名稱
+</code></pre>
+<p>沒錯，又是這個 <code>HEAD</code>。<br><code>git reset</code> 指令預設行為 (註2) 會重置「目前位置」的索引。<br><code>git reset 檔案</code> 的意思，就好像是把目前購物車中的某個商品 reset 掉 (拿掉) 的感覺。</p>
+<p>實際使用起來長這樣：<br><img data-src="https://i.imgur.com/1YtGg6f.gif"></p>
 <blockquote>
-<p>註 1. 重申一次：我們在說的「暫存區」，對 Git 來說就是 「索引」，這兩個詞是完全一樣的概念，所以只要看到索引，請自動想成暫存區。 <s>你要想成購物車其實也可以啦…</s></p>
-<p>註 2. 如同上面的定義，  <code>reset</code>  搭配其他參數是會異動到工作目錄的，不過現在扯進來談會讓焦點失焦，暫時先不細談。</p>
+<p>註1. 重申一次：我們在說的「暫存區」，對 Git 來說就是 「索引」，這兩個詞是完全一樣的概念，所以只要看到索引，請自動想成暫存區。 <del>你要想成購物車其實也可以啦…</del>  </p>
+<p>註2. 如同上面的定義， <code>reset</code> 搭配其他參數是會異動到工作目錄的，不過現在扯進來談會讓焦點失焦，暫時先不細談。  </p>
 </blockquote>
-<h2 id="用-fork-gui-將檔案移出暫存區"><a class="markdownIt-Anchor" href="#用-fork-gui-將檔案移出暫存區">#</a> 用 Fork GUI 將檔案移出暫存區</h2>
-<p>記得 <strong>加入暫存區</strong> 被我比喻成 <strong>加入購物車</strong>，那如果你想把商品「移出購物車」會怎麼做？</p>
+<h2 id="用-Fork-GUI-將檔案移出暫存區"><a href="#用-Fork-GUI-將檔案移出暫存區" class="headerlink" title="用 Fork GUI 將檔案移出暫存區"></a>用 Fork GUI 將檔案移出暫存區</h2><p>記得 <strong>加入暫存區</strong> 被我比喻成 <strong>加入購物車</strong>，那如果你想把商品「移出購物車」會怎麼做？</p>
 <p>對，就是讓它不要出現在購物車！</p>
 <p>所以在 Fork GUI 要把檔案移出暫存區，就是把加入暫存區的行為反過來執行。</p>
-<p>這裡假設只想把  <code>readme.txt</code>  從暫存區移除：</p>
+<p>這裡假設只想把 <code>readme.txt</code> 從暫存區移除：</p>
 <ol>
 <li>點選檔案，再點 <strong>Unstage</strong> 按鈕：</li>
 </ol>
-<p><img data-src="https://i.imgur.com/4QnXhZo.gif" alt=""></p>
+<p><img data-src="https://i.imgur.com/4QnXhZo.gif"></p>
 <ol start="2">
 <li>直接把檔案拖曳到 <strong>Unstaged</strong> 區域：</li>
 </ol>
-<p><img data-src="https://i.imgur.com/rDnIoY8.gif" alt=""></p>
-<h1 id="想捨棄檔案修改的內容"><a class="markdownIt-Anchor" href="#想捨棄檔案修改的內容">#</a> 想捨棄檔案修改的內容</h1>
-<p>這種事情其實很常發生，例如在做一些實驗性的開發，結果改失敗了，想把原本紀錄的資料重新還原到工作目錄中，或者是任何理由，想放棄更動的資料，都可以用接下來的操作來完成。</p>
+<p><img data-src="https://i.imgur.com/rDnIoY8.gif"></p>
+<h1 id="想捨棄檔案修改的內容"><a href="#想捨棄檔案修改的內容" class="headerlink" title="想捨棄檔案修改的內容"></a>想捨棄檔案修改的內容</h1><p>這種事情其實很常發生，例如在做一些實驗性的開發，結果改失敗了，想把原本紀錄的資料重新還原到工作目錄中，或者是任何理由，想放棄更動的資料，都可以用接下來的操作來完成。</p>
 <p>要放棄工作目錄中檔案的異動，第一件事情，必須確保檔案處於「未暫存」的狀態。</p>
-<p>換言之，執行過  <code>git add</code>  的檔案，<strong>不適用</strong> 接下來的操作，請回到上一步查看怎麼把檔案移出暫存。</p>
-<h2 id="使用指令捨棄檔案更變"><a class="markdownIt-Anchor" href="#使用指令捨棄檔案更變">#</a> 使用指令捨棄檔案更變</h2>
-<p>一樣有兩個指令可以做到這件事：</p>
-<h3 id="1-使用-git-restore-捨棄檔案更變"><a class="markdownIt-Anchor" href="#1-使用-git-restore-捨棄檔案更變">#</a> 1. 使用  <code>git restore</code>  捨棄檔案更變</h3>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> restore 檔案</pre></td></tr></table></figure><p>上一步有提到，restore 用來把檔案還原到之前的狀態，有異動的檔案先前的狀態，就是把這些異動移除。</p>
-<p>一樣不用特別記，指令藏在  <code>git status</code>  中：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> status</pre></td></tr><tr><td data-num="2"></td><td><pre>On branch master</pre></td></tr><tr><td data-num="3"></td><td><pre>Changes not staged <span class="token keyword">for</span> commit:</pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span> <span class="token comment"># 藏在這～</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        modified:   readme.txt</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>no changes added to commit <span class="token punctuation">(</span>use <span class="token string">"git add"</span> and/or <span class="token string">"git commit -a"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>順便帶大家看一個關鍵字 <strong>discard</strong> ：丟棄，這是在 Git 世界中很常見的詞彙，不管指令或 GUI ，只要看到這個詞就代表要捨棄更變的意思。</p>
-<p>實際使用起來長這樣：<br>
-<img data-src="https://i.imgur.com/1pYkowd.gif" alt=""></p>
-<h3 id="2-使用-git-checkout-捨棄檔案更變"><a class="markdownIt-Anchor" href="#2-使用-git-checkout-捨棄檔案更變">#</a> 2. 使用  <code>git checkout --</code>  捨棄檔案更變</h3>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout -- 檔案名稱</pre></td></tr></table></figure><p>必須先說，這個指令加上分支名稱，就是「切換分支」的指令，這也是 checkout 最常使用的情境。<br>
-只不過如果 checkout 加上檔名，就會是把目前位置的檔案狀況，還原到工作目錄中。<br>
-而指令會加上  <code>--</code>  最重要的目的，就是避免檔案名稱等同於某個分支，這會直接造成指令變成「切換分支」的行為。</p>
-<p>實際使用起來長這樣：<br>
-<img data-src="https://i.imgur.com/eGqoSQP.gif" alt=""></p>
-<h2 id="使用-fork-gui-捨棄檔案更變"><a class="markdownIt-Anchor" href="#使用-fork-gui-捨棄檔案更變">#</a> 使用 Fork GUI 捨棄檔案更變</h2>
-<p>使用 Fork GUI 操作，一樣必須確保檔案處於「未暫存」的狀態。</p>
-<p>接著可以對著檔案點選右鍵，點選 <strong>Discard Changes…</strong> 的選項來完成：<br>
-<img data-src="https://i.imgur.com/IFKXqM0.gif" alt=""></p>
-<h1 id="一次捨棄所有檔案的更變"><a class="markdownIt-Anchor" href="#一次捨棄所有檔案的更變">#</a> 一次捨棄所有檔案的更變</h1>
-<p>可能會有一種狀況，我們不只有要還原 <strong>單一檔案</strong> 異動，而是編輯了一堆檔案，想要一次讓資料還原。</p>
+<p>換言之，執行過 <code>git add</code> 的檔案，<strong>不適用</strong> 接下來的操作，請回到上一步查看怎麼把檔案移出暫存。</p>
+<h2 id="使用指令捨棄檔案更變"><a href="#使用指令捨棄檔案更變" class="headerlink" title="使用指令捨棄檔案更變"></a>使用指令捨棄檔案更變</h2><p>一樣有兩個指令可以做到這件事：</p>
+<h3 id="1-使用-git-restore-捨棄檔案更變"><a href="#1-使用-git-restore-捨棄檔案更變" class="headerlink" title="1. 使用 git restore 捨棄檔案更變"></a>1. 使用 <code>git restore</code> 捨棄檔案更變</h3><pre><code class="sh">git restore 檔案
+</code></pre>
+<p>上一步有提到，restore 用來把檔案還原到之前的狀態，有異動的檔案先前的狀態，就是把這些異動移除。</p>
+<p>一樣不用特別記，指令藏在 <code>git status</code> 中：</p>
+<pre><code class="sh">git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory) # 藏在這~
+        modified:   readme.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+<p>順便帶大家看一個關鍵字 <strong>discard</strong> ：丟棄，這是在 Git 世界中很常見的詞彙，不管指令或 GUI ，只要看到這個詞就代表要捨棄更變的意思。</p>
+<p>實際使用起來長這樣：<br><img data-src="https://i.imgur.com/1pYkowd.gif"></p>
+<h3 id="2-使用-git-checkout-捨棄檔案更變"><a href="#2-使用-git-checkout-捨棄檔案更變" class="headerlink" title="2. 使用 git checkout -- 捨棄檔案更變"></a>2. 使用 <code>git checkout --</code> 捨棄檔案更變</h3><pre><code class="sh">git checkout -- 檔案名稱
+</code></pre>
+<p>必須先說，這個指令加上分支名稱，就是「切換分支」的指令，這也是 checkout 最常使用的情境。<br>只不過如果 checkout 加上檔名，就會是把目前位置的檔案狀況，還原到工作目錄中。<br>而指令會加上 <code>--</code> 最重要的目的，就是避免檔案名稱等同於某個分支，這會直接造成指令變成「切換分支」的行為。</p>
+<p>實際使用起來長這樣：<br><img data-src="https://i.imgur.com/eGqoSQP.gif"></p>
+<h2 id="使用-Fork-GUI-捨棄檔案更變"><a href="#使用-Fork-GUI-捨棄檔案更變" class="headerlink" title="使用 Fork GUI 捨棄檔案更變"></a>使用 Fork GUI 捨棄檔案更變</h2><p>使用 Fork GUI 操作，一樣必須確保檔案處於「未暫存」的狀態。</p>
+<p>接著可以對著檔案點選右鍵，點選 <strong>Discard Changes…</strong> 的選項來完成：<br><img data-src="https://i.imgur.com/IFKXqM0.gif"></p>
+<h1 id="一次捨棄所有檔案的更變"><a href="#一次捨棄所有檔案的更變" class="headerlink" title="一次捨棄所有檔案的更變"></a>一次捨棄所有檔案的更變</h1><p>可能會有一種狀況，我們不只有要還原 <strong>單一檔案</strong> 異動，而是編輯了一堆檔案，想要一次讓資料還原。  </p>
 <p>一樣示範指令的做法，再來示範 GUI 的做法。</p>
-<h2 id="用指令捨棄所有檔案的更變"><a class="markdownIt-Anchor" href="#用指令捨棄所有檔案的更變">#</a> 用指令捨棄所有檔案的更變</h2>
-<p>有三個指令可以做到這件事，其中兩個就是上面的  <code>restore</code>  跟  <code>checkout</code> 。</p>
-<p>記得我們一次把檔案加到暫存區使用的參數嗎？<br>
-就是  <code>git add</code>  加上  <code>.</code>  。</p>
+<h2 id="用指令捨棄所有檔案的更變"><a href="#用指令捨棄所有檔案的更變" class="headerlink" title="用指令捨棄所有檔案的更變"></a>用指令捨棄所有檔案的更變</h2><p>有三個指令可以做到這件事，其中兩個就是上面的 <code>restore</code> 跟 <code>checkout</code>。</p>
+<p>記得我們一次把檔案加到暫存區使用的參數嗎？<br>就是 <code>git add</code> 加上 <code>.</code> 。   </p>
 <p>所以在確保<strong>資料尚未加入暫存區</strong>時，想捨棄所有資料異動，可以挑一個指令執行：</p>
 <ol>
-<li>使用  <code>git restore</code>  捨棄所有檔案的更變</li>
+<li>使用 <code>git restore</code> 捨棄所有檔案的更變</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> restore <span class="token builtin class-name">.</span></pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/n3IJN0v.gif" alt=""></p>
+<pre><code class="sh">git restore .
+</code></pre>
+<p><img data-src="https://i.imgur.com/n3IJN0v.gif"></p>
 <ol start="2">
-<li>使用  <code>git checkout</code>  捨棄所有檔案的更變</li>
+<li>使用 <code>git checkout</code> 捨棄所有檔案的更變</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout <span class="token builtin class-name">.</span></pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/LnwzZNb.gif" alt=""></p>
+<pre><code class="sh">git checkout .
+</code></pre>
+<p><img data-src="https://i.imgur.com/LnwzZNb.gif"></p>
 <hr>
-<p>最後一個指令就比較特別了，他有能力做到 <strong>無視資料是否在暫存區</strong> 一次捨棄所有異動資料，他就是  <code>reset</code> 。<br>
-3. 使用  <code>git reset --hard</code>  捨棄所有檔案的更變</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> reset <span class="token parameter variable">--hard</span></pre></td></tr></table></figure><p><img data-src="https://i.imgur.com/p1AKRg9.gif" alt=""></p>
-<p><code>reset</code>  指令能做到的功能真的很多，如果你是因為這篇文章才知道  <code>reset</code>  指令的人，很可能已經因為一開始說  <code>reset</code>  把資料 <strong>移出暫存區</strong>，現在又說  <code>reset</code>  可以一次把異動資料 <strong>捨棄</strong> 這兩個不同行為混淆了。</p>
-<p>為了避免有人帶著懸念離開這篇文章，請先記得一件事：<br>
- <code>reset</code>  指令主要是拿來操作 HEAD 所指向的 commit，很少有人拿來操作單一檔案。</p>
+<p>最後一個指令就比較特別了，他有能力做到 <strong>無視資料是否在暫存區</strong> 一次捨棄所有異動資料，他就是 <code>reset</code>。<br>3. 使用 <code>git reset --hard</code> 捨棄所有檔案的更變</p>
+<pre><code class="sh">git reset --hard
+</code></pre>
+<p><img data-src="https://i.imgur.com/p1AKRg9.gif"></p>
+<p><code>reset</code> 指令能做到的功能真的很多，如果你是因為這篇文章才知道 <code>reset</code> 指令的人，很可能已經因為一開始說 <code>reset</code> 把資料 <strong>移出暫存區</strong>，現在又說 <code>reset</code> 可以一次把異動資料 <strong>捨棄</strong> 這兩個不同行為混淆了。</p>
+<p>為了避免有人帶著懸念離開這篇文章，請先記得一件事：<br><code>reset</code> 指令主要是拿來操作 HEAD 所指向的 commit，很少有人拿來操作單一檔案。</p>
 <p>更詳盡的內容，之後會專門寫一篇詳細的 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzMjYzMQ==">reset 使用說明文章</span> 來跟大家講解。</p>
-<h2 id="用-fork-gui-一次捨棄所有檔案的更變"><a class="markdownIt-Anchor" href="#用-fork-gui-一次捨棄所有檔案的更變">#</a> 用 Fork GUI 一次捨棄所有檔案的更變</h2>
-<ol>
-<li>用  <code>ctrl</code>  或  <code>shift</code>  把檔案全部選起來</li>
+<h2 id="用-Fork-GUI-一次捨棄所有檔案的更變"><a href="#用-Fork-GUI-一次捨棄所有檔案的更變" class="headerlink" title="用 Fork GUI 一次捨棄所有檔案的更變"></a>用 Fork GUI 一次捨棄所有檔案的更變</h2><ol>
+<li>用 <code>ctrl</code> 或 <code>shift</code> 把檔案全部選起來</li>
 <li>點右鍵</li>
 <li>選 <strong>Discard Changes…</strong></li>
 </ol>
-<p><img data-src="https://i.imgur.com/R66XwMz.gif" alt=""></p>
-<h1 id="補充"><a class="markdownIt-Anchor" href="#補充">#</a> 補充</h1>
-<p>一般如果有說明多種方法的內容，筆者通常會建議挑自己喜歡的指令執行就好。</p>
-<p>不過今天所介紹的內容，筆者會建議先 <strong>不要使用</strong> 兩個指令：<br>
-一個是  <code>reset</code> ，另一個是  <code>checkout</code> 。</p>
+<p><img data-src="https://i.imgur.com/R66XwMz.gif"></p>
+<h1 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h1><p>一般如果有說明多種方法的內容，筆者通常會建議挑自己喜歡的指令執行就好。</p>
+<p>不過今天所介紹的內容，筆者會建議先 <strong>不要使用</strong> 兩個指令：<br>一個是 <code>reset</code>，另一個是 <code>checkout</code>。</p>
 <p>在說明之前先強調一下，如果遇到文章中的情境，這兩個指令 <strong>不是不能用</strong>，他們還是能做到我們想執行的事情。</p>
 <p>純粹只是下次在遇到這兩個指令時，介紹的情境會完全不同，這可能使新手對指令的看法有強烈的混淆，才會說不建議使用。</p>
-<h2 id="建議不要使用-reset-將檔案移出暫存區"><a class="markdownIt-Anchor" href="#建議不要使用-reset-將檔案移出暫存區">#</a> 建議不要使用 reset 將檔案移出暫存區</h2>
-<p>前面有提到，很少人會使用  <code>reset</code>  操作 <strong>檔案</strong>，至少我身邊的朋友幾乎都不會做這種事。<br>
- <code>reset</code>  在 Git 中的主要用途，會是操作  <code>HEAD</code>  的指向位置。</p>
-<p>所以當有需要用到 <strong>將檔案移出暫存區</strong> 的需求，建議使用  <code>restore</code>  指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> restore <span class="token parameter variable">--staged</span> 檔名   <span class="token comment"># 使用 restore 指令將檔案移出暫存區</span></pre></td></tr></table></figure><p>一來，  <code>git status</code>  指令打下去，就能看到  <code>git restore --staged</code>  擺在眼前，連單字都不用去記。<br>
-二來， 讓  <code>restore</code>  去處理檔案，讓  <code>reset</code>  去處理  <code>HEAD</code> ，能讓觀念區分得清楚一些。</p>
-<h2 id="建議不要使用-checkout-捨棄目前檔案"><a class="markdownIt-Anchor" href="#建議不要使用-checkout-捨棄目前檔案">#</a> 建議不要使用 checkout 捨棄目前檔案</h2>
-<p>相信有接觸過 Git 分支的人，已經知道他是「切換分支」的指令。<br>
-現在說這個指令可以拿來捨棄檔案異動，對新手來說實在不是很友善…</p>
-<p>筆者建議，新手如果要讓檔案資料復原，<strong>不要</strong> 使用  <code>checkout</code>  指令，而是使用  <code>restore</code>  指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> restore 檔案   <span class="token comment"># 使用 restore 指令捨棄檔案異動</span></pre></td></tr></table></figure><p>也是一樣的概念，如果不小心忘記指令或是單字怎麼拚， <code>git status</code>  執行下去，這個指令就跑出來給你看，根本不用去記憶。</p>
-<p>此外，也能讓  <code>checkout</code>  專心去處理 「切換分支」 的需求，比較不會造成觀念混淆</p>
+<h2 id="建議不要使用-reset-將檔案移出暫存區"><a href="#建議不要使用-reset-將檔案移出暫存區" class="headerlink" title="建議不要使用 reset 將檔案移出暫存區"></a>建議不要使用 reset 將檔案移出暫存區</h2><p>前面有提到，很少人會使用 <code>reset</code> 操作 <strong>檔案</strong>，至少我身邊的朋友幾乎都不會做這種事。<br><code>reset</code> 在 Git 中的主要用途，會是操作 <code>HEAD</code> 的指向位置。</p>
+<p>所以當有需要用到 <strong>將檔案移出暫存區</strong> 的需求，建議使用 <code>restore</code> 指令： </p>
+<pre><code class="sh">git restore --staged 檔名   # 使用 restore 指令將檔案移出暫存區
+</code></pre>
+<p>一來， <code>git status</code> 指令打下去，就能看到 <code>git restore --staged</code> 擺在眼前，連單字都不用去記。<br>二來， 讓 <code>restore</code> 去處理檔案，讓 <code>reset</code> 去處理 <code>HEAD</code>，能讓觀念區分得清楚一些。</p>
+<h2 id="建議不要使用-checkout-捨棄目前檔案"><a href="#建議不要使用-checkout-捨棄目前檔案" class="headerlink" title="建議不要使用 checkout 捨棄目前檔案"></a>建議不要使用 checkout 捨棄目前檔案</h2><p>相信有接觸過 Git 分支的人，已經知道他是「切換分支」的指令。<br>現在說這個指令可以拿來捨棄檔案異動，對新手來說實在不是很友善…</p>
+<p>筆者建議，新手如果要讓檔案資料復原，<strong>不要</strong> 使用 <code>checkout</code> 指令，而是使用 <code>restore</code> 指令：  </p>
+<pre><code class="sh">git restore 檔案   # 使用 restore 指令捨棄檔案異動
+</code></pre>
+<p>也是一樣的概念，如果不小心忘記指令或是單字怎麼拚，<code>git status</code> 執行下去，這個指令就跑出來給你看，根本不用去記憶。</p>
+<p>此外，也能讓 <code>checkout</code> 專心去處理 「切換分支」 的需求，比較不會造成觀念混淆</p>
 <p>以上內容，就提供大家參考吧！</p>
 
       <div class="tags">
@@ -337,7 +337,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;eWxuYmg.jpg" title="關於 commit 的兩個小問題">
+  <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;P69ZGGo.jpg" title="關於 commit 的兩個小問題">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>關於 commit 的兩個小問題</h3>
@@ -347,7 +347,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="修改最近一次的 Commit 紀錄">
+  <a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;sVKjRY8.jpg" title="修改最近一次的 Commit 紀錄">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>修改最近一次的 Commit 紀錄</h3>
@@ -368,7 +368,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E6%9A%AB%E5%AD%98%E5%8D%80%E7%9A%84%E6%AA%94%E6%A1%88%E6%83%B3%E5%B0%87%E5%AE%83%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.</span> <span class="toc-text"> 加入暫存區的檔案，想將它移出暫存區</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.1.</span> <span class="toc-text"> 用指令將檔案移出暫存區</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-git-restore-staged-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 1. 使用  git restore --staged  將檔案移出暫存區</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-git-reset-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 2. 使用  git reset  將檔案移出暫存區</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-gui-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.2.</span> <span class="toc-text"> 用 Fork GUI 將檔案移出暫存區</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%83%B3%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E4%BF%AE%E6%94%B9%E7%9A%84%E5%85%A7%E5%AE%B9"><span class="toc-number">3.</span> <span class="toc-text"> 想捨棄檔案修改的內容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.1.</span> <span class="toc-text"> 使用指令捨棄檔案更變</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-git-restore-%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 1. 使用  git restore  捨棄檔案更變</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-git-checkout-%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 2. 使用  git checkout --  捨棄檔案更變</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork-gui-%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.2.</span> <span class="toc-text"> 使用 Fork GUI 捨棄檔案更變</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1%E6%8D%A8%E6%A3%84%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E6%9B%B4%E8%AE%8A"><span class="toc-number">4.</span> <span class="toc-text"> 一次捨棄所有檔案的更變</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%8D%A8%E6%A3%84%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E6%9B%B4%E8%AE%8A"><span class="toc-number">4.1.</span> <span class="toc-text"> 用指令捨棄所有檔案的更變</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-fork-gui-%E4%B8%80%E6%AC%A1%E6%8D%A8%E6%A3%84%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E6%9B%B4%E8%AE%8A"><span class="toc-number">4.2.</span> <span class="toc-text"> 用 Fork GUI 一次捨棄所有檔案的更變</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text"> 補充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E8%AD%B0%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-reset-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">5.1.</span> <span class="toc-text"> 建議不要使用 reset 將檔案移出暫存區</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E8%AD%B0%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-checkout-%E6%8D%A8%E6%A3%84%E7%9B%AE%E5%89%8D%E6%AA%94%E6%A1%88"><span class="toc-number">5.2.</span> <span class="toc-text"> 建議不要使用 checkout 捨棄目前檔案</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E6%9A%AB%E5%AD%98%E5%8D%80%E7%9A%84%E6%AA%94%E6%A1%88%EF%BC%8C%E6%83%B3%E5%B0%87%E5%AE%83%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.</span> <span class="toc-text">加入暫存區的檔案，想將它移出暫存區</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.1.</span> <span class="toc-text">用指令將檔案移出暫存區</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-git-restore-staged-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.1.1.</span> <span class="toc-text">1. 使用 git restore --staged 將檔案移出暫存區</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-git-reset-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.1.2.</span> <span class="toc-text">2. 使用 git reset 將檔案移出暫存區</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-Fork-GUI-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">2.2.</span> <span class="toc-text">用 Fork GUI 將檔案移出暫存區</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%83%B3%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E4%BF%AE%E6%94%B9%E7%9A%84%E5%85%A7%E5%AE%B9"><span class="toc-number">3.</span> <span class="toc-text">想捨棄檔案修改的內容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.1.</span> <span class="toc-text">使用指令捨棄檔案更變</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8-git-restore-%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.1.1.</span> <span class="toc-text">1. 使用 git restore 捨棄檔案更變</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8-git-checkout-%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.1.2.</span> <span class="toc-text">2. 使用 git checkout -- 捨棄檔案更變</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Fork-GUI-%E6%8D%A8%E6%A3%84%E6%AA%94%E6%A1%88%E6%9B%B4%E8%AE%8A"><span class="toc-number">3.2.</span> <span class="toc-text">使用 Fork GUI 捨棄檔案更變</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1%E6%8D%A8%E6%A3%84%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E6%9B%B4%E8%AE%8A"><span class="toc-number">4.</span> <span class="toc-text">一次捨棄所有檔案的更變</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%8D%A8%E6%A3%84%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E6%9B%B4%E8%AE%8A"><span class="toc-number">4.1.</span> <span class="toc-text">用指令捨棄所有檔案的更變</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-Fork-GUI-%E4%B8%80%E6%AC%A1%E6%8D%A8%E6%A3%84%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E6%9B%B4%E8%AE%8A"><span class="toc-number">4.2.</span> <span class="toc-text">用 Fork GUI 一次捨棄所有檔案的更變</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text">補充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E8%AD%B0%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-reset-%E5%B0%87%E6%AA%94%E6%A1%88%E7%A7%BB%E5%87%BA%E6%9A%AB%E5%AD%98%E5%8D%80"><span class="toc-number">5.1.</span> <span class="toc-text">建議不要使用 reset 將檔案移出暫存區</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E8%AD%B0%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-checkout-%E6%8D%A8%E6%A3%84%E7%9B%AE%E5%89%8D%E6%AA%94%E6%A1%88"><span class="toc-number">5.2.</span> <span class="toc-text">建議不要使用 checkout 捨棄目前檔案</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -465,7 +465,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
   </li>
 
       
@@ -475,7 +475,17 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
+    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
       
@@ -495,26 +505,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
   </li>
 
       
@@ -524,17 +515,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
+    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
   </li>
 
       
@@ -544,7 +525,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
   </li>
 
       
@@ -554,7 +535,27 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
+    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">版控的類別</a></span>
   </li>
 
   </ul>
@@ -575,13 +576,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

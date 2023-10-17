@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,250 +165,166 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
-<p>在 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMyMDYyMg==">版控的類別</span> 一文中，曾經有聊到「分散式版控系統」無法針對開發人員進行權限控管，因為所有人在地端都會擁有一個「完整的」儲存庫。</p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMyMDYyMg==">版控的類別</span> 一文中，曾經有聊到「分散式版控系統」無法針對開發人員進行權限控管，因為所有人在地端都會擁有一個「完整的」儲存庫。</p>
 <p>當時曾經很隱含的說，這個缺點其實有辦法克服，而克服的方式就是本文所要介紹的</p>
-<div class="note info no-icon">
-<p>提取要求</p>
-</div>
+<p>:::info no-icon<br>提取要求<br>:::</p>
 <blockquote>
-<p>注意！這一篇文章「不會」提到 Fork GUI ，文章中的  <code>Fork</code>  一詞，是 GitHub 的  <code>Fork</code>  功能，與 Fork GUI 完全無關。</p>
+<p>注意！這一篇文章「不會」提到 Fork GUI ，文章中的 <code>Fork</code> 一詞，是 GitHub 的 <code>Fork</code> 功能，與 Fork GUI 完全無關。</p>
 </blockquote>
-<h1 id="什麼是提取要求"><a class="markdownIt-Anchor" href="#什麼是提取要求">#</a> 什麼是「提取要求」？</h1>
-<p>提取要求，英文是 Pull Requests，俗稱 PR，是一個能讓開發者對於遠端儲存庫的原始碼提出「修改建議」的功能，做法是讓開發者 <strong>要求將自己的「開發分支」併入遠端儲存庫的「主要分支」</strong> ，這個功能一般都是「遠端儲存庫」所提供，跟地端儲存庫沒有任何關係。</p>
+<h1 id="什麼是「提取要求」？"><a href="#什麼是「提取要求」？" class="headerlink" title="什麼是「提取要求」？"></a>什麼是「提取要求」？</h1><p>提取要求，英文是 Pull Requests，俗稱 PR，是一個能讓開發者對於遠端儲存庫的原始碼提出「修改建議」的功能，做法是讓開發者 <strong>要求將自己的「開發分支」併入遠端儲存庫的「主要分支」</strong> ，這個功能一般都是「遠端儲存庫」所提供，跟地端儲存庫沒有任何關係。  </p>
 <p>既然「提取要求」是遠端儲存庫提供的，代表操作「提取要求」前，會需要把地端分支的資料先推到遠端儲存庫，才能到遠端儲存庫的網頁介面上操作。</p>
 <p>此外，依據遠端儲存庫的不同，「提取要求」可能會有不同的名稱，像是「Pull Request」與「Merge Request」之類，都是在講「提取要求」的意思。在 GitHub 平台上，「提取要求」被稱為 Pull Request ，為了方便起見，下文會以「PR」稱呼。</p>
-<p>在 GitHub 中，專案權限的不同會有不同的 PR 操作方式：</p>
+<p>在 GitHub 中，專案權限的不同會有不同的 PR 操作方式：  </p>
 <ul>
-<li>
-<p>第一種情境：<br>
-你是專案的成員，你的 GitHub 帳號有被加入 Repository 開發者名單中，所以你有權限將你的開發分支推到遠端儲存庫。<br>
-如果要「發 PR」，只要把分支推上遠端之後，在 GitHub 操作 PR 流程即可。</p>
+<li><p>第一種情境：<br>你是專案的成員，你的 GitHub 帳號有被加入 Repository 開發者名單中，所以你有權限將你的開發分支推到遠端儲存庫。<br>如果要「發 PR」，只要把分支推上遠端之後，在 GitHub 操作 PR 流程即可。</p>
 </li>
-<li>
-<p>第二種情境：<br>
-你不是專案的成員，你想要對某個開源專案提出修改建議，此時你不會有操作專案的權限，所以沒辦法將你的程式碼 push 到這個遠端儲存庫，你必須進行下列幾個步驟來完成「發 PR」 的動作：</p>
+<li><p>第二種情境：<br>你不是專案的成員，你想要對某個開源專案提出修改建議，此時你不會有操作專案的權限，所以沒辦法將你的程式碼 push 到這個遠端儲存庫，你必須進行下列幾個步驟來完成「發PR」 的動作：</p>
 </li>
 </ul>
 <ol>
-<li>使用 GitHub 的  <code>Fork</code>  功能，把專案 Repository 複製回你的 GitHub 帳號。</li>
+<li>使用 GitHub 的 <code>Fork</code> 功能，把專案 Repository 複製回你的 GitHub 帳號。</li>
 <li>clone 你的 Repository  回到地端開發。</li>
 <li>把開發完成的分支推到你的 Repository。</li>
 <li>操作 PR 流程。</li>
 </ol>
 <blockquote>
-<p>再次強調，雖然此系列文的 Git GUI 工具是使用一個名叫 Fork 的軟體介紹，不過本文的  <code>Fork</code>  一詞都是指 GitHub 的 Fork 功能，跟 Fork GUI 軟體完全無關，只是名稱相同而已，請讀者們千萬不要搞混！！</p>
+<p>再次強調，雖然此系列文的 Git GUI 工具是使用一個名叫 Fork 的軟體介紹，不過本文的 <code>Fork</code> 一詞都是指 GitHub 的 Fork 功能，跟 Fork GUI 軟體完全無關，只是名稱相同而已，請讀者們千萬不要搞混！！</p>
 </blockquote>
 <p>接下來我們一邊模擬上述兩個情境，一邊示範 GitHub 的 Pull Request 要如何操作。</p>
-<h1 id="在自己的專案中使用-pr"><a class="markdownIt-Anchor" href="#在自己的專案中使用-pr">#</a> 在自己的專案中使用 PR</h1>
-<p>我們先來建立一個開發流程的共識，以便理解等等 PR 的操作動作：</p>
+<h1 id="在自己的專案中使用-PR"><a href="#在自己的專案中使用-PR" class="headerlink" title="在自己的專案中使用 PR"></a>在自己的專案中使用 PR</h1><p>我們先來建立一個開發流程的共識，以便理解等等 PR 的操作動作：</p>
 <ol>
-<li>開發人員必須使用  <code>開發人員代稱</code>  作為分支命名規則，並且建立分支進行開發。</li>
-<li>會有一個  <code>dev</code>  分支是「開發階段」的主要分支，用來合併開發好的分支。</li>
-<li>要將  <code>開發人員代稱</code>  分支合併到  <code>dev</code>  分支時，<strong>不能</strong> 在地端使用  <code>git merge</code>  指令，必須先將  <code>開發人員代稱</code>  分支推到遠端，再發 PR 到 dev 分支要求合併。</li>
-<li>專案負責人 code review 完之後，在 GitHub 上「同意 PR 」， <code>開發人員代稱</code>  分支才能併入  <code>dev</code>  分支</li>
+<li>開發人員必須使用 <code>開發人員代稱</code> 作為分支命名規則，並且建立分支進行開發。  </li>
+<li>會有一個 <code>dev</code> 分支是「開發階段」的主要分支，用來合併開發好的分支。  </li>
+<li>要將 <code>開發人員代稱</code> 分支合併到 <code>dev</code> 分支時，<strong>不能</strong> 在地端使用 <code>git merge</code> 指令，必須先將 <code>開發人員代稱</code> 分支推到遠端，再發 PR 到 dev 分支要求合併。</li>
+<li>專案負責人 code review 完之後，在 GitHub 上「同意 PR 」，<code>開發人員代稱</code> 分支才能併入 <code>dev</code> 分支</li>
 </ol>
-<p>以上規定都沒都沒問題的話，我們來以實際情境說明完整的「發 PR」流程與操作方式：</p>
-<p>假設目前  <code>愛蜜莉雅</code>  已經開發完成，她把  <code>Emilia</code>  分支推送到 GitHub。</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin Emilia</pre></td></tr></table></figure><p>到了 GitHub 介面，依照步驟開始操作 PR</p>
+<p>以上規定都沒都沒問題的話，我們來以實際情境說明完整的「發 PR」流程與操作方式：  </p>
+<p>假設目前 <code>愛蜜莉雅</code> 已經開發完成，她把 <code>Emilia</code> 分支推送到 GitHub。   </p>
+<pre><code class="sh">git push -u origin Emilia
+</code></pre>
+<p>到了 GitHub 介面，依照步驟開始操作 PR</p>
 <ol>
-<li>
-<p>首先， <code>愛蜜莉雅</code>  應該能看到醒目的黃色提醒，提示她要不要對這個分支操作 PR：<br>
-<img data-src="https://i.imgur.com/y9bgQQA.png" alt=""></p>
+<li><p>首先，<code>愛蜜莉雅</code> 應該能看到醒目的黃色提醒，提示她要不要對這個分支操作 PR：<br><img data-src="https://i.imgur.com/y9bgQQA.png"></p>
 </li>
-<li>
-<p>此時操作 PR 的方式有兩個選擇，點擊綠色  <code>Compare &amp; pull request</code>  或是上方  <code>Pull requests</code>  按鈕<br>
-<img data-src="https://i.imgur.com/KikhlAe.png" alt=""><br>
-這兩個按鈕主要的差別在於：</p>
+<li><p>此時操作 PR 的方式有兩個選擇，點擊綠色 <code>Compare &amp; pull request</code> 或是上方 <code>Pull requests</code> 按鈕<br><img data-src="https://i.imgur.com/KikhlAe.png"><br>這兩個按鈕主要的差別在於：</p>
 </li>
 </ol>
 <ul>
-<li><code>Compare &amp; pull request</code>  按鈕會以  <code>Emilia</code>  分支設定 PR 的配置項目。</li>
-<li><code>Pull Requests</code>  按鈕則需要自己從頭操作要處理哪個分支的 PR。<br>
-這裡用上面那顆 「 <code>Pull Requests</code>  按鈕」示範較為完整的 PR 操作。</li>
+<li><code>Compare &amp; pull request</code> 按鈕會以 <code>Emilia</code> 分支設定 PR 的配置項目。  </li>
+<li><code>Pull Requests</code> 按鈕則需要自己從頭操作要處理哪個分支的 PR。<br>這裡用上面那顆 「<code>Pull Requests</code> 按鈕」示範較為完整的 PR 操作。</li>
 </ul>
 <ol start="3">
-<li>
-<p>進入  <code>Pull Requests</code>  介面後，請再點擊  <code>New pull request</code>  按鈕：<br>
-<img data-src="https://i.imgur.com/8qduVk8.png" alt=""></p>
+<li><p>進入 <code>Pull Requests</code> 介面後，請再點擊 <code>New pull request</code> 按鈕：<br><img data-src="https://i.imgur.com/8qduVk8.png"></p>
 </li>
-<li>
-<p>我們要關注紅框框的 <strong>兩個</strong> 下拉選單，左邊的選單要選擇「基底分支」，右邊的選單要選擇「比較分支」，根據選單之間的箭頭 ( <code>&lt;-</code> ) 提示，這裡意思是要將「右邊的分支」<strong>併入</strong>「左邊的分支」，這件事情同時也是 Pull Requests 的精隨所在。<br>
-<img data-src="https://i.imgur.com/jWUh3q4.png" alt=""></p>
+<li><p>我們要關注紅框框的 <strong>兩個</strong> 下拉選單，左邊的選單要選擇「基底分支」，右邊的選單要選擇「比較分支」，根據選單之間的箭頭(<code>&lt;-</code>)提示，這裡意思是要將「右邊的分支」<strong>併入</strong>「左邊的分支」，這件事情同時也是 Pull Requests 的精隨所在。<br><img data-src="https://i.imgur.com/jWUh3q4.png"></p>
 </li>
-<li>
-<p>因為要將  <code>Emilia</code>  分支併入  <code>dev</code>  分支，所以「右邊」選擇  <code>Emilia</code> ，「左邊」選擇  <code>dev</code> 。選完之後畫面會因此有所改變，再繼續點選  <code>Create pull request</code>  的按鈕：<br>
-<img data-src="https://i.imgur.com/wtOz0tY.png" alt=""></p>
+<li><p>因為要將 <code>Emilia</code> 分支併入 <code>dev</code> 分支，所以「右邊」選擇 <code>Emilia</code>，「左邊」選擇 <code>dev</code>。選完之後畫面會因此有所改變，再繼續點選 <code>Create pull request</code> 的按鈕：<br><img data-src="https://i.imgur.com/wtOz0tY.png"></p>
 </li>
-<li>
-<p>接著會出現兩個輸入框，上方框框中可能會有預設的資料，他是用來定義目前操作的 PR 要在遠端儲存庫中顯示的名稱，下方的輸入框則是對 PR 進行一些詳細說明，能讓審核人員更清楚知道「開發分支」做的事情，可以選擇性輸入。<br>
-<img data-src="https://i.imgur.com/G6HcTKT.png" alt=""></p>
+<li><p>接著會出現兩個輸入框，上方框框中可能會有預設的資料，他是用來定義目前操作的 PR 要在遠端儲存庫中顯示的名稱，下方的輸入框則是對 PR 進行一些詳細說明，能讓審核人員更清楚知道「開發分支」做的事情，可以選擇性輸入。<br><img data-src="https://i.imgur.com/G6HcTKT.png"></p>
 </li>
-<li>
-<p>輸入完之後，點  <code>Create pull request</code>  按鈕<br>
-<img data-src="https://i.imgur.com/6sE9Eub.png" alt=""></p>
+<li><p>輸入完之後，點 <code>Create pull request</code> 按鈕<br><img data-src="https://i.imgur.com/6sE9Eub.png"></p>
 </li>
-<li>
-<p>這樣就完成了一個「提取要求」了<br>
-<img data-src="https://i.imgur.com/6HvtXXM.png" alt=""></p>
+<li><p>這樣就完成了一個「提取要求」了<br><img data-src="https://i.imgur.com/6HvtXXM.png"></p>
 </li>
 </ol>
-<p><strong>備註：</strong><br>
-如果一開始是直接點綠色的  <code>Compare &amp; pull request</code>  按鈕，會直接跳到 「第四步」：<br>
-<img data-src="https://i.imgur.com/yPl9AOx.png" alt=""></p>
-<h1 id="成為他人專案的共同開發者"><a class="markdownIt-Anchor" href="#成為他人專案的共同開發者">#</a> 成為他人專案的共同開發者</h1>
-<p>假設  <code>雷姆</code>  對上面那個 GitHub 專案很有興趣，但她並不是專案既有的團隊成員，那她不會有權限把程式碼推送到這個專案中。</p>
-<p>不過她可以使用 GitHub 的 「Fork」 功能先把專案複製回自己的 GitHub 帳號，並且  <code>git clone</code>  「自己的 Repository」回地端開發。</p>
-<p>等到開發完成之後，先把程式推回去「自己的 Repository」，再使用提取要求 (Pull Request) 功能，要求把「自己 Repository 的分支」合併入 「原本專案的主要分支」。</p>
-<h2 id="fork-他人的專案回自己的-github"><a class="markdownIt-Anchor" href="#fork-他人的專案回自己的-github">#</a> Fork 他人的專案回自己的 GitHub</h2>
+<p><strong>備註：</strong><br>如果一開始是直接點綠色的 <code>Compare &amp; pull request</code>按鈕，會直接跳到 「第四步」：<br><img data-src="https://i.imgur.com/yPl9AOx.png"></p>
+<h1 id="成為他人專案的共同開發者"><a href="#成為他人專案的共同開發者" class="headerlink" title="成為他人專案的共同開發者"></a>成為他人專案的共同開發者</h1><p>假設 <code>雷姆</code> 對上面那個 GitHub 專案很有興趣，但她並不是專案既有的團隊成員，那她不會有權限把程式碼推送到這個專案中。  </p>
+<p>不過她可以使用 GitHub 的 「Fork」 功能先把專案複製回自己的 GitHub 帳號，並且 <code>git clone</code> 「自己的 Repository」回地端開發。</p>
+<p>等到開發完成之後，先把程式推回去「自己的 Repository」，再使用提取要求(Pull Request) 功能，要求把「自己 Repository 的分支」合併入 「原本專案的主要分支」。</p>
+<h2 id="Fork-他人的專案回自己的-GitHub"><a href="#Fork-他人的專案回自己的-GitHub" class="headerlink" title="Fork 他人的專案回自己的 GitHub"></a>Fork 他人的專案回自己的 GitHub</h2><ol>
+<li><p>首先第一步，點選 <code>Fork</code> 按鈕，把專案複製回自己的 GitHub 帳號：<br><img data-src="https://i.imgur.com/PJSlGs0.png"></p>
+</li>
+<li><p>跳轉頁面中，會把這個專案的資料「複製一份」到 <code>雷姆</code> 的 GitHub 帳號中：<br><img data-src="https://i.imgur.com/UgX2Ae5.png"></p>
+</li>
+<li><p>上面點選 <code>Create Fork</code> 之後，這個專案就會被建立在 <code>雷姆</code> 的專案中了：<br><img data-src="https://i.imgur.com/Sst4rWp.png"></p>
+</li>
+</ol>
+<h2 id="Fork-回來後，原本的專案有更新…"><a href="#Fork-回來後，原本的專案有更新…" class="headerlink" title="Fork 回來後，原本的專案有更新…"></a>Fork 回來後，原本的專案有更新…</h2><p>假設 <code>雷姆</code> Fork 他人的專案回自己的 GitHub 之後，原本的專案團隊更新了主要分支內容，<code>雷姆</code> 可以在「Fork 回來的 Repository」 看到像是下圖紅框提示，告訴 <code>雷姆</code> 對方的 Repository 有新的 commit。<br><img data-src="https://i.imgur.com/FpIW8Pe.png"></p>
+<p><code>雷姆</code> 要把資料同步回來的話，須執行下列兩個步驟：</p>
 <ol>
-<li>
-<p>首先第一步，點選  <code>Fork</code>  按鈕，把專案複製回自己的 GitHub 帳號：<br>
-<img data-src="https://i.imgur.com/PJSlGs0.png" alt=""></p>
+<li><p>到 Fork 回來的 Repository，找到 <code>Sync Fork</code> 的選單<br><img data-src="https://i.imgur.com/OiKWKFz.png"></p>
 </li>
-<li>
-<p>跳轉頁面中，會把這個專案的資料「複製一份」到  <code>雷姆</code>  的 GitHub 帳號中：<br>
-<img data-src="https://i.imgur.com/UgX2Ae5.png" alt=""></p>
-</li>
-<li>
-<p>上面點選  <code>Create Fork</code>  之後，這個專案就會被建立在  <code>雷姆</code>  的專案中了：<br>
-<img data-src="https://i.imgur.com/Sst4rWp.png" alt=""></p>
+<li><p>點綠色的 <code>Update branch</code> 按鈕就完成囉！<br><img data-src="https://i.imgur.com/pqPQ0p5.png"></p>
 </li>
 </ol>
-<h2 id="fork-回來後原本的專案有更新"><a class="markdownIt-Anchor" href="#fork-回來後原本的專案有更新">#</a> Fork 回來後，原本的專案有更新…</h2>
-<p>假設  <code>雷姆</code>  Fork 他人的專案回自己的 GitHub 之後，原本的專案團隊更新了主要分支內容， <code>雷姆</code>  可以在「Fork 回來的 Repository」 看到像是下圖紅框提示，告訴  <code>雷姆</code>  對方的 Repository 有新的 commit。<br>
-<img data-src="https://i.imgur.com/FpIW8Pe.png" alt=""></p>
-<p><code>雷姆</code>  要把資料同步回來的話，須執行下列兩個步驟：</p>
+<h2 id="發-PR-到原本的專案"><a href="#發-PR-到原本的專案" class="headerlink" title="發 PR 到原本的專案"></a>發 PR 到原本的專案</h2><p>假設 <code>雷姆</code> 開發完畢，已經將她的分支 <code>Rem</code> 推送到「自己」的 GitHub 儲存庫中。</p>
 <ol>
-<li>
-<p>到 Fork 回來的 Repository，找到  <code>Sync Fork</code>  的選單<br>
-<img data-src="https://i.imgur.com/OiKWKFz.png" alt=""></p>
+<li><p>要發 PR 回原本的專案， <code>雷姆</code> 可以選擇箭頭兩個按鈕來操作，這次我們直接選擇綠色的 <code>Compare &amp; pull request</code> 按鈕：<br><img data-src="https://i.imgur.com/QknVEw0.png"></p>
 </li>
-<li>
-<p>點綠色的  <code>Update branch</code>  按鈕就完成囉！<br>
-<img data-src="https://i.imgur.com/pqPQ0p5.png" alt=""></p>
-</li>
-</ol>
-<h2 id="發-pr-到原本的專案"><a class="markdownIt-Anchor" href="#發-pr-到原本的專案">#</a> 發 PR 到原本的專案</h2>
-<p>假設  <code>雷姆</code>  開發完畢，已經將她的分支  <code>Rem</code>  推送到「自己」的 GitHub 儲存庫中。</p>
-<ol>
-<li>
-<p>要發 PR 回原本的專案，  <code>雷姆</code>  可以選擇箭頭兩個按鈕來操作，這次我們直接選擇綠色的  <code>Compare &amp; pull request</code>  按鈕：<br>
-<img data-src="https://i.imgur.com/QknVEw0.png" alt=""></p>
-</li>
-<li>
-<p>這一步的選項比上面複雜一些：<br>
-「右邊」的選項要選擇「自己的 Repositroy」的「自己的分支」<br>
-「左邊」的選項要選擇「原本專案的 Repository」的「原本專案的分支」。<br>
-概念一樣是「右邊分支」要 <strong>併入</strong> 「左邊分支」。<br>
-選擇好之後，點選  <code>Create pull request</code>  按鈕。<br>
-<img data-src="https://i.imgur.com/q2frH9q.png" alt=""></p>
-</li>
-</ol>
+<li><p>這一步的選項比上面複雜一些：<br>「右邊」的選項要選擇「自己的 Repositroy」的「自己的分支」<br>「左邊」的選項要選擇「原本專案的 Repository」的「原本專案的分支」。<br>概念一樣是「右邊分支」要 <strong>併入</strong> 「左邊分支」。<br>選擇好之後，點選 <code>Create pull request</code> 按鈕。<br><img data-src="https://i.imgur.com/q2frH9q.png"></p>
 <blockquote>
 <p>有一個小地方可以注意一下：<strong>左邊選項</strong> 選擇誰的 Repository，上方就會出現誰的 Repository 資訊。</p>
 </blockquote>
-<ol start="3">
-<li>看到下圖的畫面，代表 PR 完成！<br>
-<img data-src="https://i.imgur.com/Kfo4Yxj.png" alt=""></li>
+</li>
+<li><p>看到下圖的畫面，代表 PR 完成！<br><img data-src="https://i.imgur.com/Kfo4Yxj.png"></p>
+</li>
 </ol>
-<h1 id="發了-pr-之後發現有東西沒寫好"><a class="markdownIt-Anchor" href="#發了-pr-之後發現有東西沒寫好">#</a> 發了 PR 之後… 發現有東西沒寫好…</h1>
-<p>不管是自己的專案，還是 Fork 他人的專案，發完 PR 之後可能還是會看到需要修改的地方。</p>
+<h1 id="發了-PR-之後…發現有東西沒寫好…"><a href="#發了-PR-之後…發現有東西沒寫好…" class="headerlink" title="發了 PR 之後…發現有東西沒寫好…"></a>發了 PR 之後…發現有東西沒寫好…</h1><p>不管是自己的專案，還是 Fork 他人的專案，發完 PR 之後可能還是會看到需要修改的地方。  </p>
 <p>如果這個 PR 已經被專案擁有者給關閉，就只能重新發 PR 了。</p>
 <p>如果這個 PR 還沒關閉，做法就是在地端修改一版之後， push 到遠端儲存庫即可。</p>
-<p>銜接剛剛  <code>雷姆</code>  的例子來說， <code>雷姆</code>  發完 PR 之後，發現好像還有東西需要調整，她只要在原本的專案中處理完之後，執行下列指令即可</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span></pre></td></tr><tr><td data-num="2"></td><td><pre>$ <span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"fix: 處理畫面跑版"</span></pre></td></tr><tr><td data-num="3"></td><td><pre>$ <span class="token function">git</span> push</pre></td></tr></table></figure><p>完成之後，分支更新的內容除了在 「 <code>雷姆</code>  的 Repository」 會更新之外， PR 的 commit 也會自動更新：<br>
-<img data-src="https://i.imgur.com/qOf1hBa.png" alt=""></p>
-<h1 id="pr-審核"><a class="markdownIt-Anchor" href="#pr-審核">#</a> PR 審核</h1>
-<p>這裡假設專案的負責人看到有人發了 PR ，要開始進行「審核」與「合併」。<br>
-此時會因為「<strong>專案分支</strong> 是否有 PR 保護規則」而影響能不能直接「合併」。<br>
-分支最基本的 PR 保護規則，會是需要至少有一個人「PR 審核」通過後，才能執行「PR 合併」。</p>
+<p>銜接剛剛 <code>雷姆</code> 的例子來說，<code>雷姆</code> 發完 PR 之後，發現好像還有東西需要調整，她只要在原本的專案中處理完之後，執行下列指令即可</p>
+<pre><code class="sh">$ git add .
+$ git commit -m &quot;fix: 處理畫面跑版&quot;
+$ git push
+</code></pre>
+<p>完成之後，分支更新的內容除了在 「<code>雷姆</code> 的 Repository」 會更新之外， PR 的 commit 也會自動更新：<br><img data-src="https://i.imgur.com/qOf1hBa.png"></p>
+<h1 id="PR-審核"><a href="#PR-審核" class="headerlink" title="PR 審核"></a>PR 審核</h1><p>這裡假設專案的負責人看到有人發了 PR ，要開始進行「審核」與「合併」。<br>此時會因為「<strong>專案分支</strong> 是否有 PR 保護規則」而影響能不能直接「合併」。<br>分支最基本的 PR 保護規則，會是需要至少有一個人「PR 審核」通過後，才能執行「PR 合併」。</p>
 <p>除此之外，還有許多不同的分支規則可以設定，由於設定分支規則不是本篇文章的主軸，對此有興趣的讀者請參考 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vcmVwb3NpdG9yaWVzL2NvbmZpZ3VyaW5nLWJyYW5jaGVzLWFuZC1tZXJnZXMtaW4teW91ci1yZXBvc2l0b3J5L21hbmFnaW5nLXByb3RlY3RlZC1icmFuY2hlcy9tYW5hZ2luZy1hLWJyYW5jaC1wcm90ZWN0aW9uLXJ1bGUjY3JlYXRpbmctYS1icmFuY2gtcHJvdGVjdGlvbi1ydWxl">GitHub 分支保護規則文件</span>。</p>
-<h2 id="專案分支沒有-pr-保護規則"><a class="markdownIt-Anchor" href="#專案分支沒有-pr-保護規則">#</a> 專案分支「沒有」 PR 保護規則</h2>
-<p>如果 PR 的分支沒有建立審核規則，專案負責人可以直接依照下列步驟操作合併動作：</p>
+<h2 id="專案分支「沒有」-PR-保護規則"><a href="#專案分支「沒有」-PR-保護規則" class="headerlink" title="專案分支「沒有」 PR 保護規則"></a>專案分支「沒有」 PR 保護規則</h2><p>如果 PR 的分支沒有建立審核規則，專案負責人可以直接依照下列步驟操作合併動作：</p>
 <ol>
-<li>
-<p>點選  <code>Merge pull request</code> ：<br>
-<img data-src="https://i.imgur.com/uZwxFBk.png" alt=""></p>
+<li><p>點選 <code>Merge pull request</code>：<br><img data-src="https://i.imgur.com/uZwxFBk.png"></p>
 </li>
-<li>
-<p>按鈕點選完之後，會出現輸入框輸入 PR 標題與 PR 描述，GitHub 預設會帶入一些標題與描述，這個訊息將會留存於 Git 儲存庫中，就像  <code>git commit -m</code>  指令撰寫的「訊息標題」與「訊息描述」一樣：<br>
-<img data-src="https://i.imgur.com/QTei29N.png" alt=""></p>
+<li><p>按鈕點選完之後，會出現輸入框輸入 PR 標題與 PR 描述，GitHub 預設會帶入一些標題與描述，這個訊息將會留存於 Git 儲存庫中，就像 <code>git commit -m</code> 指令撰寫的「訊息標題」與「訊息描述」一樣：<br><img data-src="https://i.imgur.com/QTei29N.png"></p>
 </li>
-<li>
-<p>完成之後，系統會跳出 PR 成功的訊息，並且會出現一顆按鈕讓我們刪除已合併的分支：<br>
-<img data-src="https://i.imgur.com/B3mMr8Q.png" alt=""></p>
+<li><p>完成之後，系統會跳出 PR 成功的訊息，並且會出現一顆按鈕讓我們刪除已合併的分支：<br><img data-src="https://i.imgur.com/B3mMr8Q.png"></p>
 </li>
 </ol>
-<h2 id="專案分支有-pr-保護規則"><a class="markdownIt-Anchor" href="#專案分支有-pr-保護規則">#</a> 專案分支「有」 PR 保護規則</h2>
-<p>如果分支有建立規則，專案負責人需要先「審核」PR 之後，才能「合併」提取要求：<br>
-<img data-src="https://i.imgur.com/7nWHW8V.png" alt=""></p>
+<h2 id="專案分支「有」-PR-保護規則"><a href="#專案分支「有」-PR-保護規則" class="headerlink" title="專案分支「有」 PR 保護規則"></a>專案分支「有」 PR 保護規則</h2><p>如果分支有建立規則，專案負責人需要先「審核」PR 之後，才能「合併」提取要求：<br><img data-src="https://i.imgur.com/7nWHW8V.png"></p>
 <p>操作步驟如下：</p>
 <ol>
 <li>專案負責人有兩種方式可以進行 Review：</li>
 </ol>
 <ul>
 <li>針對特定 commit 進行 Review</li>
-<li>點擊  <code>Add your review</code>  對「開發結果」的進行 Review</li>
+<li>點擊 <code>Add your review</code> 對「開發結果」的進行 Review</li>
 </ul>
-<p>這裡使用第二種做法，點選  <code>Add your review</code>  進行審核行為<br>
-<img data-src="https://i.imgur.com/qUitlss.png" alt=""></p>
+<p>這裡使用第二種做法，點選 <code>Add your review</code> 進行審核行為<br><img data-src="https://i.imgur.com/qUitlss.png"></p>
 <ol start="2">
-<li>
-<p>進入原始碼 Review 介面後，若有需要針對特定行數評論，可以在視窗中點選加號 ( <code>+</code> ) 拖曳想評論的原始碼，這個行為不限定於「審核人員」，「開發人員」也可以用這種方式留言。<br>
-<img data-src="https://i.imgur.com/pwBUDn9.gif" alt=""></p>
+<li><p>進入原始碼 Review 介面後，若有需要針對特定行數評論，可以在視窗中點選加號(<code>+</code>)拖曳想評論的原始碼，這個行為不限定於「審核人員」，「開發人員」也可以用這種方式留言。<br><img data-src="https://i.imgur.com/pwBUDn9.gif"></p>
 </li>
-<li>
-<p>評論完成之後，點選右上角的  <code>Finish your review</code>  ，會彈出一個視窗：<br>
-<img data-src="https://i.imgur.com/ZXBsj37.png" alt=""><br>
-視窗主要分兩個區塊：</p>
+<li><p>評論完成之後，點選右上角的 <code>Finish your review</code> ，會彈出一個視窗：<br><img data-src="https://i.imgur.com/ZXBsj37.png"><br>視窗主要分兩個區塊：</p>
 </li>
 </ol>
 <ul>
 <li>輸入框：可以為整個內容做一個總結的訊息</li>
-<li>選擇這次 review 的動作：
-<ul>
-<li><code>Commemt</code> ：只留下評論，但不做任何事情</li>
-<li><code>Approve</code> ：留下評論，並且審核通過 (Approve) 這個 PR</li>
-<li><code>Request changes</code> ：留下評論，而且要求開發者「調整」 PR 內容 (表示審核未通過)</li>
+<li>選擇這次 review 的動作：<ul>
+<li><code>Commemt</code>：只留下評論，但不做任何事情</li>
+<li><code>Approve</code>：留下評論，並且審核通過(Approve) 這個 PR</li>
+<li><code>Request changes</code>：留下評論，而且要求開發者「調整」 PR 內容 (表示審核未通過)</li>
 </ul>
 </li>
 </ul>
 <p>如果要讓 PR 能繼續執行，要選擇 <strong>Approve</strong> 選項後，點選 <strong>Submit review</strong>。</p>
 <ol start="4">
-<li>
-<p>跳到主頁面之後，剛剛留下的訊息會在頁面中出現：<br>
-<img data-src="https://i.imgur.com/preYZ0i.png" alt=""></p>
+<li><p>跳到主頁面之後，剛剛留下的訊息會在頁面中出現：<br><img data-src="https://i.imgur.com/preYZ0i.png"></p>
 </li>
-<li>
-<p>同時，剛剛一堆紅字的區塊，也會出現已有人審核的樣貌：<br>
-<img data-src="https://i.imgur.com/fNyxzDY.png" alt=""></p>
+<li><p>同時，剛剛一堆紅字的區塊，也會出現已有人審核的樣貌：<br><img data-src="https://i.imgur.com/fNyxzDY.png"></p>
 </li>
-<li>
-<p>注意！這個時候 PR 還不算完成，只是處於「可以合併」的狀態而已。<br>
-要再點選綠色的  <code>Merge Pull request</code>  按鈕，才算是完成 PR。<br>
-<img data-src="https://i.imgur.com/mTa8WHN.png" alt=""></p>
+<li><p>注意！這個時候 PR 還不算完成，只是處於「可以合併」的狀態而已。<br>要再點選綠色的 <code>Merge Pull request</code> 按鈕，才算是完成 PR。<br><img data-src="https://i.imgur.com/mTa8WHN.png"></p>
 </li>
-<li>
-<p>點擊之後，一樣會有輸入框讓我們確認訊息，完成之後點選  <code>Confirm merge</code>  (註 1) 就完成 PR 囉：<br>
-<img data-src="https://i.imgur.com/54BUktx.png" alt=""></p>
+<li><p>點擊之後，一樣會有輸入框讓我們確認訊息，完成之後點選 <code>Confirm merge</code>(註1) 就完成 PR 囉：<br><img data-src="https://i.imgur.com/54BUktx.png"></p>
 </li>
-<li>
-<p>完成 PR 之後，可以透過框框的按鈕刪除  <code>Emilia</code>  分支：<br>
-<img data-src="https://i.imgur.com/z57LNns.png" alt=""></p>
+<li><p>完成 PR 之後，可以透過框框的按鈕刪除 <code>Emilia</code> 分支：<br><img data-src="https://i.imgur.com/z57LNns.png"></p>
 </li>
 </ol>
 <blockquote>
-<p>註 1.  從這個綠色按鈕的字樣  <code>Confirm merge</code> ，我們也可以再次得知， PR 的行為其實就是 <strong>「要求『主要分支』將『開發分支』的內容合併回去」</strong> 的功能，所以在 PR 完成之後，回到地端將  <code>dev</code>  分支  <code>git pull</code>  回來，可以從線圖中看到跟「在  <code>dev</code>  分支執行  <code>git merge Emilia</code>  指令」一樣的線圖：</p>
+<p>註1.  從這個綠色按鈕的字樣 <code>Confirm merge</code>，我們也可以再次得知， PR 的行為其實就是 <strong>「要求『主要分支』將『開發分支』的內容合併回去」</strong> 的功能，所以在 PR 完成之後，回到地端將 <code>dev</code> 分支 <code>git pull</code> 回來，可以從線圖中看到跟「在 <code>dev</code> 分支執行 <code>git merge Emilia</code> 指令」一樣的線圖：  </p>
 </blockquote>
-<p><img data-src="https://i.imgur.com/fRKMft5.png" alt=""></p>
-<h1 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h1>
-<h2 id="1-都有專案權限了為什麼還要用-pr-來合併分支"><a class="markdownIt-Anchor" href="#1-都有專案權限了為什麼還要用-pr-來合併分支">#</a> 1. 都有專案權限了為什麼還要用 PR 來合併分支？</h2>
-<p>想像一下，如果一個專案有很多個參與人員，要是讓所有人都能將專案的主要分支  <code>master</code>  或是  <code>dev</code>  push 到遠端，只要有一個人操作失誤，就會造成分支內容「髒掉」。</p>
+<p><img data-src="https://i.imgur.com/fRKMft5.png"></p>
+<h1 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h1><h2 id="1-都有專案權限了為什麼還要用-PR-來合併分支？"><a href="#1-都有專案權限了為什麼還要用-PR-來合併分支？" class="headerlink" title="1. 都有專案權限了為什麼還要用 PR 來合併分支？"></a>1. 都有專案權限了為什麼還要用 PR 來合併分支？</h2><p>想像一下，如果一個專案有很多個參與人員，要是讓所有人都能將專案的主要分支 <code>master</code> 或是 <code>dev</code> push 到遠端，只要有一個人操作失誤，就會造成分支內容「髒掉」。  </p>
 <p>這時候就很適合要求團隊成員都使用 PR 的方式要求將自己的開發分支合併進去主要分支，而專案的負責人進行 Code Review 之後，再把每個人的開發分支合併回去主要分支。</p>
 <p>多了這一層的控管，也比較能保障主要分支的資料正確性，讓分支內容不會因為人多手雜的原因而被搞亂！</p>
-<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
-<p>Pull Request 是一個很常見的控管分支資料的方法，雖然可能不是每個團隊都會要求使用 PR 合併分支，不過他確實是個能解決分散式管理系統無法控管權限的方法。</p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>Pull Request 是一個很常見的控管分支資料的方法，雖然可能不是每個團隊都會要求使用 PR 合併分支，不過他確實是個能解決分散式管理系統無法控管權限的方法。</p>
 <p>由於 GitHub  Pull Requests 細節之多，本篇文章無法涵蓋所有 PR 的內容，如果有興趣的讀者請參考 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vcHVsbC1yZXF1ZXN0cw==">GitHub Pull Requests 文件</span>，並且以文件內容為主。</p>
 
       <div class="tags">
@@ -464,7 +380,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;eWxuYmg.jpg" title="使用 GitHub：將遠端儲存庫搬家">
+  <a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mubtL63.png" title="使用 GitHub：將遠端儲存庫搬家">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>使用 GitHub：將遠端儲存庫搬家</h3>
@@ -474,7 +390,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;eWxuYmg.jpg" title="設定指令縮寫與常用指令一覽">
+  <a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mp3vta6.jpg" title="設定指令縮寫與常用指令一覽">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>設定指令縮寫與常用指令一覽</h3>
@@ -495,7 +411,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E6%8F%90%E5%8F%96%E8%A6%81%E6%B1%82"><span class="toc-number">2.</span> <span class="toc-text"> 什麼是「提取要求」？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%88%E6%A1%88%E4%B8%AD%E4%BD%BF%E7%94%A8-pr"><span class="toc-number">3.</span> <span class="toc-text"> 在自己的專案中使用 PR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%90%E7%82%BA%E4%BB%96%E4%BA%BA%E5%B0%88%E6%A1%88%E7%9A%84%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BC%E8%80%85"><span class="toc-number">4.</span> <span class="toc-text"> 成為他人專案的共同開發者</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fork-%E4%BB%96%E4%BA%BA%E7%9A%84%E5%B0%88%E6%A1%88%E5%9B%9E%E8%87%AA%E5%B7%B1%E7%9A%84-github"><span class="toc-number">4.1.</span> <span class="toc-text"> Fork 他人的專案回自己的 GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fork-%E5%9B%9E%E4%BE%86%E5%BE%8C%E5%8E%9F%E6%9C%AC%E7%9A%84%E5%B0%88%E6%A1%88%E6%9C%89%E6%9B%B4%E6%96%B0"><span class="toc-number">4.2.</span> <span class="toc-text"> Fork 回來後，原本的專案有更新…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BC-pr-%E5%88%B0%E5%8E%9F%E6%9C%AC%E7%9A%84%E5%B0%88%E6%A1%88"><span class="toc-number">4.3.</span> <span class="toc-text"> 發 PR 到原本的專案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BC%E4%BA%86-pr-%E4%B9%8B%E5%BE%8C%E7%99%BC%E7%8F%BE%E6%9C%89%E6%9D%B1%E8%A5%BF%E6%B2%92%E5%AF%AB%E5%A5%BD"><span class="toc-number">5.</span> <span class="toc-text"> 發了 PR 之後… 發現有東西沒寫好…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pr-%E5%AF%A9%E6%A0%B8"><span class="toc-number">6.</span> <span class="toc-text"> PR 審核</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E5%88%86%E6%94%AF%E6%B2%92%E6%9C%89-pr-%E4%BF%9D%E8%AD%B7%E8%A6%8F%E5%89%87"><span class="toc-number">6.1.</span> <span class="toc-text"> 專案分支「沒有」 PR 保護規則</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E5%88%86%E6%94%AF%E6%9C%89-pr-%E4%BF%9D%E8%AD%B7%E8%A6%8F%E5%89%87"><span class="toc-number">6.2.</span> <span class="toc-text"> 專案分支「有」 PR 保護規則</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">7.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%83%BD%E6%9C%89%E5%B0%88%E6%A1%88%E6%AC%8A%E9%99%90%E4%BA%86%E7%82%BA%E4%BB%80%E9%BA%BC%E9%82%84%E8%A6%81%E7%94%A8-pr-%E4%BE%86%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF"><span class="toc-number">7.1.</span> <span class="toc-text"> 1. 都有專案權限了為什麼還要用 PR 來合併分支？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">8.</span> <span class="toc-text"> 總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E3%80%8C%E6%8F%90%E5%8F%96%E8%A6%81%E6%B1%82%E3%80%8D%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什麼是「提取要求」？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%88%E6%A1%88%E4%B8%AD%E4%BD%BF%E7%94%A8-PR"><span class="toc-number">3.</span> <span class="toc-text">在自己的專案中使用 PR</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%90%E7%82%BA%E4%BB%96%E4%BA%BA%E5%B0%88%E6%A1%88%E7%9A%84%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BC%E8%80%85"><span class="toc-number">4.</span> <span class="toc-text">成為他人專案的共同開發者</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork-%E4%BB%96%E4%BA%BA%E7%9A%84%E5%B0%88%E6%A1%88%E5%9B%9E%E8%87%AA%E5%B7%B1%E7%9A%84-GitHub"><span class="toc-number">4.1.</span> <span class="toc-text">Fork 他人的專案回自己的 GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork-%E5%9B%9E%E4%BE%86%E5%BE%8C%EF%BC%8C%E5%8E%9F%E6%9C%AC%E7%9A%84%E5%B0%88%E6%A1%88%E6%9C%89%E6%9B%B4%E6%96%B0%E2%80%A6"><span class="toc-number">4.2.</span> <span class="toc-text">Fork 回來後，原本的專案有更新…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BC-PR-%E5%88%B0%E5%8E%9F%E6%9C%AC%E7%9A%84%E5%B0%88%E6%A1%88"><span class="toc-number">4.3.</span> <span class="toc-text">發 PR 到原本的專案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BC%E4%BA%86-PR-%E4%B9%8B%E5%BE%8C%E2%80%A6%E7%99%BC%E7%8F%BE%E6%9C%89%E6%9D%B1%E8%A5%BF%E6%B2%92%E5%AF%AB%E5%A5%BD%E2%80%A6"><span class="toc-number">5.</span> <span class="toc-text">發了 PR 之後…發現有東西沒寫好…</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PR-%E5%AF%A9%E6%A0%B8"><span class="toc-number">6.</span> <span class="toc-text">PR 審核</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E5%88%86%E6%94%AF%E3%80%8C%E6%B2%92%E6%9C%89%E3%80%8D-PR-%E4%BF%9D%E8%AD%B7%E8%A6%8F%E5%89%87"><span class="toc-number">6.1.</span> <span class="toc-text">專案分支「沒有」 PR 保護規則</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%88%E6%A1%88%E5%88%86%E6%94%AF%E3%80%8C%E6%9C%89%E3%80%8D-PR-%E4%BF%9D%E8%AD%B7%E8%A6%8F%E5%89%87"><span class="toc-number">6.2.</span> <span class="toc-text">專案分支「有」 PR 保護規則</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">7.</span> <span class="toc-text">常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%83%BD%E6%9C%89%E5%B0%88%E6%A1%88%E6%AC%8A%E9%99%90%E4%BA%86%E7%82%BA%E4%BB%80%E9%BA%BC%E9%82%84%E8%A6%81%E7%94%A8-PR-%E4%BE%86%E5%90%88%E4%BD%B5%E5%88%86%E6%94%AF%EF%BC%9F"><span class="toc-number">7.1.</span> <span class="toc-text">1. 都有專案權限了為什麼還要用 PR 來合併分支？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">8.</span> <span class="toc-text">總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -592,7 +508,57 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
     <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
   </li>
 
       
@@ -609,20 +575,10 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
   </li>
 
       
@@ -642,47 +598,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
   </li>
 
   </ul>
@@ -703,13 +619,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

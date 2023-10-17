@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>2.4k</span>
+    <span>2.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/yYb3MY4.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
         </ul>
       </div>
     </header>
@@ -165,23 +165,40 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <div class="note info no-icon">
-<p>在 JavaScript 陣列中，有兩個東西是我常常知道他們的存在，知道他們的用途，但每次都必須查 MDN 才能確認到底怎麼用<br>
-一個是  <code>slice</code>  ， 另一個是  <code>splice</code></p>
-<p>這篇來紀錄一下這兩個陣列方法，看能不能加深一下自己的印象，未來用到的時候不用再去查 MDN</p>
-</div>
-<h2 id="arrayprototypeslice"><a class="markdownIt-Anchor" href="#arrayprototypeslice">#</a> Array.prototype.slice()</h2>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvc2xpY2U=">定義</span>： <code>slice()</code>  方法會回傳一個新陣列物件，為原陣列選擇之 begin 至 end（不含 end）部分的淺拷貝（shallow copy）。而原本的陣列將不會被修改。</p>
-<p>slice 中文是「切片」，既然是用在陣列的方法，代表是把陣列的某些部分切出來，像是切長條蛋糕那樣<br>
-方法可以傳兩個參數給他，告訴他要傳哪個部分，參數分別是「開始的索引值」、「結束的索引值」<br>
-而回傳的部分，將會是：<strong>開始索引值的資料</strong> 到 <strong>結束索引值前一個資料</strong></p>
+    <p>:::info no-icon<br>在 JavaScript 陣列中，有兩個東西是我常常知道他們的存在，知道他們的用途，但每次都必須查 MDN 才能確認到底怎麼用<br>一個是 <code>slice</code> ， 另一個是 <code>splice</code></p>
+<p>這篇來紀錄一下這兩個陣列方法，看能不能加深一下自己的印象，未來用到的時候不用再去查 MDN<br>:::</p>
+<h2 id="Array-prototype-slice"><a href="#Array-prototype-slice" class="headerlink" title="Array.prototype.slice()"></a>Array.prototype.slice()</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvc2xpY2U=">定義</span>：<code>slice()</code> 方法會回傳一個新陣列物件，為原陣列選擇之 begin 至 end（不含 end）部分的淺拷貝（shallow copy）。而原本的陣列將不會被修改。</p>
+<p>slice 中文是「切片」，既然是用在陣列的方法，代表是把陣列的某些部分切出來，像是切長條蛋糕那樣<br>方法可以傳兩個參數給他，告訴他要傳哪個部分，參數分別是「開始的索引值」、「結束的索引值」<br>而回傳的部分，將會是：<strong>開始索引值的資料</strong> 到 <strong>結束索引值前一個資料</strong></p>
 <p>實際語法是這樣：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">[</span>begin<span class="token punctuation">[</span><span class="token punctuation">,</span> end<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>例如下面的例子：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> animals <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"ant"</span><span class="token punctuation">,</span> <span class="token string">"bison"</span><span class="token punctuation">,</span> <span class="token string">"camel"</span><span class="token punctuation">,</span> <span class="token string">"duck"</span><span class="token punctuation">,</span> <span class="token string">"elephant"</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>animals<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 回傳第三個元素之後的元素</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment">// Expected output: Array ["camel", "duck", "elephant"]</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>animals<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 回傳第三個元素</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment">// Expected output: Array ["camel"]</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>animals<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 回傳第三個元素與第四個元素</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">// Expected output: Array ["camel", "duck"]</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>animals<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 回傳倒數第二個元素到最後一個元素</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment">// Expected output: Array ["duck", "elephant"]</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>animals<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 回傳第三個元素到倒數第二個元素</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token comment">// Expected output: Array ["camel", "duck"]</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>animals<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 淺拷貝所有元素並且回傳</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment">// Expected output: Array ["ant", "bison", "camel", "duck", "elephant"]</span></pre></td></tr></table></figure><h2 id="arrayprototypesplice"><a class="markdownIt-Anchor" href="#arrayprototypesplice">#</a> Array.prototype.splice()</h2>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvc3BsaWNl">定義</span>： <code>splice()</code>  方法可以藉由刪除既有元素並／或加入新元素來改變一個陣列的內容。</p>
+<pre><code class="js">arr.slice([begin[, end]])
+</code></pre>
+<p>例如下面的例子：</p>
+<pre><code class="js">const animals = [&quot;ant&quot;, &quot;bison&quot;, &quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;];
+
+console.log(animals.slice(2)); // 回傳第三個元素之後的元素
+// Expected output: Array [&quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]
+
+console.log(animals.slice(2,3)); // 回傳第三個元素
+// Expected output: Array [&quot;camel&quot;]
+
+console.log(animals.slice(2, 4)); // 回傳第三個元素與第四個元素
+// Expected output: Array [&quot;camel&quot;, &quot;duck&quot;]
+
+console.log(animals.slice(-2)); // 回傳倒數第二個元素到最後一個元素
+// Expected output: Array [&quot;duck&quot;, &quot;elephant&quot;]
+
+console.log(animals.slice(2, -1)); // 回傳第三個元素到倒數第二個元素
+// Expected output: Array [&quot;camel&quot;, &quot;duck&quot;]
+
+console.log(animals.slice()); // 淺拷貝所有元素並且回傳
+// Expected output: Array [&quot;ant&quot;, &quot;bison&quot;, &quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]
+</code></pre>
+<h2 id="Array-prototype-splice"><a href="#Array-prototype-splice" class="headerlink" title="Array.prototype.splice()"></a>Array.prototype.splice()</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtVFcvZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvQXJyYXkvc3BsaWNl">定義</span>：<code>splice()</code> 方法可以藉由刪除既有元素並／或加入新元素來改變一個陣列的內容。</p>
 <p>splice 的中文翻譯為 「拼接」，代表著可以任意去操作陣列內各個部分的資料，包含刪除、提取、新增</p>
 <p>語法是這樣：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>array<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>start<span class="token punctuation">[</span><span class="token punctuation">,</span> deleteCount<span class="token punctuation">[</span><span class="token punctuation">,</span> item1<span class="token punctuation">[</span><span class="token punctuation">,</span> item2<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>幾個參數意思分別是：</p>
+<pre><code class="js">array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+</code></pre>
+<p>幾個參數意思分別是：</p>
 <ul>
 <li>start：起始的位置 (陣列索引值)</li>
 <li>deleteCount：從起始位置後，總共要切出幾筆資料，如果設定為 0，則不會切除，如果不設定，則會從起始元素切到最後一個元素。</li>
@@ -191,29 +208,40 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <ol>
 <li>設定 start</li>
 </ol>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> result <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [5, 6, 7, 8, 9, 10]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 1, 2, 3, 4]</span></pre></td></tr></table></figure><p>先定義一組數列資料，從  <code>0</code>  一直到  <code>10</code> ，再來使用  <code>splice</code>  方法在第一個參數只設定  <code>5</code> 。</p>
-<p>結果：<br>
-方法本身會把第五個參數到最後一個參數，回傳出來<br>
-並且原始的陣列，只會剩下沒被選到的資料</p>
+<pre><code class="js">let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = data.splice(5);
+console.log(&quot;result&quot;, result); // [5, 6, 7, 8, 9, 10]
+console.log(&quot;data&quot;, data); // [0, 1, 2, 3, 4]
+</code></pre>
+<p>先定義一組數列資料，從 <code>0</code> 一直到 <code>10</code>，再來使用 <code>splice</code> 方法在第一個參數只設定 <code>5</code>。</p>
+<p>結果：<br>方法本身會把第五個參數到最後一個參數，回傳出來<br>並且原始的陣列，只會剩下沒被選到的資料</p>
 <ol start="2">
 <li>設定 start 跟 deleteCount</li>
 </ol>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> result <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [5, 6, 7]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 1, 2, 3, 4, 8, 9, 10]</span></pre></td></tr></table></figure><p>結果：<br>
-方法會把  <code>index = 5</code>  開始往後抓 3 筆資料回傳出來<br>
-原始的陣列一樣會只剩下沒被選到的資料</p>
+<pre><code class="js">let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = data.splice(5, 3);
+console.log(&quot;result&quot;, result); // [5, 6, 7]
+console.log(&quot;data&quot;, data); // [0, 1, 2, 3, 4, 8, 9, 10]
+</code></pre>
+<p>結果：<br>方法會把 <code>index = 5</code> 開始往後抓 3 筆資料回傳出來<br>原始的陣列一樣會只剩下沒被選到的資料</p>
 <ol start="3">
 <li>設定 start 、deleteCount 與 item 參數</li>
 </ol>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> result <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">"第一個 item"</span><span class="token punctuation">,</span> <span class="token string">"第二個 item"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [5, 6, 7]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 1, 2, 3, 4, ' 第一個 item', ' 第二個 item', 8, 9, 10]</span></pre></td></tr></table></figure><p>結果：<br>
-輸出資料與第二個設定一樣是 <code>index = 5</code>  開始往後抓 3 筆資料<br>
-不過原始的陣列在「被拿掉資料後」，在 splice 方法第一個參數 ( <code>index = 5</code> ) 位置，塞了兩筆資料進去</p>
+<pre><code class="js">let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = data.splice(5, 3, &quot;第一個 item&quot;, &quot;第二個 item&quot;);
+console.log(&quot;result&quot;, result); // [5, 6, 7]
+console.log(&quot;data&quot;, data); // [0, 1, 2, 3, 4, &#39;第一個 item&#39;, &#39;第二個 item&#39;, 8, 9, 10]
+</code></pre>
+<p>結果：<br>輸出資料與第二個設定一樣是<code>index = 5</code> 開始往後抓 3 筆資料<br>不過原始的陣列在「被拿掉資料後」，在 splice 方法第一個參數(<code>index = 5</code>)位置，塞了兩筆資料進去</p>
 <ol start="4">
 <li>取代某個位置的資料的值</li>
 </ol>
-<p>我們可以依據第三種作法所學到的概念，進而做到把某個 index 的資料值取代掉<br>
-例如要把  <code>index = 7</code>  的資料，改變成  <code>&quot;7代目&quot;</code>  的話，可以這樣寫</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>data<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">"7代目"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 1, 2, 3, 4, 5, 6, '7 代目 ', 8, 9, 10]</span></pre></td></tr></table></figure><p>如果不知道方法參數的用意，第一次看到這個函數大概不知道為什麼是這樣設定<br>
- <code>data.splice(7, 1, &quot;7代目&quot;);</code>  意思是，從第  <code>index = 7</code>  開始，先刪掉  <code>1</code>  筆資料 ，並且在  <code>index = 7</code>  的位置塞入  <code>&quot;7代目&quot;</code>  字串</p>
+<p>我們可以依據第三種作法所學到的概念，進而做到把某個 index 的資料值取代掉<br>例如要把 <code>index = 7</code> 的資料，改變成 <code>&quot;7代目&quot;</code> 的話，可以這樣寫</p>
+<pre><code class="js">let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+data.splice(7, 1, &quot;7代目&quot;);
+console.log(&quot;data&quot;, data); // [0, 1, 2, 3, 4, 5, 6, &#39;7代目&#39;, 8, 9, 10]
+</code></pre>
+<p>如果不知道方法參數的用意，第一次看到這個函數大概不知道為什麼是這樣設定<br><code>data.splice(7, 1, &quot;7代目&quot;);</code> 意思是，從第 <code>index = 7</code> 開始，先刪掉 <code>1</code> 筆資料 ，並且在 <code>index = 7</code> 的位置塞入 <code>&quot;7代目&quot;</code> 字串</p>
 <p>以上就是 slice 與 splice 的基本用法，希望做完筆記的我之後不會再忘記 XD</p>
 
       <div class="tags">
@@ -270,7 +298,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/vue-note/vite-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;77JuPV6.png" title="初始化 Vue3 專案的幾種指令">
+  <a href="/vue-note/vite-start/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="初始化 Vue3 專案的幾種指令">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Vue 筆記</span>
   <h3>初始化 Vue3 專案的幾種指令</h3>
@@ -280,7 +308,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/js-note/js-closures/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;77JuPV6.png" title="Closures">
+  <a href="/js-note/js-closures/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;XEoNWeG.jpg" title="Closures">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript 筆記</span>
   <h3>Closures</h3>
@@ -301,7 +329,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#arrayprototypeslice"><span class="toc-number">1.</span> <span class="toc-text"> Array.prototype.slice()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arrayprototypesplice"><span class="toc-number">2.</span> <span class="toc-text"> Array.prototype.splice()</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-prototype-slice"><span class="toc-number">1.</span> <span class="toc-text">Array.prototype.slice()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-prototype-splice"><span class="toc-number">2.</span> <span class="toc-text">Array.prototype.splice()</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -398,47 +426,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
+    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
   </li>
 
       
@@ -468,17 +456,57 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
+    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
   </li>
 
       
@@ -509,13 +537,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

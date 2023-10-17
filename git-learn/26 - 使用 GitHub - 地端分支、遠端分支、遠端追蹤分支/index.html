@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,109 +165,129 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
-<p>先前的內容，我們已經學會如何操作「單一分支」在地端與遠端的資料處理了，不過一個專案不會只有一條分之在運作，推到遠端的分支也不太可能只有一條。</p>
-<p>事實上，即便遠端儲存庫有數十條分支，我們使用  <code>git clone</code>  指令把專案拉回地端使用時，也只會把主要分支的內容拉回來。</p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先前的內容，我們已經學會如何操作「單一分支」在地端與遠端的資料處理了，不過一個專案不會只有一條分之在運作，推到遠端的分支也不太可能只有一條。</p>
+<p>事實上，即便遠端儲存庫有數十條分支，我們使用 <code>git clone</code> 指令把專案拉回地端使用時，也只會把主要分支的內容拉回來。</p>
 <p>那麼如果需要使用其他的分支，該如何將他從遠端拉回地端使用呢？</p>
 <p>除了這個問題之外，或許還會遇到另一個問題：我們在地端又怎麼能知道遠端到底紀錄了幾條分支呢？</p>
 <p>一切的內容將會在這篇文章介紹。</p>
 <p>進入今天的主題</p>
-<div class="note info no-icon">
-<p>地端分支、遠端分支、遠端追蹤分支</p>
-</div>
-<h1 id="前置作業"><a class="markdownIt-Anchor" href="#前置作業">#</a> 前置作業</h1>
-<p>假設我們在「地端儲存庫」有六個分支</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre>  Emilia</pre></td></tr><tr><td data-num="3"></td><td><pre>  Ram</pre></td></tr><tr><td data-num="4"></td><td><pre>  Rem</pre></td></tr><tr><td data-num="5"></td><td><pre>  Subaru</pre></td></tr><tr><td data-num="6"></td><td><pre>  dev</pre></td></tr><tr><td data-num="7"></td><td><pre>* main</pre></td></tr></table></figure><p>依照前一篇<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzNzUzNg==">遠端儲存庫基本操作</span>所學會的內容，先建立好地端與遠端的連線</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> remote <span class="token function">add</span> origin https://github.com/imall/GitLearn.git</pre></td></tr></table></figure><p>接著把所有地端分支推到遠端</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> push <span class="token parameter variable">--all</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Enumerating objects: <span class="token number">45</span>, done.</pre></td></tr><tr><td data-num="3"></td><td><pre>Counting objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">45</span>/45<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="4"></td><td><pre>Delta compression using up to <span class="token number">12</span> threads</pre></td></tr><tr><td data-num="5"></td><td><pre>Compressing objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">44</span>/44<span class="token punctuation">)</span>, done.</pre></td></tr><tr><td data-num="6"></td><td><pre>Writing objects: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">44</span>/44<span class="token punctuation">)</span>, <span class="token number">5.27</span> KiB <span class="token operator">|</span> <span class="token number">899.00</span> KiB/s, done.</pre></td></tr><tr><td data-num="7"></td><td><pre>Total <span class="token number">44</span> <span class="token punctuation">(</span>delta <span class="token number">23</span><span class="token punctuation">)</span>, reused <span class="token number">0</span> <span class="token punctuation">(</span>delta <span class="token number">0</span><span class="token punctuation">)</span>, pack-reused <span class="token number">0</span></pre></td></tr><tr><td data-num="8"></td><td><pre>remote: Resolving deltas: <span class="token number">100</span>% <span class="token punctuation">(</span><span class="token number">23</span>/23<span class="token punctuation">)</span>, completed with <span class="token number">1</span> <span class="token builtin class-name">local</span> object.</pre></td></tr><tr><td data-num="9"></td><td><pre>To https://github.com/imall/GitLearn.git</pre></td></tr><tr><td data-num="10"></td><td><pre> * <span class="token punctuation">[</span>new branch<span class="token punctuation">]</span>      Emilia -<span class="token operator">></span> Emilia</pre></td></tr><tr><td data-num="11"></td><td><pre> * <span class="token punctuation">[</span>new branch<span class="token punctuation">]</span>      Ram -<span class="token operator">></span> Ram</pre></td></tr><tr><td data-num="12"></td><td><pre> * <span class="token punctuation">[</span>new branch<span class="token punctuation">]</span>      Rem -<span class="token operator">></span> Rem</pre></td></tr><tr><td data-num="13"></td><td><pre> * <span class="token punctuation">[</span>new branch<span class="token punctuation">]</span>      Subaru -<span class="token operator">></span> Subaru</pre></td></tr><tr><td data-num="14"></td><td><pre> * <span class="token punctuation">[</span>new branch<span class="token punctuation">]</span>      dev -<span class="token operator">></span> dev</pre></td></tr></table></figure><p>在 GitHub 上，我們可以透過這顆按鈕確認所有分支都已經被推到遠端了<br>
-<img data-src="https://i.imgur.com/okdVVx5.png" alt=""></p>
-<p>接著，我們模擬團隊成員需要把專案從遠端拉回地端的情境，使用  <code>git clone</code>  指令把專案拉回地端</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> clone https://github.com/imall/GitLearn.git</pre></td></tr></table></figure><p>進到專案資料夾，查看一下分支，應該只會出現主要分支</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>$ <span class="token function">git</span> branch</pre></td></tr><tr><td data-num="2"></td><td><pre>* main</pre></td></tr></table></figure><p>完成前置作業之後，一起來認識地端分支、遠端分支、遠端追蹤分支的差別吧！</p>
-<h1 id="地端分支-遠端分支-遠端追蹤分支"><a class="markdownIt-Anchor" href="#地端分支-遠端分支-遠端追蹤分支">#</a> 地端分支、遠端分支、遠端追蹤分支</h1>
-<p>要理解這三個分支的第一個觀念，必須先知道「遠端存在的分支」跟「地端存在的分支」，兩者是可以分開看待的。</p>
-<p>地端存在的分支如果不透過  <code>git push</code>  指令推到遠端，遠端就不會有這個分支。<br>
-反過來說，遠端即便有數十個分支，在地端執行  <code>git clone</code>  指令時，並不會一次把所有分支全部都 clone 回地端，只會 clone 專案「主要分支」的內容。</p>
-<h2 id="地端分支"><a class="markdownIt-Anchor" href="#地端分支">#</a> 地端分支</h2>
-<p>在<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzNDA0MA==">分支操作</span>文章中，我們曾經介紹查看分支的指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch</pre></td></tr></table></figure><p>這個指令就是在查看「地端分支」的指令，他「只會」列出地端的所有分支。</p>
-<h2 id="遠端追蹤分支"><a class="markdownIt-Anchor" href="#遠端追蹤分支">#</a> 遠端追蹤分支</h2>
-<p>如果在地端想要查看遠端儲存庫有哪些分支，我們可以使用這個指令查看：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-r</span></pre></td></tr></table></figure><p><code>-r</code>  是  <code>--remotes</code>  的縮寫，根據  <code>git branch -h</code>  說明的定義，這個指令是用來查看「遠端追蹤分支」的指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>-r, <span class="token parameter variable">--remotes</span>         act on remote-tracking branches  </pre></td></tr><tr><td data-num="2"></td><td><pre> <span class="token comment"># 注意他是寫遠端追蹤 (remote-tracking)，並不是寫遠端 (remote)</span></pre></td></tr></table></figure><p>這個指令所列出的分支，在終端機顯示的顏色會是「紅色」，提醒我們這是「遠端追蹤分支」：<br>
-<img data-src="https://i.imgur.com/ekajpPV.png" alt=""></p>
-<p>如果想要一次列出「地端分支」、「遠端追蹤分支」，可以用  <code>-a</code>  。<br>
- <code>-a</code>  是  <code>--all</code>  的縮寫，表示一次列出所有分支：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr></table></figure><p>執行完指令之後，「遠端追蹤分支」一樣會是用醒目的「紅色」來表示 ：<br>
-<img data-src="https://i.imgur.com/6LlfHqm.png" alt=""><br>
-跟剛剛  <code>-r</code>  參數不太一樣的是， <code>-a</code>  參數列出的追蹤分支多了  <code>remotes</code>  的字樣，不過兩者都是「遠端追蹤分支」</p>
+<p>:::info no-icon<br>地端分支、遠端分支、遠端追蹤分支<br>:::</p>
+<h1 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h1><p>假設我們在「地端儲存庫」有六個分支</p>
+<pre><code class="sh">$ git branch
+  Emilia
+  Ram
+  Rem
+  Subaru
+  dev
+* main
+</code></pre>
+<p>依照前一篇<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzNzUzNg==">遠端儲存庫基本操作</span>所學會的內容，先建立好地端與遠端的連線</p>
+<pre><code class="sh">git remote add origin https://github.com/imall/GitLearn.git
+</code></pre>
+<p>接著把所有地端分支推到遠端</p>
+<pre><code class="sh">$ git push --all
+Enumerating objects: 45, done.
+Counting objects: 100% (45/45), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (44/44), done.
+Writing objects: 100% (44/44), 5.27 KiB | 899.00 KiB/s, done.
+Total 44 (delta 23), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (23/23), completed with 1 local object.
+To https://github.com/imall/GitLearn.git
+ * [new branch]      Emilia -&gt; Emilia
+ * [new branch]      Ram -&gt; Ram
+ * [new branch]      Rem -&gt; Rem
+ * [new branch]      Subaru -&gt; Subaru
+ * [new branch]      dev -&gt; dev
+</code></pre>
+<p>在 GitHub 上，我們可以透過這顆按鈕確認所有分支都已經被推到遠端了<br><img data-src="https://i.imgur.com/okdVVx5.png"></p>
+<p>接著，我們模擬團隊成員需要把專案從遠端拉回地端的情境，使用 <code>git clone</code> 指令把專案拉回地端</p>
+<pre><code class="sh">git clone https://github.com/imall/GitLearn.git
+</code></pre>
+<p>進到專案資料夾，查看一下分支，應該只會出現主要分支</p>
+<pre><code class="sh">$ git branch
+* main
+</code></pre>
+<p>完成前置作業之後，一起來認識地端分支、遠端分支、遠端追蹤分支的差別吧！</p>
+<h1 id="地端分支、遠端分支、遠端追蹤分支"><a href="#地端分支、遠端分支、遠端追蹤分支" class="headerlink" title="地端分支、遠端分支、遠端追蹤分支"></a>地端分支、遠端分支、遠端追蹤分支</h1><p>要理解這三個分支的第一個觀念，必須先知道「遠端存在的分支」跟「地端存在的分支」，兩者是可以分開看待的。</p>
+<p>地端存在的分支如果不透過 <code>git push</code> 指令推到遠端，遠端就不會有這個分支。<br>反過來說，遠端即便有數十個分支，在地端執行 <code>git clone</code> 指令時，並不會一次把所有分支全部都 clone 回地端，只會 clone 專案「主要分支」的內容。</p>
+<h2 id="地端分支"><a href="#地端分支" class="headerlink" title="地端分支"></a>地端分支</h2><p>在<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMzNDA0MA==">分支操作</span>文章中，我們曾經介紹查看分支的指令：</p>
+<pre><code class="sh">git branch
+</code></pre>
+<p>這個指令就是在查看「地端分支」的指令，他「只會」列出地端的所有分支。</p>
+<h2 id="遠端追蹤分支"><a href="#遠端追蹤分支" class="headerlink" title="遠端追蹤分支"></a>遠端追蹤分支</h2><p>如果在地端想要查看遠端儲存庫有哪些分支，我們可以使用這個指令查看：</p>
+<pre><code class="sh">git branch -r
+</code></pre>
+<p><code>-r</code> 是 <code>--remotes</code> 的縮寫，根據 <code>git branch -h</code> 說明的定義，這個指令是用來查看「遠端追蹤分支」的指令：</p>
+<pre><code class="sh"> -r, --remotes         act on remote-tracking branches  
+ # 注意他是寫遠端追蹤(remote-tracking)，並不是寫遠端(remote)
+</code></pre>
+<p>這個指令所列出的分支，在終端機顯示的顏色會是「紅色」，提醒我們這是「遠端追蹤分支」：<br><img data-src="https://i.imgur.com/ekajpPV.png"></p>
+<p>如果想要一次列出「地端分支」、「遠端追蹤分支」，可以用 <code>-a</code> 。<br><code>-a</code> 是 <code>--all</code> 的縮寫，表示一次列出所有分支：</p>
+<pre><code class="sh">git branch -a
+</code></pre>
+<p>執行完指令之後，「遠端追蹤分支」一樣會是用醒目的「紅色」來表示 ：<br><img data-src="https://i.imgur.com/6LlfHqm.png"><br>跟剛剛 <code>-r</code> 參數不太一樣的是，<code>-a</code> 參數列出的追蹤分支多了 <code>remotes</code> 的字樣，不過兩者都是「遠端追蹤分支」</p>
 <p>事實上我們沒辦法直接從地端查看「遠端分支」，畢竟遠端分支存在於「遠端儲存庫」，他不該是個「地端」應該出現的資訊，我們只能在地端「追蹤」建立連線的遠端有哪些分支。</p>
 <p>不過一般來說，在地端能查到「遠端追蹤分支」，通常就是遠端有那個分支才會顯示出來，所以從「遠端追蹤分支」的資訊也能對應到遠端有哪些分支。</p>
 <p>唯一的例外是，有團隊成員 <strong>新增</strong> 或是 <strong>刪除</strong> 「遠端分支」，這種狀況下「遠端追蹤分支」並不會自動被更新，就會使得「遠端追蹤分支」的數量不等於「遠端分支」的數量。</p>
-<h2 id="遠端分支"><a class="markdownIt-Anchor" href="#遠端分支">#</a> 遠端分支</h2>
-<p>遠端分支的定義是：存在於遠端的分支。</p>
-<p>我們已經知道「遠端追蹤分支」不一定完全等於「遠端分支」的資訊，要是真的想確定當下有哪些遠端分支，最直接的方式就是去遠端儲存庫的介面查看：<br>
-<img data-src="https://i.imgur.com/okdVVx5.png" alt=""></p>
-<p>不過實務上，我們不太需要在意遠端全部的分支有哪些，實際在遠端儲存庫查看分支時，通常只是要確認當下需要操作的分支是否存在，並且在使用時確認這些分支有確實的被拉回地端即可。</p>
+<h2 id="遠端分支"><a href="#遠端分支" class="headerlink" title="遠端分支"></a>遠端分支</h2><p>遠端分支的定義是：存在於遠端的分支。</p>
+<p>我們已經知道「遠端追蹤分支」不一定完全等於「遠端分支」的資訊，要是真的想確定當下有哪些遠端分支，最直接的方式就是去遠端儲存庫的介面查看：<br><img data-src="https://i.imgur.com/okdVVx5.png"></p>
+<p>不過實務上，我們不太需要在意遠端全部的分支有哪些，實際在遠端儲存庫查看分支時，通常只是要確認當下需要操作的分支是否存在，並且在使用時確認這些分支有確實的被拉回地端即可。  </p>
 <p>理解這三個分支的差異之後，接著來說明如何把「遠端分支」拉回地端使用吧！</p>
-<h1 id="切換遠端分支回地端使用"><a class="markdownIt-Anchor" href="#切換遠端分支回地端使用">#</a> 切換遠端分支回地端使用</h1>
-<p>我們要操作 Git 版控，一定會在地端操作完資料，才會把分支同步回遠端，並不會直接在遠端處理 Git 版控資料。</p>
-<p><code>git clone</code>  指令從遠端拉回來的分支不是我們需要的分支的話，就需要使用  <code>git checkout</code>  指令來將其他遠端分支拉回來。</p>
-<p>實際的情境可能是這樣：<br>
-在 clone 儲存庫回地端之後，透過  <code>git branch -a</code>  指令查詢有哪些遠端追蹤分支可以使用：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> branch <span class="token parameter variable">-a</span></pre></td></tr><tr><td data-num="2"></td><td><pre>* main</pre></td></tr><tr><td data-num="3"></td><td><pre>  remotes/origin/Emilia</pre></td></tr><tr><td data-num="4"></td><td><pre>  remotes/origin/HEAD -<span class="token operator">></span> origin/main</pre></td></tr><tr><td data-num="5"></td><td><pre>  remotes/origin/Ram</pre></td></tr><tr><td data-num="6"></td><td><pre>  remotes/origin/Rem</pre></td></tr><tr><td data-num="7"></td><td><pre>  remotes/origin/Subaru</pre></td></tr><tr><td data-num="8"></td><td><pre>  remotes/origin/dev</pre></td></tr><tr><td data-num="9"></td><td><pre>  remotes/origin/main</pre></td></tr></table></figure><p>從星號 ( <code>*</code> ) 的提示可以知道我們 clone 下來的分支是  <code>main</code>  分支，假設我們需要使用遠端的  <code>dev</code>  分支時，請這樣執行指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout dev</pre></td></tr></table></figure><p>不要懷疑，雖然地端目前 <strong>沒有</strong>  <code>dev</code>  分支，不過只要「遠端追蹤分支」有  <code>dev</code> ，  <code>git checkout dev</code>  指令就可以幫我們把「遠端」的  <code>dev</code>  分支拉回地端來使用！！</p>
-<p>千萬要注意，我們 <strong>「不會」</strong> 直接  <code>checkout</code>  「遠端追蹤分支」：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout remotes/origin/dev <span class="token comment"># 不可以切換到遠端追蹤分支！!!!!!</span></pre></td></tr></table></figure><p>或是</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> checkout origin/dev <span class="token comment"># 不可以切換到遠端追蹤分支！!!!!!</span></pre></td></tr></table></figure><p>因為遠端追蹤分支不是用來「開發」，而是用來「追蹤」的，我們不會也不該用  <code>checkout</code>  指令切換到「遠端追蹤分支」，千萬要切記不能這樣操作！</p>
-<h1 id="遠端分支若有異動並不會自動同步回地端"><a class="markdownIt-Anchor" href="#遠端分支若有異動並不會自動同步回地端">#</a> 遠端分支若有異動，並不會自動同步回地端</h1>
-<p>我們在遠端儲存庫的資料  <code>git clone</code>  回來之後，如果團隊的其他成員又透過  <code>git push</code>  指令把分支推送到遠端，地端是不會「自動更新」遠端追蹤分支的。</p>
-<p>我們來看圖說故事吧！<br>
-<img data-src="https://i.imgur.com/oQRpGaD.png" alt=""><br>
-左邊是  <code>愛蜜莉雅</code>  專案中的開發狀況，地端跟遠端都有她的分支  <code>Emilia</code> 。<br>
-後來  <code>雷姆</code>  新加入團隊幫忙開發，她將儲存庫 clone 回自己的電腦之後，建立了  <code>Rem</code>  分支進行開發，同時也把  <code>Rem</code>  分支推到遠端儲存庫了，如同右邊終端機顯示的那樣。</p>
-<p><strong>如果</strong> 地端會自動更新，那  <code>愛蜜莉雅</code>  此時查詢分支，應該要就會出現  <code>Rem</code>  的「遠端追蹤分支」才對。</p>
-<p>但很不幸的是… 依舊沒有…<br>
-<img data-src="https://i.imgur.com/IQrRnjc.png" alt=""></p>
-<p>這種情況下， <code>愛蜜莉雅</code>  需要執行一這個指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> fetch</pre></td></tr></table></figure><p><code>git fetch</code>  是一個用來把遠端有「新增」的分支更新回地端「遠端追蹤分支」的指令，操作完之後再次查詢遠端追蹤分支，就能看到最新的遠端分支狀況囉！</p>
-<p><img data-src="https://i.imgur.com/mrhWAa9.png" alt=""></p>
-<h1 id="使用-fork-gui-操作遠端分支"><a class="markdownIt-Anchor" href="#使用-fork-gui-操作遠端分支">#</a> 使用 Fork GUI  操作遠端分支</h1>
-<p>建立完觀念後，我們來看看 Fork GUI  如何查看與操作遠端分支</p>
-<h2 id="fork-gui-的遠端追蹤分支"><a class="markdownIt-Anchor" href="#fork-gui-的遠端追蹤分支">#</a> Fork GUI 的遠端追蹤分支</h2>
-<p>當我們執行  <code>git clone</code>  把專案拉回地端之後，用 Fork GUI 把專案打開，所有的遠端追蹤分支會直接列在視窗左邊 <strong>Remotes</strong> 區塊，紅框上面的 <strong>origin</strong> 則是當初  <code>git remote add</code>  定義的名稱：<br>
-<img data-src="https://i.imgur.com/b4Z5NbK.png" alt=""></p>
-<p>除此之外，在 Fork GUI 還有一個小細節，如果遠端分支已經同步回的話，那麼線圖中，「GitHub」的圖標會跟「分支」圖標分開：<br>
-<img data-src="https://i.imgur.com/vCp5f7B.png" alt=""></p>
-<p>要是分支只存在遠端，那麼分支就會顯示  <code>origin/分支名稱</code> ，而且是與 「GitHub 圖示」黏在一起：<br>
-<img data-src="https://i.imgur.com/8ZYpzb0.png" alt=""></p>
-<h2 id="fork-gui-將遠端分支拉回地端使用"><a class="markdownIt-Anchor" href="#fork-gui-將遠端分支拉回地端使用">#</a> Fork GUI 將遠端分支拉回地端使用</h2>
-<p>需要將遠端分支拉回地端的話，直接對「遠端追蹤分支」點兩下即可。</p>
-<p>這裡假設要抓  <code>dev</code>  分支回來用：<br>
-<img data-src="https://i.imgur.com/YtdpU8s.gif" alt=""></p>
-<h2 id="fork-gui-將遠端分支同步回地端"><a class="markdownIt-Anchor" href="#fork-gui-將遠端分支同步回地端">#</a> Fork GUI 將遠端分支同步回地端</h2>
-<p>如果遠端有分支，但是地端卻沒有遠端追蹤分支，像是上面的範例那樣， <code>愛蜜莉雅</code>  的地端專案沒有  <code>Rem</code>  的遠端追蹤分支：<br>
-<img data-src="https://i.imgur.com/uYP5X3M.png" alt=""></p>
+<h1 id="切換遠端分支回地端使用"><a href="#切換遠端分支回地端使用" class="headerlink" title="切換遠端分支回地端使用"></a>切換遠端分支回地端使用</h1><p>我們要操作 Git 版控，一定會在地端操作完資料，才會把分支同步回遠端，並不會直接在遠端處理 Git 版控資料。</p>
+<p><code>git clone</code> 指令從遠端拉回來的分支不是我們需要的分支的話，就需要使用 <code>git checkout</code> 指令來將其他遠端分支拉回來。</p>
+<p>實際的情境可能是這樣：<br>在 clone 儲存庫回地端之後，透過 <code>git branch -a</code> 指令查詢有哪些遠端追蹤分支可以使用：</p>
+<pre><code class="sh">git branch -a
+* main
+  remotes/origin/Emilia
+  remotes/origin/HEAD -&gt; origin/main
+  remotes/origin/Ram
+  remotes/origin/Rem
+  remotes/origin/Subaru
+  remotes/origin/dev
+  remotes/origin/main
+</code></pre>
+<p>從星號 (<code>*</code>) 的提示可以知道我們 clone 下來的分支是 <code>main</code> 分支，假設我們需要使用遠端的 <code>dev</code> 分支時，請這樣執行指令：</p>
+<pre><code class="sh">git checkout dev
+</code></pre>
+<p>不要懷疑，雖然地端目前 <strong>沒有</strong> <code>dev</code> 分支，不過只要「遠端追蹤分支」有 <code>dev</code>， <code>git checkout dev</code> 指令就可以幫我們把「遠端」的 <code>dev</code> 分支拉回地端來使用！！</p>
+<p>千萬要注意，我們 <strong>「不會」</strong> 直接 <code>checkout</code> 「遠端追蹤分支」：</p>
+<pre><code class="sh">git checkout remotes/origin/dev # 不可以切換到遠端追蹤分支！!!!!!
+</code></pre>
+<p>或是</p>
+<pre><code class="sh">git checkout origin/dev # 不可以切換到遠端追蹤分支！!!!!!
+</code></pre>
+<p>因為遠端追蹤分支不是用來「開發」，而是用來「追蹤」的，我們不會也不該用 <code>checkout</code> 指令切換到「遠端追蹤分支」，千萬要切記不能這樣操作！</p>
+<h1 id="遠端分支若有異動，並不會自動同步回地端"><a href="#遠端分支若有異動，並不會自動同步回地端" class="headerlink" title="遠端分支若有異動，並不會自動同步回地端"></a>遠端分支若有異動，並不會自動同步回地端</h1><p>我們在遠端儲存庫的資料 <code>git clone</code> 回來之後，如果團隊的其他成員又透過 <code>git push</code> 指令把分支推送到遠端，地端是不會「自動更新」遠端追蹤分支的。</p>
+<p>我們來看圖說故事吧！<br><img data-src="https://i.imgur.com/oQRpGaD.png"><br>左邊是 <code>愛蜜莉雅</code> 專案中的開發狀況，地端跟遠端都有她的分支 <code>Emilia</code>。<br>後來 <code>雷姆</code> 新加入團隊幫忙開發，她將儲存庫 clone 回自己的電腦之後，建立了 <code>Rem</code> 分支進行開發，同時也把 <code>Rem</code> 分支推到遠端儲存庫了，如同右邊終端機顯示的那樣。</p>
+<p><strong>如果</strong> 地端會自動更新，那 <code>愛蜜莉雅</code> 此時查詢分支，應該要就會出現 <code>Rem</code> 的「遠端追蹤分支」才對。</p>
+<p>但很不幸的是…依舊沒有….<br><img data-src="https://i.imgur.com/IQrRnjc.png"></p>
+<p>這種情況下，<code>愛蜜莉雅</code> 需要執行一這個指令：</p>
+<pre><code class="sh">git fetch
+</code></pre>
+<p><code>git fetch</code> 是一個用來把遠端有「新增」的分支更新回地端「遠端追蹤分支」的指令，操作完之後再次查詢遠端追蹤分支，就能看到最新的遠端分支狀況囉！</p>
+<p><img data-src="https://i.imgur.com/mrhWAa9.png"></p>
+<h1 id="使用-Fork-GUI-操作遠端分支"><a href="#使用-Fork-GUI-操作遠端分支" class="headerlink" title="使用 Fork GUI  操作遠端分支"></a>使用 Fork GUI  操作遠端分支</h1><p>建立完觀念後，我們來看看 Fork GUI  如何查看與操作遠端分支</p>
+<h2 id="Fork-GUI-的遠端追蹤分支"><a href="#Fork-GUI-的遠端追蹤分支" class="headerlink" title="Fork GUI 的遠端追蹤分支"></a>Fork GUI 的遠端追蹤分支</h2><p>當我們執行 <code>git clone</code> 把專案拉回地端之後，用 Fork GUI 把專案打開，所有的遠端追蹤分支會直接列在視窗左邊 <strong>Remotes</strong> 區塊，紅框上面的 <strong>origin</strong> 則是當初 <code>git remote add</code> 定義的名稱：<br><img data-src="https://i.imgur.com/b4Z5NbK.png"></p>
+<p>除此之外，在 Fork GUI 還有一個小細節，如果遠端分支已經同步回的話，那麼線圖中，「GitHub」的圖標會跟「分支」圖標分開：<br><img data-src="https://i.imgur.com/vCp5f7B.png"></p>
+<p>要是分支只存在遠端，那麼分支就會顯示 <code>origin/分支名稱</code>，而且是與 「GitHub 圖示」黏在一起：<br><img data-src="https://i.imgur.com/8ZYpzb0.png"></p>
+<h2 id="Fork-GUI-將遠端分支拉回地端使用"><a href="#Fork-GUI-將遠端分支拉回地端使用" class="headerlink" title="Fork GUI 將遠端分支拉回地端使用"></a>Fork GUI 將遠端分支拉回地端使用</h2><p>需要將遠端分支拉回地端的話，直接對「遠端追蹤分支」點兩下即可。</p>
+<p>這裡假設要抓 <code>dev</code> 分支回來用：<br><img data-src="https://i.imgur.com/YtdpU8s.gif"></p>
+<h2 id="Fork-GUI-將遠端分支同步回地端"><a href="#Fork-GUI-將遠端分支同步回地端" class="headerlink" title="Fork GUI 將遠端分支同步回地端"></a>Fork GUI 將遠端分支同步回地端</h2><p>如果遠端有分支，但是地端卻沒有遠端追蹤分支，像是上面的範例那樣，<code>愛蜜莉雅</code> 的地端專案沒有 <code>Rem</code> 的遠端追蹤分支：<br><img data-src="https://i.imgur.com/uYP5X3M.png"></p>
 <ol>
-<li>
-<p>點選左上角  <code>Fetch</code>  按鈕：<br>
-<img data-src="https://i.imgur.com/eIddWDq.png" alt=""></p>
+<li><p>點選左上角 <code>Fetch</code> 按鈕：<br><img data-src="https://i.imgur.com/eIddWDq.png"></p>
 </li>
-<li>
-<p>跳出的視窗，再點一下  <code>Fetch</code>  按鈕，就完成了<br>
-<img data-src="https://i.imgur.com/epOfLAG.png" alt=""></p>
+<li><p>跳出的視窗，再點一下 <code>Fetch</code> 按鈕，就完成了<br><img data-src="https://i.imgur.com/epOfLAG.png"></p>
 </li>
 </ol>
-<p>操作如下圖：<br>
-<img data-src="https://i.imgur.com/l42Q9uc.gif" alt=""></p>
-<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
-<p>總結一下今天文章提到的觀念</p>
+<p>操作如下圖：<br><img data-src="https://i.imgur.com/l42Q9uc.gif"></p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>總結一下今天文章提到的觀念</p>
 <ol>
 <li>地端分支，表示存在於<strong>地端</strong>儲存庫的分支</li>
 <li>遠端分支，表示存在於<strong>遠端</strong>儲存庫的分支</li>
 <li>遠端追蹤分支，是在地端用來「追蹤」遠端分支的特殊分支，他並不能拿來開發，純粹只是追蹤用途！</li>
-<li>要將不存在於地端的遠端分支拉回來使用，執行  <code>git checkout 分支名稱</code>  指令即可。</li>
-<li>使用  <code>git fetch</code>  可以將遠端分支同步回地端的「遠端追蹤分支」。</li>
+<li>要將不存在於地端的遠端分支拉回來使用，執行 <code>git checkout 分支名稱</code> 指令即可。</li>
+<li>使用 <code>git fetch</code> 可以將遠端分支同步回地端的「遠端追蹤分支」。</li>
 </ol>
 
       <div class="tags">
@@ -323,7 +343,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;IXkGvGY.jpg" title="使用 GitHub：遠端儲存庫基本操作">
+  <a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;rt4bUdl.jpg" title="使用 GitHub：遠端儲存庫基本操作">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>使用 GitHub：遠端儲存庫基本操作</h3>
@@ -333,7 +353,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;tXRAhpc.jpg" title="使用 GitHub：刪除遠端分支">
+  <a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="使用 GitHub：刪除遠端分支">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>使用 GitHub：刪除遠端分支</h3>
@@ -354,7 +374,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E4%BD%9C%E6%A5%AD"><span class="toc-number">2.</span> <span class="toc-text"> 前置作業</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF-%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">3.</span> <span class="toc-text"> 地端分支、遠端分支、遠端追蹤分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">3.1.</span> <span class="toc-text"> 地端分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">3.2.</span> <span class="toc-text"> 遠端追蹤分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">3.3.</span> <span class="toc-text"> 遠端分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E5%9B%9E%E5%9C%B0%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text"> 切換遠端分支回地端使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E8%8B%A5%E6%9C%89%E7%95%B0%E5%8B%95%E4%B8%A6%E4%B8%8D%E6%9C%83%E8%87%AA%E5%8B%95%E5%90%8C%E6%AD%A5%E5%9B%9E%E5%9C%B0%E7%AB%AF"><span class="toc-number">5.</span> <span class="toc-text"> 遠端分支若有異動，並不會自動同步回地端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-fork-gui-%E6%93%8D%E4%BD%9C%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">6.</span> <span class="toc-text"> 使用 Fork GUI  操作遠端分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fork-gui-%E7%9A%84%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">6.1.</span> <span class="toc-text"> Fork GUI 的遠端追蹤分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fork-gui-%E5%B0%87%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E6%8B%89%E5%9B%9E%E5%9C%B0%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text"> Fork GUI 將遠端分支拉回地端使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fork-gui-%E5%B0%87%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E5%90%8C%E6%AD%A5%E5%9B%9E%E5%9C%B0%E7%AB%AF"><span class="toc-number">6.3.</span> <span class="toc-text"> Fork GUI 將遠端分支同步回地端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">7.</span> <span class="toc-text"> 總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E4%BD%9C%E6%A5%AD"><span class="toc-number">2.</span> <span class="toc-text">前置作業</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">3.</span> <span class="toc-text">地端分支、遠端分支、遠端追蹤分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">3.1.</span> <span class="toc-text">地端分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">3.2.</span> <span class="toc-text">遠端追蹤分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">3.3.</span> <span class="toc-text">遠端分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%87%E6%8F%9B%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E5%9B%9E%E5%9C%B0%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">切換遠端分支回地端使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E8%8B%A5%E6%9C%89%E7%95%B0%E5%8B%95%EF%BC%8C%E4%B8%A6%E4%B8%8D%E6%9C%83%E8%87%AA%E5%8B%95%E5%90%8C%E6%AD%A5%E5%9B%9E%E5%9C%B0%E7%AB%AF"><span class="toc-number">5.</span> <span class="toc-text">遠端分支若有異動，並不會自動同步回地端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Fork-GUI-%E6%93%8D%E4%BD%9C%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF"><span class="toc-number">6.</span> <span class="toc-text">使用 Fork GUI  操作遠端分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork-GUI-%E7%9A%84%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF"><span class="toc-number">6.1.</span> <span class="toc-text">Fork GUI 的遠端追蹤分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork-GUI-%E5%B0%87%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E6%8B%89%E5%9B%9E%E5%9C%B0%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">Fork GUI 將遠端分支拉回地端使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork-GUI-%E5%B0%87%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E5%90%8C%E6%AD%A5%E5%9B%9E%E5%9C%B0%E7%AB%AF"><span class="toc-number">6.3.</span> <span class="toc-text">Fork GUI 將遠端分支同步回地端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">7.</span> <span class="toc-text">總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -451,37 +471,17 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
+    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
   </li>
 
       
@@ -501,7 +501,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
+    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
   </li>
 
       
@@ -511,7 +511,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
   </li>
 
       
@@ -521,7 +521,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
   </li>
 
       
@@ -531,7 +531,17 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
   </li>
 
       
@@ -541,7 +551,16 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
   </ul>
@@ -562,13 +581,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,121 +165,84 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
-<p>終於可以進入 Git 的重頭戲，分支篇！</p>
-<p>分支是 Git 極度重要的功能之一，因為有了分支的各種運作，Git 的世界才會變得如此精彩。 <s>同時也會讓我的文章變得很難解釋</s></p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>終於可以進入 Git 的重頭戲，分支篇！</p>
+<p>分支是 Git 極度重要的功能之一，因為有了分支的各種運作，Git 的世界才會變得如此精彩。 <del>同時也會讓我的文章變得很難解釋</del></p>
 <p>在 Git 中要操作分支是一件非常簡單的事情，無論是建立分支、切換分支、分支更名稱，基本上只要簡單一個指令，或是點幾下 GUI，就能完成。</p>
 <p>不過在實際學習操作之前，想先用一篇文章的內容，幫大家先建構好看待 Git 分支應該有的觀念，避免在直接學習操作的過程，不知不覺對分支建立錯誤的印象。</p>
 <p>接著就來聊聊「為什麼要使用分支」，以及「分支到底是什麼」吧！</p>
-<h1 id="為什麼要使用分支一根到底不好嗎"><a class="markdownIt-Anchor" href="#為什麼要使用分支一根到底不好嗎">#</a> 為什麼要使用分支？一根到底不好嗎？</h1>
-<p>有句話是這樣說的：</p>
-<div class="note info no-icon">
-<p>不知道不會怎樣，但知道了會很不一樣。</p>
-</div>
+<h1 id="為什麼要使用分支？一根到底不好嗎？"><a href="#為什麼要使用分支？一根到底不好嗎？" class="headerlink" title="為什麼要使用分支？一根到底不好嗎？"></a>為什麼要使用分支？一根到底不好嗎？</h1><p>有句話是這樣說的：<br>:::info no-icon<br>不知道不會怎樣，但知道了會很不一樣。<br>:::</p>
 <p>分支這東西，在 Git 的世界大概就是這樣的存在。</p>
-<p>有人比喻分支是建立 <strong>平行宇宙</strong>，也有人比喻分支是鳴人的 <strong>影分身之術</strong> (註 1)。</p>
-<p>我自己是比較喜歡 <strong>影分身之術</strong> 的比喻！！ <s>沒人在意</s><br>
-<img data-src="https://i.imgur.com/oraKr4C.png" alt=""></p>
-<p>無論是哪種比喻都是在說明一件事情：建立了新的分支之後，在這條分支所做的版控行為 <strong>不會</strong> 對原本分支的內容造成任何影響！</p>
+<p>有人比喻分支是建立 <strong>平行宇宙</strong>，也有人比喻分支是鳴人的 <strong>影分身之術</strong> (註1)。  </p>
+<p>我自己是比較喜歡 <strong>影分身之術</strong> 的比喻！！ <del>沒人在意</del><br><img data-src="https://i.imgur.com/oraKr4C.png"></p>
+<p>無論是哪種比喻都是在說明一件事情：建立了新的分支之後，在這條分支所做的版控行為 <strong>不會</strong> 對原本分支的內容造成任何影響！  </p>
 <p>這樣的特性就很適合拿來進行 <strong>實驗性</strong> 的操作，無論是開發新功能，或是一些可能會讓專案壞掉的動作，透過分支另闢一條路，就是一個最簡單的預防行為。</p>
 <p>在 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMyNTY1OA==">第一個 Commit 該放什麼內容</span> 文章中曾經提過，有了分支之後，我們同時可以做到「讓成品存放在獨立一條時間線」以及「保存開發過程各種關鍵時間點」兩個需求。除此之外，建立分支進行開發，也能避免多人共用同一條分支造成的各種衝突與混亂。</p>
 <p>也因為這樣，熟悉 Git 的開發人員，通常專案起始的第一個動作，就是先建立一個「開發用的分支」才會開始開發。這個行為並不限定於「團隊」，即便專案只有一個人，也很推薦這麼做！</p>
 <blockquote>
-<p>註 1. 影分身之術的比喻，出自 <span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2JyYW5jaC93aHktdXNlLWJyYW5jaA==">《為你自己學 Git》</span> - 高見龍 (龍哥)</p>
+<p>註1. 影分身之術的比喻，出自 <span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2JyYW5jaC93aHktdXNlLWJyYW5jaA==">《為你自己學 Git》</span> - 高見龍(龍哥)</p>
 </blockquote>
-<h1 id="分支的本質與使用觀念"><a class="markdownIt-Anchor" href="#分支的本質與使用觀念">#</a> 分支的本質與使用觀念</h1>
-<p>相信大多數人應該都會把 「Git 的分支」 看待成「樹枝的分支」或是「鐵軌的分支」。</p>
-<p>畢竟就算還不知道怎麼用分支，也大概看過人家用 Git 會出現的線圖，那分岔的樣子跟樹枝大概有 87% 像：<br>
-<img data-src="https://i.imgur.com/uxsMivJ.png" alt=""></p>
+<h1 id="分支的本質與使用觀念"><a href="#分支的本質與使用觀念" class="headerlink" title="分支的本質與使用觀念"></a>分支的本質與使用觀念</h1><p>相信大多數人應該都會把 「Git 的分支」 看待成「樹枝的分支」或是「鐵軌的分支」。</p>
+<p>畢竟就算還不知道怎麼用分支，也大概看過人家用 Git 會出現的線圖，那分岔的樣子跟樹枝大概有 87% 像：<br><img data-src="https://i.imgur.com/uxsMivJ.png"></p>
 <p>不管讀者之前對於分支到底有什麼印象，現在開始來說明我們應該怎麼看待分支，以及使用上要小心的地方。</p>
-<h2 id="觀念一分支的本質是指標"><a class="markdownIt-Anchor" href="#觀念一分支的本質是指標">#</a> 觀念一：分支的本質是「指標」</h2>
-<p>跟  <code>HEAD</code>  一樣，分支也是指標。</p>
-<p>除了「指標」之外，我們也可以把分支想成貼在 commit 上的「便籤」，如下圖的  <code>master</code>  分支跟  <code>Emilia</code>  分支：<br>
-<img data-src="https://i.imgur.com/BBhRmlm.png" alt=""></p>
-<p>這裡說的「便籤」，就是用來在筆記本做記號的那個「便籤」：<br>
-<img data-src="https://i.imgur.com/QzHxPlX.png" alt="補圖"></p>
-<p>所謂建立一個分支的動作，就像是撕一張便籤起來，把名稱寫上去之後，貼到 commit 上做記號。</p>
+<h2 id="觀念一：分支的本質是「指標」"><a href="#觀念一：分支的本質是「指標」" class="headerlink" title="觀念一：分支的本質是「指標」"></a>觀念一：分支的本質是「指標」</h2><p>跟 <code>HEAD</code> 一樣，分支也是指標。</p>
+<p>除了「指標」之外，我們也可以把分支想成貼在 commit 上的「便籤」，如下圖的 <code>master</code> 分支跟 <code>Emilia</code> 分支：<br><img data-src="https://i.imgur.com/BBhRmlm.png"></p>
+<p>這裡說的「便籤」，就是用來在筆記本做記號的那個「便籤」：<br><img data-src="https://i.imgur.com/QzHxPlX.png" alt="補圖"></p>
+<p>所謂建立一個分支的動作，就像是撕一張便籤起來，把名稱寫上去之後，貼到 commit 上做記號。 </p>
 <p>這同時也帶到一個觀念：建立分支的舉動，不是將資料「複製」一份出來，而是在同一份資料上做不同的記號。</p>
-<p>既然分支只是「便籤」，就代表我們是可以把分支「撕」起來貼到其他 commit，這裡示範一下把  <code>Emilia</code>  分支撕起來，貼到  <code>master</code>  分支所在的 commit ：<br>
-<img data-src="https://i.imgur.com/jumgVmR.gif" alt=""></p>
+<p>既然分支只是「便籤」，就代表我們是可以把分支「撕」起來貼到其他 commit，這裡示範一下把 <code>Emilia</code> 分支撕起來，貼到 <code>master</code> 分支所在的 commit ：<br><img data-src="https://i.imgur.com/jumgVmR.gif"></p>
 <p>操作觀念之後會再說明，這裡只是讓大家「感受」分支就是個「便籤」。</p>
-<h2 id="觀念二提到分支時不是在說那整條分支線"><a class="markdownIt-Anchor" href="#觀念二提到分支時不是在說那整條分支線">#</a> 觀念二：提到分支時，不是在說那整條「分支線」</h2>
-<p>開始使用分支後，Git 線圖中將會出現好幾條線，而每條線的末端應該都會貼著分支的便籤，像這樣：<br>
-<img data-src="https://i.imgur.com/S5uyA7B.png" alt=""></p>
-<p>此時可能會有新手開始疑惑：<br>
-我們在講某個分支時，會是在說 Git 線圖上的那整條「分支線」嗎？<br>
-這個問題在絕大多數的情況下，答案都是「否定」的。</p>
-<p>在建立了「分支是便籤」的觀念後，我們可以把 <strong>發佈新版本</strong> ( <code>git commit</code> ) 解釋成：不斷的把「分支便籤」貼到新的 commit 的行為。</p>
-<p>雖然就是這個舉動讓 Git 線圖上的「分支線」不斷的增長，不過如果真的在講「操作分支」，基本上會是對 「分支便籤」 進行 <strong>新增 / 改名 / 刪除</strong> 的行為 ，或者是要操作「分支所在的 commit」，絕不會是指操作「分支線」本身。</p>
+<h2 id="觀念二：提到分支時，不是在說那整條「分支線」"><a href="#觀念二：提到分支時，不是在說那整條「分支線」" class="headerlink" title="觀念二：提到分支時，不是在說那整條「分支線」"></a>觀念二：提到分支時，不是在說那整條「分支線」</h2><p>開始使用分支後，Git 線圖中將會出現好幾條線，而每條線的末端應該都會貼著分支的便籤，像這樣：<br><img data-src="https://i.imgur.com/S5uyA7B.png"></p>
+<p>此時可能會有新手開始疑惑：<br>我們在講某個分支時，會是在說 Git 線圖上的那整條「分支線」嗎？<br>這個問題在絕大多數的情況下，答案都是「否定」的。</p>
+<p>在建立了「分支是便籤」的觀念後，我們可以把 <strong>發佈新版本</strong> (<code>git commit</code>) 解釋成：不斷的把「分支便籤」貼到新的 commit 的行為。  </p>
+<p>雖然就是這個舉動讓 Git 線圖上的「分支線」不斷的增長，不過如果真的在講「操作分支」，基本上會是對 「分支便籤」 進行 <strong>新增&#x2F;改名&#x2F;刪除</strong> 的行為 ，或者是要操作「分支所在的 commit」，絕不會是指操作「分支線」本身。</p>
 <p>事實上在 Git 中，沒有指令會用來操作「分支線」，即便有指令執行完之後，會讓「分支線」發生巨大的變化，那也是因為我們操作了「分支便籤」或是操作了「commit」而導致的「結果」。</p>
 <p>所以在 Git 的世界中聽到「分支」，請把關注焦點放在「分支便籤」，或是分支所在的 「commit」，不要認為是在講整條線。</p>
-<h2 id="觀念三分支的名稱本身沒有意義"><a class="markdownIt-Anchor" href="#觀念三分支的名稱本身沒有意義">#</a> 觀念三：分支的「名稱」本身沒有意義</h2>
-<p>初次接觸分支時，我們可能都會在不知不覺中產生的「錯誤觀念」，認為預設的  <code>master</code>  分支是 <strong>主要的</strong> 分支，而自己建立的分支都是 <strong>次要</strong> 的分支，而且「主要分支」的內容很重要，「次要分支」的內容刪掉也沒差。</p>
-<p>實際上對 Git 來說，分支叫什麼名稱，他根本不在意。</p>
-<div class="note info no-icon">
-<p>所有的「意義」是我們這些使用者「定義」出來的</p>
-</div>
+<h2 id="觀念三：分支的「名稱」本身沒有意義"><a href="#觀念三：分支的「名稱」本身沒有意義" class="headerlink" title="觀念三：分支的「名稱」本身沒有意義"></a>觀念三：分支的「名稱」本身沒有意義</h2><p>初次接觸分支時，我們可能都會在不知不覺中產生的「錯誤觀念」，認為預設的 <code>master</code> 分支是 <strong>主要的</strong> 分支，而自己建立的分支都是 <strong>次要</strong> 的分支，而且「主要分支」的內容很重要，「次要分支」的內容刪掉也沒差。</p>
+<p>實際上對 Git 來說，分支叫什麼名稱，他根本不在意。<br>:::info no-icon<br>所有的「意義」是我們這些使用者「定義」出來的<br>:::</p>
 <p>如同我們在筆記本使用「便籤」時：</p>
 <ul>
-<li><strong>紅色便籤</strong> 定義為 <strong>重要</strong></li>
-<li><strong>黃色便籤</strong> 定義為 <strong>須注意</strong></li>
+<li><strong>紅色便籤</strong> 定義為 <strong>重要</strong>  </li>
+<li><strong>黃色便籤</strong> 定義為 <strong>須注意</strong>  </li>
 <li><strong>綠色便籤</strong> 定義為 <strong>補充</strong></li>
 </ul>
 <p>哪天心血來潮，也可以來個風水輪流轉：</p>
 <ul>
 <li><strong>紅色便籤</strong> 定義為 <strong>須注意</strong></li>
-<li><strong>黃色便籤</strong> 定義為 <strong>補充</strong></li>
+<li><strong>黃色便籤</strong> 定義為 <strong>補充</strong>  </li>
 <li><strong>綠色便籤</strong> 定義為 <strong>重要</strong></li>
 </ul>
-<p>分支名稱就是這樣的道理，雖然那顆「分支樹」(Git 線圖) 確實是因為我們建立了不同的分支，才能讓他分岔茁壯，不過在成長過程中，分支究竟是標記什麼名稱，Git 根本不在乎。</p>
-<p>Git 在我們版控的的時候唯一做的事情，就只是把  <code>git commit</code>  的內容，記錄在「當下」(HEAD) 的分支上而已。</p>
-<div class="note info no-icon">
-<p>重要的是 Git 線圖在不同路線中記錄的「內容」，而不是分支被定義的名稱。</p>
-</div>
-<h2 id="觀念四版控的操作一定要在有分支的-commit-上進行"><a class="markdownIt-Anchor" href="#觀念四版控的操作一定要在有分支的-commit-上進行">#</a> 觀念四：版控的操作一定要在有分支的 commit 上進行</h2>
-<p>因為分支除了像是「便籤」之外，他其實還有另一個特性，很像「圖釘」。</p>
+<p>分支名稱就是這樣的道理，雖然那顆「分支樹」(Git 線圖) 確實是因為我們建立了不同的分支，才能讓他分岔茁壯，不過在成長過程中，分支究竟是標記什麼名稱，Git 根本不在乎。  </p>
+<p>Git 在我們版控的的時候唯一做的事情，就只是把 <code>git commit</code> 的內容，記錄在「當下」(HEAD) 的分支上而已。</p>
+<p>:::info no-icon<br>重要的是 Git 線圖在不同路線中記錄的「內容」，而不是分支被定義的名稱。<br>:::</p>
+<h2 id="觀念四：版控的操作一定要在有分支的-commit-上進行"><a href="#觀念四：版控的操作一定要在有分支的-commit-上進行" class="headerlink" title="觀念四：版控的操作一定要在有分支的 commit 上進行"></a>觀念四：版控的操作一定要在有分支的 commit 上進行</h2><p>因為分支除了像是「便籤」之外，他其實還有另一個特性，很像「圖釘」。</p>
 <p>你可以想像 Git 線圖中的每一條分支，都是一條「線」，這條線上打了很多<strong>結</strong>，這些<strong>結</strong>就是一個又一個的 commit。</p>
 <p>而 Git 線圖的背景把他想成「軟木板」，為了讓「分支線」有辦法固定在「軟木板」上，我們必須用「圖釘」釘在「分支線」的「頂端」。</p>
-<p>那誰可以扮演圖釘的腳色？<br>
-有兩個東西，一個叫做  <code>HEAD</code> ，另一個就是「分支」本身了。</p>
-<p>如果專案只有一條分支的話 (例如預設的  <code>master</code>  分支)，「 <code>HEAD</code> 」 跟「分支」會同時「指著」最上端的 commit ，就好像這個節點上，同時釘著 <strong> <code>HEAD</code>  圖釘</strong>，還有 <strong>分支圖釘</strong> 一樣。</p>
-<p>但如果專案同時存在多個分支，HEAD 可能會在不同的分支換來換去，像這樣：<br>
-<img data-src="https://i.imgur.com/NXARaWZ.gif" alt=""></p>
-<p>注意到上面的範例中有一個動作，我刻意把 HEAD 切到 <strong>沒有分支</strong> 的 commit，但四條線不會因此垂下來 (或是不見)，就是因為「分支便籤」沒被拔掉，線依然能被<strong>釘</strong>在那裡。</p>
-<p>再一個例子，下面這個線圖就好像一條線上，同時釘著  <code>master</code>  圖釘，跟  <code>Emilia</code>  圖釘，於此同時， <code>HEAD</code>  圖釘也在  <code>master</code>  的位置 (注意  <code>master</code>  分支前有個圈圈)：<br>
-<img data-src="https://i.imgur.com/xdqYGoS.png" alt=""></p>
-<p>如果把  <code>Emilia</code>  圖釘拔掉，那麼就會有三個 commit 點點固定不住而掉下來：<br>
-<img data-src="https://i.imgur.com/HlyksLJ.gif" alt=""></p>
-<p>前面已經提到，版控就是持續把分支便籤持續貼到最新的 commit 的行為。<br>
-再加上現在的這個觀念，分支便籤同時也扮演著把分支線圖固定住的腳色。</p>
+<p>那誰可以扮演圖釘的腳色？<br>有兩個東西，一個叫做 <code>HEAD</code>，另一個就是「分支」本身了。</p>
+<p>如果專案只有一條分支的話(例如預設的 <code>master</code> 分支)，「<code>HEAD</code>」 跟「分支」會同時「指著」最上端的 commit ，就好像這個節點上，同時釘著 <strong><code>HEAD</code> 圖釘</strong>，還有 <strong>分支圖釘</strong> 一樣。</p>
+<p>但如果專案同時存在多個分支，HEAD 可能會在不同的分支換來換去，像這樣：<br><img data-src="https://i.imgur.com/NXARaWZ.gif"></p>
+<p>注意到上面的範例中有一個動作，我刻意把 HEAD 切到 <strong>沒有分支</strong> 的 commit，但四條線不會因此垂下來(或是不見)，就是因為「分支便籤」沒被拔掉，線依然能被<strong>釘</strong>在那裡。</p>
+<p>再一個例子，下面這個線圖就好像一條線上，同時釘著 <code>master</code> 圖釘，跟 <code>Emilia</code> 圖釘，於此同時，<code>HEAD</code> 圖釘也在 <code>master</code> 的位置(注意 <code>master</code> 分支前有個圈圈)：<br><img data-src="https://i.imgur.com/xdqYGoS.png"></p>
+<p>如果把 <code>Emilia</code> 圖釘拔掉，那麼就會有三個 commit 點點固定不住而掉下來：<br><img data-src="https://i.imgur.com/HlyksLJ.gif"></p>
+<p>前面已經提到，版控就是持續把分支便籤持續貼到最新的 commit 的行為。<br>再加上現在的這個觀念，分支便籤同時也扮演著把分支線圖固定住的腳色。</p>
 <p>為了在使用多個分支的時候，分支線都有辦法固定在「軟木版」上，<strong>版控的操作一定要在有分支的 commit 上進行</strong>。</p>
-<h2 id="觀念五沒事不要讓-head-指著-commit"><a class="markdownIt-Anchor" href="#觀念五沒事不要讓-head-指著-commit">#</a> 觀念五：沒事不要讓 HEAD 指著 commit</h2>
-<p>銜接上面所說的觀念，既然版控行為一定要在分支上，代表 HEAD 必須指著某個分支才是正常的狀態。</p>
+<h2 id="觀念五：沒事不要讓-HEAD-指著-commit"><a href="#觀念五：沒事不要讓-HEAD-指著-commit" class="headerlink" title="觀念五：沒事不要讓 HEAD 指著 commit"></a>觀念五：沒事不要讓 HEAD 指著 commit</h2><p>銜接上面所說的觀念，既然版控行為一定要在分支上，代表 HEAD 必須指著某個分支才是正常的狀態。</p>
 <p>如果 HEAD 沒有指向任何分支，而是指著 commit 時，我們會叫他 「分離的 HEAD」(detached HEAD)。</p>
 <p>通常只會在特殊操作，或是某些指令必要過程，才會出現 <strong>detached HEAD</strong> 的現象。</p>
 <p>詳細的操作行為，之後都會詳細說明，包含「該怎麼讓 HEAD 指向 commit」、「特殊操作」是什麼，以及什麼指令會有  <strong>detached HEAD</strong> 的現象，之後都會有文章說明。</p>
 <blockquote>
 <p>如果你不知道什麼叫 HEAD 指著 commit ，可以參考一下 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMyOTY0OQ==">聊聊 commitID 與 HEAD</span> 這篇文章</p>
 </blockquote>
-<h2 id="觀念六尚未合併的分支如果刪除了整條分支會從-git-線圖消失"><a class="markdownIt-Anchor" href="#觀念六尚未合併的分支如果刪除了整條分支會從-git-線圖消失">#</a> 觀念六：尚未合併的分支如果刪除了，整條分支會從 Git 線圖消失</h2>
-<p>這觀念也是銜接「觀念四」帶到的「分支像圖釘」的概念。</p>
+<h2 id="觀念六：尚未合併的分支如果刪除了，整條分支會從-Git-線圖消失"><a href="#觀念六：尚未合併的分支如果刪除了，整條分支會從-Git-線圖消失" class="headerlink" title="觀念六：尚未合併的分支如果刪除了，整條分支會從 Git 線圖消失"></a>觀念六：尚未合併的分支如果刪除了，整條分支會從 Git 線圖消失</h2><p>這觀念也是銜接「觀念四」帶到的「分支像圖釘」的概念。  </p>
 <p>如果一條分支線，只有最尾端 <strong>釘著</strong> 分支，直接把這個分支「拔掉」(或你把他當成便籤而說「撕掉」)，整條線會因為固定不住，而從 Git 線圖中消失！</p>
-<p>因為分支的存在，會讓 Git 認為這條線圖是「有意義」的。(無論名稱是什麼都一樣，Git 並不在乎分支名稱)。</p>
-<p>所以把分支拔掉的行為，等同於告訴 Git ：「這條線我不要了」，Git 只好把他給移除囉…</p>
-<p>實際執行一次給大家看：<br>
-紫色那條  <code>Subaru</code>  分支，由於尚未合併到  <code>dev</code> ，如果直接刪掉分支便籤，就如同拿掉圖釘一般，線會直接消失給你看：<br>
-<img data-src="https://i.imgur.com/sHrxg5L.gif" alt=""></p>
-<h2 id="觀念七合併過後的分支即便刪除了也不會影響-git-線圖的長相"><a class="markdownIt-Anchor" href="#觀念七合併過後的分支即便刪除了也不會影響-git-線圖的長相">#</a> 觀念七：合併過後的分支，即便刪除了，也不會影響 Git 線圖的長相</h2>
-<p>建立一個分支進行開發，通常是為了把開發的過程跟原本所在的路線進行切割</p>
-<p>在開發完成之後，原本的分支會去把開發過程的內容給合併回來，這是 Git 版控很常見的行為。</p>
-<p>當分支 <strong>被合併</strong> 之後，便籤位置並不會有任何更動，只是線圖會繼續往前走到別的分支便籤上。<br>
-<img data-src="https://i.imgur.com/kNDZKi0.png" alt=""><br>
-以這個圖來說明， <code>Rem</code>  、 <code>Emilia</code> 、 <code>Ram</code>  三個分支 <strong>已經</strong> 被合併到  <code>dev</code>  分支，所以分支的線最後都是連到  <code>dev</code>  上的，這個狀況也代表這三個分支功成身退了，此時即便把分支便籤給「拔掉」，也不會影響 Git 線圖紀錄的內容。</p>
-<p>繼續拿圖釘的比喻來說明，這個狀況就像所有的線都被  <code>dev</code>  圖釘給釘著，即使把下面的圖釘拿起來，線也不會掉到地上。</p>
-<p>口說無憑，直接拔給你看：<br>
-<img data-src="https://i.imgur.com/O1NB2Ol.gif" alt=""></p>
-<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
-<p>我們以分支的本質是「便籤」，是「圖釘」的觀念，打開【分支篇】的序章。</p>
+<p>因為分支的存在，會讓 Git 認為這條線圖是「有意義」的。(無論名稱是什麼都一樣，Git 並不在乎分支名稱)。  </p>
+<p>所以把分支拔掉的行為，等同於告訴 Git ：「這條線我不要了」，Git 只好把他給移除囉….</p>
+<p>實際執行一次給大家看：<br>紫色那條 <code>Subaru</code> 分支，由於尚未合併到 <code>dev</code>，如果直接刪掉分支便籤，就如同拿掉圖釘一般，線會直接消失給你看：<br><img data-src="https://i.imgur.com/sHrxg5L.gif"></p>
+<h2 id="觀念七：合併過後的分支，即便刪除了，也不會影響-Git-線圖的長相"><a href="#觀念七：合併過後的分支，即便刪除了，也不會影響-Git-線圖的長相" class="headerlink" title="觀念七：合併過後的分支，即便刪除了，也不會影響 Git 線圖的長相"></a>觀念七：合併過後的分支，即便刪除了，也不會影響 Git 線圖的長相</h2><p>建立一個分支進行開發，通常是為了把開發的過程跟原本所在的路線進行切割  </p>
+<p>在開發完成之後，原本的分支會去把開發過程的內容給合併回來，這是 Git 版控很常見的行為。   </p>
+<p>當分支 <strong>被合併</strong> 之後，便籤位置並不會有任何更動，只是線圖會繼續往前走到別的分支便籤上。<br><img data-src="https://i.imgur.com/kNDZKi0.png"><br>以這個圖來說明，<code>Rem</code> 、<code>Emilia</code>、<code>Ram</code> 三個分支 <strong>已經</strong> 被合併到 <code>dev</code> 分支，所以分支的線最後都是連到 <code>dev</code> 上的，這個狀況也代表這三個分支功成身退了，此時即便把分支便籤給「拔掉」，也不會影響 Git 線圖紀錄的內容。  </p>
+<p>繼續拿圖釘的比喻來說明，這個狀況就像所有的線都被 <code>dev</code> 圖釘給釘著，即使把下面的圖釘拿起來，線也不會掉到地上。</p>
+<p>口說無憑，直接拔給你看：<br><img data-src="https://i.imgur.com/O1NB2Ol.gif"></p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>我們以分支的本質是「便籤」，是「圖釘」的觀念，打開【分支篇】的序章。</p>
 <p>這篇文章除了說明分支的使用觀念之外，也算是間接的預告接下來的內容會遇到的事情。</p>
 <p>主要是希望大家在學習操作分支之前就先有個底，知道什麼樣的行為是可行的，又什麼樣的行為會直接影響資料。</p>
 <p>下一篇文章，預計開始說明：如何使用指令與 GUI 來操作分支。</p>
@@ -337,7 +300,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;sVKjRY8.jpg" title="用 reset 回到過去">
+  <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;fG7Vwmv.jpg" title="用 reset 回到過去">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>用 reset 回到過去</h3>
@@ -347,7 +310,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;gYzRwq6.png" title="Git 分支：基本操作篇">
+  <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;tXRAhpc.jpg" title="Git 分支：基本操作篇">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>Git 分支：基本操作篇</h3>
@@ -368,7 +331,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF%E4%B8%80%E6%A0%B9%E5%88%B0%E5%BA%95%E4%B8%8D%E5%A5%BD%E5%97%8E"><span class="toc-number">2.</span> <span class="toc-text"> 為什麼要使用分支？一根到底不好嗎？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%9A%84%E6%9C%AC%E8%B3%AA%E8%88%87%E4%BD%BF%E7%94%A8%E8%A7%80%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text"> 分支的本質與使用觀念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%B8%80%E5%88%86%E6%94%AF%E7%9A%84%E6%9C%AC%E8%B3%AA%E6%98%AF%E6%8C%87%E6%A8%99"><span class="toc-number">3.1.</span> <span class="toc-text"> 觀念一：分支的本質是「指標」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%BA%8C%E6%8F%90%E5%88%B0%E5%88%86%E6%94%AF%E6%99%82%E4%B8%8D%E6%98%AF%E5%9C%A8%E8%AA%AA%E9%82%A3%E6%95%B4%E6%A2%9D%E5%88%86%E6%94%AF%E7%B7%9A"><span class="toc-number">3.2.</span> <span class="toc-text"> 觀念二：提到分支時，不是在說那整條「分支線」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%B8%89%E5%88%86%E6%94%AF%E7%9A%84%E5%90%8D%E7%A8%B1%E6%9C%AC%E8%BA%AB%E6%B2%92%E6%9C%89%E6%84%8F%E7%BE%A9"><span class="toc-number">3.3.</span> <span class="toc-text"> 觀念三：分支的「名稱」本身沒有意義</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E5%9B%9B%E7%89%88%E6%8E%A7%E7%9A%84%E6%93%8D%E4%BD%9C%E4%B8%80%E5%AE%9A%E8%A6%81%E5%9C%A8%E6%9C%89%E5%88%86%E6%94%AF%E7%9A%84-commit-%E4%B8%8A%E9%80%B2%E8%A1%8C"><span class="toc-number">3.4.</span> <span class="toc-text"> 觀念四：版控的操作一定要在有分支的 commit 上進行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%BA%94%E6%B2%92%E4%BA%8B%E4%B8%8D%E8%A6%81%E8%AE%93-head-%E6%8C%87%E8%91%97-commit"><span class="toc-number">3.5.</span> <span class="toc-text"> 觀念五：沒事不要讓 HEAD 指著 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E5%85%AD%E5%B0%9A%E6%9C%AA%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E5%A6%82%E6%9E%9C%E5%88%AA%E9%99%A4%E4%BA%86%E6%95%B4%E6%A2%9D%E5%88%86%E6%94%AF%E6%9C%83%E5%BE%9E-git-%E7%B7%9A%E5%9C%96%E6%B6%88%E5%A4%B1"><span class="toc-number">3.6.</span> <span class="toc-text"> 觀念六：尚未合併的分支如果刪除了，整條分支會從 Git 線圖消失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%B8%83%E5%90%88%E4%BD%B5%E9%81%8E%E5%BE%8C%E7%9A%84%E5%88%86%E6%94%AF%E5%8D%B3%E4%BE%BF%E5%88%AA%E9%99%A4%E4%BA%86%E4%B9%9F%E4%B8%8D%E6%9C%83%E5%BD%B1%E9%9F%BF-git-%E7%B7%9A%E5%9C%96%E7%9A%84%E9%95%B7%E7%9B%B8"><span class="toc-number">3.7.</span> <span class="toc-text"> 觀念七：合併過後的分支，即便刪除了，也不會影響 Git 線圖的長相</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">4.</span> <span class="toc-text"> 總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF%EF%BC%9F%E4%B8%80%E6%A0%B9%E5%88%B0%E5%BA%95%E4%B8%8D%E5%A5%BD%E5%97%8E%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">為什麼要使用分支？一根到底不好嗎？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%9A%84%E6%9C%AC%E8%B3%AA%E8%88%87%E4%BD%BF%E7%94%A8%E8%A7%80%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">分支的本質與使用觀念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%B8%80%EF%BC%9A%E5%88%86%E6%94%AF%E7%9A%84%E6%9C%AC%E8%B3%AA%E6%98%AF%E3%80%8C%E6%8C%87%E6%A8%99%E3%80%8D"><span class="toc-number">3.1.</span> <span class="toc-text">觀念一：分支的本質是「指標」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%BA%8C%EF%BC%9A%E6%8F%90%E5%88%B0%E5%88%86%E6%94%AF%E6%99%82%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%9C%A8%E8%AA%AA%E9%82%A3%E6%95%B4%E6%A2%9D%E3%80%8C%E5%88%86%E6%94%AF%E7%B7%9A%E3%80%8D"><span class="toc-number">3.2.</span> <span class="toc-text">觀念二：提到分支時，不是在說那整條「分支線」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%B8%89%EF%BC%9A%E5%88%86%E6%94%AF%E7%9A%84%E3%80%8C%E5%90%8D%E7%A8%B1%E3%80%8D%E6%9C%AC%E8%BA%AB%E6%B2%92%E6%9C%89%E6%84%8F%E7%BE%A9"><span class="toc-number">3.3.</span> <span class="toc-text">觀念三：分支的「名稱」本身沒有意義</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E5%9B%9B%EF%BC%9A%E7%89%88%E6%8E%A7%E7%9A%84%E6%93%8D%E4%BD%9C%E4%B8%80%E5%AE%9A%E8%A6%81%E5%9C%A8%E6%9C%89%E5%88%86%E6%94%AF%E7%9A%84-commit-%E4%B8%8A%E9%80%B2%E8%A1%8C"><span class="toc-number">3.4.</span> <span class="toc-text">觀念四：版控的操作一定要在有分支的 commit 上進行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%BA%94%EF%BC%9A%E6%B2%92%E4%BA%8B%E4%B8%8D%E8%A6%81%E8%AE%93-HEAD-%E6%8C%87%E8%91%97-commit"><span class="toc-number">3.5.</span> <span class="toc-text">觀念五：沒事不要讓 HEAD 指著 commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E5%85%AD%EF%BC%9A%E5%B0%9A%E6%9C%AA%E5%90%88%E4%BD%B5%E7%9A%84%E5%88%86%E6%94%AF%E5%A6%82%E6%9E%9C%E5%88%AA%E9%99%A4%E4%BA%86%EF%BC%8C%E6%95%B4%E6%A2%9D%E5%88%86%E6%94%AF%E6%9C%83%E5%BE%9E-Git-%E7%B7%9A%E5%9C%96%E6%B6%88%E5%A4%B1"><span class="toc-number">3.6.</span> <span class="toc-text">觀念六：尚未合併的分支如果刪除了，整條分支會從 Git 線圖消失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%80%E5%BF%B5%E4%B8%83%EF%BC%9A%E5%90%88%E4%BD%B5%E9%81%8E%E5%BE%8C%E7%9A%84%E5%88%86%E6%94%AF%EF%BC%8C%E5%8D%B3%E4%BE%BF%E5%88%AA%E9%99%A4%E4%BA%86%EF%BC%8C%E4%B9%9F%E4%B8%8D%E6%9C%83%E5%BD%B1%E9%9F%BF-Git-%E7%B7%9A%E5%9C%96%E7%9A%84%E9%95%B7%E7%9B%B8"><span class="toc-number">3.7.</span> <span class="toc-text">觀念七：合併過後的分支，即便刪除了，也不會影響 Git 線圖的長相</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">4.</span> <span class="toc-text">總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -465,7 +428,17 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
   </li>
 
       
@@ -485,7 +458,27 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">版控的類別</a></span>
+    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
   </li>
 
       
@@ -502,10 +495,10 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
       
@@ -515,7 +508,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
   </li>
 
       
@@ -525,37 +518,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
   </li>
 
   </ul>
@@ -576,13 +539,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

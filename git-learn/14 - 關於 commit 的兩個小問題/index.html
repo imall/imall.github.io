@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/iqFdRnz.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,54 +165,34 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
-<p>這篇文章的內容，原本是想放在 commit 的常見問題。<br>
-結果當時寫完發現內容太多，如果全部塞到同一篇文章，應該會讓人看不下去。</p>
-<p>不過這篇文章記錄的兩個問題，可能會是已經學會版控一段時間之後，或是實務上真的遇到時，才會去思考的問題。<br>
-很適合拿來當<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy91c2Vycy8yMDE2MjQ4My9pcm9ubWFuLzYzNzQ=">【一起學 Git 吧！】</span>系列文章，中場休息的小品文閱讀。</p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇文章的內容，原本是想放在 commit 的常見問題。<br>結果當時寫完發現內容太多，如果全部塞到同一篇文章，應該會讓人看不下去。  </p>
+<p>不過這篇文章記錄的兩個問題，可能會是已經學會版控一段時間之後，或是實務上真的遇到時，才會去思考的問題。<br>很適合拿來當<span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy91c2Vycy8yMDE2MjQ4My9pcm9ubWFuLzYzNzQ=">【一起學 Git 吧！】</span>系列文章，中場休息的小品文閱讀。</p>
 <p>我們就一起來看看吧！</p>
-<h1 id="每個-commit-的資料都只有專案部分的檔案每個版本不是應該都要版控所有檔案嗎"><a class="markdownIt-Anchor" href="#每個-commit-的資料都只有專案部分的檔案每個版本不是應該都要版控所有檔案嗎">#</a> 每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？</h1>
-<p>這問題可能一時之間不好理解，容許我重新描述一下問題的意思。</p>
-<p>開始在執行版控之後，commit 的內容可能會是這樣：<br>
-第一版：新增專案說明檔案，記錄一個檔案：  <code>readme.md</code> <br>
- 第二版：新增三個空的檔案： <code>index.html</code> 、 <code>app.js</code> 、 <code>style.css</code> <br>
- 第三版：處理好基本的切版，紀錄兩個檔案： <code>index.html</code> 、 <code>style.css</code> <br>
- 第四版：處理畫面互動，紀錄兩個檔案： <code>index.html</code> 、 <code>app.js</code></p>
+<h1 id="每個-commit-的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？"><a href="#每個-commit-的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？" class="headerlink" title="每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？"></a>每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？</h1><p>這問題可能一時之間不好理解，容許我重新描述一下問題的意思。  </p>
+<p>開始在執行版控之後，commit 的內容可能會是這樣：<br>第一版：新增專案說明檔案，記錄一個檔案： <code>readme.md</code><br>第二版：新增三個空的檔案：<code>index.html</code>、<code>app.js</code>、<code>style.css</code><br>第三版：處理好基本的切版，紀錄兩個檔案：<code>index.html</code>、<code>style.css</code><br>第四版：處理畫面互動，紀錄兩個檔案：<code>index.html</code>、<code>app.js</code>  </p>
 <p>有沒有注意到一件事情，明明整個專案應該要有 <strong>四個</strong> 檔案，但竟然沒有一個 commit 一次存放 <strong>四個</strong> 檔案！？</p>
-<p>這個疑問是在很久之前，我點開某個 commit 看到資料時想到的問題，那時候對這個狀況百思不得其解，總是有一種「commit」應該涵蓋所有內容的 <strong>感覺</strong>。</p>
-<p>這大概是讓我我第一次想知道，Git 到底是「差異備份」還是「全部備份」的契機。<br>
-<s>(如果你從來沒有這種疑惑，那你可以跳過這題了 XD)</s></p>
-<p>後來仔細想想，會有這樣的感覺的原因可能是這樣：<br>
-過去我們在使用「資料夾備份」的行為，會把整包資料夾的內容完整複製一份，當作是一個版本在保存，所以只要點開任何「版本資料夾」，都可以看得到「所有檔案」在裡面。</p>
-<p>或許是潛意識已經習慣這樣的畫面，使得我們在使用 Git 時，會無意間把每一個 commit 跟資料夾聯想在一起，認為 commit 應該也是要看到「所有檔案」才行。</p>
+<p>這個疑問是在很久之前，我點開某個 commit 看到資料時想到的問題，那時候對這個狀況百思不得其解，總是有一種「commit」應該涵蓋所有內容的 <strong>感覺</strong>。  </p>
+<p>這大概是讓我我第一次想知道，Git 到底是「差異備份」還是「全部備份」的契機。<br><del>(如果你從來沒有這種疑惑，那你可以跳過這題了 XD)</del></p>
+<p>後來仔細想想，會有這樣的感覺的原因可能是這樣：<br>過去我們在使用「資料夾備份」的行為，會把整包資料夾的內容完整複製一份，當作是一個版本在保存，所以只要點開任何「版本資料夾」，都可以看得到「所有檔案」在裡面。   </p>
+<p>或許是潛意識已經習慣這樣的畫面，使得我們在使用 Git 時，會無意間把每一個 commit 跟資料夾聯想在一起，認為 commit 應該也是要看到「所有檔案」才行。 </p>
 <p>不過我們要知道一件事情，Git 中每個 commit 所記錄的內容，只會紀錄我們 <strong>有異動</strong> 的檔案，而那些經過 Git 比較之後「相同」的檔案，Git 會直接對他置之不理。</p>
-<p>所以 Git 的「版本」本質，本來就不是要一次紀錄「所有」工作目錄的內容，而是紀錄與「上一個版本」相比過後的「資料差異」。</p>
+<p>所以 Git 的「版本」本質，本來就不是要一次紀錄「所有」工作目錄的內容，而是紀錄與「上一個版本」相比過後的「資料差異」。  </p>
 <p>這也是 <strong>「Git 是差異備份」</strong> 這句話的由來。</p>
-<p>不過，Git 真的是差異備份嗎？<br>
-筆者認為這個問題應該要看「關注點」放在哪裡。</p>
+<p>不過，Git 真的是差異備份嗎？<br>筆者認為這個問題應該要看「關注點」放在哪裡。  </p>
 <p>如果關注在 <strong>單一</strong> Commit 上，因為我們只會看到「差異」的資料，似乎真的能得到 「Git 是差異備份」 的結論。</p>
 <p>但如果把目光拉遠一點來看，一次看向 <strong>所有</strong> commit 上，雖然每個版本都只記錄一小部分的差異，不過所有資料確實也都存放在 Git 中，好像也不能說 Git 只對「差異」的檔案進行備份。</p>
-<p>就如同網購一樣，想買的商品太多 <s>(但錢不夠)</s> 所以分了好幾次下單，訂單紀錄雖然分成幾筆，但最後這些東西也都存放在自己家裡，並不會因為「分開買」的行為，害自己只拿到「部分」商品。</p>
-<p>我們若已經把所有檔案都 commit 過了，無論是只做一次 commit 還是分好幾次 commit 都沒關係。<br>
-這時候如果不小心手殘把整份工作目錄的資料都刪了，只要  <code>.git</code>  資料夾還在，Git 就有能力把資料「全部」還原回來。</p>
+<p>就如同網購一樣，想買的商品太多 <del>(但錢不夠)</del> 所以分了好幾次下單，訂單紀錄雖然分成幾筆，但最後這些東西也都存放在自己家裡，並不會因為「分開買」的行為，害自己只拿到「部分」商品。</p>
+<p>我們若已經把所有檔案都 commit 過了，無論是只做一次 commit 還是分好幾次 commit 都沒關係。<br>這時候如果不小心手殘把整份工作目錄的資料都刪了，只要 <code>.git</code> 資料夾還在，Git 就有能力把資料「全部」還原回來。</p>
 <p>這麼推論下來，我們是不是也可以說 Git 也幫我們做了「全部備份」？</p>
-<div class="note info no-icon">
-<p>每一個 commit ，其實都站在過往 commit 的肩膀上。</p>
-</div>
-<p>就好像疊疊樂積木一樣，因為有了過往的他們，才有辦法成就現在的自己。<br>
-<s>除了第一個 commit，誰叫他要當第一個</s></p>
-<p>「備份」的用途，是希望資料有閃失時有辦法被「還原」。<br>
-「版本」的用途，則是讓我去追溯不同時期的「檔案變化」。</p>
+<p>:::info no-icon<br>每一個 commit ，其實都站在過往 commit 的肩膀上。<br>:::<br>就好像疊疊樂積木一樣，因為有了過往的他們，才有辦法成就現在的自己。<br><del>除了第一個 commit，誰叫他要當第一個</del></p>
+<p>「備份」的用途，是希望資料有閃失時有辦法被「還原」。<br>「版本」的用途，則是讓我去追溯不同時期的「檔案變化」。</p>
 <p>這兩件事情， Git 都做得到。</p>
 <p>只要 Git 有能力在我需要時，把各個版本還原到工作目錄中，或是在一個閃失誤刪資料時，幫我復原曾經記錄過的資料，那麼 Git 是「差異備份」還是「全部備份」的大哉問，或許也沒那麼重要了。</p>
-<h1 id="我一次編輯了好多檔案應該-commit-全部的檔案-還是把每個檔案分開-commit"><a class="markdownIt-Anchor" href="#我一次編輯了好多檔案應該-commit-全部的檔案-還是把每個檔案分開-commit">#</a> 我一次編輯了好多檔案，應該 commit 全部的檔案 ，還是把每個檔案分開 commit？</h1>
-<p>一樣是那句話：「看需求」。</p>
+<h1 id="我一次編輯了好多檔案，應該-commit-全部的檔案-，還是把每個檔案分開-commit？"><a href="#我一次編輯了好多檔案，應該-commit-全部的檔案-，還是把每個檔案分開-commit？" class="headerlink" title="我一次編輯了好多檔案，應該 commit 全部的檔案 ，還是把每個檔案分開 commit？"></a>我一次編輯了好多檔案，應該 commit 全部的檔案 ，還是把每個檔案分開 commit？</h1><p>一樣是那句話：「看需求」。</p>
 <p>以前一個人使用 Git ，洋洋灑灑編輯完一堆檔案，想 commit 就 commit ，沒事也不會回頭去看 commit 的資料，真的就像拿手機把黑板的筆記拍下來一樣，只是在做一個心安感。</p>
 <p>嚴格說起來，那時候只是想把程式上傳到 GitHub 而使用 Git，所以不是很在意每個版本的內容，只需要確定在其他電腦有辦法把程式從 GitHub 拉回來用即可。</p>
-<p>不過在團隊開發的過程，大家是「一起」完成「同一份」專案，自己所 commit 的資料，或多或少是需要被團隊查閱的！<br>
-在這樣的版控需求下，每一個 commit 存放多少檔案數量就很重要了。</p>
-<p>一個 commit 如果涵蓋數十個檔案，同事查閱 commit 時真的會會很難 code review。<br>
-就像你現在正在讀的文章一樣，主題如果資訊量太多、文字太繁雜，閱讀起來就會很難消化。  <s>那個… 預告一下，之後有一篇文章會這樣…</s></p>
+<p>不過在團隊開發的過程，大家是「一起」完成「同一份」專案，自己所 commit 的資料，或多或少是需要被團隊查閱的！<br>在這樣的版控需求下，每一個 commit 存放多少檔案數量就很重要了。  </p>
+<p>一個 commit 如果涵蓋數十個檔案，同事查閱 commit 時真的會會很難 code review。<br>就像你現在正在讀的文章一樣，主題如果資訊量太多、文字太繁雜，閱讀起來就會很難消化。  <del>那個….預告一下，之後有一篇文章會這樣…</del></p>
 <p>回到問題本身，如果只是想備份程式，那麼一次 commit 的檔案數量有多少，並不是太重要的事情。</p>
 <p>但如果考慮到 code review 的可讀性，把「檔案數量」精簡化，同時針對內容清楚的寫好 commit 的標題描述，會是使用 Git 版控的好習慣。</p>
 <blockquote>
@@ -272,7 +252,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;wW2x12h.png" title="聊聊 commitID 與 HEAD">
+  <a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="聊聊 commitID 與 HEAD">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>聊聊 commitID 與 HEAD</h3>
@@ -282,7 +262,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;QdkMVTt.jpg" title="執行 commit 之前的狀況處理">
+  <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;IXkGvGY.jpg" title="執行 commit 之前的狀況處理">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>執行 commit 之前的狀況處理</h3>
@@ -303,7 +283,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%8F%E5%80%8B-commit-%E7%9A%84%E8%B3%87%E6%96%99%E9%83%BD%E5%8F%AA%E6%9C%89%E5%B0%88%E6%A1%88%E9%83%A8%E5%88%86%E7%9A%84%E6%AA%94%E6%A1%88%E6%AF%8F%E5%80%8B%E7%89%88%E6%9C%AC%E4%B8%8D%E6%98%AF%E6%87%89%E8%A9%B2%E9%83%BD%E8%A6%81%E7%89%88%E6%8E%A7%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E5%97%8E"><span class="toc-number">2.</span> <span class="toc-text"> 每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%B8%80%E6%AC%A1%E7%B7%A8%E8%BC%AF%E4%BA%86%E5%A5%BD%E5%A4%9A%E6%AA%94%E6%A1%88%E6%87%89%E8%A9%B2-commit-%E5%85%A8%E9%83%A8%E7%9A%84%E6%AA%94%E6%A1%88-%E9%82%84%E6%98%AF%E6%8A%8A%E6%AF%8F%E5%80%8B%E6%AA%94%E6%A1%88%E5%88%86%E9%96%8B-commit"><span class="toc-number">3.</span> <span class="toc-text"> 我一次編輯了好多檔案，應該 commit 全部的檔案 ，還是把每個檔案分開 commit？</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%8F%E5%80%8B-commit-%E7%9A%84%E8%B3%87%E6%96%99%E9%83%BD%E5%8F%AA%E6%9C%89%E5%B0%88%E6%A1%88%E3%80%8C%E9%83%A8%E5%88%86%E3%80%8D%E7%9A%84%E6%AA%94%E6%A1%88%EF%BC%8C%E6%AF%8F%E5%80%8B%E7%89%88%E6%9C%AC%E4%B8%8D%E6%98%AF%E6%87%89%E8%A9%B2%E9%83%BD%E8%A6%81%E7%89%88%E6%8E%A7%E3%80%8C%E6%89%80%E6%9C%89%E3%80%8D%E6%AA%94%E6%A1%88%E5%97%8E%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%B8%80%E6%AC%A1%E7%B7%A8%E8%BC%AF%E4%BA%86%E5%A5%BD%E5%A4%9A%E6%AA%94%E6%A1%88%EF%BC%8C%E6%87%89%E8%A9%B2-commit-%E5%85%A8%E9%83%A8%E7%9A%84%E6%AA%94%E6%A1%88-%EF%BC%8C%E9%82%84%E6%98%AF%E6%8A%8A%E6%AF%8F%E5%80%8B%E6%AA%94%E6%A1%88%E5%88%86%E9%96%8B-commit%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">我一次編輯了好多檔案，應該 commit 全部的檔案 ，還是把每個檔案分開 commit？</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -400,6 +380,26 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
+    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
     <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
   </li>
 
@@ -410,7 +410,16 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
+    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
       
@@ -427,10 +436,30 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
 </div>
 
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
   </li>
 
       
@@ -441,56 +470,6 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </div>
 
     <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
   </li>
 
   </ul>
@@ -511,13 +490,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

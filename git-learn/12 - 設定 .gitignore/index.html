@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/XEoNWeG.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rt4bUdl.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
         </ul>
       </div>
     </header>
@@ -165,171 +165,173 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
-<p>今天的主題其實在之前開始介紹如何使用 Git 時就可以先說明，不過還是希望能先把基本觀念一次說明到位，讓讀者先對 Git 有一定的認識再說，畢竟設定類的說明，隨時補都來得及。</p>
-<p>回到主題，實務上的專案中，總是會有一些「設定檔」、「編譯檔」、「日誌 (log)」，之類不影響專案本體的內容，他們並不需要 (有些甚至不可以) 被記錄到儲存庫中，該如何定義那些「不想被版控」的資料，會是個重要的問題。</p>
-<p>為此 Git 提供了一個方式讓我們去定義這些內容：設定  <code>.gitignore</code>  檔案。</p>
-<h1 id="設定-gitignore-檔案"><a class="markdownIt-Anchor" href="#設定-gitignore-檔案">#</a> 設定 .gitignore 檔案</h1>
-<p>首先來說文解字一下， <strong>ignore</strong> 中文是「忽略」的意思，所以  <code>.gitignore</code>  是用來定義讓 Git 忽略的資料的檔案。</p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天的主題其實在之前開始介紹如何使用 Git 時就可以先說明，不過還是希望能先把基本觀念一次說明到位，讓讀者先對 Git 有一定的認識再說，畢竟設定類的說明，隨時補都來得及。</p>
+<p>回到主題，實務上的專案中，總是會有一些「設定檔」、「編譯檔」、「日誌(log)」，之類不影響專案本體的內容，他們並不需要 (有些甚至不可以) 被記錄到儲存庫中，該如何定義那些「不想被版控」的資料，會是個重要的問題。</p>
+<p>為此 Git 提供了一個方式讓我們去定義這些內容：設定 <code>.gitignore</code> 檔案。</p>
+<h1 id="設定-gitignore-檔案"><a href="#設定-gitignore-檔案" class="headerlink" title="設定 .gitignore 檔案"></a>設定 .gitignore 檔案</h1><p>首先來說文解字一下， <strong>ignore</strong> 中文是「忽略」的意思，所以 <code>.gitignore</code> 是用來定義讓 Git 忽略的資料的檔案。</p>
 <p>想定義能讓 Git 忽略的資料也很簡單：</p>
 <ol>
-<li>直接在工作目錄中新增一個 「檔案」，並且把檔名改成  <code>.gitignore</code> 。 (切記，是 <strong>檔案</strong> ，不是 <strong>資料夾</strong> )</li>
-<li>把想忽略的「檔名 (含副檔名)」一個一個寫在裡面就好了。</li>
+<li>直接在工作目錄中新增一個 「檔案」，並且把檔名改成 <code>.gitignore</code>。 (切記，是 <strong>檔案</strong> ，不是 <strong>資料夾</strong> ) </li>
+<li>把想忽略的「檔名(含副檔名)」一個一個寫在裡面就好了。</li>
 </ol>
-<p>舉例來說，目前工作目錄中的檔案都是剛新增的檔案，是 Git <strong>「尚未追蹤」</strong> 的狀態：<br>
-<img data-src="https://i.imgur.com/9d01JtD.png" alt="新增檔案示意"></p>
-<p>如果我想忽略  <code>data.log</code>  以及  <code>app.log</code> ，就直接按照上述步驟操作 (多個檔案「換行」寫入即可)：<br>
-<img data-src="https://i.imgur.com/BYLaJxk.png" alt="新增資料示意圖"><br>
-在 VSCode 中，工作目錄如果看到檔案呈現灰色，則代表 Git 正在忽略這個檔案。</p>
-<p>只要把  <code>.gitignore</code>  字樣也寫進  <code>.gitignore</code>  裡面，這個檔案也會被忽略：<br>
-<img data-src="https://i.imgur.com/l4oPHqZ.png" alt=".gitignore 被忽略"></p>
-<p>不知道讀者有沒有從截圖中注意到，此時的  <code>.gitignore</code>  並沒有被加入版控 (也就是尚未被 commit)？</p>
-<p>其實只要工作目錄裡面有  <code>.gitignore</code>  ，Git 就會自動去讀取它的內容，並且自動忽略符合內容的檔案。 <strong>即使  <code>.gitignore</code>  檔案沒有被版控也會有效果！</strong></p>
+<p>舉例來說，目前工作目錄中的檔案都是剛新增的檔案，是 Git <strong>「尚未追蹤」</strong> 的狀態：<br><img data-src="https://i.imgur.com/9d01JtD.png" alt="新增檔案示意"></p>
+<p>如果我想忽略 <code>data.log</code> 以及 <code>app.log</code>，就直接按照上述步驟操作(多個檔案「換行」寫入即可)：<br><img data-src="https://i.imgur.com/BYLaJxk.png" alt="新增資料示意圖"><br>在 VSCode 中，工作目錄如果看到檔案呈現灰色，則代表 Git 正在忽略這個檔案。  </p>
+<p>只要把 <code>.gitignore</code> 字樣也寫進 <code>.gitignore</code> 裡面，這個檔案也會被忽略：<br><img data-src="https://i.imgur.com/l4oPHqZ.png" alt=".gitignore 被忽略"></p>
+<p>不知道讀者有沒有從截圖中注意到，此時的 <code>.gitignore</code> 並沒有被加入版控 (也就是尚未被 commit)？ </p>
+<p>其實只要工作目錄裡面有 <code>.gitignore</code> ，Git 就會自動去讀取它的內容，並且自動忽略符合內容的檔案。 <strong>即使 <code>.gitignore</code> 檔案沒有被版控也會有效果！</strong></p>
 <p>不過要設定成功必須達成兩個條件：</p>
 <ol>
-<li><code>.gitignore</code>  的內容必須符合撰寫規則 (後續會詳細說明)。</li>
+<li><code>.gitignore</code> 的內容必須符合撰寫規則 (後續會詳細說明)。</li>
 <li>想忽略的檔案 <strong>不能</strong> 被紀錄在「索引」內。</li>
 </ol>
-<p>第二點尤其重要，如果檔案已經被加入索引 (就是暫存區)，甚至已經被 commit 到儲存庫中 (註 1)，那麼無論怎麼在  <code>.gitignore</code>  裡面寫資料，Git 都沒辦法排除這個檔案。</p>
-<p>就像你已經認識了一個人，結果有人告訴你：「別認識他，忘掉他吧！」<br>
-常理來說是很難做到的吧…</p>
+<p>第二點尤其重要，如果檔案已經被加入索引 (就是暫存區)，甚至已經被 commit 到儲存庫中 (註1)，那麼無論怎麼在 <code>.gitignore</code> 裡面寫資料，Git 都沒辦法排除這個檔案。</p>
+<p>就像你已經認識了一個人，結果有人告訴你：「別認識他，忘掉他吧！」<br>常理來說是很難做到的吧…</p>
 <blockquote>
-<p>註 1. 觀念重申：已經被 commit 的檔案，在索引 (暫存區) 中也會有資料。</p>
+<p>註1. 觀念重申：已經被 commit 的檔案，在索引(暫存區)中也會有資料。</p>
 </blockquote>
-<h1 id="gitignore-格式"><a class="markdownIt-Anchor" href="#gitignore-格式">#</a> .gitignore 格式</h1>
-<p>有個重要的事情先講：<br>
- <code>.gitignore</code>  中可以寫註解，不過如果要寫註解，「不可以」寫在跟檔名同一行，否則 Git 會把你想寫的註解視為檔名，導致忽略失效。</p>
+<h1 id="gitignore-格式"><a href="#gitignore-格式" class="headerlink" title=".gitignore 格式"></a>.gitignore 格式</h1><p>有個重要的事情先講：<br><code>.gitignore</code> 中可以寫註解，不過如果要寫註解，「不可以」寫在跟檔名同一行，否則 Git 會把你想寫的註解視為檔名，導致忽略失效。</p>
 <p>為了讓大家可以比較好瀏覽，<strong>「下方註解故意寫在『無效的位置』」</strong> ，請各位千萬注意！！！</p>
 <ol>
 <li>完整檔案名稱：</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>.env            <span class="token comment"># 環境設定檔</span></pre></td></tr><tr><td data-num="2"></td><td><pre>.config         <span class="token comment"># 配置檔案</span></pre></td></tr><tr><td data-num="3"></td><td><pre>.DS_Store       <span class="token comment"># macOS Finder 產生的檔案</span></pre></td></tr><tr><td data-num="4"></td><td><pre>app.log         <span class="token comment"># 名叫 app 的 log 檔案</span></pre></td></tr></table></figure><ol start="2">
+<pre><code class="sh">.env            # 環境設定檔
+.config         # 配置檔案
+.DS_Store       # macOS Finder 產生的檔案
+app.log         # 名叫 app 的 log 檔案
+</code></pre>
+<ol start="2">
 <li>直接定義要忽略的副檔名：</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>*.log           <span class="token comment"># 忽略所有以 .log 結尾的檔案</span></pre></td></tr><tr><td data-num="2"></td><td><pre>*.tmp           <span class="token comment"># 忽略所有以 .tmp 結尾的檔案</span></pre></td></tr></table></figure><ol start="3">
-<li>以驚嘆號 (！) 來例外某些檔案：</li>
+<pre><code class="sh">*.log           # 忽略所有以 .log 結尾的檔案
+*.tmp           # 忽略所有以 .tmp 結尾的檔案
+</code></pre>
+<ol start="3">
+<li>以驚嘆號(！)來例外某些檔案：</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>*.log           <span class="token comment"># 忽略所有以 .log 結尾的檔案</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token operator">!</span>important.log  <span class="token comment"># 但不忽略 important.log</span></pre></td></tr></table></figure><ol start="4">
-<li>忽略任何叫某個名字的檔案 (不管副檔名)</li>
+<pre><code class="sh">*.log           # 忽略所有以 .log 結尾的檔案
+!important.log  # 但不忽略 important.log 
+</code></pre>
+<ol start="4">
+<li>忽略任何叫某個名字的檔案(不管副檔名)</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>hello.*         <span class="token comment"># 忽略任何叫 hello 的檔案，包含 hello.txt、hello.java ...</span></pre></td></tr></table></figure><ol start="5">
+<pre><code class="sh">hello.*         # 忽略任何叫 hello 的檔案，包含 hello.txt、hello.java ...
+</code></pre>
+<ol start="5">
 <li>忽略所有以某個字樣開頭的資料</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>image*          <span class="token comment"># 忽略所有以 image 開頭命名的資料 (包含檔案與目錄)</span></pre></td></tr></table></figure><ol start="5">
+<pre><code class="sh">image*          # 忽略所有以 image 開頭命名的資料(包含檔案與目錄)
+</code></pre>
+<ol start="5">
 <li>只忽略「根目錄」的目錄或檔案：</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>/Test           <span class="token comment"># 只忽略根目錄 Test ，不忽略子目錄的 Test，例如 Vue/Test 就不會被忽略</span></pre></td></tr></table></figure><ol start="6">
+<pre><code class="sh">/Test           # 只忽略根目錄 Test ，不忽略子目錄的 Test，例如 Vue/Test 就不會被忽略
+</code></pre>
+<ol start="6">
 <li>忽略目錄底下的 「所有內容」：</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>.vscode/        <span class="token comment"># Visual Studio Code 設定檔</span></pre></td></tr><tr><td data-num="2"></td><td><pre>.idea/          <span class="token comment"># IntelliJ IDEA 設定檔</span></pre></td></tr><tr><td data-num="3"></td><td><pre>node_modules/   <span class="token comment"># Node.js 的依賴模組</span></pre></td></tr><tr><td data-num="4"></td><td><pre>build/          <span class="token comment"># 編譯或建置的結果目錄</span></pre></td></tr><tr><td data-num="5"></td><td><pre>dist/           <span class="token comment"># 發布版程式碼的目錄</span></pre></td></tr></table></figure><ol start="7">
+<pre><code class="sh">.vscode/        # Visual Studio Code 設定檔
+.idea/          # IntelliJ IDEA 設定檔
+node_modules/   # Node.js 的依賴模組
+build/          # 編譯或建置的結果目錄
+dist/           # 發布版程式碼的目錄
+</code></pre>
+<ol start="7">
 <li>註解 (因為太重要，所以特別寫下來)</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 這是一個有效註解</span></pre></td></tr><tr><td data-num="2"></td><td><pre>.vscode/  <span class="token comment"># 寫在這裡是無效註解，所以上述範例註解會直接使設定無效！！</span></pre></td></tr></table></figure><p>以上大概是  <code>.gitignore</code>  常見的寫法，如果還有特殊需求，請各位讀者參考 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb2NzL2dpdGlnbm9yZQ==">Git 官網</span> 對於設定的說明。</p>
-<h1 id="設定全域-gitignore"><a class="markdownIt-Anchor" href="#設定全域-gitignore">#</a> 設定全域 .gitignore</h1>
-<p>如果覺得在不同的工作目錄設定固定的「忽略檔案」很麻煩，可以直接設定「全域」的  <code>.gitignore</code>  。</p>
+<pre><code class="sh"># 這是一個有效註解
+.vscode/  # 寫在這裡是無效註解，所以上述範例註解會直接使設定無效！！
+</code></pre>
+<p>以上大概是 <code>.gitignore</code> 常見的寫法，如果還有特殊需求，請各位讀者參考 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb2NzL2dpdGlnbm9yZQ==">Git 官網</span> 對於設定的說明。</p>
+<h1 id="設定全域-gitignore"><a href="#設定全域-gitignore" class="headerlink" title="設定全域 .gitignore"></a>設定全域 .gitignore</h1><p>如果覺得在不同的工作目錄設定固定的「忽略檔案」很麻煩，可以直接設定「全域」的 <code>.gitignore</code> 。</p>
 <p>執行步驟如下：</p>
 <ol>
 <li>在終端機執行</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.excludesfile <span class="token string">"~/.gitignore_global"</span></pre></td></tr></table></figure><p>或是直接在  <code>.gitconfig</code>  檔  <code>[core]</code>  底下加這行，跟執行指令意思一樣 (註 1)。</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>core<span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	excludesfile <span class="token operator">=</span> ~/.gitignore_global</pre></td></tr></table></figure><ol start="2">
-<li>
-<p>根據不同系統，新增  <code>.gitignore_global</code>  檔案 (註 2)：<br>
-Mac 請到這個路徑設定：  <code> ~/.gitignore_global</code> <br>
-Windows 在這個路徑：  <code>C:\Users\你的使用者名字\.gitignore_global</code></p>
+<pre><code class="sh">git config --global core.excludesfile &quot;~/.gitignore_global&quot;    
+</code></pre>
+<p>或是直接在 <code>.gitconfig</code> 檔 <code>[core]</code> 底下加這行，跟執行指令意思一樣 (註1)。</p>
+<pre><code class="sh">[core]
+    excludesfile = ~/.gitignore_global  
+</code></pre>
+<ol start="2">
+<li><p>根據不同系統，新增 <code>.gitignore_global</code> 檔案 (註2)：<br>Mac 請到這個路徑設定： <code> ~/.gitignore_global</code><br>Windows 在這個路徑： <code>C:\Users\你的使用者名字\.gitignore_global</code>  </p>
 </li>
-<li>
-<p>在  <code>.gitignore_global</code>  設定的內容，即為「全域  <code>.gitignore</code> 」。</p>
+<li><p>在 <code>.gitignore_global</code> 設定的內容，即為「全域 <code>.gitignore</code>」。</p>
 </li>
 </ol>
 <blockquote>
-<p>註 1. 如果不知道 <strong> <code>.gitconfig</code> </strong> 檔案如何操作 ，可以參考 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMyMzE5MQ==">Git 初始化設定</span>文章 <strong>常見問題 「第四題」</strong>。</p>
-<p>註 2. 上述的「檔名」與「路徑」都可以自己定義，只要第 1、2 步有辦法對應即可，上面路徑設定只是為了把 <strong>全域  <code>.gitignore</code> </strong> 跟 <strong> <code>.gitconfig</code> </strong> 放在一樣的路徑。</p>
+<p>註1. 如果不知道 <strong><code>.gitconfig</code></strong> 檔案如何操作 ，可以參考 <span class="exturl" data-url="aHR0cHM6Ly9pdGhlbHAuaXRob21lLmNvbS50dy9hcnRpY2xlcy8xMDMyMzE5MQ==">Git 初始化設定</span>文章 <strong>常見問題 「第四題」</strong>。  </p>
+<p>註2. 上述的「檔名」與「路徑」都可以自己定義，只要第 1、2 步有辦法對應即可，上面路徑設定只是為了把 <strong>全域 <code>.gitignore</code></strong> 跟 <strong><code>.gitconfig</code></strong> 放在一樣的路徑。  </p>
 </blockquote>
-<h1 id="如何忽略已經被版控的檔案"><a class="markdownIt-Anchor" href="#如何忽略已經被版控的檔案">#</a> 如何忽略已經被版控的檔案？</h1>
-<p>開頭有提到，已經被版控的檔案會在 <strong>索引</strong> (暫存區) 存有資料，所以會導致  <code>.gitignore</code>  無法忽略。</p>
-<p>要忽略已被版控的檔案，有三件事情要做 (註 1)：</p>
+<h1 id="如何忽略已經被版控的檔案？"><a href="#如何忽略已經被版控的檔案？" class="headerlink" title="如何忽略已經被版控的檔案？"></a>如何忽略已經被版控的檔案？</h1><p>開頭有提到，已經被版控的檔案會在 <strong>索引</strong> (暫存區) 存有資料，所以會導致 <code>.gitignore</code> 無法忽略。  </p>
+<p>要忽略已被版控的檔案，有三件事情要做 (註1)：</p>
 <ol>
-<li>在  <code>.gitignore</code>  內設定要忽略的檔名。</li>
+<li>在 <code>.gitignore</code> 內設定要忽略的檔名。</li>
 <li>移除暫存區中的檔案紀錄。</li>
-<li>執行  <code>git commit</code>  提交一個版本。</li>
+<li>執行 <code>git commit</code> 提交一個版本。</li>
 </ol>
-<p>可能會有讀者疑惑第三步的動作，明明沒有編輯檔案，是要 commit 什麼東西啊，而且難道不用先  <code>git add</code>  嗎？！</p>
-<p>來說明一個小觀念，讓大家細細品嘗 (?)：</p>
+<p>可能會有讀者疑惑第三步的動作，明明沒有編輯檔案，是要 commit 什麼東西啊，而且難道不用先 <code>git add</code> 嗎？！</p>
+<p>來說明一個小觀念，讓大家細細品嘗(?)：  </p>
 <ul>
 <li>把已經 commit 的檔案移出暫存區，是一個 <strong>行為</strong>。</li>
 <li>資料被移除了，是一個 <strong>狀態</strong>。</li>
 </ul>
-<p>在 Git 的世界中，只要有 <strong>操作工作目錄或是索引</strong> 的「行為」，都會導致「資料狀態」被改變。</p>
-<p>資料原本 commit 好的 <strong>穩定</strong> 狀態如果被改變了，Git 就會認為應該要把這個「被改變的狀態」給記錄起來。</p>
-<p><s>資料：兄弟阿～挖應該嘎你喜無冤無仇啦齁，林北 commit 嘎 <strong>喝ㄙㄟˋ喝ㄙㄟˇ</strong> ，你無逮無治嘎挖亂叮噹…</s></p>
-<p>我們在執行  <code>git add</code>  時，會把「新增或編輯的檔案狀態」加入索引。<br>
-這裡第二步的行為，則是把「移除索引的檔案狀態」加到索引。  (&lt;= 這句話應該最難懂)</p>
+<p>在 Git 的世界中，只要有 <strong>操作工作目錄或是索引</strong> 的「行為」，都會導致「資料狀態」被改變。  </p>
+<p>資料原本 commit 好的 <strong>穩定</strong> 狀態如果被改變了，Git 就會認為應該要把這個「被改變的狀態」給記錄起來。  </p>
+<p><del>資料：兄弟阿~ 挖應該嘎你喜無冤無仇啦齁，林北 commit 嘎 <strong>喝ㄙㄟˋ喝ㄙㄟˇ</strong> ，你無逮無治嘎挖亂叮噹…</del></p>
+<p>我們在執行 <code>git add</code> 時，會把「新增或編輯的檔案狀態」加入索引。<br>這裡第二步的行為，則是把「移除索引的檔案狀態」加到索引。  (&lt;&#x3D;這句話應該最難懂)</p>
 <p>兩者在 Git 看來，都是有東西 <strong>被加到暫存區</strong> 的行為，所以下一步，就可以直接執行 commit 了！</p>
 <p>詳細指令操作如下：</p>
 <ol>
-<li>
-<p>修改  <code>.gitignore</code> ，並視需求決定是否跟著「第三步」一起 commit。</p>
+<li><p>修改 <code>.gitignore</code>，並視需求決定是否跟著「第三步」一起 commit。</p>
 </li>
-<li>
-<p>執行下列指令 (註 2)，把檔案移出索引。</p>
+<li><p>執行下列指令 (註2)，把檔案移出索引。</p>
 </li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> 檔名</pre></td></tr></table></figure><ol start="3">
-<li>直接 commit 提交一個版本 (註 3)。</li>
+<pre><code class="sh">git rm --cached 檔名 
+</code></pre>
+<ol start="3">
+<li>直接 commit 提交一個版本 (註3)。</li>
 </ol>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"將 XXX 移出「暫存區」"</span></pre></td></tr></table></figure><p>如果都順利完成，此時的檔案應該已經能被 Git 忽略了！</p>
+<pre><code class="sh">git commit -m &quot;將 XXX 移出「暫存區」&quot;
+</code></pre>
+<p>如果都順利完成，此時的檔案應該已經能被 Git 忽略了！</p>
 <blockquote>
 <p>註 1. 上述內容也可以在 <span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9kb2NzL2dpdGlnbm9yZSNfbm90ZXM=">官網</span> 找到說明。</p>
-<p>註 2.   <code>rm (remove)</code>  用來告訴 Git 要刪掉檔案，  <code>--cached</code>  則是告訴 Git 不是要從「工作目錄」中刪除，只要刪除「索引」的資料就好。</p>
-<p>註 3. 再說明一次：透過  <code>git</code>  的指令將資料「移出索引」的行為，<strong>資料被移出</strong> 的狀態會被加到「暫存區」，所以可以直接 Commit。</p>
+<p>註 2.  <code>rm (remove)</code> 用來告訴 Git 要刪掉檔案， <code>--cached</code> 則是告訴 Git 不是要從「工作目錄」中刪除，只要刪除「索引」的資料就好。  </p>
+<p>註 3. 再說明一次：透過 <code>git</code> 的指令將資料「移出索引」的行為，<strong>資料被移出</strong> 的狀態會被加到「暫存區」，所以可以直接 Commit。   </p>
 </blockquote>
-<h2 id="可能不太重要的觀念補充把檔案移除索引後的狀態"><a class="markdownIt-Anchor" href="#可能不太重要的觀念補充把檔案移除索引後的狀態">#</a> 可能不太重要的觀念補充：把檔案移除索引後的狀態…</h2>
-<p>我們已經知道  <code>git rm --cached 檔名</code>  是把檔案「移出索引」的指令。<br>
-不過執行完指令之後的檔案，<strong>有沒有寫進  <code>.gitignore</code> </strong> ， <code>git status</code>  出現的資料狀態會不一樣哦！</p>
-<p>舉例來說，假設我忘記把  <code>data.log</code>  放到  <code>.gitignore</code>  就 commit 了，現在想把它移除：<br>
-<img data-src="https://i.imgur.com/u0x9lF0.png" alt="data.log"></p>
+<h2 id="可能不太重要的觀念補充：把檔案移除索引後的狀態…"><a href="#可能不太重要的觀念補充：把檔案移除索引後的狀態…" class="headerlink" title="可能不太重要的觀念補充：把檔案移除索引後的狀態…"></a>可能不太重要的觀念補充：把檔案移除索引後的狀態…</h2><p>我們已經知道 <code>git rm --cached 檔名</code> 是把檔案「移出索引」的指令。<br>不過執行完指令之後的檔案，<strong>有沒有寫進 <code>.gitignore</code></strong> ，<code>git status</code> 出現的資料狀態會不一樣哦！</p>
+<p>舉例來說，假設我忘記把 <code>data.log</code> 放到 <code>.gitignore</code> 就 commit 了，現在想把它移除：<br><img data-src="https://i.imgur.com/u0x9lF0.png" alt="data.log"></p>
 <p>於是我執行了這個指令：</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> data.log</pre></td></tr></table></figure><ul>
-<li>
-<p>「沒有」把 <strong> <code>data.log</code> </strong> 寫進  <code>.gitignore</code>  時，執行  <code>git status</code>  會出現這樣的資料：<br>
-<img data-src="https://i.imgur.com/AQIBwAU.png" alt="尚未寫資料示意"><br>
-<strong> <code>data.log</code> </strong> 在 <strong>「可被提交」</strong> 區域呈現 <strong>「已刪除」</strong> 狀態 (綠字那筆)，<br>
-同時也會出現在 <strong>「未追蹤檔案」</strong> 區域 (紅字那筆)。</p>
+<pre><code class="sh">git rm --cached data.log
+</code></pre>
+<ul>
+<li><p>「沒有」把 <strong><code>data.log</code></strong> 寫進 <code>.gitignore</code> 時，執行 <code>git status</code> 會出現這樣的資料：<br><img data-src="https://i.imgur.com/AQIBwAU.png" alt="尚未寫資料示意"><br> <strong><code>data.log</code></strong> 在 <strong>「可被提交」</strong> 區域呈現 <strong>「已刪除」</strong> 狀態 (綠字那筆)，<br> 同時也會出現在 <strong>「未追蹤檔案」</strong> 區域 (紅字那筆)。</p>
 </li>
-<li>
-<p>把 <strong> <code>data.log</code> </strong> 寫進  <code>.gitignore</code> ，再執行一次  <code>git status</code> ：<br>
-<img data-src="https://i.imgur.com/nRsAfoM.png" alt="已經寫資料示意"><br>
-神奇的事情出現了，<strong> <code>data.log</code> </strong> 竟然從 <strong>「未追蹤檔案」</strong> 區域消失了！！</p>
+<li><p>把 <strong><code>data.log</code></strong> 寫進 <code>.gitignore</code>，再執行一次 <code>git status</code>：<br><img data-src="https://i.imgur.com/nRsAfoM.png" alt="已經寫資料示意"><br>神奇的事情出現了，**<code>data.log</code>** 竟然從 <strong>「未追蹤檔案」</strong> 區域消失了！！</p>
 </li>
 </ul>
 <p>給大家 10 秒鐘思考是什麼原因。好時間到！</p>
 <p>記得「未追蹤」檔案的定義嗎？</p>
 <blockquote>
-<p>只要不在索引 (暫存區) 內的檔案，就是「未追蹤」檔案。</p>
+<p>只要不在索引(暫存區)內的檔案，就是「未追蹤」檔案。</p>
 </blockquote>
-<p>由於  <code>git rm --cached</code>  就是「把檔案從索引移除」的指令，執行完指令後，檔案當然就會是未追蹤狀態。</p>
-<p>要是未追蹤的檔案再度被寫到  <code>.gitignore</code>  中，就會讓 Git 會自動「忽略」這個檔案，就好像 Git 「看不到」這個檔案一般，既然對 Git 來說檔案根本就不存在，那也不用探討追蹤與否的問題了。</p>
-<p>不過此時的 Git 確實知道有一個叫 <strong> <code>data.log</code> </strong> 被「移出索引」，而且移出索引的「狀態」還沒有被「紀錄」，所以  <code>git status</code>  會顯示有個已經被刪除的檔案，而且它還沒被 commit 。</p>
-<p>我們因此能得知，雖然  <code>.gitignore</code>  不是索引，不過它也會影響到 Git 讀取專案檔案的狀態。</p>
-<p><code>.git/index</code>  索引 (a.k.a. 暫存區) 用來紀錄要讓 Git 「追蹤」的資料；<br>
- <code>.gitignore</code>  用來紀錄要讓 Git 「忽略」的資料。</p>
-<h1 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h1>
-<h2 id="1-git-rm-cached-移出檔案會影響之前-commit-的檔案嗎"><a class="markdownIt-Anchor" href="#1-git-rm-cached-移出檔案會影響之前-commit-的檔案嗎">#</a> 1.  <code>git rm --cached</code>  移出檔案，會影響之前 commit 的檔案嗎？</h2>
-<p>不會。</p>
-<p>用另一個角度來看這個指令，執行完指令之後的檔案，就像剛跟 Git 談完分手一樣，兩者變成了最熟悉的陌生人。<br>
-他們之間經歷的回憶，就像已經 commit 的內容一樣，Git 不會輕易忘記。</p>
-<p>這樣的模式也很合理，commit 行為在 Git 的世界應該算是最神聖的事情，這會把關鍵的時間點封裝成重要的記憶。<br>
-如果有任何一個指令，可以一口氣把歷史中 commit 過的某個檔案一次清除，可能也就失去了「版控」的意義。</p>
-<p>所以  <code>git rm --cached</code>  依然是一個讓時間「往前走」的指令，他只是某個檔案跟 Git 分手的時刻，但過去被記錄的點點滴滴，不會輕易的被 Git 所遺棄 。</p>
-<p><s>這樣說起來，執行完指令後那個 commit 的行為，就是要發文紀錄一下自己分手了嗎？！</s></p>
-<p><s>奇怪… 怎麼寫完這段話… 眼角微微泛淚…</s></p>
-<p><s>是洋蔥，我加了洋蔥</s></p>
-<h2 id="2-gitignore-需要被加入版控嗎"><a class="markdownIt-Anchor" href="#2-gitignore-需要被加入版控嗎">#</a> 2. .gitignore 需要被加入版控嗎？</h2>
-<p>又是那個老答案：「看需求」。</p>
-<p>如果你使用 Git 都是一個人在版控，而且每個工作目錄需要忽略的檔案大同小異，那其實只要建立好 「全域  <code>.gitignore</code> 」 就可以，不一定要在每個專案都定義  <code>.gitignore</code> ，就也不會有要不要把  <code>.gitignore</code>  加入版控的問題了。</p>
-<p>不過如果是跟團隊合作某個專案，為了讓整個團隊能擁有一致的「忽略清單」，這種情況就會建議把  <code>.gitignore</code>  加到版控中。<br>
-這樣的好處是，如果團隊的專案因為某個需求需要增加「要被忽略的檔案」，只要有人在專案的  <code>.gitignore</code>  檔案定義好，所有人同步之後就搞定了，省得每個人還要額外設定。</p>
+<p>由於 <code>git rm --cached</code> 就是「把檔案從索引移除」的指令，執行完指令後，檔案當然就會是未追蹤狀態。  </p>
+<p>要是未追蹤的檔案再度被寫到 <code>.gitignore</code> 中，就會讓 Git 會自動「忽略」這個檔案，就好像 Git 「看不到」這個檔案一般，既然對 Git 來說檔案根本就不存在，那也不用探討追蹤與否的問題了。  </p>
+<p>不過此時的 Git 確實知道有一個叫 <strong><code>data.log</code></strong> 被「移出索引」，而且移出索引的「狀態」還沒有被「紀錄」，所以 <code>git status</code> 會顯示有個已經被刪除的檔案，而且它還沒被 commit 。</p>
+<p>我們因此能得知，雖然 <code>.gitignore</code> 不是索引，不過它也會影響到 Git 讀取專案檔案的狀態。   </p>
+<p><code>.git/index</code> 索引 (a.k.a. 暫存區) 用來紀錄要讓 Git 「追蹤」的資料；<br><code>.gitignore</code> 用來紀錄要讓 Git 「忽略」的資料。</p>
+<h1 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h1><h2 id="1-git-rm-cached-移出檔案，會影響之前-commit-的檔案嗎？"><a href="#1-git-rm-cached-移出檔案，會影響之前-commit-的檔案嗎？" class="headerlink" title="1. git rm --cached 移出檔案，會影響之前 commit 的檔案嗎？"></a>1. <code>git rm --cached</code> 移出檔案，會影響之前 commit 的檔案嗎？</h2><p>不會。</p>
+<p>用另一個角度來看這個指令，執行完指令之後的檔案，就像剛跟 Git 談完分手一樣，兩者變成了最熟悉的陌生人。<br>他們之間經歷的回憶，就像已經 commit 的內容一樣，Git 不會輕易忘記。</p>
+<p>這樣的模式也很合理，commit 行為在 Git 的世界應該算是最神聖的事情，這會把關鍵的時間點封裝成重要的記憶。<br>如果有任何一個指令，可以一口氣把歷史中 commit 過的某個檔案一次清除，可能也就失去了「版控」的意義。  </p>
+<p>所以 <code>git rm --cached</code> 依然是一個讓時間「往前走」的指令，他只是某個檔案跟 Git 分手的時刻，但過去被記錄的點點滴滴，不會輕易的被 Git 所遺棄 。</p>
+<p><del>這樣說起來，執行完指令後那個 commit 的行為，就是要發文紀錄一下自己分手了嗎?!</del></p>
+<p><del>奇怪…怎麼寫完這段話…眼角微微泛淚…</del>  </p>
+<p><del>是洋蔥，我加了洋蔥</del></p>
+<h2 id="2-gitignore-需要被加入版控嗎？"><a href="#2-gitignore-需要被加入版控嗎？" class="headerlink" title="2. .gitignore 需要被加入版控嗎？"></a>2. .gitignore 需要被加入版控嗎？</h2><p>又是那個老答案：「看需求」。</p>
+<p>如果你使用 Git 都是一個人在版控，而且每個工作目錄需要忽略的檔案大同小異，那其實只要建立好 「全域 <code>.gitignore</code>」 就可以，不一定要在每個專案都定義 <code>.gitignore</code>，就也不會有要不要把 <code>.gitignore</code> 加入版控的問題了。</p>
+<p>不過如果是跟團隊合作某個專案，為了讓整個團隊能擁有一致的「忽略清單」，這種情況就會建議把 <code>.gitignore</code> 加到版控中。<br>這樣的好處是，如果團隊的專案因為某個需求需要增加「要被忽略的檔案」，只要有人在專案的 <code>.gitignore</code> 檔案定義好，所有人同步之後就搞定了，省得每個人還要額外設定。</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -384,7 +386,7 @@ Windows 在這個路徑：  <code>C:\Users\你的使用者名字\.gitignore_glob
     <div class="item left">
       
 
-  <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="查看 log 紀錄">
+  <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;aq0kjdS.jpg" title="查看 log 紀錄">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>查看 log 紀錄</h3>
@@ -394,7 +396,7 @@ Windows 在這個路徑：  <code>C:\Users\你的使用者名字\.gitignore_glob
     <div class="item right">
       
 
-  <a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;iqFdRnz.jpg" title="聊聊 commitID 與 HEAD">
+  <a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;dOvnXNe.jpg" title="聊聊 commitID 與 HEAD">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>聊聊 commitID 與 HEAD</h3>
@@ -415,7 +417,7 @@ Windows 在這個路徑：  <code>C:\Users\你的使用者名字\.gitignore_glob
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-gitignore-%E6%AA%94%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text"> 設定 .gitignore 檔案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gitignore-%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text"> .gitignore 格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E5%85%A8%E5%9F%9F-gitignore"><span class="toc-number">4.</span> <span class="toc-text"> 設定全域 .gitignore</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%BF%BD%E7%95%A5%E5%B7%B2%E7%B6%93%E8%A2%AB%E7%89%88%E6%8E%A7%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text"> 如何忽略已經被版控的檔案？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81%E7%9A%84%E8%A7%80%E5%BF%B5%E8%A3%9C%E5%85%85%E6%8A%8A%E6%AA%94%E6%A1%88%E7%A7%BB%E9%99%A4%E7%B4%A2%E5%BC%95%E5%BE%8C%E7%9A%84%E7%8B%80%E6%85%8B"><span class="toc-number">5.1.</span> <span class="toc-text"> 可能不太重要的觀念補充：把檔案移除索引後的狀態…</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">6.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-git-rm-cached-%E7%A7%BB%E5%87%BA%E6%AA%94%E6%A1%88%E6%9C%83%E5%BD%B1%E9%9F%BF%E4%B9%8B%E5%89%8D-commit-%E7%9A%84%E6%AA%94%E6%A1%88%E5%97%8E"><span class="toc-number">6.1.</span> <span class="toc-text"> 1.  git rm --cached  移出檔案，會影響之前 commit 的檔案嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-gitignore-%E9%9C%80%E8%A6%81%E8%A2%AB%E5%8A%A0%E5%85%A5%E7%89%88%E6%8E%A7%E5%97%8E"><span class="toc-number">6.2.</span> <span class="toc-text"> 2. .gitignore 需要被加入版控嗎？</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A-gitignore-%E6%AA%94%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">設定 .gitignore 檔案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gitignore-%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">.gitignore 格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E5%85%A8%E5%9F%9F-gitignore"><span class="toc-number">4.</span> <span class="toc-text">設定全域 .gitignore</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%BF%BD%E7%95%A5%E5%B7%B2%E7%B6%93%E8%A2%AB%E7%89%88%E6%8E%A7%E7%9A%84%E6%AA%94%E6%A1%88%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">如何忽略已經被版控的檔案？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81%E7%9A%84%E8%A7%80%E5%BF%B5%E8%A3%9C%E5%85%85%EF%BC%9A%E6%8A%8A%E6%AA%94%E6%A1%88%E7%A7%BB%E9%99%A4%E7%B4%A2%E5%BC%95%E5%BE%8C%E7%9A%84%E7%8B%80%E6%85%8B%E2%80%A6"><span class="toc-number">5.1.</span> <span class="toc-text">可能不太重要的觀念補充：把檔案移除索引後的狀態…</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">6.</span> <span class="toc-text">常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-git-rm-cached-%E7%A7%BB%E5%87%BA%E6%AA%94%E6%A1%88%EF%BC%8C%E6%9C%83%E5%BD%B1%E9%9F%BF%E4%B9%8B%E5%89%8D-commit-%E7%9A%84%E6%AA%94%E6%A1%88%E5%97%8E%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">1. git rm --cached 移出檔案，會影響之前 commit 的檔案嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-gitignore-%E9%9C%80%E8%A6%81%E8%A2%AB%E5%8A%A0%E5%85%A5%E7%89%88%E6%8E%A7%E5%97%8E%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">2. .gitignore 需要被加入版控嗎？</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -509,10 +511,79 @@ Windows 在這個路徑：  <code>C:\Users\你的使用者名字\.gitignore_glob
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
+</div>
+
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
+    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
   </li>
 
       
@@ -532,77 +603,7 @@ Windows 在這個路徑：  <code>C:\Users\你的使用者名字\.gitignore_glob
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
-</div>
-
-    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
     <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
   </li>
 
   </ul>
@@ -623,13 +624,13 @@ Windows 在這個路徑：  <code>C:\Users\你的使用者名字\.gitignore_glob
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

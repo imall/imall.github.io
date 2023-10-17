@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>1.9k</span>
+    <span>2k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -114,12 +114,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/sVKjRY8.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/mubtL63.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/gYzRwq6.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
         </ul>
       </div>
     </header>
@@ -165,82 +165,68 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
-<p>上一篇文章，我們已經學會使用  <code>git status</code>  來查看檔案狀態，不過  <code>git status</code>  呈現的檔案狀態，好像不是只有 <strong>暫存 (stage)</strong> 與 <strong>未暫存 (unstage)</strong> 這麼簡單。</p>
+    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇文章，我們已經學會使用 <code>git status</code> 來查看檔案狀態，不過 <code>git status</code> 呈現的檔案狀態，好像不是只有 <strong>暫存(stage)</strong> 與 <strong>未暫存(unstage)</strong> 這麼簡單。</p>
 <p>這篇文章我們來更細部的探討 Git 中，資料會出現的狀態。</p>
-<p>預告一下：<br>
-文章預計會說明四個名詞定義，最後還會證明其中兩個名詞 <strong>未追蹤</strong> 等於 <strong>未暫存</strong>，整篇內容可能會讓新手看完覺得頭很暈！</p>
+<p>預告一下：<br>文章預計會說明四個名詞定義，最後還會證明其中兩個名詞 <strong>未追蹤</strong> 等於 <strong>未暫存</strong>，整篇內容可能會讓新手看完覺得頭很暈！</p>
 <p>如果你畏懼字詞解釋的話，可以直接滑到文章最底端，看結論。</p>
-<h1 id="已追蹤tracked-未追蹤untracked已暫存staged-未暫存unstaged"><a class="markdownIt-Anchor" href="#已追蹤tracked-未追蹤untracked已暫存staged-未暫存unstaged">#</a> 已追蹤 (Tracked) 、未追蹤 (Untracked)，已暫存 (Staged)、未暫存 (Unstaged)</h1>
-<p>執行  <code>git status</code>  指令時，會發現 Git 將 <strong>新增加的檔案</strong> 描述成 <strong>未追蹤的檔案</strong> (Untracked files)。</p>
-<p>可是不對阿…<br>
- 加入暫存區的檔案叫做 <strong>已暫存</strong>，那我還沒把檔案加入<strong>暫存區</strong>，為什麼叫做 <strong>未追蹤</strong>，不直接叫 <strong>未暫存</strong>？</p>
-<p>在實際開始解釋之前，說明一個可能比較抽象的觀念：<br>
-我們說  <code>git add</code>  是把檔案放到暫存區的行為，而這個 <strong>暫存區</strong> 是真的有這東西，他座落於  <code>.git</code>  資料夾裡面，是一個名叫  <code>index</code>  (索引) 的檔案。<br>
-<img data-src="https://i.imgur.com/gMu4aXI.png" alt="Alt text"></p>
-<p>而「索引」到底是不是真的像購物車一樣，下單後會「清空資料」？ 其實 <strong>「不是」</strong>。</p>
-<p>在 Git 中，能在加入索引之後，又移出索引的資料，只有 <strong>還沒 commit 過的資料</strong> 才能做到。<br>
-<img data-src="https://i.imgur.com/idj8BTi.png" alt="沒commit 的檔案可以移出索引示意圖"></p>
+<h1 id="已追蹤-Tracked-、未追蹤-Untracked-，已暫存-Staged-、未暫存-Unstaged"><a href="#已追蹤-Tracked-、未追蹤-Untracked-，已暫存-Staged-、未暫存-Unstaged" class="headerlink" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)"></a>已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</h1><p>執行 <code>git status</code> 指令時，會發現 Git 將 <strong>新增加的檔案</strong> 描述成 <strong>未追蹤的檔案</strong> (Untracked files)。</p>
+<p>可是不對阿…<br>加入暫存區的檔案叫做 <strong>已暫存</strong>，那我還沒把檔案加入<strong>暫存區</strong>，為什麼叫做 <strong>未追蹤</strong>，不直接叫 <strong>未暫存</strong>？</p>
+<p>在實際開始解釋之前，說明一個可能比較抽象的觀念：<br>我們說 <code>git add</code> 是把檔案放到暫存區的行為，而這個 <strong>暫存區</strong> 是真的有這東西，他座落於 <code>.git</code> 資料夾裡面，是一個名叫 <code>index</code>(索引) 的檔案。<br><img data-src="https://i.imgur.com/gMu4aXI.png" alt="Alt text"></p>
+<p>而「索引」到底是不是真的像購物車一樣，下單後會「清空資料」？ 其實 <strong>「不是」</strong>。  </p>
+<p>在 Git 中，能在加入索引之後，又移出索引的資料，只有 <strong>還沒 commit 過的資料</strong> 才能做到。<br><img data-src="https://i.imgur.com/idj8BTi.png" alt="沒commit 的檔案可以移出索引示意圖"></p>
 <p>否則，只要 commit 過的檔案，資料永遠會紀錄在 <strong>索引</strong> 裡面。</p>
 <blockquote>
 <p>檔案進了 Git 就跟得罪方丈一樣，想走沒那麼容易！- 高見龍 (龍哥)<span class="exturl" data-url="aHR0cHM6Ly9naXRib29rLnR3L2NoYXB0ZXJzL2ZhcS9yZW1vdmUtZmlsZXMtZnJvbS1naXQ=">《為你自己學 Git》</span></p>
 </blockquote>
 <p>如果你還沒因為 <strong>暫存區</strong> 又叫 <strong>索引</strong> 這件事混淆的話，那我們繼續看下去：</p>
-<h2 id="未追蹤untracked-追蹤-tracked-的定義"><a class="markdownIt-Anchor" href="#未追蹤untracked-追蹤-tracked-的定義">#</a> 未追蹤 (Untracked) 、追蹤 (Tracked) 的定義</h2>
-<ol>
+<h2 id="未追蹤-Untracked-、追蹤-Tracked-的定義"><a href="#未追蹤-Untracked-、追蹤-Tracked-的定義" class="headerlink" title="未追蹤(Untracked) 、追蹤 (Tracked) 的定義"></a>未追蹤(Untracked) 、追蹤 (Tracked) 的定義</h2><ol>
 <li><strong>未追蹤的檔案</strong> (Untracked files)：所有 <strong>不在索引</strong> 的檔案。</li>
 <li><strong>已追蹤的檔案</strong> (Tracked files)：所有 <strong>存在於索引</strong> 的檔案。</li>
 </ol>
 <p>同時，<strong>已追蹤</strong> 的檔案，可以再區分成 <strong>未暫存</strong> 與 <strong>暫存</strong>：</p>
-<h2 id="未暫存unstaged-暫存staged-的定義"><a class="markdownIt-Anchor" href="#未暫存unstaged-暫存staged-的定義">#</a> 未暫存 (Unstaged)、暫存 (Staged) 的定義</h2>
-<ol>
-<li><strong>未暫存的檔案</strong> (Unstaged files)：<strong>索引的內容</strong> 與 <strong>工作目錄的內容</strong> <span class="red">不一致</span> 的檔案</li>
-<li><strong>已暫存的檔案</strong> (Staged files)：<strong>索引的內容</strong> 與 <strong>作目錄的內容</strong> <span class="blue">一致</span> 的檔案</li>
+<h2 id="未暫存-Unstaged-、暫存-Staged-的定義"><a href="#未暫存-Unstaged-、暫存-Staged-的定義" class="headerlink" title="未暫存(Unstaged)、暫存(Staged) 的定義"></a>未暫存(Unstaged)、暫存(Staged) 的定義</h2><ol>
+<li><strong>未暫存的檔案</strong> (Unstaged files)：<strong>索引的內容</strong> 與 <strong>工作目錄的內容</strong> [不一致]{.red} 的檔案</li>
+<li><strong>已暫存的檔案</strong> (Staged files)：<strong>索引的內容</strong> 與 <strong>作目錄的內容</strong> [一致]{.blue} 的檔案</li>
 </ol>
 <p>了解定義之後，我們可以回頭來看工作目錄中，可能會有的檔案狀態：</p>
-<h1 id="工作目錄可能會出現的檔案狀態整理"><a class="markdownIt-Anchor" href="#工作目錄可能會出現的檔案狀態整理">#</a> 工作目錄可能會出現的檔案狀態整理</h1>
-<p>在工作目錄中操作檔案，以及執行會更動索引資料的指令 (註 1) 時，都會使檔案狀態發生變化。</p>
-<p>下文整理 (註 2) 一下我們在開發與版控時，工作目錄的檔案可能會出現的狀態，這裡更動索引資料的指令，以最常使用的   <code>git add</code>  為例：</p>
+<h1 id="工作目錄可能會出現的檔案狀態整理"><a href="#工作目錄可能會出現的檔案狀態整理" class="headerlink" title="工作目錄可能會出現的檔案狀態整理"></a>工作目錄可能會出現的檔案狀態整理</h1><p>在工作目錄中操作檔案，以及執行會更動索引資料的指令(註1)時，都會使檔案狀態發生變化。  </p>
+<p>下文整理(註2)一下我們在開發與版控時，工作目錄的檔案可能會出現的狀態，這裡更動索引資料的指令，以最常使用的  <code>git add</code> 為例：</p>
 <ol>
-<li>執行  <code>git add</code>  之前：</li>
+<li>執行 <code>git add</code> 之前：</li>
 </ol>
 <ul>
 <li>新增檔案 (尚未列入追蹤的檔案) ：未追蹤</li>
 </ul>
 <ol start="2">
-<li>執行  <code>git add</code>  之後：</li>
+<li>執行 <code>git add</code> 之後：</li>
 </ol>
 <ul>
-<li>新增檔案 (已經加入索引的檔案) ：已追蹤 / 暫存</li>
-<li>修改檔案 (已經加入索引的檔案) ：已追蹤 / 暫存</li>
-<li>刪除檔案 (已經加入索引的檔案) ：已追蹤 / 暫存</li>
+<li>新增檔案 (已經加入索引的檔案) ：已追蹤&#x2F;暫存</li>
+<li>修改檔案 (已經加入索引的檔案) ：已追蹤&#x2F;暫存</li>
+<li>刪除檔案 (已經加入索引的檔案) ：已追蹤&#x2F;暫存</li>
 </ul>
 <ol start="3">
-<li>執行  <code>git commit</code>  之後又進行異動：</li>
+<li>執行 <code>git commit</code> 之後又進行異動：</li>
 </ol>
 <ul>
-<li>修改檔案 (尚未加入索引的檔案) ：已追蹤 / 未暫存</li>
-<li>刪除檔案 (尚未加入索引的檔案) ：已追蹤 / 未暫存</li>
+<li>修改檔案 (尚未加入索引的檔案) ：已追蹤&#x2F;未暫存</li>
+<li>刪除檔案 (尚未加入索引的檔案) ：已追蹤&#x2F;未暫存</li>
 </ul>
 <p>用上面列的這三種區域來看的話，當檔案被 commit 過後，編輯這些檔案再 commit 一版的行為，就是不停的讓檔案在 <strong>第三區</strong> 與 <strong>第二區</strong> 的狀態不斷循環。</p>
 <blockquote>
-<p>註 1. 在 Git 中，並不只有  <code>git add</code>  與  <code>git commit</code>  兩個指令會影響到檔案狀態，舉凡一切會去異動索引資料的指令，都會影響檔案在 Git 中的狀態，例如  <code>reset</code>  、  <code>rebase</code>  等。</p>
+<p>註1. 在 Git 中，並不只有 <code>git add</code> 與 <code>git commit</code> 兩個指令會影響到檔案狀態，舉凡一切會去異動索引資料的指令，都會影響檔案在 Git 中的狀態，例如 <code>reset</code> 、 <code>rebase</code> 等。</p>
 </blockquote>
 <blockquote>
-<p>註 2.  原始資料整理自保哥的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvZ2d5ODA4OC9MZWFybi1HaXQtaW4tMzAtZGF5cy9ibG9iL21hc3Rlci96aC10dy8xMy5tZA==">文章</span>。</p>
+<p>註2.  原始資料整理自保哥的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvZ2d5ODA4OC9MZWFybi1HaXQtaW4tMzAtZGF5cy9ibG9iL21hc3Rlci96aC10dy8xMy5tZA==">文章</span>。</p>
 </blockquote>
-<h1 id="常見問題"><a class="markdownIt-Anchor" href="#常見問題">#</a> 常見問題</h1>
-<h2 id="未追蹤的檔案算不算未暫存的檔案"><a class="markdownIt-Anchor" href="#未追蹤的檔案算不算未暫存的檔案">#</a> 「未追蹤」的檔案算不算「未暫存」的檔案？</h2>
-<p>廣義來說，算。</p>
-<p>記得 Fork GUI 介面中，工作目錄剛新增的那些 <strong>未追蹤檔案</strong> 出現的位置在哪嗎？</p>
-<p>沒錯，竟然是未暫存區 (Unstaged)！</p>
-<p>如果你已經忘記了，我附個圖：<br>
-<img data-src="https://i.imgur.com/kXU8mmE.png" alt="暫存，未暫存示意圖"><br>
- (p.s. 朋友希望 Fork 的畫面能跟背景色有對比，預計之後都會以深色系來截圖)</p>
+<h1 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h1><h2 id="「未追蹤」的檔案算不算「未暫存」的檔案？"><a href="#「未追蹤」的檔案算不算「未暫存」的檔案？" class="headerlink" title="「未追蹤」的檔案算不算「未暫存」的檔案？"></a>「未追蹤」的檔案算不算「未暫存」的檔案？</h2><p>廣義來說，算。</p>
+<p>記得 Fork GUI 介面中，工作目錄剛新增的那些 <strong>未追蹤檔案</strong> 出現的位置在哪嗎？  </p>
+<p>沒錯，竟然是未暫存區 (Unstaged)！  </p>
+<p>如果你已經忘記了，我附個圖：<br><img data-src="https://i.imgur.com/kXU8mmE.png" alt="暫存，未暫存示意圖"><br>(p.s. 朋友希望 Fork 的畫面能跟背景色有對比，預計之後都會以深色系來截圖)</p>
 <p>再列一次兩個名詞的定義：</p>
 <ul>
 <li>「未追蹤」檔案：<strong>尚未紀錄到索引</strong> 的檔案。</li>
-<li>「未暫存」檔案：<strong>索引</strong> 與 <strong>工作目錄</strong> 資料「 <code>不一致</code> 」 的檔案。</li>
+<li>「未暫存」檔案：<strong>索引</strong> 與 <strong>工作目錄</strong> 資料「<code>不一致</code>」 的檔案。</li>
 </ul>
 <p>有了定義，我們就可以來證明這兩者是不是相同的意思。</p>
 <p>試證明： <strong>「未追蹤」</strong> 檔案等於 <strong>「未暫存」</strong> 檔案：</p>
@@ -251,12 +237,8 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <li>由於 <strong>「索引與工作目錄」</strong> 記錄的資料 <strong>「不一致」</strong> 的檔案，稱為 <strong>「未暫存」</strong> 的檔案。</li>
 </ol>
 <p>得證： <strong>「未追蹤」</strong> 檔案等於 <strong>「未暫存」</strong> 檔案。</p>
-<h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
-<p>我們在使用 Git 版控，都是持續更改檔案狀態的行為，了解 Git 對檔案狀態的分類，可以在未來面對不同情境時，知道下一步該如何操作，不會手忙腳亂。</p>
-<p>如果因為這篇文章的各種狀態，以及看完證明題後搞得頭暈腦脹， <s>然後不想再跟我這種數學系的人說話</s> ，在初學 Git 的階段，先記得一件事情就好：</p>
-<div class="note info no-icon">
-<p>要執行 commit 之前，通通先 add 過吧！</p>
-</div>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>我們在使用 Git 版控，都是持續更改檔案狀態的行為，了解 Git 對檔案狀態的分類，可以在未來面對不同情境時，知道下一步該如何操作，不會手忙腳亂。</p>
+<p>如果因為這篇文章的各種狀態，以及看完證明題後搞得頭暈腦脹， <del>然後不想再跟我這種數學系的人說話</del> ，在初學 Git 的階段，先記得一件事情就好：<br>:::info no-icon<br>要執行 commit 之前，通通先 add 過吧！<br>:::</p>
 
       <div class="tags">
           <a href="/tags/Git/" rel="tag"><i class="ic i-tag"></i> Git</a>
@@ -311,7 +293,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="查看 Git 資料狀態">
+  <a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;rt4bUdl.jpg" title="查看 Git 資料狀態">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>查看 Git 資料狀態</h3>
@@ -321,7 +303,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;slJN1yE.jpg" title="查看 log 紀錄">
+  <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;P69ZGGo.jpg" title="查看 log 紀錄">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>查看 log 紀錄</h3>
@@ -342,7 +324,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%B2%E8%BF%BD%E8%B9%A4tracked-%E6%9C%AA%E8%BF%BD%E8%B9%A4untracked%E5%B7%B2%E6%9A%AB%E5%AD%98staged-%E6%9C%AA%E6%9A%AB%E5%AD%98unstaged"><span class="toc-number">2.</span> <span class="toc-text"> 已追蹤 (Tracked) 、未追蹤 (Untracked)，已暫存 (Staged)、未暫存 (Unstaged)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E8%BF%BD%E8%B9%A4untracked-%E8%BF%BD%E8%B9%A4-tracked-%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="toc-number">2.1.</span> <span class="toc-text"> 未追蹤 (Untracked) 、追蹤 (Tracked) 的定義</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9A%AB%E5%AD%98unstaged-%E6%9A%AB%E5%AD%98staged-%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="toc-number">2.2.</span> <span class="toc-text"> 未暫存 (Unstaged)、暫存 (Staged) 的定義</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%AE%E9%8C%84%E5%8F%AF%E8%83%BD%E6%9C%83%E5%87%BA%E7%8F%BE%E7%9A%84%E6%AA%94%E6%A1%88%E7%8B%80%E6%85%8B%E6%95%B4%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text"> 工作目錄可能會出現的檔案狀態整理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">4.</span> <span class="toc-text"> 常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E8%BF%BD%E8%B9%A4%E7%9A%84%E6%AA%94%E6%A1%88%E7%AE%97%E4%B8%8D%E7%AE%97%E6%9C%AA%E6%9A%AB%E5%AD%98%E7%9A%84%E6%AA%94%E6%A1%88"><span class="toc-number">4.1.</span> <span class="toc-text"> 「未追蹤」的檔案算不算「未暫存」的檔案？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">5.</span> <span class="toc-text"> 總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%B2%E8%BF%BD%E8%B9%A4-Tracked-%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4-Untracked-%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98-Staged-%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98-Unstaged"><span class="toc-number">2.</span> <span class="toc-text">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E8%BF%BD%E8%B9%A4-Untracked-%E3%80%81%E8%BF%BD%E8%B9%A4-Tracked-%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="toc-number">2.1.</span> <span class="toc-text">未追蹤(Untracked) 、追蹤 (Tracked) 的定義</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9A%AB%E5%AD%98-Unstaged-%E3%80%81%E6%9A%AB%E5%AD%98-Staged-%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="toc-number">2.2.</span> <span class="toc-text">未暫存(Unstaged)、暫存(Staged) 的定義</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%AE%E9%8C%84%E5%8F%AF%E8%83%BD%E6%9C%83%E5%87%BA%E7%8F%BE%E7%9A%84%E6%AA%94%E6%A1%88%E7%8B%80%E6%85%8B%E6%95%B4%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">工作目錄可能會出現的檔案狀態整理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">4.</span> <span class="toc-text">常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8C%E6%9C%AA%E8%BF%BD%E8%B9%A4%E3%80%8D%E7%9A%84%E6%AA%94%E6%A1%88%E7%AE%97%E4%B8%8D%E7%AE%97%E3%80%8C%E6%9C%AA%E6%9A%AB%E5%AD%98%E3%80%8D%E7%9A%84%E6%AA%94%E6%A1%88%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">「未追蹤」的檔案算不算「未暫存」的檔案？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">5.</span> <span class="toc-text">總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -439,7 +421,37 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
+    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
       
@@ -456,10 +468,9 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
+    <span><a href="/miscellanea/Suzume-no-Tojimari/" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></span>
   </li>
 
       
@@ -469,7 +480,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
   </li>
 
       
@@ -479,7 +490,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+    <span><a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95%E8%88%87%E8%A1%9D%E7%AA%81%E8%99%95%E7%90%86/" title="用 rebase 重新定義基底">用 rebase 重新定義基底</a></span>
   </li>
 
       
@@ -489,7 +500,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
   </li>
 
       
@@ -499,37 +510,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" title="建立 Git 儲存庫">建立 Git 儲存庫</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
-</div>
-
-    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
   </li>
 
   </ul>
@@ -550,13 +531,13 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

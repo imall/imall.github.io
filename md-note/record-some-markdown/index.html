@@ -76,7 +76,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>2.3k</span>
+    <span>3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -84,7 +84,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">所需閱讀時間</span>
-    <span>2 分鐘</span>
+    <span>3 分鐘</span>
   </span>
 </div>
 
@@ -158,13 +158,8 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <div class="note info no-icon">
-<p>對 markdown 語法一直處在 知其然不知所以然的狀態<br>
-最常用的是<strong>有序列表</strong>，對其他用法反而沒那麼駕輕就熟<br>
-趁這次件部落格，順便紀錄一下可能會用到的語法</p>
-</div>
-<h1 id="常用寫法"><a class="markdownIt-Anchor" href="#常用寫法">#</a> 常用寫法</h1>
-<table>
+    <p>:::info no-icon<br>對 markdown 語法一直處在 知其然不知所以然的狀態<br>最常用的是<strong>有序列表</strong>，對其他用法反而沒那麼駕輕就熟<br>趁這次件部落格，順便紀錄一下可能會用到的語法<br>:::</p>
+<h1 id="常用寫法"><a href="#常用寫法" class="headerlink" title="常用寫法"></a>常用寫法</h1><table>
 <thead>
 <tr>
 <th>類別</th>
@@ -172,15 +167,14 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 <th>編譯結果</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>斜體（Italic）</td>
-<td>* 斜體 *</td>
+<td>*斜體*</td>
 <td><em>斜體</em></td>
 </tr>
 <tr>
 <td>粗體（Bold）</td>
-<td>** 粗體 **</td>
+<td>**粗體**</td>
 <td><strong>粗體</strong></td>
 </tr>
 <tr>
@@ -200,7 +194,7 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </tr>
 <tr>
 <td>圖片</td>
-<td>![\ 圖片 alt](<span class="exturl" data-url="aHR0cHM6Ly9pLmltZ3VyLmNvbS96bURsemdaLnBuZw==">https://i.imgur.com/zmDlzgZ.png</span>)</td>
+<td>![\圖片alt](<span class="exturl" data-url="aHR0cHM6Ly9pLmltZ3VyLmNvbS96bURsemdaLnBuZw==">https://i.imgur.com/zmDlzgZ.png</span>)</td>
 <td><img data-src="https://i.imgur.com/zmDlzgZ.png" alt="加藤惠"></td>
 </tr>
 <tr>
@@ -210,12 +204,12 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </tr>
 <tr>
 <td>上標</td>
-<td>這是一段文字 &lt;sup&gt; 上標 &lt;/sup&gt;</td>
+<td>這是一段文字 &lt;sup&gt;上標&lt;&#x2F;sup&gt;</td>
 <td>這是一段文字 <sup>上標</sup></td>
 </tr>
 <tr>
 <td>下標</td>
-<td>這是一段文字 &lt;sub&gt; 下標 &lt;/sub&gt;</td>
+<td>這是一段文字 &lt;sub&gt;下標&lt;&#x2F;sub&gt;</td>
 <td>這是一段文字 <sub>下標</sub></td>
 </tr>
 <tr>
@@ -240,110 +234,118 @@ Imall Blog ~ 一個前端工程師的筆記天地</title>
 </tr>
 <tr>
 <td>區塊程式碼</td>
-<td>```<br>const a = 1;<br>console.log(a); // 1<br>```</td>
+<td>```<br>const a &#x3D; 1;<br>console.log(a); &#x2F;&#x2F; 1<br>```</td>
 <td><pre><code>const a = 1;<br>console.log(a); // 1</code></pre></td>
 </tr>
-</tbody>
-</table>
-<h1 id="特殊寫法"><a class="markdownIt-Anchor" href="#特殊寫法">#</a> 特殊寫法</h1>
-<h2 id="代辦選單"><a class="markdownIt-Anchor" href="#代辦選單">#</a> 代辦選單</h2>
-<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>- [ ] 這是一個小叉叉</pre></td></tr><tr><td data-num="2"></td><td><pre>- [x] 這是一個小勾勾</pre></td></tr></table></figure><ul class="task-list">
-<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 這是一個小叉叉</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_1" checked="true" disabled="true"><label for="cbx_1"> 這是一個小勾勾</label></li>
+</tbody></table>
+<h1 id="特殊寫法"><a href="#特殊寫法" class="headerlink" title="特殊寫法"></a>特殊寫法</h1><h2 id="代辦選單"><a href="#代辦選單" class="headerlink" title="代辦選單"></a>代辦選單</h2><pre><code class="raw">- [ ] 這是一個小叉叉
+- [x] 這是一個小勾勾
+</code></pre>
+<ul>
+<li><input disabled="" type="checkbox"> 這是一個小叉叉</li>
+<li><input checked="" disabled="" type="checkbox"> 這是一個小勾勾</li>
 </ul>
-<h2 id="區塊程式碼"><a class="markdownIt-Anchor" href="#區塊程式碼">#</a> 區塊程式碼</h2>
-<h3 id="一般寫法"><a class="markdownIt-Anchor" href="#一般寫法">#</a> 一般寫法</h3>
-<figure class="highlight javascript"><figcaption data-lang="javascript"><span>刪除陣列重複值的方法</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// 宣告一個陣列</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">const</span> scapes <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">image</span><span class="token operator">:</span> <span class="token string">"uploads/images1"</span><span class="token punctuation">,</span> <span class="token literal-property property">imageScapeName</span><span class="token operator">:</span> <span class="token string">"img1"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">image</span><span class="token operator">:</span> <span class="token string">"uploads/images2"</span><span class="token punctuation">,</span> <span class="token literal-property property">imageScapeName</span><span class="token operator">:</span> <span class="token string">"img3"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">image</span><span class="token operator">:</span> <span class="token string">"uploads/images3"</span><span class="token punctuation">,</span> <span class="token literal-property property">imageScapeName</span><span class="token operator">:</span> <span class="token string">"img1"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>  <span class="token punctuation">&#123;</span> <span class="token literal-property property">image</span><span class="token operator">:</span> <span class="token string">"uploads/images5"</span><span class="token punctuation">,</span> <span class="token literal-property property">imageScapeName</span><span class="token operator">:</span> <span class="token string">"img3"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr></table></figure><h3 id="加上title"><a class="markdownIt-Anchor" href="#加上title">#</a> 加上 title</h3>
-<figure class="highlight javascript"><figcaption data-lang="javascript"><span>javascript 刪除陣列重複值的方法</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// ```javascript mark:3-6 javascript 刪除陣列重複值的方法</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr class="marked"><td data-num="3"></td><td><pre><span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr class="marked"><td data-num="4"></td><td><pre>scapes<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">scape</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr class="marked"><td data-num="5"></td><td><pre>  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>result<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">r</span><span class="token punctuation">)</span> <span class="token operator">=></span> r<span class="token punctuation">.</span>imageScapeName <span class="token operator">===</span> scape<span class="token punctuation">.</span>imageScapeName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr class="marked"><td data-num="6"></td><td><pre>    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>scape<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><figure class="highlight js"><figcaption data-lang="JavaScript"><span>javascript 刪除陣列重複值的方法</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">// ```js mark:2-6 javascript 刪除陣列重複值的方法</span></pre></td></tr><tr class="marked"><td data-num="2"></td><td><pre><span class="token keyword">const</span> result <span class="token operator">=</span> scapes<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">scape<span class="token punctuation">,</span> index<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr class="marked"><td data-num="3"></td><td><pre>  <span class="token keyword">return</span> <span class="token punctuation">(</span></pre></td></tr><tr class="marked"><td data-num="4"></td><td><pre>    arr<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token operator">=></span> scape<span class="token punctuation">.</span>imageScapeName <span class="token operator">===</span> s<span class="token punctuation">.</span>imageScapeName<span class="token punctuation">)</span> <span class="token operator">===</span> index</pre></td></tr><tr class="marked"><td data-num="5"></td><td><pre>  <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr class="marked"><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span> </pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment">// [</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment">//    &#123; image: 'uploads/images1', imageScapeName: 'img1' &#125;,</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">//    &#123; image: 'uploads/images2', imageScapeName: 'img3' &#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment">// ]</span></pre></td></tr></table></figure><h2 id="文字特效"><a class="markdownIt-Anchor" href="#文字特效">#</a> 文字特效</h2>
-<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>[紅橙黃綠藍靛紫]&#123;.rainbow&#125;</pre></td></tr><tr><td data-num="2"></td><td><pre>[紅色]&#123;.red&#125;</pre></td></tr><tr><td data-num="3"></td><td><pre>[粉紅色]&#123;.pink&#125;</pre></td></tr><tr><td data-num="4"></td><td><pre>[橙色]&#123;.orange&#125;</pre></td></tr><tr><td data-num="5"></td><td><pre>[黃色]&#123;.yellow&#125;</pre></td></tr><tr><td data-num="6"></td><td><pre>[綠色]&#123;.green&#125;</pre></td></tr><tr><td data-num="7"></td><td><pre>[靛色]&#123;.aqua&#125;</pre></td></tr><tr><td data-num="8"></td><td><pre>[藍色]&#123;.blue&#125;</pre></td></tr><tr><td data-num="9"></td><td><pre>[紫色]&#123;.purple&#125;</pre></td></tr><tr><td data-num="10"></td><td><pre>[灰色]&#123;.grey&#125;</pre></td></tr><tr><td data-num="11"></td><td><pre>快捷键 [Ctrl]&#123;.kbd&#125; + [C]&#123;.kbd .red&#125;</pre></td></tr><tr><td data-num="12"></td><td><pre>H~2~0</pre></td></tr><tr><td data-num="13"></td><td><pre>29^th^</pre></td></tr></table></figure><p><span class="rainbow">紅橙黃綠藍靛紫</span><br>
-<span class="red">紅色</span><br>
-<span class="pink">粉紅色</span><br>
-<span class="orange">橙色</span><br>
-<span class="yellow">黃色</span><br>
-<span class="green">綠色</span><br>
-<span class="aqua">靛色</span><br>
-<span class="blue">藍色</span><br>
-<span class="purple">紫色</span><br>
-<span class="grey">灰色</span><br>
-快捷键 <span class="kbd">Ctrl</span> + <span class="kbd red">C</span><br>
-H<sub>2</sub>0<br>
-29<sup>th</sup></p>
-<h2 id="特殊標示"><a class="markdownIt-Anchor" href="#特殊標示">#</a> 特殊標示</h2>
-<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>[default]&#123;.label&#125;</pre></td></tr><tr><td data-num="2"></td><td><pre>[primary]&#123;.label .primary&#125;</pre></td></tr><tr><td data-num="3"></td><td><pre>[info]&#123;.label .info&#125;</pre></td></tr><tr><td data-num="4"></td><td><pre>[:heavy_check_mark:success]&#123;.label .success&#125;</pre></td></tr><tr><td data-num="5"></td><td><pre>[warning]&#123;.label .warning&#125;</pre></td></tr><tr><td data-num="6"></td><td><pre>[:broken_heart:danger]&#123;.label .danger&#125;</pre></td></tr></table></figure><p><span class="label">default</span><br>
-<span class="label primary">primary</span><br>
-<span class="label info">info</span><br>
-<span class="label success">✔️success</span><br>
-<span class="label warning">warning</span><br>
-<span class="label danger">💔danger</span></p>
-<h2 id="提示色塊"><a class="markdownIt-Anchor" href="#提示色塊">#</a> 提示色塊</h2>
-<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>:::default</pre></td></tr><tr><td data-num="2"></td><td><pre>預設！！</pre></td></tr><tr><td data-num="3"></td><td><pre>:::</pre></td></tr><tr><td data-num="4"></td><td><pre>:::primary</pre></td></tr><tr><td data-num="5"></td><td><pre>基本基本</pre></td></tr><tr><td data-num="6"></td><td><pre>:::</pre></td></tr><tr><td data-num="7"></td><td><pre>:::info</pre></td></tr><tr><td data-num="8"></td><td><pre>提示提示</pre></td></tr><tr><td data-num="9"></td><td><pre>:::</pre></td></tr><tr><td data-num="10"></td><td><pre>:::success</pre></td></tr><tr><td data-num="11"></td><td><pre>成功成功</pre></td></tr><tr><td data-num="12"></td><td><pre>:::</pre></td></tr><tr><td data-num="13"></td><td><pre>:::warning</pre></td></tr><tr><td data-num="14"></td><td><pre>警告警告</pre></td></tr><tr><td data-num="15"></td><td><pre>:::</pre></td></tr><tr><td data-num="16"></td><td><pre>:::danger</pre></td></tr><tr><td data-num="17"></td><td><pre>危險</pre></td></tr><tr><td data-num="18"></td><td><pre>:::</pre></td></tr><tr><td data-num="19"></td><td><pre>:::danger no-icon</pre></td></tr><tr><td data-num="20"></td><td><pre>危險</pre></td></tr><tr><td data-num="21"></td><td><pre>:::</pre></td></tr></table></figure><div class="note default">
-<p>預設！！</p>
-</div>
-<div class="note primary">
-<p>基本基本</p>
-</div>
-<div class="note info">
-<p>提示提示</p>
-</div>
-<div class="note success">
-<p>成功成功</p>
-</div>
-<div class="note warning">
-<p>警告警告</p>
-</div>
-<div class="note danger">
-<p>危險</p>
-</div>
-<div class="note danger no-icon">
-<p>危險</p>
-</div>
-<h2 id="頁籤選單"><a class="markdownIt-Anchor" href="#頁籤選單">#</a> 頁籤選單</h2>
-<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>;;;id2 1 號卡片標題</pre></td></tr><tr><td data-num="2"></td><td><pre>:::success</pre></td></tr><tr><td data-num="3"></td><td><pre>這個是一號卡片內容</pre></td></tr><tr><td data-num="4"></td><td><pre>:::</pre></td></tr><tr><td data-num="5"></td><td><pre>;;;</pre></td></tr><tr><td data-num="6"></td><td><pre>;;;id2 2 號卡片標題</pre></td></tr><tr><td data-num="7"></td><td><pre>:::success</pre></td></tr><tr><td data-num="8"></td><td><pre>這個是二號卡片內容</pre></td></tr><tr><td data-num="9"></td><td><pre>:::</pre></td></tr><tr><td data-num="10"></td><td><pre>;;;</pre></td></tr></table></figure><div class="tab" data-id="id2" data-title="1 號卡片標題">
-<div class="note success">
-<p>這個是一號卡片內容</p>
-</div>
-</div>
-<div class="tab" data-id="id2" data-title="2 號卡片標題">
-<div class="note warning">
-<p>這個是二號卡片內容</p>
-</div>
-</div>
-<h2 id="摺疊區塊"><a class="markdownIt-Anchor" href="#摺疊區塊">#</a> 摺疊區塊</h2>
-<figure class="highlight raw"><figcaption data-lang=""></figcaption><table><tr><td data-num="1"></td><td><pre>+++ 基本設定</pre></td></tr><tr><td data-num="2"></td><td><pre>內容</pre></td></tr><tr><td data-num="3"></td><td><pre>+++</pre></td></tr></table></figure><div class="tab" data-id="calp" data-title="紫色">
+<h2 id="區塊程式碼"><a href="#區塊程式碼" class="headerlink" title="區塊程式碼"></a>區塊程式碼</h2><h3 id="一般寫法"><a href="#一般寫法" class="headerlink" title="一般寫法"></a>一般寫法</h3><pre><code class="javascript">//宣告一個陣列
+const scapes = [
+  &#123; image: &quot;uploads/images1&quot;, imageScapeName: &quot;img1&quot; &#125;,
+  &#123; image: &quot;uploads/images2&quot;, imageScapeName: &quot;img3&quot; &#125;,
+  &#123; image: &quot;uploads/images3&quot;, imageScapeName: &quot;img1&quot; &#125;,
+  &#123; image: &quot;uploads/images5&quot;, imageScapeName: &quot;img3&quot; &#125;,
+];
+</code></pre>
+<h3 id="加上title"><a href="#加上title" class="headerlink" title="加上title"></a>加上title</h3><pre><code class="javascript">// ```javascript mark:3-6 javascript 刪除陣列重複值的方法
+
+const result = [];
+scapes.forEach((scape) =&gt; &#123;
+  if (!result.find((r) =&gt; r.imageScapeName === scape.imageScapeName)) &#123;
+    result.push(scape);
+  &#125;
+&#125;);
+</code></pre>
+<pre><code class="js">// ```js mark:2-6 javascript 刪除陣列重複值的方法
+const result = scapes.filter((scape, index, arr) =&gt; &#123;
+  return (
+    arr.findIndex((s) =&gt; scape.imageScapeName === s.imageScapeName) === index
+  );
+&#125;);
+console.log(result); 
+// [
+//    &#123; image: &#39;uploads/images1&#39;, imageScapeName: &#39;img1&#39; &#125;,
+//    &#123; image: &#39;uploads/images2&#39;, imageScapeName: &#39;img3&#39; &#125;
+// ] 
+</code></pre>
+<h2 id="文字特效"><a href="#文字特效" class="headerlink" title="文字特效"></a>文字特效</h2><pre><code class="raw">[紅橙黃綠藍靛紫]&#123;.rainbow&#125;
+[紅色]&#123;.red&#125;
+[粉紅色]&#123;.pink&#125;
+[橙色]&#123;.orange&#125;
+[黃色]&#123;.yellow&#125;
+[綠色]&#123;.green&#125;
+[靛色]&#123;.aqua&#125;
+[藍色]&#123;.blue&#125;
+[紫色]&#123;.purple&#125;
+[灰色]&#123;.grey&#125;
+快捷键 [Ctrl]&#123;.kbd&#125; + [C]&#123;.kbd .red&#125;
+H~2~0
+29^th^
+</code></pre>
+<p>[紅橙黃綠藍靛紫]{.rainbow}<br>[紅色]{.red}<br>[粉紅色]{.pink}<br>[橙色]{.orange}<br>[黃色]{.yellow}<br>[綠色]{.green}<br>[靛色]{.aqua}<br>[藍色]{.blue}<br>[紫色]{.purple}<br>[灰色]{.grey}<br>快捷键 [Ctrl]{.kbd} + [C]{.kbd .red}<br>H<del>2</del>0<br>29^th^</p>
+<h2 id="特殊標示"><a href="#特殊標示" class="headerlink" title="特殊標示"></a>特殊標示</h2><pre><code class="raw">[default]&#123;.label&#125;
+[primary]&#123;.label .primary&#125;
+[info]&#123;.label .info&#125;
+[:heavy_check_mark:success]&#123;.label .success&#125;
+[warning]&#123;.label .warning&#125;
+[:broken_heart:danger]&#123;.label .danger&#125;
+</code></pre>
+<p>[default]{.label}<br>[primary]{.label .primary}<br>[info]{.label .info}<br>[:heavy_check_mark:success]{.label .success}<br>[warning]{.label .warning}<br>[:broken_heart:danger]{.label .danger}</p>
+<h2 id="提示色塊"><a href="#提示色塊" class="headerlink" title="提示色塊"></a>提示色塊</h2><pre><code class="raw">:::default
+預設!!
+:::
+:::primary
+基本基本
+:::
+:::info
+提示提示
+:::
+:::success
+成功成功
+:::
+:::warning
+警告警告
+:::
+:::danger
+危險
+:::
+:::danger no-icon
+危險
+:::
+</code></pre>
+<p>:::default<br>預設!!<br>:::<br>:::primary<br>基本基本<br>:::<br>:::info<br>提示提示<br>:::<br>:::success<br>成功成功<br>:::<br>:::warning<br>警告警告<br>:::<br>:::danger<br>危險<br>:::<br>:::danger no-icon<br>危險<br>:::</p>
+<h2 id="頁籤選單"><a href="#頁籤選單" class="headerlink" title="頁籤選單"></a>頁籤選單</h2><pre><code class="raw">;;;id2 1號卡片標題
+:::success
+這個是一號卡片內容
+:::
+;;;
+;;;id2 2號卡片標題
+:::success
+這個是二號卡片內容
+:::
+;;;
+</code></pre>
+<p>;;;id2 1 號卡片標題<br>:::success<br>這個是一號卡片內容<br>:::<br>;;;<br>;;;id2 2 號卡片標題<br>:::warning<br>這個是二號卡片內容<br>:::<br>;;;</p>
+<h2 id="摺疊區塊"><a href="#摺疊區塊" class="headerlink" title="摺疊區塊"></a>摺疊區塊</h2><pre><code class="raw">+++ 基本設定
+內容
++++
+</code></pre>
+<p>;;;calp 紫色</p>
 <blockquote>
-<p>primary</p>
+<p>primary<br>;;;<br>;;;calp 藍色<br>info<br>;;;<br>;;;calp 綠色<br>success<br>;;;<br>;;;calp 黃色<br>warning<br>;;;<br>;;;calp 紅色<br>danger<br>;;;</p>
 </blockquote>
-</div>
-<div class="tab" data-id="calp" data-title="藍色">
-<p>info</p>
-</div>
-<div class="tab" data-id="calp" data-title="綠色">
-<p>success</p>
-</div>
-<div class="tab" data-id="calp" data-title="黃色">
-<p>warning</p>
-</div>
-<div class="tab" data-id="calp" data-title="紅色">
-<p>danger</p>
-</div>
-<details><summary>預設這是一段文字</summary><div>
-<p>這是內容這是內容</p>
-</div></details>
-<details class="primary"><summary>紫色</summary><div>
-<p>這是紫色</p>
-</div></details>
-<details class="info"><summary>藍色</summary><div>
-<p>藍色</p>
-</div></details>
-<details class="success"><summary>綠色</summary><div>
-<p>這是綠色</p>
-</div></details>
-<details class="warning"><summary>黄色</summary><div>
-<p>這是黃色</p>
-</div></details>
-<details class="danger"><summary>紅色</summary><div>
-<p>這是紅色</p>
-</div></details>
+<p>+++ 預設這是一段文字<br>這是內容這是內容<br>+++</p>
+<p>+++primary 紫色<br>這是紫色<br>+++</p>
+<p>+++info 藍色<br>藍色<br>+++</p>
+<p>+++success 綠色<br>這是綠色<br>+++</p>
+<p>+++warning 黄色<br>這是黃色<br>+++</p>
+<p>+++danger 紅色<br>這是紅色<br>+++</p>
 
       <div class="tags">
           <a href="/tags/md/" rel="tag"><i class="ic i-tag"></i> md</a>
@@ -400,7 +402,7 @@ H<sub>2</sub>0<br>
     <div class="item right">
       
 
-  <a href="/css-note/flex-shink-calculate/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;77JuPV6.png" title="【CSS筆記】flex-shrink的計算公式">
+  <a href="/css-note/flex-shink-calculate/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;yYb3MY4.jpg" title="【CSS筆記】flex-shrink的計算公式">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> CSS 筆記</span>
   <h3>【CSS筆記】flex-shrink的計算公式</h3>
@@ -421,7 +423,7 @@ H<sub>2</sub>0<br>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AF%AB%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text"> 常用寫法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">標題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">標題</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%AF%AB%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text"> 特殊寫法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E8%BE%A6%E9%81%B8%E5%96%AE"><span class="toc-number">3.1.</span> <span class="toc-text"> 代辦選單</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%80%E5%A1%8A%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="toc-number">3.2.</span> <span class="toc-text"> 區塊程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%AF%AB%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 一般寫法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E4%B8%8Atitle"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 加上 title</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88"><span class="toc-number">3.3.</span> <span class="toc-text"> 文字特效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%A8%99%E7%A4%BA"><span class="toc-number">3.4.</span> <span class="toc-text"> 特殊標示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%89%B2%E5%A1%8A"><span class="toc-number">3.5.</span> <span class="toc-text"> 提示色塊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A0%81%E7%B1%A4%E9%81%B8%E5%96%AE"><span class="toc-number">3.6.</span> <span class="toc-text"> 頁籤選單</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%BA%E7%96%8A%E5%8D%80%E5%A1%8A"><span class="toc-number">3.7.</span> <span class="toc-text"> 摺疊區塊</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AF%AB%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">常用寫法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">標題</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">標題</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%AF%AB%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">特殊寫法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E8%BE%A6%E9%81%B8%E5%96%AE"><span class="toc-number">3.1.</span> <span class="toc-text">代辦選單</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%80%E5%A1%8A%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="toc-number">3.2.</span> <span class="toc-text">區塊程式碼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%AF%AB%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">一般寫法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E4%B8%8Atitle"><span class="toc-number">3.2.2.</span> <span class="toc-text">加上title</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E7%89%B9%E6%95%88"><span class="toc-number">3.3.</span> <span class="toc-text">文字特效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%A8%99%E7%A4%BA"><span class="toc-number">3.4.</span> <span class="toc-text">特殊標示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%89%B2%E5%A1%8A"><span class="toc-number">3.5.</span> <span class="toc-text">提示色塊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A0%81%E7%B1%A4%E9%81%B8%E5%96%AE"><span class="toc-number">3.6.</span> <span class="toc-text">頁籤選單</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%BA%E7%96%8A%E5%8D%80%E5%A1%8A"><span class="toc-number">3.7.</span> <span class="toc-text">摺疊區塊</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -526,7 +528,57 @@ H<sub>2</sub>0<br>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
+    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vue-axios-proxy/" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></span>
   </li>
 
       
@@ -546,67 +598,17 @@ H<sub>2</sub>0<br>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
+    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/02%20-%20%E7%89%88%E6%8E%A7%E9%A1%9E%E5%88%A5%E4%BB%8B%E7%B4%B9/" title="版控的類別">版控的類別</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
   </li>
 
   </ul>
@@ -627,13 +629,13 @@ H<sub>2</sub>0<br>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">134k 字</span>
+    <span title="總字數">137k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:01</span>
+    <span title="所需總閱讀時間">2:05</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

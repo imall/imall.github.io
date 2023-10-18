@@ -1661,7 +1661,8 @@ h3.title,
 h4.title,
 h5.title,
 h6.title {
-  font-family: Cambria;
+/*$font-family-title*/
+  font-family: 'noto sans', 'noto sans', 'Noto Serif SC', 'noto sans', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 a {
   border: none;
@@ -2937,21 +2938,37 @@ main >.inner {
   top: -10%;
   left: -10%;
 }
-.social .item.g::before {
-  background-color: thu;
-}
-.social .item.g i {
-  color: thu;
-}
-.social .item.h::before {
+.social .item.github::before {
   background-color: #191717;
 }
-.social .item.h i {
+.social .item.github i {
   color: #191717;
+}
+.social .item.facebook::before {
+  background-color: aceboo;
+}
+.social .item.facebook i {
+  color: aceboo;
+}
+.social .item.instagram::before {
+  background-color: nstagra;
+}
+.social .item.instagram i {
+  color: nstagra;
 }
 .social .item:focus i,
 .social .item:hover i {
   color: var(--grey-0);
+  transform: scale(1);
+}
+.social .item:focus .i-facebook,
+.social .item:hover .i-facebook {
+  color: var(--color-blue);
+  transform: scale(1);
+}
+.social .item:focus .i-instagram,
+.social .item:hover .i-instagram {
+  color: var(--primary-color);
   transform: scale(1);
 }
 #quick {

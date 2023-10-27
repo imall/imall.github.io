@@ -1,5 +1,5 @@
 ---
-title: 使用 GitHub：幫遠端儲存庫搬家
+title: 使用 GitHub：將遠端儲存庫搬家
 date: 2023-10-12 10:50:20
 tags: [Git , GitHub]
 comment: false
@@ -18,7 +18,7 @@ categories: 一起來學 Git 吧！
 
 進入今天的主題
 :::info no-icon
-幫遠端儲存庫搬家
+將遠端儲存庫搬家
 :::
 # 第一步：把遠端儲存庫的內容 clone 回地端
 

@@ -71,7 +71,7 @@ font:
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: Cambria #Noto Serif SC
+    family: Noto Serif SC  #Cambria
     size:
 
   # Font settings for posts.

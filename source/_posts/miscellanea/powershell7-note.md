@@ -1,5 +1,5 @@
 ---
-title: powershell7-note
+title: PowerShell7 簡易快捷鍵
 date: 2023-11-23 11:06:23
 tags:
 comment: false

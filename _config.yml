@@ -4,7 +4,7 @@
 
 # Site
 title: 一個工程師的筆記天地
-subtitle: 
+subtitle:
 description: 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活
 keywords:
 author: imall
@@ -77,6 +77,7 @@ category_map:
   JavaScript 筆記: js-note
   Git 筆記: git-note
   一起來學 Git 吧！: git-learn
+  .Net 筆記: .net-note
 
 tag_map:
 

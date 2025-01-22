@@ -87,12 +87,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
         </ul>
       </div>
     </header>
@@ -118,7 +118,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題"><img data-src="https://i.imgur.com/rLZ4NtO.jpg"></a>
+    <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題"><img data-src="https://i.imgur.com/wW2x12h.png"></a>
   </div>
   <div class="info">
     
@@ -146,11 +146,16 @@
 
     <h3><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></h3>
     <div class="excerpt">
-        前言這篇文章的內容，原本是想放在 commit 的常見問題。結果當時寫完發現內容太多，如果全部塞到同一篇文章，應該會讓人看不下去。
-不過這篇文章記錄的兩個問題，可能會是已經學會版控一段時間之後，或是實務上真的遇到時，才會去思考的問題。很適合拿來當【一起學 Git 吧！】系列文章，中場休息的小品文閱讀。
+        # 前言
+這篇文章的內容，原本是想放在 commit 的常見問題。
+結果當時寫完發現內容太多，如果全部塞到同一篇文章，應該會讓人看不下去。
+不過這篇文章記錄的兩個問題，可能會是已經學會版控一段時間之後，或是實務上真的遇到時，才會去思考的問題。
+很適合拿來當【一起學 Git 吧！】系列文章，中場休息的小品文閱讀。
 我們就一起來看看吧！
-每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？這問題可能一時之間不好理解，容許我重新描述一下問題的意思。
-開始在執行版控之後，commit 的內容可能會是這樣：第一版：新增專案說明檔案，記錄一個檔案：...
+# 每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？
+這問題可能一時之間不好理解，容許我重新描述一下問題的意思。
+開始在執行版控之後，commit 的內容可能會是這樣：
+第一版：新增專案說明檔案，記錄一個檔案：...
     </div>
     <div class="meta footer">
       <span>
@@ -192,12 +197,16 @@
 
     <h3><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" itemprop="url" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></h3>
     <div class="excerpt">
-        前言基本指令外加一些輔助操作，到目前為止應該算是介紹完畢。
-在開始進入下一個主題之前的 幾篇 文章，我打算來聊聊一些能承上啟下的觀念。對…大概會有一兩篇都是閒聊性質
+        # 前言
+基本指令外加一些輔助操作，到目前為止應該算是介紹完畢。
+在開始進入下一個主題之前的 幾篇 文章，我打算來聊聊一些能承上啟下的觀念。
+對… 大概會有一兩篇都是閒聊性質
 這些觀念跟指令沒什麼關係，但是如果沒把他搞懂的話，卻會 直接影響 部分指令的操作。
 由於筆者不太喜歡在主要內容中穿插各種補充讓文章失焦 雖然已經…，於是乾脆把一些觀念與問題獨立出來聊。
 希望大家能因為這幾篇文章更認識 Git ，同時可以在開始介紹其他操作之前，奠定一些概念。
-聊聊 CommitID我們再次把這個線圖請出來，並且把關注點放在最右邊的 CommitID 。這些字母「看起來」很沒意義，不過它卻是我們在用 Git...
+# 聊聊 CommitID
+我們再次把這個線圖請出來，並且把關注點放在最右邊的 CommitID 。
+這些字母「看起來」很沒意義，不過它卻是我們在用...
     </div>
     <div class="meta footer">
       <span>
@@ -211,7 +220,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" itemprop="url" title="設定 .gitignore"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
+    <a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" itemprop="url" title="設定 .gitignore"><img data-src="https://i.imgur.com/wW2x12h.png"></a>
   </div>
   <div class="info">
     
@@ -239,10 +248,12 @@
 
     <h3><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" itemprop="url" title="設定 .gitignore">設定 .gitignore</a></h3>
     <div class="excerpt">
-        前言今天的主題其實在之前開始介紹如何使用 Git 時就可以先說明，不過還是希望能先把基本觀念一次說明到位，讓讀者先對 Git 有一定的認識再說，畢竟設定類的說明，隨時補都來得及。
-回到主題，實務上的專案中，總是會有一些「設定檔」、「編譯檔」、「日誌(log)」，之類不影響專案本體的內容，他們並不需要 (有些甚至不可以) 被記錄到儲存庫中，該如何定義那些「不想被版控」的資料，會是個重要的問題。
+        # 前言
+今天的主題其實在之前開始介紹如何使用 Git 時就可以先說明，不過還是希望能先把基本觀念一次說明到位，讓讀者先對 Git 有一定的認識再說，畢竟設定類的說明，隨時補都來得及。
+回到主題，實務上的專案中，總是會有一些「設定檔」、「編譯檔」、「日誌 (log)」，之類不影響專案本體的內容，他們並不需要 (有些甚至不可以) 被記錄到儲存庫中，該如何定義那些「不想被版控」的資料，會是個重要的問題。
 為此 Git 提供了一個方式讓我們去定義這些內容：設定 .gitignore 檔案。
-設定 .gitignore 檔案首先來說文解字一下， ignore 中文是「忽略」的意思，所以 .gitignore...
+# 設定 .gitignore 檔案
+首先來說文解字一下， ignore 中文是「忽略」的意思，所以...
     </div>
     <div class="meta footer">
       <span>
@@ -256,7 +267,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" title="查看 log 紀錄"><img data-src="https://i.imgur.com/qhft9aC.png"></a>
+    <a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" title="查看 log 紀錄"><img data-src="https://i.imgur.com/P69ZGGo.jpg"></a>
   </div>
   <div class="info">
     
@@ -284,11 +295,15 @@
 
     <h3><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" itemprop="url" title="查看 log 紀錄">查看 log 紀錄</a></h3>
     <div class="excerpt">
-        前言到目前為止，大家應該已經學會「提交一個版本」所需要的指令以及操作方式了。
-不過在提交完版本之後，總是會有需要回頭查看之前 commit 的資訊的情況。除非你執行 commit 就像「拿出手機拍下黑板上的筆記」一樣，只是拍個心安感，回家根本不會拿出來看，那我們另當別論…
-在 沒有 GUI 的世界，commit 完的東西沒有漂漂亮亮的畫面可以讓我們看到。需要看歷史的話，只有那個冷冰冰的終端機可以使用。
+        # 前言
+到目前為止，大家應該已經學會「提交一個版本」所需要的指令以及操作方式了。
+不過在提交完版本之後，總是會有需要回頭查看之前 commit 的資訊的情況。
+除非你執行 commit 就像「拿出手機拍下黑板上的筆記」一樣，只是拍個心安感，回家根本不會拿出來看，那我們另當別論…
+在 沒有 GUI 的世界，commit 完的東西沒有漂漂亮亮的畫面可以讓我們看到。
+需要看歷史的話，只有那個冷冰冰的終端機可以使用。
 git log 就是用來做這件事情的指令，這篇文章將來介紹如何使用 git log 來查看歷史的提交資訊。
-老樣子，會先介紹指令，再來說明 Fork...
+老樣子，會先介紹指令，再來說明 Fork 介面。
+#...
     </div>
     <div class="meta footer">
       <span>
@@ -302,7 +317,7 @@ git log 就是用來做這件事情的指令，這篇文章將來介紹如何使
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" itemprop="url" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)"><img data-src="https://i.imgur.com/eWxuYmg.jpg"></a>
+    <a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" itemprop="url" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
   </div>
   <div class="info">
     
@@ -317,7 +332,7 @@ git log 就是用來做這件事情的指令，這篇文章將來介紹如何使
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>2k</span>
+    <span>1.9k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -330,11 +345,14 @@ git log 就是用來做這件事情的指令，這篇文章將來介紹如何使
 
     <h3><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" itemprop="url" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></h3>
     <div class="excerpt">
-        前言上一篇文章，我們已經學會使用 git status 來查看檔案狀態，不過 git status 呈現的檔案狀態，好像不是只有 暫存(stage) 與 未暫存(unstage) 這麼簡單。
+        # 前言
+上一篇文章，我們已經學會使用 git status 來查看檔案狀態，不過 git status 呈現的檔案狀態，好像不是只有 暫存 (stage) 與 未暫存 (unstage) 這麼簡單。
 這篇文章我們來更細部的探討 Git 中，資料會出現的狀態。
-預告一下：文章預計會說明四個名詞定義，最後還會證明其中兩個名詞 未追蹤 等於 未暫存，整篇內容可能會讓新手看完覺得頭很暈！
+預告一下：
+文章預計會說明四個名詞定義，最後還會證明其中兩個名詞 未追蹤 等於 未暫存，整篇內容可能會讓新手看完覺得頭很暈！
 如果你畏懼字詞解釋的話，可以直接滑到文章最底端，看結論。
-已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)執行 git status 指令時，會發現 Git 將...
+# 已追蹤 (Tracked) 、未追蹤 (Untracked)，已暫存 (Staged)、未暫存 (Unstaged)
+執行 git status...
     </div>
     <div class="meta footer">
       <span>
@@ -348,7 +366,7 @@ git log 就是用來做這件事情的指令，這篇文章將來介紹如何使
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" itemprop="url" title="查看 Git 資料狀態"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
+    <a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" itemprop="url" title="查看 Git 資料狀態"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
   </div>
   <div class="info">
     
@@ -363,31 +381,34 @@ git log 就是用來做這件事情的指令，這篇文章將來介紹如何使
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>3.9k</span>
+    <span>3.8k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
     <span class="icon">
       <i class="ic i-clock"></i>
     </span>
-    <span>4 分鐘</span>
+    <span>3 分鐘</span>
   </span>
 </div>
 
     <h3><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" itemprop="url" title="查看 Git 資料狀態">查看 Git 資料狀態</a></h3>
     <div class="excerpt">
-        前言幾篇文章下來，我們已經建立「暫存區」、「儲存庫」的觀念，同時學習到幾個重要的指令：
+        # 前言
+幾篇文章下來，我們已經建立「暫存區」、「儲存庫」的觀念，同時學習到幾個重要的指令：
 
 git add
 git commit
 
 這兩個行為如同添加商品到購物車，然後結帳的動作。
-用一個「激問句」來開啟這篇文章的主題：:::info no-icon你會在不查看購物車有什麼商品的狀況下，就直接點結帳嗎？:::
-查看 Git 目前的狀態查看狀態的指令，是指令派的使用者「必學」的指令。
-在執行 git add 後，與執行 git commit 前，終端機畫面其實不會告訴我們目前哪些資料是在暫存區，Git 於是提供一個指令讓我們可以查詢：
-git status
+用一個「激問句」來開啟這篇文章的主題：
 
-我們在一個「空資料夾」執行 git...
+你會在不查看購物車有什麼商品的狀況下，就直接點結帳嗎？
+
+# 查看 Git 目前的狀態
+查看狀態的指令，是指令派的使用者「必學」的指令。
+在執行 git add 後，與執行 git commit 前，終端機畫面其實不會告訴我們目前哪些資料是在暫存區，Git 於是提供一個指令讓我們可以查詢：
+git status我們在一個「空資料夾」執行 git init...
     </div>
     <div class="meta footer">
       <span>
@@ -401,7 +422,7 @@ git status
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" itemprop="url" title="第一個 Commit 該放什麼內容？"><img data-src="https://i.imgur.com/HsDjgUN.jpg"></a>
+    <a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" itemprop="url" title="第一個 Commit 該放什麼內容？"><img data-src="https://i.imgur.com/dOvnXNe.jpg"></a>
   </div>
   <div class="info">
     
@@ -416,7 +437,7 @@ git status
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>2.4k</span>
+    <span>2.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -429,16 +450,18 @@ git status
 
     <h3><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" itemprop="url" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></h3>
     <div class="excerpt">
-        前言今天的主題是最近跟一個朋友討論 Git 時，他提出跟我所理解的 Commit 不同的觀點，筆者認為很有意思。
+        # 前言
+今天的主題是最近跟一個朋友討論 Git 時，他提出跟我所理解的 Commit 不同的觀點，筆者認為很有意思。
 原本打算把這個議題紀錄在上一篇文章的「常見問題」，不過內容打完之後，發現 廢話太多 內容太長，想要刪減內容卻發現無法一言以蔽之，決定還是獨立成一篇文章。
 絕對沒有要水一天的意思！！
 先說這個問題的答案：因人而異、因專案而異。
-每個 commit 都應該是一個完成品才對吧？朋友提出了一般聽到發佈「版本」、發佈「新版」時會意識到的事情，這個用詞大多是會出現於「已經可以使用的產物」上。
+# 每個 commit 都應該是一個完成品才對吧？
+朋友提出了一般聽到發佈「版本」、發佈「新版」時會意識到的事情，這個用詞大多是會出現於「已經可以使用的產物」上。
 例如：
 
 工程師寫好的第一版程式
 Windows 發佈的安全性版本
-蘋果發佈了新版的 iPhone...
+蘋果發佈了新版的...
     </div>
     <div class="meta footer">
       <span>
@@ -452,7 +475,7 @@ Windows 發佈的安全性版本
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" itemprop="url" title="開始使用 Git 進行版控"><img data-src="https://i.imgur.com/P69ZGGo.jpg"></a>
+    <a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" itemprop="url" title="開始使用 Git 進行版控"><img data-src="https://i.imgur.com/kctRHYg.jpg"></a>
   </div>
   <div class="info">
     
@@ -467,7 +490,7 @@ Windows 發佈的安全性版本
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>4.7k</span>
+    <span>4.5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -480,14 +503,17 @@ Windows 發佈的安全性版本
 
     <h3><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" itemprop="url" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></h3>
     <div class="excerpt">
-        前言歷經那麼多天的廢話，終於可以進入重頭戲，來學習怎麼發布一個版本吧！
+        # 前言
+歷經那麼多天的廢話，終於可以進入重頭戲，來學習怎麼發布一個版本吧！
 記得在建立 Git 儲存庫的文章中有提到，如果要發布一個版本，會歷經把檔案放到 暫存區，再把 暫存區 的檔案提交到 儲存庫 兩個階段。
 言下之意，我們會使用「兩個」指令來提交一個版本。
 老樣子，指令介紹完再說明 Fork GUI 操作。
 
 給立志成為指令派的讀者：在 Fork GUI 最後有補充一個指令細節，建議也可以讀一下 Fork 的部分。
 
-提交一個版本第一步：將檔案加到暫存區初始化儲存庫(git init)之後，即便已經有了地端儲存庫 (.git)，Git...
+# 提交一個版本
+# 第一步：將檔案加到暫存區
+初始化儲存庫 ( git init ) 之後，即便已經有了地端儲存庫 ( .git )，Git...
     </div>
     <div class="meta footer">
       <span>
@@ -501,7 +527,7 @@ Windows 發佈的安全性版本
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" itemprop="url" title="建立 Git 儲存庫"><img data-src="https://i.imgur.com/fG7Vwmv.jpg"></a>
+    <a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" itemprop="url" title="建立 Git 儲存庫"><img data-src="https://i.imgur.com/tXRAhpc.jpg"></a>
   </div>
   <div class="info">
     
@@ -529,12 +555,15 @@ Windows 發佈的安全性版本
 
     <h3><a href="/git-learn/06%20-%20%E5%BB%BA%E7%AB%8B%E5%84%B2%E5%AD%98%E5%BA%AB/" itemprop="url" title="建立 Git 儲存庫">建立 Git 儲存庫</a></h3>
     <div class="excerpt">
-        前言這篇文章要來說明「建立儲存庫」的操作，讓大家對 地端儲存庫 與 遠端儲存庫 有更進一步的認識。
+        # 前言
+這篇文章要來說明「建立儲存庫」的操作，讓大家對 地端儲存庫 與 遠端儲存庫 有更進一步的認識。
 以「基特平台」例子來說，建立儲存庫的概念，就是要在商家的銷售網站上面「建立帳號」，帳號存有專屬於這個商家的「購物車」跟「已購買清單」。
 換言之，我們準備來對「工作目錄」動手腳，讓 Git 在這個資料夾內建立「暫存區」跟「儲存庫」。
 本文的目的只有一個，學會 git init 這個指令的用意。然後就沒有然後了
-建立本地的儲存庫建立本地儲存庫，具體來說是要在「工作目錄」建立 .git 隱藏資料夾。
-接下來會分別說明 指令 與 Fork GUI 的操作方式。GUI 派的讀者可以直接跳到 「用 Fork...
+# 建立本地的儲存庫
+建立本地儲存庫，具體來說是要在「工作目錄」建立 .git 隱藏資料夾。
+接下來會分別說明 指令 與 Fork GUI 的操作方式。
+GUI 派的讀者可以直接跳到...
     </div>
     <div class="meta footer">
       <span>
@@ -548,7 +577,7 @@ Windows 發佈的安全性版本
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" itemprop="url" title="Git 初始化設定"><img data-src="https://i.imgur.com/XEoNWeG.jpg"></a>
+    <a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" itemprop="url" title="Git 初始化設定"><img data-src="https://i.imgur.com/8gupmbA.jpg"></a>
   </div>
   <div class="info">
     
@@ -563,7 +592,7 @@ Windows 發佈的安全性版本
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>3.1k</span>
+    <span>3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -576,14 +605,15 @@ Windows 發佈的安全性版本
 
     <h3><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" itemprop="url" title="Git 初始化設定">Git 初始化設定</a></h3>
     <div class="excerpt">
-        前言這篇來說明要使用 Git 前「一定」要做的事情：設定使用者名稱、信箱。
+        # 前言
+這篇來說明要使用 Git 前「一定」要做的事情：設定使用者名稱、信箱。
 以及可以選擇性操作的：設定 Git 預設文字編輯器。
-設定 Git 的使用者名稱與信箱用指令更改：我們開啟終端機，並且透過下面兩個指令來設定 Git 使用者資訊。(建議兩個指令「分開複製」到終端機執行)
-git config --global user.name &amp;quot;這裡改你的名字&amp;quot;
-git config --global user.email &amp;quot;這裡改你的信箱&amp;quot;
-
-實際輸入的內容看起來會像這樣：
-git config --global...
+# 設定 Git 的使用者名稱與信箱
+# 用指令更改：
+我們開啟終端機，並且透過下面兩個指令來設定 Git 使用者資訊。
+(建議兩個指令「分開複製」到終端機執行)
+git config --global user.name &quot;這裡改你的名字&quot;git config --global user.email &quot;這裡改你的信箱&quot;實際輸入的內容看起來會像這樣：
+git config --global user.name...
     </div>
     <div class="meta footer">
       <span>
@@ -706,10 +736,10 @@ git config --global...
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/js-note/js-ArrayExclusion/" title="從陣列中排除特定元素">從陣列中排除特定元素</a></span>
+    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
   </li>
 
       
@@ -719,7 +749,16 @@ git config --global...
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/03%20-%20Git%20%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5%E8%88%87%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C/" title="基本觀念與常見問題">基本觀念與常見問題</a></span>
+    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/powershell7-note/" title="PowerShell7 簡易快捷鍵">PowerShell7 簡易快捷鍵</a></span>
   </li>
 
       
@@ -729,37 +768,7 @@ git config --global...
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
+    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
   </li>
 
       
@@ -779,7 +788,7 @@ git config --global...
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
+    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
   </li>
 
       
@@ -789,7 +798,7 @@ git config --global...
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
+    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
   </li>
 
       
@@ -799,7 +808,27 @@ git config --global...
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/dotnet-note/" title="分類於 .Net 筆記">.Net 筆記</a>
+</div>
+
+    <span><a href="/dotnet-note/nugetchangelocation/" title="更改 nuget 存放位置">更改 nuget 存放位置</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
   </li>
 
   </ul>
@@ -820,13 +849,13 @@ git config --global...
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">144k 字</span>
+    <span title="總字數">140k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:11</span>
+    <span title="所需總閱讀時間">2:07</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

@@ -116,11 +116,11 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/rLZ4NtO.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rLZ4NtO.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
         </ul>
       </div>
@@ -167,45 +167,102 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="問題"><a class="markdownIt-Anchor" href="#問題">#</a> 問題</h1>
-<p>我們在處理陣列資料的時候，偶爾會遇到這樣的需求：從 API 撈到一組資料後，需要將特定的資料進行移除</p>
+    <h1 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h1><p>我們在處理陣列資料的時候，偶爾會遇到這樣的需求：從 API 撈到一組資料後，需要將特定的資料進行移除</p>
 <p>舉例來說，如果 API 給了四筆資料，這裡只單純給一個 ID，實際可能會包含其他欄位：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> originalData <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">4</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>而我們可能會從 localStorage 或其他來源得到另一組資料，這裡很單純的給兩筆示意：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> compareData <span class="token operator">=</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">4</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>需求是要把原始資料跟比較資料進行比對，如果有相同資料則汰除 (或保留)</p>
-<h1 id="作法一"><a class="markdownIt-Anchor" href="#作法一">#</a> 作法一</h1>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> result <span class="token operator">=</span> originalData<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token operator">!</span>compareData<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token parameter">compareItem</span> <span class="token operator">=></span> compareItem<span class="token punctuation">.</span>id <span class="token operator">===</span> item<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span></pre></td></tr></table></figure><p>這個概念其實就是用 array 的 filter 搭配 some ，來去比對兩個陣列的 ID<br>
- 在 some 的運作中，如果 compareData 資料內的 ID ，如果也存在於 originalData，則會先回傳 true<br>
- 接著在 filter 內容中加一個否定運算子  <code>!</code> ，即可做到資料的汰除，而如果是要保留，只要將  <code>!</code>  拿掉即可</p>
+<pre><code class="js">const originalData = [
+    &#123; id: 1 &#125;,
+    &#123; id: 2 &#125;,
+    &#123; id: 3 &#125;,
+    &#123; id: 4 &#125;,
+];
+</code></pre>
+<p>而我們可能會從 localStorage 或其他來源得到另一組資料，這裡很單純的給兩筆示意：</p>
+<pre><code class="js">const compareData = [
+    &#123; id: 3 &#125;,
+    &#123; id: 4 &#125;,
+];
+</code></pre>
+<p>需求是要把原始資料跟比較資料進行比對，如果有相同資料則汰除 (或保留)</p>
+<h1 id="作法一"><a href="#作法一" class="headerlink" title="作法一"></a>作法一</h1><pre><code class="js">const result = originalData.filter(item =&gt; !compareData.some(compareItem =&gt; compareItem.id === item.id));
+console.log(result)
+</code></pre>
+<p>這個概念其實就是用 array 的 filter 搭配 some ，來去比對兩個陣列的 ID<br>在 some 的運作中，如果 compareData 資料內的 ID ，如果也存在於 originalData，則會先回傳 true<br>接著在filter 內容中加一個否定運算子 <code>!</code>，即可做到資料的汰除，而如果是要保留，只要將 <code>!</code> 拿掉即可</p>
 <p>這個寫法確實能 work ，只不過會有兩個明顯的問題</p>
 <ol>
 <li>如果沒有特別解釋，第一眼我們可能沒辦法看出這段 code 在幹嘛</li>
-<li>這個寫法等同於跑了雙重迴圈，時間複雜度會是  <code>O(n^2)</code></li>
+<li>這個寫法等同於跑了雙重迴圈，時間複雜度會是 <code>O(n^2)</code></li>
 </ol>
-<h1 id="作法二"><a class="markdownIt-Anchor" href="#作法二">#</a> 作法二</h1>
-<p>我們可以稍微調整一下，得到這樣的寫法：</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> filterIds <span class="token operator">=</span> compareData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> item<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>originalData<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token operator">!</span>filterIds<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>這個寫法把邏輯拆成兩段來做</p>
+<h1 id="作法二"><a href="#作法二" class="headerlink" title="作法二"></a>作法二</h1><p>我們可以稍微調整一下，得到這樣的寫法：</p>
+<pre><code class="js">const filterIds = compareData.map(item =&gt; item.id);
+originalData.filter(item =&gt; !filterIds.includes(item.id));
+</code></pre>
+<p>這個寫法把邏輯拆成兩段來做</p>
 <ol>
-<li>先把  <code>compareData</code>  的  <code>id</code>  篩出來</li>
-<li>用  <code>filter</code>  去篩選出資料</li>
+<li>先把 <code>compareData</code> 的 <code>id</code> 篩出來</li>
+<li>用 <code>filter</code> 去篩選出資料</li>
 </ol>
-<p>看起來已經解決了可讀性的問題，只不過時間複雜度呢…</p>
-<p>事實上  <code>filter</code>  裡面使用  <code>includes</code>  ，概念依然是跑了兩個迴圈</p>
-<h1 id="作法三"><a class="markdownIt-Anchor" href="#作法三">#</a> 作法三</h1>
-<p>我們可以再調整一下</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> filterIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>compareData<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> item<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>originalData<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token operator">!</span>filterIds<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>這次我們把  <code>id</code>  篩出來後，先丟到  <code>Set</code>  裡面，最後在 filter 裡面使用 Set 的 has 方法處理資料的判斷<br>
-由於 Set 的底層是使用 HashTable 實作的 (雖然看不到)，這也完美避開雙重迴圈導致  <code>O(n^2)</code>  的問題</p>
-<h1 id="執行時間比較"><a class="markdownIt-Anchor" href="#執行時間比較">#</a> 執行時間比較</h1>
-<p>事實上這三個寫法，在資料筆數不到萬筆的時候，跑起來不會有太大的感覺，不過我們可以稍微模擬一下資料筆數有幾十萬、幾百萬的時間</p>
+<p>看起來已經解決了可讀性的問題，只不過時間複雜度呢….</p>
+<p>事實上 <code>filter</code> 裡面使用 <code>includes</code> ，概念依然是跑了兩個迴圈</p>
+<h1 id="作法三"><a href="#作法三" class="headerlink" title="作法三"></a>作法三</h1><p>我們可以再調整一下</p>
+<pre><code class="js">const filterIds = new Set(compareData.map(item =&gt; item.id));
+originalData.filter(item =&gt; !filterIds.has(item.id));
+</code></pre>
+<p>這次我們把 <code>id</code> 篩出來後，先丟到 <code>Set</code> 裡面，最後在 filter 裡面使用 Set 的 has 方法處理資料的判斷<br>由於 Set 的底層是使用 HashTable 實作的 (雖然看不到)，這也完美避開雙重迴圈導致 <code>O(n^2)</code> 的問題</p>
+<h1 id="執行時間比較"><a href="#執行時間比較" class="headerlink" title="執行時間比較"></a>執行時間比較</h1><p>事實上這三個寫法，在資料筆數不到萬筆的時候，跑起來不會有太大的感覺，不過我們可以稍微模擬一下資料筆數有幾十萬、幾百萬的時間</p>
 <p>首先先建立一千萬筆資料</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10000000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    data<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> i <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>接著建立比較資料</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> data2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">1000</span><span class="token punctuation">;</span> i <span class="token operator">+=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    data2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> i <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>最後把上面三種寫法包成函數，並且加入時間搓記</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">let</span> <span class="token function-variable function">origin</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> data2</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">const</span> start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    data <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token parameter">result</span> <span class="token operator">=></span> <span class="token operator">!</span>data2<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> item<span class="token punctuation">.</span><span class="token constant">ID</span> <span class="token operator">===</span> result<span class="token punctuation">.</span><span class="token constant">ID</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">const</span> end <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">return</span> end <span class="token operator">-</span> start<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">let</span> <span class="token function-variable function">arr</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> data2</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">const</span> start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">const</span> filterIds <span class="token operator">=</span> data2<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> item<span class="token punctuation">.</span><span class="token constant">ID</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    data<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token operator">!</span>filterIds<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token constant">ID</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">const</span> end <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">return</span> end <span class="token operator">-</span> start<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">let</span> <span class="token function-variable function">set</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> data2</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">const</span> start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">const</span> filterIds <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>data2<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> item<span class="token punctuation">.</span><span class="token constant">ID</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    data<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token operator">!</span>filterIds<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token constant">ID</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">const</span> end <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">return</span> end <span class="token operator">-</span> start<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>實際跑出來的結果，一千萬筆資料跟五百筆資料進行比較過後的結果</p>
-<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"filter some 時間："</span> <span class="token operator">+</span> <span class="token function">origin</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> data2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"filter includes 時間："</span> <span class="token operator">+</span> <span class="token function">arr</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> data2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"filter set 時間："</span> <span class="token operator">+</span> <span class="token function">set</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> data2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>some 的寫法跟 includes 的寫法差不多，大概落在三四秒左右<br>
-而使用 set 之後，時間可以降到低於一秒</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>filter some 時間：3077</pre></td></tr><tr><td data-num="2"></td><td><pre>filter includes 時間：4525</pre></td></tr><tr><td data-num="3"></td><td><pre>filter <span class="token builtin class-name">set</span> 時間：719</pre></td></tr></table></figure><p>甚至如果用 一千萬筆資料，比對九百萬筆資料，set 的結果大概只有 5 秒左右，而其他兩者慢到我一度懷疑系統掛了</p>
-<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>filter <span class="token builtin class-name">set</span> 時間：5553</pre></td></tr></table></figure><h1 id="總結"><a class="markdownIt-Anchor" href="#總結">#</a> 總結</h1>
-<p>如果我們接觸到的資料筆數在一萬筆以內，這三種寫法其實沒什麼差異<br>
-只是如果資料量可能會增長到極大的話，就需要思考一下時間複雜度的問題了</p>
+<pre><code class="js">let data = [];
+
+for (let i = 1; i &lt;= 10000000; i++) &#123;
+    data.push(&#123; id: i &#125;);
+&#125;
+</code></pre>
+<p>接著建立比較資料</p>
+<pre><code class="js">let data2 = [];
+
+for (let i = 1; i &lt;= 1000; i += 2) &#123;
+    data2.push(&#123; id: i &#125;);
+&#125;
+</code></pre>
+<p>最後把上面三種寫法包成函數，並且加入時間搓記</p>
+<pre><code class="js">
+let origin = (data, data2) =&gt; &#123;
+    const start = new Date().getTime();
+    data = data.filter(
+        result =&gt; !data2.some(item =&gt; item.ID === result.ID)
+    );
+    const end = new Date().getTime();
+    return end - start;
+&#125;
+let arr = (data, data2) =&gt; &#123;
+    const start = new Date().getTime();
+    const filterIds = data2.map(item =&gt; item.ID);
+    data.filter(item =&gt; !filterIds.includes(item.ID));;
+    const end = new Date().getTime();
+
+    return end - start;
+&#125;
+let set = (data, data2) =&gt; &#123;
+    const start = new Date().getTime();
+    const filterIds = new Set(data2.map(item =&gt; item.ID));
+    data.filter(item =&gt; !filterIds.has(item.ID));
+    const end = new Date().getTime();
+    return end - start;
+&#125;
+</code></pre>
+<p>實際跑出來的結果，一千萬筆資料跟五百筆資料進行比較過後的結果</p>
+<pre><code class="js">console.log(&quot;filter some 時間：&quot; + origin(data, data2));
+console.log(&quot;filter includes 時間：&quot; + arr(data, data2));
+console.log(&quot;filter set 時間：&quot; + set(data, data2));
+</code></pre>
+<p>some 的寫法跟 includes 的寫法差不多，大概落在三四秒左右<br>而使用 set 之後，時間可以降到低於一秒</p>
+<pre><code class="sh">filter some 時間：3077
+filter includes 時間：4525
+filter set 時間：719
+</code></pre>
+<p>甚至如果用 一千萬筆資料，比對九百萬筆資料，set 的結果大概只有 5秒左右，而其他兩者慢到我一度懷疑系統掛了</p>
+<pre><code class="sh">filter set 時間：5553
+</code></pre>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>如果我們接觸到的資料筆數在一萬筆以內，這三種寫法其實沒什麼差異<br>只是如果資料量可能會增長到極大的話，就需要思考一下時間複雜度的問題了</p>
 
       <div class="tags">
           <a href="/tags/JS/" rel="tag"><i class="ic i-tag"></i> JS</a>
@@ -260,7 +317,7 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
     <div class="item left">
       
 
-  <a href="/miscellanea/powershell7-note/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="PowerShell7 簡易快捷鍵">
+  <a href="/miscellanea/powershell7-note/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;8gupmbA.jpg" title="PowerShell7 簡易快捷鍵">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>PowerShell7 簡易快捷鍵</h3>
@@ -270,7 +327,7 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
     <div class="item right">
       
 
-  <a href="/dotnet-note/nugetchangelocation/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;8gupmbA.jpg" title="更改 nuget 存放位置">
+  <a href="/dotnet-note/nugetchangelocation/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="更改 nuget 存放位置">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> .Net 筆記</span>
   <h3>更改 nuget 存放位置</h3>
@@ -291,7 +348,7 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-number">1.</span> <span class="toc-text"> 問題</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E6%B3%95%E4%B8%80"><span class="toc-number">2.</span> <span class="toc-text"> 作法一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E6%B3%95%E4%BA%8C"><span class="toc-number">3.</span> <span class="toc-text"> 作法二</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E6%B3%95%E4%B8%89"><span class="toc-number">4.</span> <span class="toc-text"> 作法三</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82%E9%96%93%E6%AF%94%E8%BC%83"><span class="toc-number">5.</span> <span class="toc-text"> 執行時間比較</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">6.</span> <span class="toc-text"> 總結</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C"><span class="toc-number">1.</span> <span class="toc-text">問題</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E6%B3%95%E4%B8%80"><span class="toc-number">2.</span> <span class="toc-text">作法一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E6%B3%95%E4%BA%8C"><span class="toc-number">3.</span> <span class="toc-text">作法二</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E6%B3%95%E4%B8%89"><span class="toc-number">4.</span> <span class="toc-text">作法三</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%B7%E8%A1%8C%E6%99%82%E9%96%93%E6%AF%94%E8%BC%83"><span class="toc-number">5.</span> <span class="toc-text">執行時間比較</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-number">6.</span> <span class="toc-text">總結</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -390,7 +447,16 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/31%20-%20force%20Push%20%E7%9A%84%E4%BD%BF%E7%94%A8%E6%99%82%E6%A9%9F/" title="force push 的使用時機">force push 的使用時機</a></span>
+    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/miscellanea/powershell7-note/" title="PowerShell7 簡易快捷鍵">PowerShell7 簡易快捷鍵</a></span>
   </li>
 
       
@@ -400,7 +466,7 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
+    <span><a href="/git-learn/31%20-%20force%20push%20%E7%9A%84%E4%BD%BF%E7%94%A8%E6%99%82%E6%A9%9F/" title="force push 的使用時機">force push 的使用時機</a></span>
   </li>
 
       
@@ -410,7 +476,37 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
+</div>
+
+    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/dotnet-note/" title="分類於 .Net 筆記">.Net 筆記</a>
+</div>
+
+    <span><a href="/dotnet-note/nugetchangelocation/" title="更改 nuget 存放位置">更改 nuget 存放位置</a></span>
   </li>
 
       
@@ -420,7 +516,7 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
+    <span><a href="/git-learn/01%20-%20%E5%89%8D%E8%A8%80/" title="前言">前言</a></span>
   </li>
 
       
@@ -430,57 +526,17 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
+    <span><a href="/git-learn/25%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E8%88%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E7%9A%84%E4%BA%92%E5%8B%95/" title="使用 GitHub：遠端儲存庫基本操作">使用 GitHub：遠端儲存庫基本操作</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
 </div>
 
-    <span><a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" title="執行 commit 之前的狀況處理">執行 commit 之前的狀況處理</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/26%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%9C%B0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF%E3%80%81%E9%81%A0%E7%AB%AF%E8%BF%BD%E8%B9%A4%E5%88%86%E6%94%AF/" title="使用 GitHub：地端分支、遠端分支、遠端追蹤分支">使用 GitHub：地端分支、遠端分支、遠端追蹤分支</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
   </li>
 
   </ul>
@@ -501,13 +557,13 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">140k 字</span>
+    <span title="總字數">144k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:07</span>
+    <span title="所需總閱讀時間">2:11</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

@@ -2,7 +2,7 @@
 title: 更改 nuget 存放位置
 date: 2024-07-11 20:41:02
 tags: [nuget] # 文章標籤
-categories: .Net 筆記 # 文章分類
+categories: 關於 dotnet # 文章分類
 comment: false # 關閉評論
 ---
 

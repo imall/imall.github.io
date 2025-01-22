@@ -217,7 +217,7 @@ app.component("my-component", {
 ```
 在模版中，在 `v-slot` 定義一個名稱，即可以拿他取得 `text` 的資料
 ```html
-<my-component v-slot="slotProps">{{slotProps.text}}</my-component>
+<my-component v-slot="slotProps">&#123;&#123;slotProps.text&#125;&#125;</my-component>
 ```
 ![](https://i.imgur.com/8Tskmgd.png)
 

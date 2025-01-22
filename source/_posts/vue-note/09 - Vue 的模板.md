@@ -28,14 +28,14 @@ Vue 支援的資料綁定語法，是透過一個叫「Mustache」的語法來�
 
 這個語法的寫法很簡單，就是直接寫兩組大誇號，並且在裡面放資料，像這樣：
 ```html
-{{ 只要會回傳一個值的資料都可以塞進來 }}
+&#123;&#123; 只要會回傳一個值的資料都可以塞進來 &#125;&#125;
 ```
 
 如果要在 HTML 標籤放資料，可以不用「只」放雙大括號，也可以把「寫死的資料」跟雙大括號結合，像這樣：
 
 ```html
 <div id="app">
-    <div> 歌名：{{ song }} </div>
+    <div> 歌名：&#123;&#123; song &#125;&#125; </div>
 </div>
 ```
 ```js
@@ -52,7 +52,7 @@ Vue.createApp({
 
 ```html
 <div id="app">
-    {{ anyData }}
+    &#123;&#123; anyData &#125;&#125;
 </div>
 ```
 ```js
@@ -73,15 +73,15 @@ Vue.createApp({
 
 例如：
 ```html
-{{ 'hello' + 'world' }}
+&#123;&#123; 'hello' + 'world' &#125;&#125;
 
-{{ 1 + 1 }}
+&#123;&#123; 1 + 1 &#125;&#125;
 
-{{ number + 1 }}
+&#123;&#123; number + 1 &#125;&#125;
 
-{{ ok ? 'YES' : 'NO' }}
+&#123;&#123; ok ? 'YES' : 'NO' &#125;&#125;
 
-{{ message.split('').reverse().join('') }}
+&#123;&#123; message.split('').reverse().join('') &#125;&#125;
 ```
 
 這種寫法的好處是，我們在需要的時候可以把部分商業邏輯寫到模版裡頭。  
@@ -89,9 +89,9 @@ Vue.createApp({
 像是如果某個數字資料代表幣別，希望畫面上能呈現出貨幣格式，那可以這樣寫：
 ```html
 <div id="app">
-    <div> 價格： $ {{ price1.toLocaleString() }} </div>
-    <div> 價格： $ {{ price2.toLocaleString() }} </div>
-    <div> 價格： $ {{ price3.toLocaleString() }} </div>
+    <div> 價格： $ &#123;&#123; price1.toLocaleString() &#125;&#125; </div>
+    <div> 價格： $ &#123;&#123; price2.toLocaleString() &#125;&#125; </div>
+    <div> 價格： $ &#123;&#123; price3.toLocaleString() &#125;&#125; </div>
 </div>
 ```
 ```js
@@ -107,9 +107,9 @@ Vue.createApp({
 
 另外補充一下哪些語法屬於不合法的語法：
 ```html
-{{ var a = 1 }}
+&#123;&#123; var a = 1 &#125;&#125;
 
-{{ if (ok) { return message } }}
+&#123;&#123; if (ok) { return message } &#125;&#125;
 ```
 以上都算是不合法的語法，因為他們都不是「回傳值」，而是「宣告」或是「控制流程」。
 
@@ -147,6 +147,6 @@ Vue.createApp({
 
 # 總結
 1. Vue 使用「基於」HTML 的模板語法，只要是合法的 HTML 語法，都可以在 Vue 中撰寫。
-2. Vue 的資料綁定語法使用 Mustache 語法，寫法是雙大誇號(`{{}}`)，可以單獨出現在模版中，不一定要跟 HTML 標籤寫在一起。
+2. Vue 的資料綁定語法使用 Mustache 語法，寫法是雙大誇號(`&#123;&#123;&#125;&#125;`)，可以單獨出現在模版中，不一定要跟 HTML 標籤寫在一起。
 3. 在雙大誇號中，除了變數之外，也可以寫 JS 表達式。
 4. Vue 指令的寫法跟 HTML 屬性很像，通常長得像 `v-XXX`，例如 `v-on`、`v-bind`、`v-model`、`v-if`、`v-for` 等等。

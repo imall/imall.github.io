@@ -22,7 +22,7 @@ render: false
 最基本的 v-for 語法長這樣
 
 ```html
-<li v-for="item in items">{{ item.message }}</li>
+<li v-for="item in items">&#123;&#123; item.message &#125;&#125;</li>
 ```
 
 `items` 參數跟 `item` 都可以自己命名，你想叫做 「ABC」 還是 「告嘎低」都可以，不過通常會取一個跟資料相關的命名。
@@ -30,13 +30,13 @@ render: false
 像是書本清單，就會這樣寫：
 
 ```html
-<li v-for="book in books">{{ book.message }}</li>
+<li v-for="book in books">&#123;&#123; book.message &#125;&#125;</li>
 ```
 
 商品清單，可能就會這樣命名：
 
 ```html
-<li v-for="product in products">{{ product.message }}</li>
+<li v-for="product in products">&#123;&#123; product.message &#125;&#125;</li>
 ```
 
 無論哪種命名方式，只要名字取好了，模板就會用取好的名字來抓資料。
@@ -47,7 +47,7 @@ v-for 語法的參數也支援索引，位置是寫在 `in` 前面，跟 **單�
 
 ```html
 <li v-for="(item, index) in items">
-  {{ parentMessage }} - {{ index }} - {{ item.message }}
+  &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;
 </li>
 ```
 
@@ -73,7 +73,7 @@ Parent - 1 - Bar
 <li v-for="item in items">
   <span v-for="childItem in item.children">
   <!-- item 是外層的變數，但內層可以吃得到 -->
-    {{ item.message }} {{ childItem }}
+    &#123;&#123; item.message &#125;&#125; &#123;&#123; childItem &#125;&#125;
   </span>
 </li>
 ```
@@ -83,7 +83,7 @@ Parent - 1 - Bar
 v-for 除了跑資料之外，也可以直接定義一個數字：
 
 ```html
-<div v-for="n in 10">{{ n }}</div>
+<div v-for="n in 10">&#123;&#123; n &#125;&#125;</div>
 ```
 
 而數字的初始值會是 `1`
@@ -102,7 +102,7 @@ v-for 除了跑資料之外，也可以直接定義一個數字：
 <ul>
   <template v-for="item in items">
   <!-- 裡面兩個 li 就會重複顯示 -->
-    <li>{{ item.msg }}</li>
+    <li>&#123;&#123; item.msg &#125;&#125;</li>
     <li class="divider" role="presentation"></li>
   </template>
 </ul>
@@ -114,7 +114,7 @@ v-for 除了跑資料之外，也可以直接定義一個數字：
 Vue 不支援這兩個標籤同時被使用，所以不要這樣寫：
 ```html
 <li v-for="todo in todos" v-if="!todo.isComplete">
-  {{ todo.name }}
+  &#123;&#123; todo.name &#125;&#125;
 </li>
 ```
 
@@ -125,7 +125,7 @@ Vue 不支援這兩個標籤同時被使用，所以不要這樣寫：
 ```html
 <template v-for="todo in todos">
   <li v-if="!todo.isComplete">
-    {{ todo.name }}
+    &#123;&#123; todo.name &#125;&#125;
   </li>
 </template>
 ```

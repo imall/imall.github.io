@@ -33,7 +33,7 @@ render: false
 
 ```html
 <input v-model="message" type="text" />
-<p>{{ message }}</p>
+<p>&#123;&#123; message &#125;&#125;</p>
 ```
 
 ```js
@@ -63,7 +63,7 @@ const app = Vue.createApp({
 要定義多選框，會使用陣列作為變數型別：
 
 ```html
-<div>Checked names: {{ checkedNames }}</div>
+<div>Checked names: &#123;&#123; checkedNames &#125;&#125;</div>
 
 <input type="checkbox" id="jack" value="Jack" v-model="checkedNames" />
 <label for="jack">Jack</label>
@@ -94,7 +94,7 @@ const app = Vue.createApp({
 
 ```html
 <input type="checkbox" id="checkbox" v-model="checked" />
-<label for="checkbox">{{ checked }}</label>
+<label for="checkbox">&#123;&#123; checked &#125;&#125;</label>
 ```
 
 ```js
@@ -115,7 +115,7 @@ const app = Vue.createApp({
 如果是單選框的話，也是使用字串(`""`)作為變數型別！
 
 ```html
-<div>Picked: {{ picked }}</div>
+<div>Picked: &#123;&#123; picked &#125;&#125;</div>
 
 <input type="radio" id="one" value="One" v-model="picked" />
 <label for="one">One</label>
@@ -142,7 +142,7 @@ const app = Vue.createApp({
 如果是使用下拉選單，也是使用陣列型別
 
 ```html
-<span> Selected: {{ selected }}</span>
+<span> Selected: &#123;&#123; selected &#125;&#125;</span>
 
 <select v-model="selected">
   <option disabled value="">Please select one</option>
@@ -178,7 +178,7 @@ const app = Vue.createApp({
 ```html
 <div id="app">
   <input type="text" v-model.number="text1" />+
-  <input type="text" v-model.number="text2" />= {{ text1 + text2}}
+  <input type="text" v-model.number="text2" />= &#123;&#123; text1 + text2&#125;&#125;
 </div>
 ```
 

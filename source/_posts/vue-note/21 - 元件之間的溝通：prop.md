@@ -27,7 +27,7 @@ render: false
 app.component("my-component", {
   template: `
     <div>
-      <div> {{ message }} </div>
+      <div> &#123;&#123; message &#125;&#125; </div>
     </div>`,
   // message 是自己定義的變數
   props: ["message"],
@@ -75,7 +75,7 @@ const app = Vue.createApp({
 app.component("my-component", {
   template: `
     <div>
-      <div> {{ message }} </div>
+      <div> &#123;&#123; message &#125;&#125; </div>
     </div>`,
   // message 是自己定義的變數
   props: ["message"],
@@ -96,8 +96,8 @@ Vue 同時也提供 **物件** 的 `props` 宣告方式：
 app.component("my-component", {
   template: `
     <div>
-      <h1> {{ name }} </h1>
-      <p> {{ age }} </p>
+      <h1> &#123;&#123; name &#125;&#125; </h1>
+      <p> &#123;&#123; age &#125;&#125; </p>
     </div>`,
   // 以物件定義 props ，可以宣告資料的型別
   props: {
@@ -149,8 +149,8 @@ app.component("my-component", {
 app.component("my-component", {
   template: `
     <div>
-      <h1> {{ name }} </h1>
-      <p> {{ age }} </p>
+      <h1> &#123;&#123; name &#125;&#125; </h1>
+      <p> &#123;&#123; age &#125;&#125; </p>
     </div>`,
   props: {
     name: String,
@@ -198,8 +198,8 @@ const app = Vue.createApp({
 app.components("my-component", {
   template: `
     <div>
-      <h1> {{ name }} </h1>
-      <p> {{ age }} </p>
+      <h1> &#123;&#123; name &#125;&#125; </h1>
+      <p> &#123;&#123; age &#125;&#125; </p>
     </div>`,
   props: {
     name: String,
@@ -222,8 +222,8 @@ app.components("my-component", {
 app.components("my-component", {
   template: `
     <div>
-      <h1> {{ name }} </h1>
-      <p> {{ age }} </p>
+      <h1> &#123;&#123; name &#125;&#125; </h1>
+      <p> &#123;&#123; age &#125;&#125; </p>
     </div>`,
 
   props: {
@@ -249,8 +249,8 @@ app.components("my-component", {
 app.components("my-component", {
   template: `
     <div>
-      <h1> {{ name }} </h1>
-      <p> {{ age }} </p>
+      <h1> &#123;&#123; name &#125;&#125; </h1>
+      <p> &#123;&#123; age &#125;&#125; </p>
     </div>`,
 
   props: {

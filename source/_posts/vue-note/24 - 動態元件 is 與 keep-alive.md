@@ -128,7 +128,7 @@ const currentTab = Vue.ref("A");
 
 ```html
 <button v-for="tab in tabs" :key="tab" @click="currentTab = tab">
-  {{tab}}
+  &#123;&#123;tab&#125;&#125;
 </button>
 ```
 

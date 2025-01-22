@@ -40,7 +40,7 @@ const app = Vue.createApp({
 // 定義元件
 app.component("my-component", {
   template: `
-        <div>{{count}}</div>
+        <div>&#123;&#123;count&#125;&#125;</div>
         <button>增加</button>
       `,
   props: ["count"],
@@ -62,7 +62,7 @@ app.mount("#app");
 ```js
 app.component("my-component", {
   template: `
-        <div>{{count}}</div>
+        <div>&#123;&#123;count&#125;&#125;</div>
         <button>增加</button>
       `,
   props: ["count"],
@@ -89,7 +89,7 @@ app.component("my-component", {
 ```js
 app.component("my-component", {
   template: `
-        <div>{{count}}</div>
+        <div>&#123;&#123;count&#125;&#125;</div>
         <button @click="$emit('update')">增加</button>
       `,
   props: ["count"],
@@ -134,7 +134,7 @@ const app = Vue.createApp({
 ```js
 app.component("my-component", {
   template: `
-        <div>{{count}}</div>
+        <div>&#123;&#123;count&#125;&#125;</div>
         <button @click="$emit('update',5)">增加</button>
       `,
   props: ["count"],
@@ -175,7 +175,7 @@ const app = Vue.createApp({
 ```js
 app.component("my-component", {
   template: `
-        <div>{{count}}</div>
+        <div>&#123;&#123;count&#125;&#125;</div>
         <button @click="updateNumber">增加</button>
       `,
   props: ["count"],
@@ -202,7 +202,7 @@ app.component("my-component", {
 ```js
 app.component("my-component", {
   template: `
-        <div>{{count}}</div>
+        <div>&#123;&#123;count&#125;&#125;</div>
         <button @click="updateNumber">增加</button>
       `,
   props: ["count"],

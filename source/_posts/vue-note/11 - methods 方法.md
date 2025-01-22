@@ -41,7 +41,7 @@ createApp({
 
 ```html
 <div id="app">
-  <button @click="plus()">{{ count }}</button>
+  <button @click="plus()">&#123;&#123; count &#125;&#125;</button>
 </div>
 ```
 
@@ -61,9 +61,9 @@ createApp({
 
 ```html
 <div>
-  <div class="plus">{{ plus() }}</div>
+  <div class="plus">&#123;&#123; plus() &#125;&#125;</div>
 
-  <div class="plus">{{ plus() }}</div>
+  <div class="plus">&#123;&#123; plus() &#125;&#125;</div>
 </div>
 ```
 
@@ -86,9 +86,9 @@ app.mount("#app");
 
 ```html
 <div id="app">
-    <div> 價格： $ {{ plus(price1) }} </div>
-    <div> 價格： $ {{ plus(price2) }} </div>
-    <div> 價格： $ {{ plus(price3) }} </div>
+    <div> 價格： $ &#123;&#123; plus(price1) &#125;&#125; </div>
+    <div> 價格： $ &#123;&#123; plus(price2) &#125;&#125; </div>
+    <div> 價格： $ &#123;&#123; plus(price3) &#125;&#125; </div>
 </div>
 ```
 
@@ -124,7 +124,7 @@ app.mount("#app");
 
 ```html
 <div id="app">
-  <button @click="plus()">{{ count }}</button>
+  <button @click="plus()">&#123;&#123; count &#125;&#125;</button>
 </div>
 ```
 

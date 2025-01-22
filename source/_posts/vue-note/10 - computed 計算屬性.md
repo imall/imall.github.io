@@ -57,12 +57,12 @@ createApp({
 
 ```html
 <div id="app">
-  <h1>{{ author.name }}出的書</h1>
+  <h1>&#123;&#123; author.name &#125;&#125;出的書</h1>
   <ul>
-    <li v-for="book in author.books">{{ book }}</li>
+    <li v-for="book in author.books">&#123;&#123; book &#125;&#125;</li>
   </ul>
   <!-- 你可以把 computed 當成一個「變數」使用，不用寫 () 執行 -->
-  <div>是否還有庫存 ： {{ hasBook }}</div>
+  <div>是否還有庫存 ： &#123;&#123; hasBook &#125;&#125;</div>
 </div>
 ```
 
@@ -93,12 +93,12 @@ createApp({
 
 ```html
 <div id="app">
-  <h1>{{ author.name }}出的書</h1>
+  <h1>&#123;&#123; author.name &#125;&#125;出的書</h1>
   <ul>
-    <li v-for="book in author.books">{{ book }}</li>
+    <li v-for="book in author.books">&#123;&#123; book &#125;&#125;</li>
   </ul>
   <!-- 如果是「方法」，記得要寫 () 執行 -->
-  <div>是否還有庫存 ： {{ hasBook() }}</div>
+  <div>是否還有庫存 ： &#123;&#123; hasBook() &#125;&#125;</div>
 </div>
 ```
 
@@ -143,14 +143,14 @@ createApp({
 
 ```html
 <div id="app">
-  <h1>{{ author.name }}出的書</h1>
+  <h1>&#123;&#123; author.name &#125;&#125;出的書</h1>
   <ul>
-    <li v-for="book in author.books">{{book}}</li>
+    <li v-for="book in author.books">&#123;&#123;book&#125;&#125;</li>
   </ul>
-  <div>是否還有庫存(hasBook_computed) ： {{ hasBook_computed }}</div>
-  <div>是否還有庫存(hasBook_method) ： {{ hasBook_method() }}</div>
+  <div>是否還有庫存(hasBook_computed) ： &#123;&#123; hasBook_computed &#125;&#125;</div>
+  <div>是否還有庫存(hasBook_method) ： &#123;&#123; hasBook_method() &#125;&#125;</div>
 
-  <button @click="plus">{{count}}</button>
+  <button @click="plus">&#123;&#123;count&#125;&#125;</button>
 </div>
 ```
 
@@ -246,11 +246,11 @@ createApp({
 
 ```html
 <div id="app">
-  <h1>{{ author.name }}出的書</h1>
+  <h1>&#123;&#123; author.name &#125;&#125;出的書</h1>
   <ul>
-    <li v-for="book in author.books">{{book}}</li>
+    <li v-for="book in author.books">&#123;&#123;book&#125;&#125;</li>
   </ul>
-  <div>是否還有庫存： {{ hasBook }}</div>
+  <div>是否還有庫存： &#123;&#123; hasBook &#125;&#125;</div>
 
   <button @click="changeBookCount">將書本數量歸零</button>
 </div>

@@ -49,7 +49,7 @@ app.mount("#app");
 ```html
 <div id="app">
   <my-component :msg="message" @update="updateMsg"></my-component>
-  {{ message }}
+  &#123;&#123; message &#125;&#125;
 </div>
 ```
 
@@ -91,7 +91,7 @@ const app = Vue.createApp({
 ```html
 <div id="app">
   <my-component v-model="message"></my-component>
-  {{ message }}
+  &#123;&#123; message &#125;&#125;
 </div>
 ```
 
@@ -131,7 +131,7 @@ app.component("my-component", {
 
 ```html
 <div id="app">
-  <h1>{{ first }} {{ last }}</h1>
+  <h1>&#123;&#123; first &#125;&#125; &#123;&#123; last &#125;&#125;</h1>
   <my-component v-model:first-name="first" v-model:last-name="last">
   </my-component>
 </div>

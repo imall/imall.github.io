@@ -44,7 +44,7 @@ $btn.addEventListener("click", function (e) {
 ```html
 <div id="app">
   <!-- 一定要是 $event 不能是其他值  -->
-  <a href="https://google.com.tw" @click="plus($event)">{{data}}</a>
+  <a href="https://google.com.tw" @click="plus($event)">&#123;&#123;data&#125;&#125;</a>
 </div>
 ```
 
@@ -67,7 +67,7 @@ Vue.createApp({
 ```html
 <div id="app">
   <!-- 因為在實體中寫的參數，第一個是接「事件參數」，第二個是某個資料值，所以兩者順序不能換 -->
-  <a href="https://google.com.tw" @click="plus($event , 5)">{{data}}</a>
+  <a href="https://google.com.tw" @click="plus($event , 5)">&#123;&#123;data&#125;&#125;</a>
 </div>
 ```
 
@@ -207,7 +207,7 @@ self 中文是 自己。
 
 ```html
 <div id="app">
-  <button @click.once="plus()">{{count}}</button>
+  <button @click.once="plus()">&#123;&#123;count&#125;&#125;</button>
 </div>
 ```
 

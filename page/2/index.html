@@ -87,10 +87,10 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
-          <li class="item" data-background-image="https://i.imgur.com/tXRAhpc.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/wW2x12h.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/rLZ4NtO.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/fG7Vwmv.jpg"></li>
           <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
         </ul>
@@ -118,7 +118,53 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" itemprop="url" title="用 rebase 互動模式來調整歷史"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
+    <a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" itemprop="url" title="用 revert 復原 commit"><img data-src="https://i.imgur.com/wW2x12h.png"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="創建時間：2023-10-08 10:50:20">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-08T10:50:20+08:00">2023-10-08</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 分鐘</span>
+  </span>
+</div>
+
+    <h3><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" itemprop="url" title="用 revert 復原 commit">用 revert 復原 commit</a></h3>
+    <div class="excerpt">
+        # 前言
+話說在前頭，如果進到這篇文章的你還跟 Git 不太熟，目前的你執行了 git commit 之後反悔了，想要把它刪掉卻不知道怎麼刪的話，請左轉參考 git reset 文章，可能比較符合你現階段想完成的事情。
+因為 git revert 指令執行下去可能會跟你想的結果完全不一樣。
+會以這樣的言論當作開場，就是因為筆者小弟不才本人我，在不熟 Git 的時期想要「刪除」最新的 commit，看到有個 git revert 可以取消 commit，糊里糊塗就給他用下去。
+git revert...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
+      </span>
+    </div>
+    <a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" itemprop="url" title="用 revert 復原 commit" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" itemprop="url" title="用 rebase 互動模式來調整歷史"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
   </div>
   <div class="info">
     
@@ -166,7 +212,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95/" itemprop="url" title="用 rebase 重新定義基底"><img data-src="https://i.imgur.com/eWxuYmg.jpg"></a>
+    <a href="/git-learn/22%20-%20%E7%94%A8%20rebase%20%E9%87%8D%E6%96%B0%E5%AE%9A%E7%BE%A9%E5%9F%BA%E5%BA%95/" itemprop="url" title="用 rebase 重新定義基底"><img data-src="https://i.imgur.com/IXkGvGY.jpg"></a>
   </div>
   <div class="info">
     
@@ -219,7 +265,7 @@ $ git rebase...
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" itemprop="url" title="Git 分支：常見疑問與需求篇"><img data-src="https://i.imgur.com/qhft9aC.png"></a>
+    <a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" itemprop="url" title="Git 分支：常見疑問與需求篇"><img data-src="https://i.imgur.com/HsDjgUN.jpg"></a>
   </div>
   <div class="info">
     
@@ -271,7 +317,7 @@ $ git rebase...
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" title="Git 分支：分支合併篇"><img data-src="https://i.imgur.com/QdkMVTt.jpg"></a>
+    <a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" itemprop="url" title="Git 分支：分支合併篇"><img data-src="https://i.imgur.com/rLZ4NtO.jpg"></a>
   </div>
   <div class="info">
     
@@ -325,7 +371,7 @@ $ git rebase...
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" title="Git 分支：基本操作篇"><img data-src="https://i.imgur.com/mp3vta6.jpg"></a>
+    <a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" itemprop="url" title="Git 分支：基本操作篇"><img data-src="https://i.imgur.com/HsDjgUN.jpg"></a>
   </div>
   <div class="info">
     
@@ -381,7 +427,7 @@ git branch$ git branch*...
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" itemprop="url" title="Git 分支：觀念篇"><img data-src="https://i.imgur.com/P69ZGGo.jpg"></a>
+    <a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" itemprop="url" title="Git 分支：觀念篇"><img data-src="https://i.imgur.com/77JuPV6.png"></a>
   </div>
   <div class="info">
     
@@ -429,7 +475,7 @@ git branch$ git branch*...
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" title="用 reset 回到過去"><img data-src="https://i.imgur.com/qhft9aC.png"></a>
+    <a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" itemprop="url" title="用 reset 回到過去"><img data-src="https://i.imgur.com/kctRHYg.jpg"></a>
   </div>
   <div class="info">
     
@@ -477,7 +523,7 @@ git reset ，一個之前文章時不時會出現的字詞，但當時文章又�
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" itemprop="url" title="修改最近一次的 Commit 紀錄"><img data-src="https://i.imgur.com/8gupmbA.jpg"></a>
+    <a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" itemprop="url" title="修改最近一次的 Commit 紀錄"><img data-src="https://i.imgur.com/fG7Vwmv.jpg"></a>
   </div>
   <div class="info">
     
@@ -524,7 +570,7 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
         
 <article class="item">
   <div class="cover">
-    <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" title="執行 commit 之前的狀況處理"><img data-src="https://i.imgur.com/aq0kjdS.jpg"></a>
+    <a href="/git-learn/15%20-%20%E5%9F%B7%E8%A1%8C%20commit%20%E4%B9%8B%E5%89%8D%E7%9A%84%E7%8B%80%E6%B3%81%E8%99%95%E7%90%86/" itemprop="url" title="執行 commit 之前的狀況處理"><img data-src="https://i.imgur.com/QdkMVTt.jpg"></a>
   </div>
   <div class="info">
     
@@ -568,57 +614,6 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
   </div>
 </article>
 
-        
-<article class="item">
-  <div class="cover">
-    <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題"><img data-src="https://i.imgur.com/dOvnXNe.jpg"></a>
-  </div>
-  <div class="info">
-    
-<div class="meta">
-  <span class="item" title="創建時間：2023-09-28 10:50:20">
-    <span class="icon">
-      <i class="ic i-calendar"></i>
-    </span>
-    <time itemprop="dateCreated datePublished" datetime="2023-09-28T10:50:20+08:00">2023-09-28</time>
-  </span>
-  <span class="item" title="文章字數">
-    <span class="icon">
-      <i class="ic i-pen"></i>
-    </span>
-    <span>2.1k</span>
-    <span class="text">字</span>
-  </span>
-  <span class="item" title="所需閱讀時間">
-    <span class="icon">
-      <i class="ic i-clock"></i>
-    </span>
-    <span>2 分鐘</span>
-  </span>
-</div>
-
-    <h3><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></h3>
-    <div class="excerpt">
-        # 前言
-這篇文章的內容，原本是想放在 commit 的常見問題。
-結果當時寫完發現內容太多，如果全部塞到同一篇文章，應該會讓人看不下去。
-不過這篇文章記錄的兩個問題，可能會是已經學會版控一段時間之後，或是實務上真的遇到時，才會去思考的問題。
-很適合拿來當【一起學 Git 吧！】系列文章，中場休息的小品文閱讀。
-我們就一起來看看吧！
-# 每個 commit 的資料都只有專案「部分」的檔案，每個版本不是應該都要版控「所有」檔案嗎？
-這問題可能一時之間不好理解，容許我重新描述一下問題的意思。
-開始在執行版控之後，commit 的內容可能會是這樣：
-第一版：新增專案說明檔案，記錄一個檔案：...
-    </div>
-    <div class="meta footer">
-      <span>
-        <a href="/categories/git-learn/" itemprop="url" title="一起來學 Git 吧！"><i class="ic i-flag"></i>一起來學 Git 吧！</a>
-      </span>
-    </div>
-    <a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" itemprop="url" title="關於 commit 的兩個小問題" class="btn">more...</a>
-  </div>
-</article>
-
     </div>
 
   </div>
@@ -626,7 +621,7 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
   
   <nav class="pagination">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/"><i class="ic i-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="ic i-angle-right" aria-label="下一頁"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="ic i-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="ic i-angle-right" aria-label="下一頁"></i></a>
     </div>
   </nav>
 
@@ -654,7 +649,7 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">41</span>
+        <span class="count">42</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -730,30 +725,10 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+<a href="/categories/dotnet-note/" title="分類於 .Net 筆記">.Net 筆記</a>
 </div>
 
-    <span><a href="/js-note/js-ArrayExclusion/" title="從陣列中排除特定元素">從陣列中排除特定元素</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" title="用 rebase 互動模式來調整歷史">用 rebase 互動模式來調整歷史</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/05%20-%20Git%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A8%AD%E5%AE%9A/" title="Git 初始化設定">Git 初始化設定</a></span>
+    <span><a href="/dotnet-note/nugetchangelocation/" title="更改 nuget 存放位置">更改 nuget 存放位置</a></span>
   </li>
 
       
@@ -770,49 +745,10 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/miscellanea/powershell7-note/" title="PowerShell7 簡易快捷鍵">PowerShell7 簡易快捷鍵</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/markdown/" title="分類於 MD 筆記">MD 筆記</a>
-</div>
-
-    <span><a href="/md-note/record-some-markdown/" title="markdown 語法筆記">markdown 語法筆記</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/17%20-%20%E7%94%A8%20reset%20%E4%BE%86%E9%82%84%E5%8E%9F%E6%AD%B7%E5%8F%B2/" title="用 reset 回到過去">用 reset 回到過去</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
+    <span><a href="/git-learn/30%20-%20%E6%8C%87%E4%BB%A4%E7%B8%AE%E5%AF%AB%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E4%B8%80%E8%A6%BD/" title="設定指令縮寫與常用指令一覽">設定指令縮寫與常用指令一覽</a></span>
   </li>
 
       
@@ -823,6 +759,66 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
 </div>
 
     <span><a href="/git-learn/09%20-%20%E6%9F%A5%E7%9C%8B%20Git%20%E7%8B%80%E6%85%8B/" title="查看 Git 資料狀態">查看 Git 資料狀態</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/28%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%B0%87%E9%81%A0%E7%AB%AF%E5%84%B2%E5%AD%98%E5%BA%AB%E6%90%AC%E5%AE%B6/" title="使用 GitHub：將遠端儲存庫搬家">使用 GitHub：將遠端儲存庫搬家</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/js-slice-splice/" title="Array 中的 slice() 與 splice()">Array 中的 slice() 與 splice()</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/21%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%B8%B8%E8%A6%8B%E7%96%91%E5%95%8F%E8%88%87%E9%9C%80%E6%B1%82/" title="Git 分支：常見疑問與需求篇">Git 分支：常見疑問與需求篇</a></span>
   </li>
 
   </ul>
@@ -843,13 +839,13 @@ Git 的 Commit 視同「資料的變化」，每一版的「變化」都是跟�
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">139k 字</span>
+    <span title="總字數">140k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:06</span>
+    <span title="所需總閱讀時間">2:07</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

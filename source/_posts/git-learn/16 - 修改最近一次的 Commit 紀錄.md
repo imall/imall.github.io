@@ -199,7 +199,7 @@ git commit --amend --no-edit
 ## 修改歷史訊息的注意事項
 使用 `--amend` 參數有一個重點在文章中沒有特別提到：
 :::info no-icon
-每次執行 git commit --amend ，Git 都會更改 CommitID！
+每次執行 `git commit --amend` ，Git 都會更改 CommitID！
 :::
 
 即便我們看起來好像只是「修改」最新一次的 Commit，不過這個 Commit 對 Git 來說已經是全新的 Commit 了。

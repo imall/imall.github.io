@@ -34,7 +34,7 @@
 
 
   <title>
-更改 nuget 存放位置 - .Net 筆記 |
+更改 nuget 存放位置 - 關於 dotnet |
 Imall's Blog ~ 一個工程師的筆記天地</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body>
@@ -78,7 +78,7 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">文章字數</span>
-    <span>2.5k</span>
+    <span>2.4k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="所需閱讀時間">
@@ -117,11 +117,11 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
       <div id="imgs" class="pjax">
         <ul>
           <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/eWxuYmg.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/QdkMVTt.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/rLZ4NtO.jpg"></li>
-          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
           <li class="item" data-background-image="https://i.imgur.com/aq0kjdS.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/8gupmbA.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/kctRHYg.jpg"></li>
         </ul>
       </div>
     </header>
@@ -147,7 +147,7 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/dotnet-note/" itemprop="item" rel="index" title="分類於 .Net 筆記"><span itemprop="name">.Net 筆記</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/dotnet-note/" itemprop="item" rel="index" title="分類於 關於 dotnet"><span itemprop="name">關於 dotnet</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
@@ -167,76 +167,47 @@ Imall's Blog ~ 一個工程師的筆記天地</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我們在使用 nuget 套件的時候，所安裝的套件會在主機存放快取<br>開發時間一久，磁碟空間可能就會出現不夠用的問題</p>
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>我們在使用 nuget 套件的時候，所安裝的套件會在主機存放快取<br>
+開發時間一久，磁碟空間可能就會出現不夠用的問題</p>
 <p>一個簡單的做法是執行清理快取的指令：</p>
-<pre><code class="sh">dotnet nuget locals all -c
-</code></pre>
-<p>只不過這卻是一個治標不治本的作法，當時間一久，被清除的快取檔案又會再被載回來</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>dotnet nuget locals all <span class="token parameter variable">-c</span></pre></td></tr></table></figure><p>只不過這卻是一個治標不治本的作法，當時間一久，被清除的快取檔案又會再被載回來</p>
 <p>如果狀況允許，會建議把快取檔案放在獨立的槽裡面</p>
 <p>這篇文章來說明一下該如何更改預設存取路徑</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>首先，在我們執行上方指令的時候，基本上會看到這樣的畫面</p>
-<pre><code class="sh">dotnet nuget locals all -c
-正在清除 NuGet HTTP 快取: C:\Users\imall\AppData\Local\NuGet\v3-cache
-正在清除 NuGet 全域套件資料夾: C:\Users\imall\.nuget\packages\
-正在清除 NuGet 暫存快取: C:\Users\imall\AppData\Local\Temp\NuGetScratch
-正在清除 NuGet 外掛程式快取: C:\Users\imall\AppData\Local\NuGet\plugins-cache
-已清除本機資源。
-</code></pre>
-<p>如果系統是設定英文版的話，可能會看到另一個畫面(雖然不是重點)</p>
-<pre><code class="sh">$env:DOTNET_CLI_UI_LANGUAGE = &quot;en&quot;  # 語系設定成英文
-$env:DOTNET_CLI_UI_LANGUAGE = &quot;zh-tw&quot;  # 語系設定成中文
-</code></pre>
-<pre><code class="sh">dotnet nuget locals all -c
-Clearing NuGet HTTP cache: C:\Users\imall\AppData\Local\NuGet\v3-cache
-Clearing NuGet global packages folder: C:\Users\imall\.nuget\packages\
-Clearing NuGet Temp cache: C:\Users\imall\AppData\Local\Temp\NuGetScratch
-Clearing NuGet plugins cache: C:\Users\imall\AppData\Local\NuGet\plugins-cache
-Local resources cleared.
-</code></pre>
-<p>總之，其實會注意到 nuget 會有四個快取路徑</p>
+<h1 id="正文"><a class="markdownIt-Anchor" href="#正文">#</a> 正文</h1>
+<p>首先，在我們執行上方指令的時候，基本上會看到這樣的畫面</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>dotnet nuget locals all <span class="token parameter variable">-c</span></pre></td></tr><tr><td data-num="2"></td><td><pre>正在清除 NuGet HTTP 快取: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Local<span class="token punctuation">\</span>NuGet<span class="token punctuation">\</span>v3-cache</pre></td></tr><tr><td data-num="3"></td><td><pre>正在清除 NuGet 全域套件資料夾: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>.nuget<span class="token punctuation">\</span>packages<span class="token punctuation">\</span></pre></td></tr><tr><td data-num="4"></td><td><pre>正在清除 NuGet 暫存快取: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Local<span class="token punctuation">\</span>Temp<span class="token punctuation">\</span>NuGetScratch</pre></td></tr><tr><td data-num="5"></td><td><pre>正在清除 NuGet 外掛程式快取: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Local<span class="token punctuation">\</span>NuGet<span class="token punctuation">\</span>plugins-cache</pre></td></tr><tr><td data-num="6"></td><td><pre>已清除本機資源。</pre></td></tr></table></figure><p>如果系統是設定英文版的話，可能會看到另一個畫面 (雖然不是重點)</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token variable">$env</span>:DOTNET_CLI_UI_LANGUAGE <span class="token operator">=</span> <span class="token string">"en"</span>  <span class="token comment"># 語系設定成英文</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token variable">$env</span>:DOTNET_CLI_UI_LANGUAGE <span class="token operator">=</span> <span class="token string">"zh-tw"</span>  <span class="token comment"># 語系設定成中文</span></pre></td></tr></table></figure><figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>dotnet nuget locals all <span class="token parameter variable">-c</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Clearing NuGet HTTP cache: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Local<span class="token punctuation">\</span>NuGet<span class="token punctuation">\</span>v3-cache</pre></td></tr><tr><td data-num="3"></td><td><pre>Clearing NuGet global packages folder: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>.nuget<span class="token punctuation">\</span>packages<span class="token punctuation">\</span></pre></td></tr><tr><td data-num="4"></td><td><pre>Clearing NuGet Temp cache: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Local<span class="token punctuation">\</span>Temp<span class="token punctuation">\</span>NuGetScratch</pre></td></tr><tr><td data-num="5"></td><td><pre>Clearing NuGet plugins cache: C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>imall<span class="token punctuation">\</span>AppData<span class="token punctuation">\</span>Local<span class="token punctuation">\</span>NuGet<span class="token punctuation">\</span>plugins-cache</pre></td></tr><tr><td data-num="6"></td><td><pre>Local resources cleared.</pre></td></tr></table></figure><p>總之，其實會注意到 nuget 會有四個快取路徑</p>
 <p>相關的介紹可以參考 <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L251Z2V0L2NvbnN1bWUtcGFja2FnZXMvbWFuYWdpbmctdGhlLWdsb2JhbC1wYWNrYWdlcy1hbmQtY2FjaGUtZm9sZGVycw==">微軟對於 nuget 快取資料夾的介紹</span></p>
 <p>提及一下文章中可以得到本文的需要的部分：我們可以透過設定環境變數，來改寫快取路徑存放的位置</p>
 <p>四個快取路徑分別是</p>
 <ol>
-<li>global-packages：環境變數 <code>NUGET_PACKAGES</code></li>
-<li>http-cache：環境變數 <code>NUGET_HTTP_CACHE_PATH</code></li>
-<li>temp：環境變數 <code>NUGET_SCRATCH</code></li>
-<li>plugins-cache 4.8+：環境變數 <code>NUGET_PLUGINS_CACHE_PATH</code></li>
+<li>global-packages：環境變數  <code>NUGET_PACKAGES</code></li>
+<li>http-cache：環境變數  <code>NUGET_HTTP_CACHE_PATH</code></li>
+<li>temp：環境變數  <code>NUGET_SCRATCH</code></li>
+<li>plugins-cache 4.8+：環境變數  <code>NUGET_PLUGINS_CACHE_PATH</code></li>
 </ol>
-<h1 id="設定環境變數"><a href="#設定環境變數" class="headerlink" title="設定環境變數"></a>設定環境變數</h1><p>window 作業系統設定環境變數的方式</p>
+<h1 id="設定環境變數"><a class="markdownIt-Anchor" href="#設定環境變數">#</a> 設定環境變數</h1>
+<p>window 作業系統設定環境變數的方式</p>
 <ol>
 <li>開啟「設定」</li>
 <li>點一下「系統」</li>
 <li>點一下「關於」</li>
-<li>看到右手邊「相關設定」區塊有一個「進階系統設定」，點他一下  </li>
-<li>會跳出一個這樣的視窗，點一下環境變數<br><img data-src="https://i.imgur.com/7SkeL8T.png" alt="環境變數"></li>
+<li>看到右手邊「相關設定」區塊有一個「進階系統設定」，點他一下</li>
+<li>會跳出一個這樣的視窗，點一下環境變數<br>
+<img data-src="https://i.imgur.com/7SkeL8T.png" alt="環境變數"></li>
 </ol>
-<h1 id="更改-nuget-快取存放路徑"><a href="#更改-nuget-快取存放路徑" class="headerlink" title="更改 nuget 快取存放路徑"></a>更改 nuget 快取存放路徑</h1><p>成功開啟環境變數後，可以依照自己的需求看是要更改這個使用者的 nuget 快取存放路徑，或是整台電腦所有使用者的路徑<br><img data-src="https://i.imgur.com/Q03rLDH.png" alt="nuget存放路徑設定"></p>
+<h1 id="更改-nuget-快取存放路徑"><a class="markdownIt-Anchor" href="#更改-nuget-快取存放路徑">#</a> 更改 nuget 快取存放路徑</h1>
+<p>成功開啟環境變數後，可以依照自己的需求看是要更改這個使用者的 nuget 快取存放路徑，或是整台電腦所有使用者的路徑<br>
+<img data-src="https://i.imgur.com/Q03rLDH.png" alt="nuget存放路徑設定"></p>
 <p>設定完成後，記得要重新啟動電腦，變數才會真的生效</p>
-<h1 id="用指令更改環境變數"><a href="#用指令更改環境變數" class="headerlink" title="用指令更改環境變數"></a>用指令更改環境變數</h1><p>如果懶得找路徑的話，可以直接在 powershell 下指令</p>
-<pre><code class="sh">[Environment]::SetEnvironmentVariable(&quot;NUGET_PACKAGES&quot;, &quot;D:\NuGet\GlobalPackages&quot;, &quot;User&quot;)
-[Environment]::SetEnvironmentVariable(&quot;NUGET_HTTP_CACHE_PATH&quot;, &quot;D:\NuGet\http-cache&quot;, &quot;User&quot;)
-[Environment]::SetEnvironmentVariable(&quot;NUGET_PLUGINS_CACHE_PATH&quot;, &quot;D:\NuGet\plugins-cache&quot;, &quot;User&quot;)
-[Environment]::SetEnvironmentVariable(&quot;NUGET_SCRATCH&quot;, &quot;D:\NuGet\temp&quot;, &quot;User&quot;)
-</code></pre>
-<h1 id="同場加映，更改-temp-的預設位置"><a href="#同場加映，更改-temp-的預設位置" class="headerlink" title="同場加映，更改 temp 的預設位置"></a>同場加映，更改 temp 的預設位置</h1><p>上面更改的路徑中有一個快取是存放在使用者底下的 Temp 資料夾<br>事實上這裡面常常存放一堆你沒事不會去打開的東西</p>
+<h1 id="用指令更改環境變數"><a class="markdownIt-Anchor" href="#用指令更改環境變數">#</a> 用指令更改環境變數</h1>
+<p>如果懶得找路徑的話，可以直接在 powershell 下指令</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">[</span>Environment<span class="token punctuation">]</span>::SetEnvironmentVariable<span class="token punctuation">(</span><span class="token string">"NUGET_PACKAGES"</span>, <span class="token string">"D:\NuGet\GlobalPackages"</span>, <span class="token string">"User"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">[</span>Environment<span class="token punctuation">]</span>::SetEnvironmentVariable<span class="token punctuation">(</span><span class="token string">"NUGET_HTTP_CACHE_PATH"</span>, <span class="token string">"D:\NuGet\http-cache"</span>, <span class="token string">"User"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token punctuation">[</span>Environment<span class="token punctuation">]</span>::SetEnvironmentVariable<span class="token punctuation">(</span><span class="token string">"NUGET_PLUGINS_CACHE_PATH"</span>, <span class="token string">"D:\NuGet\plugins-cache"</span>, <span class="token string">"User"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">[</span>Environment<span class="token punctuation">]</span>::SetEnvironmentVariable<span class="token punctuation">(</span><span class="token string">"NUGET_SCRATCH"</span>, <span class="token string">"D:\NuGet<span class="token entity" title="\t">\t</span>emp"</span>, <span class="token string">"User"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h1 id="同場加映更改-temp-的預設位置"><a class="markdownIt-Anchor" href="#同場加映更改-temp-的預設位置">#</a> 同場加映，更改 temp 的預設位置</h1>
+<p>上面更改的路徑中有一個快取是存放在使用者底下的 Temp 資料夾<br>
+事實上這裡面常常存放一堆你沒事不會去打開的東西</p>
 <p>我們也可以直接下指令更改這個資料夾的存放位置</p>
-<pre><code class="sh"># Set the path to the new location where you want to move the temporary folder
-$newLocation = &quot;E:\Temp&quot;
-
-# Get the current path of the temporary folder
-$currentLocation = [System.IO.Path]::GetTempPath()
-
-# Copy all the files from the current temporary folder to the new location
-robocopy $currentLocation $newLocation /e /move
-
-# Set the new path for the temporary folder
-[Environment]::SetEnvironmentVariable(&quot;TEMP&quot;, $newLocation, &quot;User&quot;)
-
-# Set the new path for the TMP environment variable
-[Environment]::SetEnvironmentVariable(&quot;TMP&quot;, $newLocation, &quot;User&quot;)
-</code></pre>
-<p>這個指令主要是先記錄新舊位置的變數</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># Set the path to the new location where you want to move the temporary folder</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token variable">$newLocation</span> <span class="token operator">=</span> <span class="token string">"E:\Temp"</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># Get the current path of the temporary folder</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token variable">$currentLocation</span> <span class="token operator">=</span> <span class="token punctuation">[</span>System.IO.Path<span class="token punctuation">]</span>::GetTempPath<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment"># Copy all the files from the current temporary folder to the new location</span></pre></td></tr><tr><td data-num="8"></td><td><pre>robocopy <span class="token variable">$currentLocation</span> <span class="token variable">$newLocation</span> /e /move</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment"># Set the new path for the temporary folder</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">[</span>Environment<span class="token punctuation">]</span>::SetEnvironmentVariable<span class="token punctuation">(</span><span class="token string">"TEMP"</span>, <span class="token variable">$newLocation</span>, <span class="token string">"User"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment"># Set the new path for the TMP environment variable</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">[</span>Environment<span class="token punctuation">]</span>::SetEnvironmentVariable<span class="token punctuation">(</span><span class="token string">"TMP"</span>, <span class="token variable">$newLocation</span>, <span class="token string">"User"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>這個指令主要是先記錄新舊位置的變數</p>
 <p>並且用 robocopy 去把資料夾的內容進行搬移</p>
 <p>最後再更改環境變數 TEMP 跟 TMP 的環境變數存放的位置</p>
 
@@ -253,7 +224,7 @@ robocopy $currentLocation $newLocation /e /move
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新於</span>
-    <time title="修改時間：2025-01-22 09:19:02" itemprop="dateModified" datetime="2025-01-22T09:19:02+08:00">2025-01-22</time>
+    <time title="修改時間：2025-01-26 00:25:50" itemprop="dateModified" datetime="2025-01-26T00:25:50+08:00">2025-01-26</time>
   </span>
   <span id="dotnet-note/nugetchangelocation/" class="item leancloud_visitors" data-flag-title="更改 nuget 存放位置" title="閱讀次數">
       <span class="icon">
@@ -293,7 +264,7 @@ robocopy $currentLocation $newLocation /e /move
     <div class="item left">
       
 
-  <a href="/js-note/js-ArrayExclusion/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;rLZ4NtO.jpg" title="從陣列中排除特定元素">
+  <a href="/js-note/js-ArrayExclusion/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;fG7Vwmv.jpg" title="從陣列中排除特定元素">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> JavaScript 筆記</span>
   <h3>從陣列中排除特定元素</h3>
@@ -303,7 +274,7 @@ robocopy $currentLocation $newLocation /e /move
     <div class="item right">
       
 
-  <a href="/git-learn/31%20-%20force%20push%20%E7%9A%84%E4%BD%BF%E7%94%A8%E6%99%82%E6%A9%9F/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;kctRHYg.jpg" title="force push 的使用時機">
+  <a href="/git-learn/31%20-%20force%20push%20%E7%9A%84%E4%BD%BF%E7%94%A8%E6%99%82%E6%A9%9F/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;mp3vta6.jpg" title="force push 的使用時機">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
   <h3>force push 的使用時機</h3>
@@ -324,7 +295,7 @@ robocopy $currentLocation $newLocation /e /move
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目錄">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8"><span class="toc-number">3.</span> <span class="toc-text">設定環境變數</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-nuget-%E5%BF%AB%E5%8F%96%E5%AD%98%E6%94%BE%E8%B7%AF%E5%BE%91"><span class="toc-number">4.</span> <span class="toc-text">更改 nuget 快取存放路徑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%9B%B4%E6%94%B9%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8"><span class="toc-number">5.</span> <span class="toc-text">用指令更改環境變數</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8C%E5%A0%B4%E5%8A%A0%E6%98%A0%EF%BC%8C%E6%9B%B4%E6%94%B9-temp-%E7%9A%84%E9%A0%90%E8%A8%AD%E4%BD%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">同場加映，更改 temp 的預設位置</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text"> 正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A8%AD%E5%AE%9A%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8"><span class="toc-number">3.</span> <span class="toc-text"> 設定環境變數</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-nuget-%E5%BF%AB%E5%8F%96%E5%AD%98%E6%94%BE%E8%B7%AF%E5%BE%91"><span class="toc-number">4.</span> <span class="toc-text"> 更改 nuget 快取存放路徑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%8C%87%E4%BB%A4%E6%9B%B4%E6%94%B9%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8"><span class="toc-number">5.</span> <span class="toc-text"> 用指令更改環境變數</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8C%E5%A0%B4%E5%8A%A0%E6%98%A0%E6%9B%B4%E6%94%B9-temp-%E7%9A%84%E9%A0%90%E8%A8%AD%E4%BD%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text"> 同場加映，更改 temp 的預設位置</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -342,7 +313,7 @@ robocopy $currentLocation $newLocation /e /move
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">42</span>
+        <span class="count">72</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -420,10 +391,20 @@ robocopy $currentLocation $newLocation /e /move
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/dotnet-note/" title="分類於 .Net 筆記">.Net 筆記</a>
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/dotnet-note/nugetchangelocation/" title="更改 nuget 存放位置">更改 nuget 存放位置</a></span>
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/27%20-%20%E4%BD%BF%E7%94%A8%20Vue%20Router/" title="使用 Vue Router">使用 Vue Router</a></span>
   </li>
 
       
@@ -433,37 +414,26 @@ robocopy $currentLocation $newLocation /e /move
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+    <span><a href="/git-learn/27%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20%E5%88%AA%E9%99%A4%E9%81%A0%E7%AB%AF%E5%88%86%E6%94%AF/" title="使用 GitHub：刪除遠端分支">使用 GitHub：刪除遠端分支</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
 </div>
 
-    <span><a href="/git-learn/08%20-%20%E7%AC%AC%E4%B8%80%E5%80%8B%E7%89%88%E6%9C%AC(commit)%20%E8%A9%B2%E6%94%BE%E4%BB%80%E9%BA%BC%E5%85%A7%E5%AE%B9%EF%BC%9F/" title="第一個 Commit 該放什麼內容？">第一個 Commit 該放什麼內容？</a></span>
+    <span><a href="/js-note/js-closures/" title="Closures">Closures</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/16%20-%20%E4%BF%AE%E6%94%B9%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E7%9A%84%20Commit%20%E7%B4%80%E9%8C%84/" title="修改最近一次的 Commit 紀錄">修改最近一次的 Commit 紀錄</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/css-note/" title="分類於 CSS 筆記">CSS 筆記</a>
-</div>
-
-    <span><a href="/css-note/flex-shink-calculate/" title="【CSS筆記】flex-shrink的計算公式">【CSS筆記】flex-shrink的計算公式</a></span>
+    <span><a href="/miscellanea/powershell7-note/" title="PowerShell7 簡易快捷鍵">PowerShell7 簡易快捷鍵</a></span>
   </li>
 
       
@@ -480,10 +450,20 @@ robocopy $currentLocation $newLocation /e /move
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/git-learn/19%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E7%AF%87/" title="Git 分支：基本操作篇">Git 分支：基本操作篇</a></span>
+    <span><a href="/vue-note/24%20-%20%E5%8B%95%E6%85%8B%E5%85%83%E4%BB%B6%20is%20%E8%88%87%20keep-alive/" title="動態元件 is 與 keep-alive">動態元件 is 與 keep-alive</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/03%20-%20%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E6%9C%89%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%20Vue%EF%BC%9F/" title="為什麼要有框架，為什麼選 Vue？">為什麼要有框架，為什麼選 Vue？</a></span>
   </li>
 
       
@@ -493,27 +473,17 @@ robocopy $currentLocation $newLocation /e /move
 <a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
 </div>
 
-    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+    <span><a href="/git-learn/29%20-%20%E4%BD%BF%E7%94%A8%20GitHub%20-%20Pull%20Request%20(PR)/" title="使用 GitHub - Pull Requests (PR)">使用 GitHub - Pull Requests (PR)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
 </div>
 
-    <span><a href="/git-learn/18%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E8%A7%80%E5%BF%B5%E7%AF%87/" title="Git 分支：觀念篇">Git 分支：觀念篇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
-</div>
-
-    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
+    <span><a href="/vue-note/07%20-%20Vue%20%E7%9A%84%E5%AF%A6%E9%AB%94%E8%88%87%E7%8B%80%E6%85%8B/" title="Vue 的實體與狀態">Vue 的實體與狀態</a></span>
   </li>
 
   </ul>
@@ -534,13 +504,13 @@ robocopy $currentLocation $newLocation /e /move
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="總字數">144k 字</span>
+    <span title="總字數">222k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2:11</span>
+    <span title="所需總閱讀時間">3:22</span>
   </div>
   <!--<div class="powered-by">
     footer.powered

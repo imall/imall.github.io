@@ -25,9 +25,10 @@ jobs:
 
     - name: Install dependencies
       run: pnpm install
-
+    
     - name: Setup deploy key
       run: |
+        mkdir -p ~/.ssh
         echo "${{ secrets.HEXO_DEPLOY_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts

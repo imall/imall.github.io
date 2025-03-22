@@ -1,0 +1,36 @@
+name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches:
+      - source  # 只監聽 source 分支的 commit
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source branch
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Setup PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Setup deploy key
+      run: |
+        echo "${{ secrets.HEXO_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+    - name: Deploy Hexo site
+      run: pnpm build

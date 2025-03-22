@@ -33,5 +33,10 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+    - name: Set Git identity
+      run: |
+        git config --global user.name "imall"
+        git config --global user.email "imall841110@gmail.com"
+
     - name: Deploy Hexo site
       run: pnpm build

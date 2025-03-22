@@ -158,7 +158,7 @@ createApp({
 同時寫一個毫無相干的 plus 方法去控制按鈕內的數字。
 
 持續點擊按鈕的過程，會發現 `hasBook_method` 都會被重新執行，但 `hasBook_computed` 不會！
-![Alt text](image-6.png)
+![Alt text](https://i.imgur.com/BBSPRBz.png)
 
 # computed 的 getter 跟 setter
 
@@ -168,7 +168,7 @@ createApp({
 
 事實上這個變數值預設也是「readonly」的，如果去改它，Vue 會「溫腥提醒」，邁歐北亂來。
 
-![Alt text](image-7.png)
+![Alt text](https://i.imgur.com/MLMVVMB.png)
 
 這段畫面的 JS 長這樣：
 

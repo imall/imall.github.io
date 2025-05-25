@@ -1,0 +1,603 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個工程師的筆記天地" href="https://imall.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個工程師的筆記天地" href="https://imall.dev/atom.xml" />
+<link rel="alternate" type="application/json" title="一個工程師的筆記天地" href="https://imall.dev/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://imall.dev/miscellanea/oh-my-posh-2025-05-25/">
+
+
+
+  <title>
+oh-my-posh 安裝設定紀錄 - 雜記 |
+Imall's Blog ~ 一個工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">oh-my-posh 安裝設定紀錄
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2025-05-25 21:00:54">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2025-05-25T21:00:54+00:00">2025-05-25</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>2.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>2 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/P69ZGGo.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/HsDjgUN.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/miscellanea/" itemprop="item" rel="index" title="分類於 雜記"><span itemprop="name">雜記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.dev/miscellanea/oh-my-posh-2025-05-25/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <div class="note info no-icon">
+<p>每次照著人家的文章設定 oh my posh 想更改 terminal 的樣式，最後總是以失敗告終<br>
+這兩天重新嘗試了一下，終於設定成功，寫個文章記錄一下</p>
+</div>
+<h2 id="安裝-powshell-7"><a class="markdownIt-Anchor" href="#安裝-powshell-7">#</a> 安裝 powshell 7</h2>
+<p>oh-my-posh 沒辦法在傳統的 windows powershell 使用，必須使用新版的 powershell 7 才有辦法生效</p>
+<p>安裝方式可參考 <span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLXR3L3Bvd2Vyc2hlbGwvc2NyaXB0aW5nL2luc3RhbGwvaW5zdGFsbGluZy1wb3dlcnNoZWxsLW9uLXdpbmRvd3M=">微軟官方文件</span></p>
+<blockquote>
+<p>同場加映，推薦到 Microsoft Store 安裝 <span class="exturl" data-url="aHR0cHM6Ly9hcHBzLm1pY3Jvc29mdC5jb20vZGV0YWlsLzlOMERYMjBISzcwMT9obD16aC10dyZhbXA7Z2w9VFcmYW1wO29jaWQ9cGRwc2hhcmU=">Windows Terminal</span> 來執行 powershell 、 cmd 、git Bash 等工具，介面比 windows 傳統終端機好看很多</p>
+</blockquote>
+<h2 id="安裝-oh-my-posh"><a class="markdownIt-Anchor" href="#安裝-oh-my-posh">#</a> 安裝 oh my posh</h2>
+<p>以系統管理員模式打開 powershell 後，下方指令擇一下載</p>
+<ol>
+<li>winget</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>winget <span class="token function">install</span> JanDeDobbeleer.OhMyPosh <span class="token parameter variable">-s</span> winget</pre></td></tr></table></figure><ol start="2">
+<li>choco</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>choco <span class="token function">install</span> oh-my-posh</pre></td></tr></table></figure><ol start="3">
+<li>PowerShell</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>Set-ExecutionPolicy Bypass <span class="token parameter variable">-Scope</span> Process -Force<span class="token punctuation">;</span> Invoke-Expression <span class="token variable"><span class="token punctuation">((</span>New<span class="token operator">-</span>Object System.Net.WebClient<span class="token punctuation">)</span>.DownloadString<span class="token punctuation">(</span>'https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>ohmyposh.dev<span class="token operator">/</span>install.ps1'<span class="token punctuation">))</span></span></pre></td></tr></table></figure><p>安裝好後應該會自動將 oh my posh 環境變數加到系統，可以先重新啟動電腦，讓環境變數生效</p>
+<h2 id="新增-json-檔案"><a class="markdownIt-Anchor" href="#新增-json-檔案">#</a> 新增 json 檔案</h2>
+<p>找一個路徑新增  <code>.oh-my-posh.omp.json</code>  檔案，這個檔案用來定義樣式的長相</p>
+<figure class="highlight json"><figcaption data-lang="JSON"><span>.oh-my-posh.omp.json</span></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token property">"$schema"</span><span class="token operator">:</span> <span class="token string">"https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token property">"blocks"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"prompt"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      <span class="token property">"alignment"</span><span class="token operator">:</span> <span class="token string">"left"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      <span class="token property">"segments"</span><span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>          <span class="token property">"background"</span><span class="token operator">:</span> <span class="token string">"#6272a4"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre>          <span class="token property">"foreground"</span><span class="token operator">:</span> <span class="token string">"#ffffff"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>          <span class="token property">"leading_diamond"</span><span class="token operator">:</span> <span class="token string">"\ue0b6"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>          <span class="token property">"trailing_diamond"</span><span class="token operator">:</span> <span class="token string">"\ue0b0"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="13"></td><td><pre>          <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"diamond"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"os"</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"path"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>          <span class="token property">"foreground"</span><span class="token operator">:</span> <span class="token string">"#100e23"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="19"></td><td><pre>          <span class="token property">"background"</span><span class="token operator">:</span> <span class="token string">"#91ddff"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>          <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"powerline"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"full"</span></pre></td></tr><tr><td data-num="23"></td><td><pre>          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>          <span class="token property">"powerline_symbol"</span><span class="token operator">:</span> <span class="token string">"\ue0b0"</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"git"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>          <span class="token property">"foreground"</span><span class="token operator">:</span> <span class="token string">"#100e23"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre>          <span class="token property">"background"</span><span class="token operator">:</span> <span class="token string">"#a081fd"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="30"></td><td><pre>          <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"powerline"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="31"></td><td><pre>          <span class="token property">"template"</span><span class="token operator">:</span> <span class="token string">"  &#123;&#123; .HEAD &#125;&#125; "</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="32"></td><td><pre>          <span class="token property">"properties"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="33"></td><td><pre>            <span class="token property">"branch_icon"</span><span class="token operator">:</span> <span class="token string">""</span></pre></td></tr><tr><td data-num="34"></td><td><pre>          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="35"></td><td><pre>          <span class="token property">"powerline_symbol"</span><span class="token operator">:</span> <span class="token string">"\ue0b0"</span></pre></td></tr><tr><td data-num="36"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>        <span class="token comment">// ,&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>        <span class="token comment">//   "properties": &#123;</span></pre></td></tr><tr><td data-num="39"></td><td><pre>        <span class="token comment">//     "cache_duration": "none"</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token comment">//   &#125;,</span></pre></td></tr><tr><td data-num="41"></td><td><pre>        <span class="token comment">//   "template": " \uf308 &#123;&#123; .Context &#125;&#125;&#123;&#123; if .Namespace &#125;&#125; \u2192 &#123;&#123; .Namespace &#125;&#125;&#123;&#123; end &#125;&#125; ",</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token comment">//   "foreground": "#100e23",</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        <span class="token comment">//   "powerline_symbol": "\ue0b0",</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token comment">//   "background": "#79b0fe",</span></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token comment">//   "type": "kubectl",</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token comment">//   "style": "powerline"</span></pre></td></tr><tr><td data-num="47"></td><td><pre>        <span class="token comment">// &#125;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>      <span class="token punctuation">]</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>  <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="51"></td><td><pre>  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="52"></td><td><pre>  <span class="token property">"final_space"</span><span class="token operator">:</span> <span class="token boolean">true</span></pre></td></tr><tr><td data-num="53"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><blockquote>
+<p>註解的部分是 k8s 設定，可依照需求新增 / 移除</p>
+</blockquote>
+<h2 id="改設定"><a class="markdownIt-Anchor" href="#改設定">#</a> 改設定</h2>
+<p>用記事本打開你目前 PowerShell 的 個人設定檔（Profile）</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>notepad <span class="token variable">$PROFILE</span></pre></td></tr></table></figure><p>將下列指令貼上，記得路徑要更改成 json 檔案放置路徑</p>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>oh-my-posh init pwsh <span class="token parameter variable">--config</span> <span class="token string">"E:\.oh-my-posh.omp.json"</span> <span class="token operator">|</span> Invoke-Expression</pre></td></tr></table></figure><p>如果都成功之後，再次開啟終端機，應該就能看見畫面變了</p>
+<p><img data-src="/images/misc/image.png" alt="alt text"></p>
+<p>出現奇怪符號的原因是，字體無法顯示 Unicode 字元的關係</p>
+<h2 id="安裝與更改字型"><a class="markdownIt-Anchor" href="#安裝與更改字型">#</a> 安裝與更改字型</h2>
+<ol>
+<li>輸入指令</li>
+</ol>
+<figure class="highlight sh"><figcaption data-lang="sh"></figcaption><table><tr><td data-num="1"></td><td><pre>oh-my-posh font <span class="token function">install</span></pre></td></tr></table></figure><ol start="2">
+<li>選擇 Meslo</li>
+</ol>
+<p><img data-src="/images/misc/image-1.png" alt="alt text"></p>
+<ol start="3">
+<li>設定</li>
+</ol>
+<p><img data-src="/images/misc/image-2.png" alt="alt text"></p>
+<ol start="4">
+<li>到 powershell &gt; 外觀，將字體更改成 <strong>Meslo</strong> 開頭的選項</li>
+</ol>
+<p><img data-src="/images/misc/image-3.png" alt="alt text"></p>
+<ol start="5">
+<li>完成</li>
+</ol>
+<p><img data-src="/images/misc/image-4.png" alt="alt text"></p>
+<h2 id="更改-vs-code-預設程式與字體"><a class="markdownIt-Anchor" href="#更改-vs-code-預設程式與字體">#</a> 更改 vs code 預設程式與字體</h2>
+<p>如同前言，使用 oh my posh 先決條件必須使用 powershell 7<br>
+ 而 vscode 終端機預設的程式可能是 cmd (命令提示字元)，所以我們得先將預設程式更改成 PowerShell</p>
+<h3 id="更改-vs-code-預設程式"><a class="markdownIt-Anchor" href="#更改-vs-code-預設程式">#</a> 更改 vs code 預設程式</h3>
+<ol>
+<li>
+<p>輸入  <code>f1</code>  或  <code>ctrl</code>  +  <code>shift</code>  +  <code>P</code></p>
+</li>
+<li>
+<p>輸入 <strong>select default profile</strong></p>
+</li>
+<li>
+<p>選擇 PowerShell<br>
+<img data-src="/images/misc/image-6.png" alt="alt text"></p>
+</li>
+</ol>
+<blockquote>
+<p>注意不要選到 windows powershell ，那是不同的版本的終端機</p>
+</blockquote>
+<h3 id="更改字體"><a class="markdownIt-Anchor" href="#更改字體">#</a> 更改字體</h3>
+<ol>
+<li>
+<p>到設定輸入  <code>terminal font</code></p>
+</li>
+<li>
+<p>輸入喜歡的字體，如同前文 windows terminal 那樣，這裡是設定  <code>MesloLGM Nerd Font Mono</code> <br>
+<img data-src="/images/misc/image-5.png" alt="alt text"></p>
+</li>
+<li>
+<p>完成效果<br>
+<img data-src="/images/misc/image-7.png" alt="alt text"></p>
+</li>
+</ol>
+<h2 id="更改-rider-字體"><a class="markdownIt-Anchor" href="#更改-rider-字體">#</a> 更改 rider 字體</h2>
+<p>這裡 Rider 使用的版本是：<br>
+JetBrains Rider 2025.1.2</p>
+<p>步驟：</p>
+<ol>
+<li>
+<p>到設定，搜尋 terminal</p>
+</li>
+<li>
+<p>將字體、shell 工具分別設定好<br>
+<img data-src="/images/misc/image-8.png" alt="alt text"></p>
+</li>
+<li>
+<p>完成效果<br>
+<img data-src="/images/misc/image-9.png" alt="alt text"></p>
+</li>
+</ol>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2025-05-25 14:47:24" itemprop="dateModified" datetime="2025-05-25T14:47:24+00:00">2025-05-25</time>
+  </span>
+  <span id="miscellanea/oh-my-posh-2025-05-25/" class="item leancloud_visitors" data-flag-title="oh-my-posh 安裝設定紀錄" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.dev/miscellanea/oh-my-posh-2025-05-25/" title="oh-my-posh 安裝設定紀錄">https://imall.dev/miscellanea/oh-my-posh-2025-05-25/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/31%20-%20Force%20Push%20%E7%9A%84%E4%BD%BF%E7%94%A8%E6%99%82%E6%A9%9F/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;aq0kjdS.jpg" title="force push 的使用時機">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>force push 的使用時機</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-powshell-7"><span class="toc-number">1.</span> <span class="toc-text"> 安裝 powshell 7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-oh-my-posh"><span class="toc-number">2.</span> <span class="toc-text"> 安裝 oh my posh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E-json-%E6%AA%94%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text"> 新增 json 檔案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E8%A8%AD%E5%AE%9A"><span class="toc-number">4.</span> <span class="toc-text"> 改設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E8%88%87%E6%9B%B4%E6%94%B9%E5%AD%97%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text"> 安裝與更改字型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-vs-code-%E9%A0%90%E8%A8%AD%E7%A8%8B%E5%BC%8F%E8%88%87%E5%AD%97%E9%AB%94"><span class="toc-number">6.</span> <span class="toc-text"> 更改 vs code 預設程式與字體</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-vs-code-%E9%A0%90%E8%A8%AD%E7%A8%8B%E5%BC%8F"><span class="toc-number">6.1.</span> <span class="toc-text"> 更改 vs code 預設程式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E5%AD%97%E9%AB%94"><span class="toc-number">6.2.</span> <span class="toc-text"> 更改字體</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9-rider-%E5%AD%97%E9%AB%94"><span class="toc-number">7.</span> <span class="toc-text"> 更改 rider 字體</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/miscellanea/Suzume-no-Tojimari/" rel="bookmark" title="鈴芽之旅有雷心得">鈴芽之旅有雷心得</a></li><li><a href="/miscellanea/powershell7-note/" rel="bookmark" title="PowerShell7 簡易快捷鍵">PowerShell7 簡易快捷鍵</a></li><li class="active"><a href="/miscellanea/oh-my-posh-2025-05-25/" rel="bookmark" title="oh-my-posh 安裝設定紀錄">oh-my-posh 安裝設定紀錄</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">73</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">7</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">8</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDAwMzcxNjQxNjIxMg==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100003716416212"><i class="ic i-facebook"></i></span>
+      <span class="exturl item instagram" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9pbWFsbDExMTAv" title="https:&#x2F;&#x2F;www.instagram.com&#x2F;imall1110&#x2F;"><i class="ic i-instagram"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/11%20-%20%E6%9F%A5%E7%9C%8B%20log%20%E7%B4%80%E9%8C%84/" title="查看 log 紀錄">查看 log 紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/02%20-%20%E4%BA%8B%E5%89%8D%E7%9A%84%E6%BA%96%E5%82%99/" title="事前的準備">事前的準備</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/06%20-%20Vue%20%E7%9A%84%E6%A0%B8%E5%BF%83%E8%88%87%20Vue%20%E5%AF%A6%E9%AB%94%20(Instance)%20/" title="Vue 的核心與 Vue 實體 (Instance)">Vue 的核心與 Vue 實體 (Instance)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/19%20-%20%E8%AA%8D%E8%AD%98%E5%85%83%E4%BB%B6%E3%80%81Vue%20%E7%9A%84%E5%96%AE%E4%B8%80%E5%85%83%E4%BB%B6%E6%AA%94%E6%A1%88%20SFC/" title="認識元件、Vue 的單一元件檔案 SFC">認識元件、Vue 的單一元件檔案 SFC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/10%20-%20computed%20%E8%A8%88%E7%AE%97%E5%B1%AC%E6%80%A7/" title="computed 計算屬性">computed 計算屬性</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/miscellanea/" title="分類於 雜記">雜記</a>
+</div>
+
+    <span><a href="/miscellanea/oh-my-posh-2025-05-25/" title="oh-my-posh 安裝設定紀錄">oh-my-posh 安裝設定紀錄</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/12%20-%20%E8%A8%AD%E5%AE%9A%20.gitignore/" title="設定 .gitignore">設定 .gitignore</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/07%20-%20%E9%96%8B%E5%A7%8B%E4%BD%BF%E7%94%A8%20Git%20%E9%80%B2%E8%A1%8C%E7%89%88%E6%8E%A7/" title="開始使用 Git 進行版控">開始使用 Git 進行版控</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/20%20-%20Git%20%E5%88%86%E6%94%AF%20-%20%E5%88%86%E6%94%AF%E5%90%88%E4%BD%B5%E7%AF%87/" title="Git 分支：分支合併篇">Git 分支：分支合併篇</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall's Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">224k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">3:24</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'miscellanea/oh-my-posh-2025-05-25/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,535 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+<meta property="og:image" content="https://i.imgur.com/zmDlzgZ.png" />
+
+<link rel="alternate" type="application/rss+xml" title="一個工程師的筆記天地" href="https://imall.dev/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="一個工程師的筆記天地" href="https://imall.dev/atom.xml" />
+<link rel="alternate" type="application/json" title="一個工程師的筆記天地" href="https://imall.dev/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=noto%20sans:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="vue" />
+
+
+<link rel="canonical" href="https://imall.dev/vue-note/23%20-%20%E5%9C%A8%E5%85%83%E4%BB%B6%E8%88%87%E5%85%83%E4%BB%B6%E4%B9%8B%E9%96%93%E4%BD%BF%E7%94%A8%20v-model/">
+
+
+
+  <title>
+在元件與元件之間使用 v-model - Vue 筆記 |
+Imall's Blog ~ 一個工程師的筆記天地</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">在元件與元件之間使用 v-model
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="創建時間：2023-10-08 10:50:15">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">發表於</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-08T10:50:15+00:00">2023-10-08</time>
+  </span>
+  <span class="item" title="文章字數">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">文章字數</span>
+    <span>2.2k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="所需閱讀時間">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">所需閱讀時間</span>
+    <span>2 分鐘</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切換導航欄">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Imall's Blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://i.imgur.com/dOvnXNe.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/slJN1yE.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/qhft9aC.png"></li>
+          <li class="item" data-background-image="https://i.imgur.com/mp3vta6.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/IXkGvGY.jpg"></li>
+          <li class="item" data-background-image="https://i.imgur.com/77JuPV6.png"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首頁</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/vue-note/" itemprop="item" rel="index" title="分類於 Vue 筆記"><span itemprop="name">Vue 筆記</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-TW">
+  <link itemprop="mainEntityOfPage" href="https://imall.dev/vue-note/23%20-%20%E5%9C%A8%E5%85%83%E4%BB%B6%E8%88%87%E5%85%83%E4%BB%B6%E4%B9%8B%E9%96%93%E4%BD%BF%E7%94%A8%20v-model/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="imall">
+    <meta itemprop="description" content=", 喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="一個工程師的筆記天地">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="前言"><a class="markdownIt-Anchor" href="#前言">#</a> 前言</h1>
+<p>之前提到，元件如果要接收資料，必須用  <code>props</code> <br>
+ 元件如果要向外傳資料，則是定義  <code>emit</code>  事件</p>
+<p>假設我們的元件有個  <code>&lt;input&gt;</code>  標籤，我們希望元件內部的  <code>&lt;input&gt;</code>  可以跟外部的資料做到雙向綁定，那們根據之前提到的寫法，可能會這樣寫：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">const</span> message <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">const</span> <span class="token function-variable function">updateMsg</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>      message <span class="token operator">=</span> val<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>      message<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre>      updateMsg<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"my-component"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>  <span class="token comment">// :value 把 prop 綁到 input 的 value</span></pre></td></tr><tr><td data-num="18"></td><td><pre>  <span class="token comment">// 透過 @input 事件把使用者輸入的資料往外傳</span></pre></td></tr><tr><td data-num="19"></td><td><pre>  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"></pre></td></tr><tr><td data-num="20"></td><td><pre>    &lt;input :value="msg"</pre></td></tr><tr><td data-num="21"></td><td><pre>    @input="$emit('update', $event.target.value)"</pre></td></tr><tr><td data-num="22"></td><td><pre>  /></pre></td></tr><tr><td data-num="23"></td><td><pre>      </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"msg"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="25"></td><td><pre>  <span class="token literal-property property">emits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"update"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">"#app"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>並且模板中需要綁定資料 ( <code>:msg=&quot;message&quot;</code> )，同時宣告事件 ( <code>@update=&quot;updateMsg&quot;</code> )：</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-component</span> <span class="token attr-name">:msg</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span> <span class="token attr-name">@update</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>updateMsg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-component</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  &#123;&#123; message &#125;&#125;</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>提到表單事件，不得不提  <code>v-model</code>  功能。</p>
+<p>上面的需求，Vue 可以讓我們用  <code>v-model</code>  來綁定元件。</p>
+<h1 id="元件中的-v-model"><a class="markdownIt-Anchor" href="#元件中的-v-model">#</a> 元件中的 v-model</h1>
+<p>如果元件只需要處理一個  <code>v-model</code>  資料綁定，元件的 props 請定義成  <code>modelValue</code> ，emit 則定義成  <code>update:modelValue</code> 。</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"my-component"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"></pre></td></tr><tr><td data-num="3"></td><td><pre>    &lt;input :value="modelValue"</pre></td></tr><tr><td data-num="4"></td><td><pre>    @input="$emit('update:modelValue', $event.target.value)"</pre></td></tr><tr><td data-num="5"></td><td><pre>  /></pre></td></tr><tr><td data-num="6"></td><td><pre>      </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"modelValue"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>  <span class="token literal-property property">emits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"update:modelValue"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>Vue 實體則是寫這個內容，預計要把  <code>message</code>  跟內部表單綁在一起：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">const</span> message <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>      message<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>接著在外層使用元件時，就可以直接使用  <code>v-model</code>  把資料傳進去了：</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-component</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-component</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  &#123;&#123; message &#125;&#125;</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>語法看起來很複雜，但概念其實很單純</p>
+<p>就是在外部宣告狀態，讓外部的狀態可以跟「元件內部」的表單綁定。</p>
+<p>完整的範例可以到<span class="exturl" data-url="aHR0cHM6Ly9qc2ZpZGRsZS5uZXQvaW1hbGwva2RwbzVxeWMvMzkv">這裡看</span></p>
+<h1 id="外部多個狀態綁定到多個元件表單"><a class="markdownIt-Anchor" href="#外部多個狀態綁定到多個元件表單">#</a> 外部多個狀態，綁定到多個元件表單</h1>
+<p>剛才的寫法，是元件只有一個表單時，預設使用名稱為  <code>modelValue</code>  的 prop ， 與  <code>update:modelValue</code>  的 emit</p>
+<p>如果有多個表單需要被綁定外部狀態的話，可以這樣寫</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre>app<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"my-component"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string"></pre></td></tr><tr><td data-num="3"></td><td><pre>  &lt;input</pre></td></tr><tr><td data-num="4"></td><td><pre>    type="text"</pre></td></tr><tr><td data-num="5"></td><td><pre>    :value="firstName"</pre></td></tr><tr><td data-num="6"></td><td><pre>    @input="$emit('update:firstName', $event.target.value)"</pre></td></tr><tr><td data-num="7"></td><td><pre>  /></pre></td></tr><tr><td data-num="8"></td><td><pre>  &lt;input</pre></td></tr><tr><td data-num="9"></td><td><pre>    type="text"</pre></td></tr><tr><td data-num="10"></td><td><pre>    :value="lastName"</pre></td></tr><tr><td data-num="11"></td><td><pre>    @input="$emit('update:lastName', $event.target.value)"</pre></td></tr><tr><td data-num="12"></td><td><pre>  /></pre></td></tr><tr><td data-num="13"></td><td><pre>      </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"firstName"</span><span class="token punctuation">,</span> <span class="token string">"lastName"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>  <span class="token literal-property property">emits</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"update:firstName"</span><span class="token punctuation">,</span> <span class="token string">"update:lastName"</span><span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>外層就可以綁定多個狀態了：</p>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>&#123;&#123; first &#125;&#125; &#123;&#123; last &#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-component</span> <span class="token attr-name"><span class="token namespace">v-model:</span>first-name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>first<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">v-model:</span>last-name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>last<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-component</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><p>記得要宣告綁定的狀態：</p>
+<figure class="highlight js"><figcaption data-lang="JavaScript"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">const</span> app <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">createApp</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">const</span> first <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"John"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">const</span> last <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"Doe"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>      first<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>      last<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>完整的程式碼可以到這裡<span class="exturl" data-url="aHR0cHM6Ly9qc2ZpZGRsZS5uZXQvaW1hbGwva2RwbzVxeWMvMzUv">試試</span></p>
+
+      <div class="tags">
+          <a href="/tags/vue/" rel="tag"><i class="ic i-tag"></i> vue</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新於</span>
+    <time title="修改時間：2025-05-25 14:47:24" itemprop="dateModified" datetime="2025-05-25T14:47:24+00:00">2025-05-25</time>
+  </span>
+  <span id="vue-note/23 - 在元件與元件之間使用 v-model/" class="item leancloud_visitors" data-flag-title="在元件與元件之間使用 v-model" title="閱讀次數">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">閱讀次數</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>作者： </strong>imall <i class="ic i-at"><em>@</em></i>一個工程師的筆記天地
+  </li>
+  <li class="link">
+    <strong>文章連結：</strong>
+    <a href="https://imall.dev/vue-note/23%20-%20%E5%9C%A8%E5%85%83%E4%BB%B6%E8%88%87%E5%85%83%E4%BB%B6%E4%B9%8B%E9%96%93%E4%BD%BF%E7%94%A8%20v-model/" title="在元件與元件之間使用 v-model">https://imall.dev/vue-note/23 - 在元件與元件之間使用 v-model/</a>
+  </li>
+  <li class="license">
+    <strong>版權聲明： </strong>本網誌所有文章轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;XEoNWeG.jpg" title="用 rebase 互動模式來調整歷史">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>用 rebase 互動模式來調整歷史</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;i.imgur.com&#x2F;HsDjgUN.jpg" title="用 revert 復原 commit">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 一起來學 Git 吧！</span>
+  <h3>用 revert 復原 commit</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目錄">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%83%E4%BB%B6%E4%B8%AD%E7%9A%84-v-model"><span class="toc-number">2.</span> <span class="toc-text"> 元件中的 v-model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%A4%9A%E5%80%8B%E7%8B%80%E6%85%8B%E7%B6%81%E5%AE%9A%E5%88%B0%E5%A4%9A%E5%80%8B%E5%85%83%E4%BB%B6%E8%A1%A8%E5%96%AE"><span class="toc-number">3.</span> <span class="toc-text"> 外部多個狀態，綁定到多個元件表單</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/vue-note/vue-axios-proxy/" rel="bookmark" title="在Vue3使用Vite設定proxy整合axios攔截器">在Vue3使用Vite設定proxy整合axios攔截器</a></li><li><a href="/vue-note/vite-start/" rel="bookmark" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></li><li><a href="/vue-note/01%20-%20%E5%89%8D%E8%A8%80/" rel="bookmark" title="前言">前言</a></li><li><a href="/vue-note/02%20-%20%E4%BA%8B%E5%89%8D%E7%9A%84%E6%BA%96%E5%82%99/" rel="bookmark" title="事前的準備">事前的準備</a></li><li><a href="/vue-note/03%20-%20%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E6%9C%89%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%20Vue%EF%BC%9F/" rel="bookmark" title="為什麼要有框架，為什麼選 Vue？">為什麼要有框架，為什麼選 Vue？</a></li><li><a href="/vue-note/04%20-%20Vue%20%E5%B9%AB%E6%88%91%E5%80%91%E8%A7%A3%E6%B1%BA%E7%9A%84%E4%BA%8B%E6%83%85/" rel="bookmark" title="Vue 幫我們解決的事情">Vue 幫我們解決的事情</a></li><li><a href="/vue-note/05%20-%20%E5%88%9D%E5%A7%8B%E5%8C%96%20Vue/" rel="bookmark" title="初始化 Vue">初始化 Vue</a></li><li><a href="/vue-note/06%20-%20Vue%20%E7%9A%84%E6%A0%B8%E5%BF%83%E8%88%87%20Vue%20%E5%AF%A6%E9%AB%94%20(Instance)%20/" rel="bookmark" title="Vue 的核心與 Vue 實體 (Instance)">Vue 的核心與 Vue 實體 (Instance)</a></li><li><a href="/vue-note/07%20-%20Vue%20%E7%9A%84%E5%AF%A6%E9%AB%94%E8%88%87%E7%8B%80%E6%85%8B/" rel="bookmark" title="Vue 的實體與狀態">Vue 的實體與狀態</a></li><li><a href="/vue-note/08%20-%20Vue%20%E5%85%83%E4%BB%B6%E5%AF%A6%E9%AB%94%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F/" rel="bookmark" title="Vue 元件實體生命週期">Vue 元件實體生命週期</a></li><li><a href="/vue-note/09%20-%20Vue%20%E7%9A%84%E6%A8%A1%E6%9D%BF/" rel="bookmark" title="Vue 的模板">Vue 的模板</a></li><li><a href="/vue-note/10%20-%20computed%20%E8%A8%88%E7%AE%97%E5%B1%AC%E6%80%A7/" rel="bookmark" title="computed 計算屬性">computed 計算屬性</a></li><li><a href="/vue-note/11%20-%20methods%20%E6%96%B9%E6%B3%95/" rel="bookmark" title="methods 方法">methods 方法</a></li><li><a href="/vue-note/12%20-%20watched%20%E7%9B%A3%E8%81%BD%E5%99%A8/" rel="bookmark" title="watched 監聽器">watched 監聽器</a></li><li><a href="/vue-note/13%20-%20%E6%8C%87%E4%BB%A4/" rel="bookmark" title="指令">指令</a></li><li><a href="/vue-note/14%20-%20%E6%8C%87%E4%BB%A4%EF%BC%9Av-bind/" rel="bookmark" title="指令：v-bind">指令：v-bind</a></li><li><a href="/vue-note/15%20-%20%E6%8C%87%E4%BB%A4%EF%BC%9Av-on/" rel="bookmark" title="指令：v-on">指令：v-on</a></li><li><a href="/vue-note/16%20-%20%E6%8C%87%E4%BB%A4%EF%BC%9Av-model/" rel="bookmark" title="指令：v-model">指令：v-model</a></li><li><a href="/vue-note/17%20-%20%E6%8C%87%E4%BB%A4%EF%BC%9Av-if%20%E3%80%81v-else-if%E3%80%81v-else%E3%80%81%20v-show/" rel="bookmark" title="指令：v-if 、v-else-if、v-else、 v-show">指令：v-if 、v-else-if、v-else、 v-show</a></li><li><a href="/vue-note/18%20-%20%E6%8C%87%E4%BB%A4%EF%BC%9Av-for/" rel="bookmark" title="指令：v-for">指令：v-for</a></li><li><a href="/vue-note/19%20-%20%E8%AA%8D%E8%AD%98%E5%85%83%E4%BB%B6%E3%80%81Vue%20%E7%9A%84%E5%96%AE%E4%B8%80%E5%85%83%E4%BB%B6%E6%AA%94%E6%A1%88%20SFC/" rel="bookmark" title="認識元件、Vue 的單一元件檔案 SFC">認識元件、Vue 的單一元件檔案 SFC</a></li><li><a href="/vue-note/20%20-%20%E5%9C%A8%E8%BC%95%E5%89%8D%E7%AB%AF%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%85%83%E4%BB%B6%E3%80%81%E5%85%83%E4%BB%B6%E7%9A%84%E5%91%BD%E5%90%8D/" rel="bookmark" title="在輕前端中使用元件、元件的命名">在輕前端中使用元件、元件的命名</a></li><li><a href="/vue-note/21%20-%20%E5%85%83%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%EF%BC%9Aprop/" rel="bookmark" title="元件之間的溝通：prop">元件之間的溝通：prop</a></li><li><a href="/vue-note/22%20-%20%E5%85%83%E4%BB%B6%E4%B9%8B%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A%EF%BC%9Aemit/" rel="bookmark" title="元件之間的溝通：emit">元件之間的溝通：emit</a></li><li class="active"><a href="/vue-note/23%20-%20%E5%9C%A8%E5%85%83%E4%BB%B6%E8%88%87%E5%85%83%E4%BB%B6%E4%B9%8B%E9%96%93%E4%BD%BF%E7%94%A8%20v-model/" rel="bookmark" title="在元件與元件之間使用 v-model">在元件與元件之間使用 v-model</a></li><li><a href="/vue-note/24%20-%20%E5%8B%95%E6%85%8B%E5%85%83%E4%BB%B6%20is%20%E8%88%87%20keep-alive/" rel="bookmark" title="動態元件 is 與 keep-alive">動態元件 is 與 keep-alive</a></li><li><a href="/vue-note/25%20-%20slot%20%E6%8F%92%E6%A7%BD/" rel="bookmark" title="slot 插槽">slot 插槽</a></li><li><a href="/vue-note/26%20-%20%E4%BD%BF%E7%94%A8%20Vite%20%E9%96%8B%E7%99%BC%20Vue%20/" rel="bookmark" title="使用 Vite 開發 Vue">使用 Vite 開發 Vue</a></li><li><a href="/vue-note/27%20-%20%E4%BD%BF%E7%94%A8%20Vue%20Router/" rel="bookmark" title="使用 Vue Router">使用 Vue Router</a></li><li><a href="/vue-note/28%20-%20%E8%AA%8D%E8%AD%98%E5%A4%A7%E9%B3%B3%E6%A2%A8/" rel="bookmark" title="認識大鳳梨">認識大鳳梨</a></li><li><a href="/vue-note/29%20-%20%E5%B0%87%E5%B0%88%E6%A1%88%E6%89%93%E5%8C%85%E4%B8%8A%E7%89%88%E5%88%B0%20GitHub%20Page/" rel="bookmark" title="將專案打包上版到 GitHub Page">將專案打包上版到 GitHub Page</a></li><li><a href="/vue-note/30%20-%20Vue%20%E7%9A%84%E7%89%88%E6%9C%AC%E4%BB%A3%E8%99%9F%E8%88%87%E5%8F%83%E8%B3%BD%E5%BE%8C%E8%A8%98/" rel="bookmark" title="Vue 的版本代號與參賽後記">Vue 的版本代號與參賽後記</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="本站概要">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="imall"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">imall</p>
+  <div class="description" itemprop="description">喜歡冴えない彼女の育てかた 持續從零開始的  coding  生活</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">73</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">7</span>
+        <span class="name">分類</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">8</span>
+        <span class="name">標籤</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ltYWxs" title="https:&#x2F;&#x2F;github.com&#x2F;imall"><i class="ic i-github"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDAwMzcxNjQxNjIxMg==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100003716416212"><i class="ic i-facebook"></i></span>
+      <span class="exturl item instagram" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9pbWFsbDExMTAv" title="https:&#x2F;&#x2F;www.instagram.com&#x2F;imall1110&#x2F;"><i class="ic i-instagram"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首頁</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>歸檔</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分類</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/git-learn/23%20-%20%E7%94%A8%20rebase%20%E4%BA%92%E5%8B%95%E6%A8%A1%E5%BC%8F%20%E4%BF%AE%E6%94%B9%20commit/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>隨機文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/js-note/" title="分類於 JavaScript 筆記">JavaScript 筆記</a>
+</div>
+
+    <span><a href="/js-note/day-js/" title="一個好用的時間處理套件 - Dayjs">一個好用的時間處理套件 - Dayjs</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/24%20-%20%E7%94%A8%20Revert%20%E5%8F%96%E6%B6%88%20commit/" title="用 revert 復原 commit">用 revert 復原 commit</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/15%20-%20%E6%8C%87%E4%BB%A4%EF%BC%9Av-on/" title="指令：v-on">指令：v-on</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/17%20-%20%E6%8C%87%E4%BB%A4%EF%BC%9Av-if%20%E3%80%81v-else-if%E3%80%81v-else%E3%80%81%20v-show/" title="指令：v-if 、v-else-if、v-else、 v-show">指令：v-if 、v-else-if、v-else、 v-show</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/vite-start/" title="初始化 Vue3 專案的幾種指令">初始化 Vue3 專案的幾種指令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/13%20-%20%E8%81%8A%E8%81%8A%20commitID%20%E8%88%87%20HEAD/" title="聊聊 commitID 與 HEAD">聊聊 commitID 與 HEAD</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/14%20-%20%E9%97%9C%E6%96%BC%20commit%20%E7%9A%84%E5%85%A9%E5%80%8B%E5%B0%8F%E5%95%8F%E9%A1%8C/" title="關於 commit 的兩個小問題">關於 commit 的兩個小問題</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/10%20-%20%E5%B7%B2%E8%BF%BD%E8%B9%A4(Tracked)%20%E3%80%81%E6%9C%AA%E8%BF%BD%E8%B9%A4(Untracked)%EF%BC%8C%E5%B7%B2%E6%9A%AB%E5%AD%98(Staged)%E3%80%81%E6%9C%AA%E6%9A%AB%E5%AD%98(Unstaged)/" title="已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)">已追蹤(Tracked) 、未追蹤(Untracked)，已暫存(Staged)、未暫存(Unstaged)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/vue-note/" title="分類於 Vue 筆記">Vue 筆記</a>
+</div>
+
+    <span><a href="/vue-note/11%20-%20methods%20%E6%96%B9%E6%B3%95/" title="methods 方法">methods 方法</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/git-learn/" title="分類於 一起來學 Git 吧！">一起來學 Git 吧！</a>
+</div>
+
+    <span><a href="/git-learn/04%20-%20%E5%AE%89%E8%A3%9D%20Git%20%E3%80%81%20GUI%20%E5%B7%A5%E5%85%B7(fork)/" title="安裝 Git 、 Git GUI 工具">安裝 Git 、 Git GUI 工具</a></span>
+  </li>
+
+  </ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">imall @ Imall's Blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="總字數">224k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">3:24</span>
+  </div>
+  <!--<div class="powered-by">
+    footer.powered
+  </div>-->
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'vue-note/23 - 在元件與元件之間使用 v-model/',
+    favicon: {
+      show: "Imall Blog ~歡迎回來~",
+      hide: "Imall Blog ~別離開呀~"
+    },
+    search : {
+      placeholder: "文章搜尋",
+      empty: "關於 「 ${query} 」 ，什麼也沒搜到",
+      stats: "${time} ms 內找到 ${hits} 條結果"
+    },fancybox: true,
+    copyright: '複製成功，轉載請遵守 cc 協議。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

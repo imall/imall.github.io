@@ -1,5 +1,5 @@
 ---
-title: Vue 的核心與 Vue 實體 (Instance) 
+title: Vue 的核心與 Vue 實體 (Instance)
 date: 2023-09-21 10:50:15
 tags: [vue]
 categories: Vue 筆記

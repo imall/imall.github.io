@@ -1,5 +1,5 @@
 ---
-title: 記錄一些指令
+title: 【筆記】Git Alias 指令
 tags: [Git]
 comment: false
 categories: Git 筆記
@@ -12,8 +12,7 @@ date: 2026-02-10 10:53:32
 例如快速產製  `.gitignore` 檔案之類
 
 
-這篇文章純粹記錄一下我每次都得查 .gitconfig 的指令
-
+這篇文章純粹記錄一下設定完會忘記，每次都得回頭查的的指令 (肯定是用太少)
 
 
 ## Git 快速初始化專案指令

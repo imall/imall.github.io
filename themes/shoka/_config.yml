@@ -59,7 +59,7 @@ font:
   # Font settings for alternate title.
   logo:
     external: true
-    family: Fredericka the Great 
+    family: Fredericka the Great
     size: 3.5
 
   # Font settings for site title.
@@ -71,7 +71,7 @@ font:
   # Font settings for headlines (<h1> to <h6>).
   headings:
     external: true
-    family: Noto Serif SC  #Cambria
+    family: Noto Serif SC #Cambria
     size:
 
   # Font settings for posts.
@@ -166,7 +166,6 @@ tagcloud:
   end: "#ffbac3" # End color (hex, rgba, hsla or color keywords)
   amount: 200 # Amount of tags, change it if you have more than 200 tags
 
-
 # ---------------------------------------------------------------
 # Third Party Plugins & Services Settings
 # ---------------------------------------------------------------
@@ -215,7 +214,6 @@ valine:
       # - hash of investor1@email.com
   closeUA: true
 
-
 # bgm
 audio:
   # - title: 列表1
@@ -232,6 +230,10 @@ image_server: # "https://acg.xydwz.cn/api/api.php"
 # Algolia Search
 # For more information: https://www.algolia.com
 search:
+  enable: true
+  appID: 9OLNG30D99
+  apiKey: 2420ce4eb66804156d1cc252b5728698
+  indexName: blog
   hits:
     per_page: 10
 
@@ -280,7 +282,6 @@ baidu_site_verification:
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
 baidu_push: false
 
-
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING `vendors` SETTINGS
 #! UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -304,4 +305,3 @@ vendors:
     valine: gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js
     copy_tex: npm/katex@0.12.0/dist/contrib/copy-tex.min.js
     chart: npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js
-

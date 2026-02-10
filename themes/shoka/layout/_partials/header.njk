@@ -11,6 +11,11 @@
       <li class="item title"><a href="{{ config.root }}" rel="start">{{ alternate or title }}</a></li>
     </ul>
     <ul class="right">
+      {% if theme.search.enable %}
+      <li class="item search" onclick="document.body.classList.add('show-search')">
+        <i class="ic i-search"></i>
+      </li>
+      {% endif %}
       <li class="item theme">
         <i class="ic i-sun"></i>
       </li>

@@ -53,19 +53,19 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: noto sans
+    family: Noto Sans
     size:
 
   # Font settings for alternate title.
   logo:
     external: true
-    family: Fredericka the Great
+    family: Noto Sans
     size: 3.5
 
   # Font settings for site title.
   title:
     external: true
-    family: noto sans
+    family: Noto Sans
     size: 2.5
 
   # Font settings for headlines (<h1> to <h6>).

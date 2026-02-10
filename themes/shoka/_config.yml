@@ -59,7 +59,7 @@ font:
   # Font settings for alternate title.
   logo:
     external: true
-    family: Fredericka the Great
+    family: Fredericka the Great 
     size: 3.5
 
   # Font settings for site title.

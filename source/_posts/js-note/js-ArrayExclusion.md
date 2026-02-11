@@ -1,7 +1,7 @@
 ---
 title: 從陣列中排除特定元素
 date: 2024-01-02 13:45:13
-tags: [JS] # 文章標籤
+tags: [JavaScript] # 文章標籤
 categories: JavaScript 筆記 # 文章分類
 comment: false # 關閉評論
 ---

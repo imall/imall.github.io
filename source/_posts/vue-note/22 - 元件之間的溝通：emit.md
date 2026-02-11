@@ -1,7 +1,7 @@
 ---
 title: 元件之間的溝通：emit
 date: 2023-10-07 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

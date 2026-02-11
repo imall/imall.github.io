@@ -1,7 +1,7 @@
 ---
 title: 使用 Vue Router
 date: 2023-10-12 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

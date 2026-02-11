@@ -1,7 +1,7 @@
 ---
 title: 指令：v-for
 date: 2023-10-03 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

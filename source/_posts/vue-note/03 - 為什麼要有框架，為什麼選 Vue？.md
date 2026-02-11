@@ -1,7 +1,7 @@
 ---
 title: 為什麼要有框架，為什麼選 Vue？
 date: 2023-09-18 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

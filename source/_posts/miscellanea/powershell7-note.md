@@ -1,7 +1,7 @@
 ---
 title: PowerShell7 簡易快捷鍵
 date: 2023-11-23 11:06:23
-tags:
+tags: [PowerShell7]
 categories: 雜記
 comment: false
 ---

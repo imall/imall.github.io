@@ -1,7 +1,7 @@
 ---
 title: 動態元件 is 與 keep-alive
 date: 2023-10-09 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

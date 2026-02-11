@@ -1,7 +1,7 @@
 ---
 title: 初始化 Vue
 date: 2023-09-20 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

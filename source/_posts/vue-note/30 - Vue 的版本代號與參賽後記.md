@@ -1,7 +1,7 @@
 ---
 title: Vue 的版本代號與參賽後記
 date: 2023-10-15 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false
@@ -19,28 +19,28 @@ render: false
 
 2013 年發佈的第一個 Vue 版本是很正經的 `VueJS`，在那之後的版本，幾乎全部都是一些膾炙人口的動漫名稱：
 
-| 版本號 | 發布時間 | 版本代稱 |
-|:--------|:--------|:--------|
-| 0.6   | 2013年12月8日  | VueJS|
-| 0.9   | 2014年2月25日  | Animatrix ： [駭客任務動畫版](https://zh.wikipedia.org/zh-tw/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%8A%A8%E7%94%BB%E7%89%88) |
-| 0.10  | 2014年3月23日  | Blade Runner ： [銀翼殺手](https://zh.wikipedia.org/wiki/%E9%93%B6%E7%BF%BC%E6%9D%80%E6%89%8B)|
-| 0.11  | 2014年11月7日  | Cowboy Bebop ： [星際牛仔](https://zh.wikipedia.org/wiki/%E6%98%9F%E9%9A%9B%E7%89%9B%E4%BB%94)|
-| 0.12  | 2015年6月12日  | Dragon Ball ： [七龍珠](https://zh.wikipedia.org/wiki/%E4%B8%83%E9%BE%99%E7%8F%A0) |
-| 1.0   | 2015年10月27日 | Evangelion ： [新世紀福音戰士](https://zh.wikipedia.org/wiki/%E6%96%B0%E4%B8%96%E7%BA%AA%E7%A6%8F%E9%9F%B3%E6%88%98%E5%A3%AB)|
-| 2.0   | 2016年9月30日  | Ghost in the Shell ： [攻殼機動隊](https://zh.wikipedia.org/wiki/%E6%94%BB%E6%AE%BC%E6%A9%9F%E5%8B%95%E9%9A%8A)|
-| 2.1   | 2016年11月22日 | Hunter X Hunter ： [獵人](https://zh.wikipedia.org/wiki/HUNTER%C3%97HUNTER)|
-| 2.2   | 2017年2月26日  | Initial D ： [頭文字D](https://zh.wikipedia.org/wiki/%E9%A0%AD%E6%96%87%E5%AD%97D)|
-| 2.3   | 2017年4月27日  | JoJo's Bizarre Adventure ： [JoJo 的奇妙冒險](https://zh.wikipedia.org/wiki/JoJo%E7%9A%84%E5%A5%87%E5%A6%99%E5%86%92%E9%99%A9)|
-| 2.4   | 2017年7月13日  | Kill la Kill ： [Kill la Kill](https://zh.wikipedia.org/wiki/KILL_la_KILL)|
-| 2.5   | 2017年10月13日 | Level E ： [靈異E接觸](https://zh.wikipedia.org/wiki/%E9%9D%88%E7%95%B0E%E6%8E%A5%E8%A7%B8)|
-| 2.6   | 2019年2月4日   | Macross ： [超時空要塞](https://zh.wikipedia.org/wiki/%E8%B6%85%E6%97%B6%E7%A9%BA%E8%A6%81%E5%A1%9E)|
-| 2.7   | 2022年7月1日   | Naruto ： [火影忍者](https://zh.wikipedia.org/wiki/%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85)|
-| 3.0   | 2020年9月18日  | One Piece ： [海賊王](https://zh.wikipedia.org/wiki/ONE_PIECE)|
-| 3.1   | 2021年6月7日   | Pluto ： [PLUTO ～冥王～](https://zh.wikipedia.org/wiki/PLUTO_%EF%BD%9E%E5%86%A5%E7%8E%8B%EF%BD%9E)|
-| 3.2   | 2021年8月5日   | Quintessential Quintuplets ： [五等分的花嫁](https://zh.wikipedia.org/wiki/%E4%BA%94%E7%AD%89%E5%88%86%E7%9A%84%E6%96%B0%E5%A8%98)|
-| 3.3   | 2023年5月11日  | Rurouni Kenshin ： [神劍闖江湖](https://zh.wikipedia.org/zh-tw/%E6%B5%AA%E5%AE%A2%E5%89%91%E5%BF%83)|
-| 3.4   | 2023年12月28日  | Slam Dunk ： [灌籃高手](https://zh.wikipedia.org/zh-tw/%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B)|
-| 3.5   | 2024年09月01日  | Tengen Toppa Gurren Lagann ： [天元突破 紅蓮螺巖](https://zh.wikipedia.org/zh-tw/%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4_%E7%B4%85%E8%93%AE%E8%9E%BA%E5%B7%96)|
+| 版本號 | 發布時間       | 版本代稱                                                                                                                                                    |
+| :----- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0.6    | 2013年12月8日  | VueJS                                                                                                                                                       |
+| 0.9    | 2014年2月25日  | Animatrix ： [駭客任務動畫版](https://zh.wikipedia.org/zh-tw/%E9%BB%91%E5%AE%A2%E5%B8%9D%E5%9B%BD%E5%8A%A8%E7%94%BB%E7%89%88)                               |
+| 0.10   | 2014年3月23日  | Blade Runner ： [銀翼殺手](https://zh.wikipedia.org/wiki/%E9%93%B6%E7%BF%BC%E6%9D%80%E6%89%8B)                                                              |
+| 0.11   | 2014年11月7日  | Cowboy Bebop ： [星際牛仔](https://zh.wikipedia.org/wiki/%E6%98%9F%E9%9A%9B%E7%89%9B%E4%BB%94)                                                              |
+| 0.12   | 2015年6月12日  | Dragon Ball ： [七龍珠](https://zh.wikipedia.org/wiki/%E4%B8%83%E9%BE%99%E7%8F%A0)                                                                          |
+| 1.0    | 2015年10月27日 | Evangelion ： [新世紀福音戰士](https://zh.wikipedia.org/wiki/%E6%96%B0%E4%B8%96%E7%BA%AA%E7%A6%8F%E9%9F%B3%E6%88%98%E5%A3%AB)                               |
+| 2.0    | 2016年9月30日  | Ghost in the Shell ： [攻殼機動隊](https://zh.wikipedia.org/wiki/%E6%94%BB%E6%AE%BC%E6%A9%9F%E5%8B%95%E9%9A%8A)                                             |
+| 2.1    | 2016年11月22日 | Hunter X Hunter ： [獵人](https://zh.wikipedia.org/wiki/HUNTER%C3%97HUNTER)                                                                                 |
+| 2.2    | 2017年2月26日  | Initial D ： [頭文字D](https://zh.wikipedia.org/wiki/%E9%A0%AD%E6%96%87%E5%AD%97D)                                                                          |
+| 2.3    | 2017年4月27日  | JoJo's Bizarre Adventure ： [JoJo 的奇妙冒險](https://zh.wikipedia.org/wiki/JoJo%E7%9A%84%E5%A5%87%E5%A6%99%E5%86%92%E9%99%A9)                              |
+| 2.4    | 2017年7月13日  | Kill la Kill ： [Kill la Kill](https://zh.wikipedia.org/wiki/KILL_la_KILL)                                                                                  |
+| 2.5    | 2017年10月13日 | Level E ： [靈異E接觸](https://zh.wikipedia.org/wiki/%E9%9D%88%E7%95%B0E%E6%8E%A5%E8%A7%B8)                                                                 |
+| 2.6    | 2019年2月4日   | Macross ： [超時空要塞](https://zh.wikipedia.org/wiki/%E8%B6%85%E6%97%B6%E7%A9%BA%E8%A6%81%E5%A1%9E)                                                        |
+| 2.7    | 2022年7月1日   | Naruto ： [火影忍者](https://zh.wikipedia.org/wiki/%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85)                                                                    |
+| 3.0    | 2020年9月18日  | One Piece ： [海賊王](https://zh.wikipedia.org/wiki/ONE_PIECE)                                                                                              |
+| 3.1    | 2021年6月7日   | Pluto ： [PLUTO ～冥王～](https://zh.wikipedia.org/wiki/PLUTO_%EF%BD%9E%E5%86%A5%E7%8E%8B%EF%BD%9E)                                                         |
+| 3.2    | 2021年8月5日   | Quintessential Quintuplets ： [五等分的花嫁](https://zh.wikipedia.org/wiki/%E4%BA%94%E7%AD%89%E5%88%86%E7%9A%84%E6%96%B0%E5%A8%98)                          |
+| 3.3    | 2023年5月11日  | Rurouni Kenshin ： [神劍闖江湖](https://zh.wikipedia.org/zh-tw/%E6%B5%AA%E5%AE%A2%E5%89%91%E5%BF%83)                                                        |
+| 3.4    | 2023年12月28日 | Slam Dunk ： [灌籃高手](https://zh.wikipedia.org/zh-tw/%E7%81%8C%E7%AF%AE%E9%AB%98%E6%89%8B)                                                                |
+| 3.5    | 2024年09月01日 | Tengen Toppa Gurren Lagann ： [天元突破 紅蓮螺巖](https://zh.wikipedia.org/zh-tw/%E5%A4%A9%E5%85%83%E7%AA%81%E7%A0%B4_%E7%B4%85%E8%93%AE%E8%9E%BA%E5%B7%96) |
 
 
 筆者認為取得最好的代稱無非是 [OnePiece](https://blog.vuejs.org/posts/vue-3-one-piece)。  

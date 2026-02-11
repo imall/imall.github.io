@@ -1,7 +1,7 @@
 ---
 title: Vue 的實體與狀態
 date: 2023-09-22 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

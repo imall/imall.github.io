@@ -1,7 +1,7 @@
 ---
 title: 在Vue3使用Vite設定proxy整合axios攔截器
 date: 2023-03-18 10:11:27
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 cover: https://i.imgur.com/uD1DYit.jpg

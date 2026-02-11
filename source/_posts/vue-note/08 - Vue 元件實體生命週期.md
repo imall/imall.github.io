@@ -1,7 +1,7 @@
 ---
 title: Vue 元件實體生命週期
 date: 2023-09-23 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

@@ -1,7 +1,7 @@
 ---
 title: 將專案打包上版到 GitHub Page
 date: 2023-10-14 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

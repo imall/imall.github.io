@@ -1,7 +1,7 @@
 ---
 title: 使用 Vite 開發 Vue 
 date: 2023-10-11 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

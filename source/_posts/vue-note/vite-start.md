@@ -1,7 +1,7 @@
 ---
 title: 初始化 Vue3 專案的幾種指令
 date: 2023-07-26 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 ---

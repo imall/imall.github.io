@@ -1,7 +1,7 @@
 ---
 title: 在元件與元件之間使用 v-model
 date: 2023-10-08 10:50:15
-tags: [vue]
+tags: [Vue]
 categories: Vue 筆記
 comment: false
 render: false

@@ -3,8 +3,6 @@ name: Deploy Hexo to GitHub Pages
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
     
 
 # 確保同時只有一個部署在執行

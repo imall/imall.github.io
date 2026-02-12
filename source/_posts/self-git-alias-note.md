@@ -105,6 +105,7 @@ git ignv
 	
 	# checkout
 	co = checkout # 切換分支
+	cob = checkout -b # 建立並切換分支
 
 	# reset
 	rst = reset # 取消add
@@ -128,7 +129,7 @@ git ignv
 	# 遠端相關
 	fetchp = fetch --prune # 取得遠端所有資料並刪除已經不存在的branch
 	bra = branch -a # 顯示所有branch
-  psd = push origin -d # 刪除遠端branch
+	psd = push origin -d # 刪除遠端branch
 	psf = push -f # 強制push
 	pso = push -u origin # 建立遠端branch
 

@@ -5,7 +5,7 @@ tags:
   - CSS
   - JavaScript
 comment: false
-categories: CSS 筆記; Vue 筆記
+categories: Vue 筆記
 date: 2026-04-12 20:27:04
 ---
 

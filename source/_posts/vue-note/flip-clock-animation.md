@@ -9,6 +9,7 @@ categories: CSS 筆記; Vue 筆記
 date: 2026-04-12 20:27:04
 ---
 
+![image](https://duk.tw/K3bHci.png)
 ## 前言
 
 幾年前剛入職的時候，進行了一場 **新人試煉** ，內容是要將一個 JavaScript、CSS 寫的網頁翻寫成 Vue 的版本

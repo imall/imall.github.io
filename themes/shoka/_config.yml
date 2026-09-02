@@ -70,8 +70,8 @@ font:
 
   # Font settings for headlines (<h1> to <h6>).
   headings:
-    external: false
-    family: 
+    external: true
+    family: Noto Serif TC
     size:
 
   # Font settings for posts.

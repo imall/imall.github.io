@@ -25,7 +25,7 @@ hexo.extend.helper.register('_vendor_font', () => {
   //Get a font list from config
   let fontFamilies = ['global', 'logo', 'title', 'headings', 'posts', 'codes'].map(item => {
     if (config[item] && config[item].family && config[item].external) {
-      return config[item].family + fontStyles;
+      return config[item].family + (item === 'headings' ? ':700' : fontStyles);
     }
     return '';
   });

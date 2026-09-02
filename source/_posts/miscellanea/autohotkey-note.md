@@ -46,13 +46,16 @@ winget install AutoHotkey.AutoHotkey
 
 找個地方新增一個 `.ahk` 檔案，副檔名一定要是 `.ahk`
 
-```ahk hotkey.ahk
+```autohotkey hotkey.ahk
 #Requires AutoHotkey v2.0
+#SingleInstance Force
 !q::!F4
 !w::^w
 ```
 
 第一行是宣告這個腳本要用 v2 跑，避免不小心被 v1 執行
+
+第二行是限制同一個腳本只能跑一份，之後改完腳本直接點兩下就會取代舊的，不然每次都會跳出「An older instance of this script is already running」問你要不要取代
 
 後面每一行就是一組對應，格式是 `原本的按鍵::換成的按鍵`
 
@@ -98,4 +101,9 @@ AutoHotkey 用符號代表修飾鍵，這幾個記起來就夠用了
 
 之後要再新增熱鍵，直接編輯 `.ahk` 檔案就好
 
-不過改完不會自動生效，要對系統列的綠色 **H** 圖示按右鍵，選 **Reload Script** 才會套用新的設定
+不過改完不會自動生效，因為 AutoHotkey 啟動時就把腳本讀進去了，正在跑的那份不知道檔案變了
+
+要讓新設定生效，兩個方法擇一：
+
+1. 對系統列的綠色 **H** 圖示按右鍵，選 **Reload Script**
+2. 直接對 `.ahk` 檔案點兩下，前面加的 `#SingleInstance Force` 會讓新的直接取代舊的

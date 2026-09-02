@@ -1,0 +1,5 @@
+allowBuilds:
+  deasync: true
+  hexo-util: true
+  highlight.js: true
+  puppeteer: false
